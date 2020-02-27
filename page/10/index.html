@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>My real name is Tạ Minh Luận</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="My real name is Tạ Minh Luận">
+<meta property="og:url" content="https://taminhluan.github.io/page/10/index.html">
+<meta property="og:site_name" content="My real name is Tạ Minh Luận">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="My real name is Tạ Minh Luận">
+  
+    <link rel="alternate" href="/atom.xml" title="My real name is Tạ Minh Luận" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">My real name is Tạ Minh Luận</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://taminhluan.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-blog-note-devops" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-note-devops/" class="article-date">
+  <time datetime="2019-06-05T23:21:37.000Z" itemprop="datePublished">2019-06-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Note/">Note</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-note-devops/">Note DevOps</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Mo-dau"><a href="#Mo-dau" class="headerlink" title="Mở đầu"></a>Mở đầu</h1><p>Đây là những ghi chú khi làm việc mà tôi có thể xem lại khi cần.</p>
+<h2 id="Cai-dat-tomcat"><a href="#Cai-dat-tomcat" class="headerlink" title="Cài đặt tomcat"></a>Cài đặt tomcat</h2><p>Server <a href="http://138.197.46.187:1341/" target="_blank" rel="noopener">http://138.197.46.187:1341/</a> Start server: /opt/tomcat/bin/startUp.sh Stop server: /opt/tomcat/bin/shutdown.sh Deploy war to server: wget (tải về) thư mục webapps của tomcat</p>
+<h2 id="CI-cho-Strapi-and-Vuejs"><a href="#CI-cho-Strapi-and-Vuejs" class="headerlink" title="CI cho Strapi and Vuejs"></a>CI cho Strapi and Vuejs</h2><p>Jenkins <a href="http://138.197.46.187:1341/" target="_blank" rel="noopener">http://138.197.46.187:1341</a></p>
+<p>2 project:</p>
+<p>Build Project Strapi trước</p>
+<p>Sau đó build project ADMIN</p>
+<p>Lý do copy static file của ADMIN vào thư mục public của strapi. Khi đó strapi vừa phục vụ cho quản trị, cung cấp service vừa phục vụ trang chủ M&amp;E</p>
+<h2 id="Cau-hinh-pm2-start-stop-restart-server"><a href="#Cau-hinh-pm2-start-stop-restart-server" class="headerlink" title="Cấu hình pm2 (start, stop, restart server)"></a>Cấu hình pm2 (start, stop, restart server)</h2><p>Thêm service pm2: NODE_ENV=production pm2 start server.js –name nrap_strapi Start: pm2 start nrap_strapi Stop: pm2 stop nrap_strapi Restart: pm2 restart nrap_strapi Delete: pm2 delete nrap_strapi</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-note-devops/" data-id="ck74jjgsc007z2mcpvoyvuzxn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-vector-data" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-vector-data/" class="article-date">
+  <time datetime="2019-06-05T23:01:54.000Z" itemprop="datePublished">2019-06-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/GIS/">GIS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-vector-data/">Vector data</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Tổng quan Vector data cung cấp một cách để trình bày các đặc trưng của thế giới thực (features) với môi trường GIS. Một đực trưng là bất kỳ thứ gì bạn có thể nhìn thấy trên landscape. Tưởng tượng bạn đang ngồi trên đỉnh đồi. Nhìn xuống bạn thấy các ngôi nhà, con đường, cây cối, dòng sông, và …. Mỗi một thứ như thế là một đặc trưng khi bạn trình bày chúng trên ứng dụng GIS. Vector features có các thuộc tính, có thể bao gồm thông tin chữ, số để mô tả đặc trưng đó. <a href="https://docs.qgis.org/3.4/en/_images/landscape.jpg" target="_blank" rel="noopener"><img src="https://docs.qgis.org/3.4/en/_images/landscape.jpg" alt="../../_images/landscape.jpg"></a> Nhìn vào một quang cảnh, bạn có thể thấy các đặc trưng chisnhm như các con đường, ngôi nhà và cây. Một vector feature có thể được trình bày dưới dạng hình học sử dụng geometry. Geometry được tạo bởi một hoặc nhiều đỉnh (vertices) nối lại với nhau. Một đỉnh có thể hiểu như một vị trí trong không gian như X, Y (có thể cả Z). Geometries có thể có các điểnh với trục Z đuộc xem như là 2.5D chúng mô tả chiều cao hoặc độ sâu của mỗi đỉnh, nhưng không phải tất cả. Khi một đặc trưng geometry bao gồm chỉ một đỉnh đơn. Nó được gọi là point (điểm). Bao gồm 2 hoặc nhiều đỉnh và đỉnh đầy tiên không trùng với đỉnh cuối cùng nó là một polyline (đường). Khi mà có 3 hoặc nhiều đỉnh và đỉnh cuối trùng đỉnh đầu là polygon(vùng).</p>
+<h3 id="Chi-tiet-ve-diem-point"><a href="#Chi-tiet-ve-diem-point" class="headerlink" title="Chi tiết về điểm (point)"></a>Chi tiết về điểm (point)</h3><p>Thứ đầu tiên chúng ta cần nhận ra khi nói về point là cái chúng mô tả  trong GIS liên quan đến quan điểm và thường xuyên phụ thuộc vào độ co giãn, hãy nhìn vào các thành phố làm ví dụ. Nếu bạn có một small scale map (cover được một vùng rộng lớn), nó sẽ có ý nghĩa cho việc trình bày các thành phố sử dụng point. Tuy nhiên khi bạn zoom trong bản đồ và phóng to, thì sẽ hợp lý hơn khi show các thành phố như là một vùng(polygon). Khi bạn chọn sử dụng các điểm để trình bày một tính năng là cân nhắc vấn đề scale (các đặc trưng xa nhau như thế nào), có tiện không (cần ít thời gian và công sức để tạo các điểm hơn là các vùng). và kiểu đặc trưng (như những cột điện thoại không có ý nghĩa khi lưu trữ như là polygons). Giá trị X, Y sẽ phụ thuộc vào <strong>Coordinate Reference System</strong> (CRS) mà bạn sử dụng. Chúng ta sẽ đi sâu về CRS trong các chương sau. Bây giờ để đơn giản có thể hiểu CRS là một cách để mô tả độ chính xác địa điểm trên mặt trái đất. Một hệ thống thường gặp là Lat Long. Bạn có thể mô tả độ vị trí của bạn ở bất cứ đâu trên Trái Đất chỉ bằng Longitude(X) và Latitude(Y). Nếu bạn muốn mô tả một cây hoặc một cột điện thoại thì hãy tạo một point feature. Kể từ khi chúng ta biết Trái Đất không phẳng. nó thường hữu dụng khi thêm một Z value vào một point. Mô tả độ cao so với mặt nước biển.</p>
+<h3 id="Chi-tiet-ve-duong-Polyline"><a href="#Chi-tiet-ve-duong-Polyline" class="headerlink" title="Chi tiết về đường (Polyline)"></a>Chi tiết về đường (Polyline)</h3><p>Polyline là một đường liên tục được nối các đỉnh. Khi 2 đỉnh được nối, một đoạn thẳng sẽ được tạo ra. Khi nhiều hơn 2 được nối, chúng là một “line of lines” hay một polyline. Một polyline được sử dụng để biểu diễn geometry của các đặc trưng tuyến tính như roads (đường), rivers(dòng sông), contours(các đường đồng mức) các đường bay và …. Thỉnh thoảng chúng cũng có các quy tắt đặc biệt được thêm vào. Lấy ví dụ các đường đồng mức không bao giờ cắt nhau. Giống như thế polylines được sử dụng để lưu trữ mạng lưới đường bộ nên kết nối tại các điểm giao cắt. Trong một vài ứng dụng GIS khi bạn thiết lập tập các luật cho các đặc trưng (vd như đường bộ) và GIS sẽ đảm bảo được các polyline luôn luôn tuân theo các luật đó. Nếu một polyline cong có rất nhiều khoảng cách giữa các đỉnh. nó sẽ  xuất hiện nhiều góc cạnh hoặc răng cưa, phụ thuộc vào mức độ scale khi hiển thị. Bởi điều này quan trọng với các đường khi được số hóa (captured từ máy tính) khoảng cách giữa các đỉnh đủ nhỏ cho việc scale nếu bạn muốn sử dụng dữ liệu. Các thuộc tính của một polyline mô tả các đặc trưng và thuộc tính của nó. Ví dụ một đoạn đường có các thuộc tính mô tả nơi có đá và nhựa đường, có bao nhiều con đường, nơi nào là đường một chiều, … GIS có thể sử dụng các thuộc tính để tượng trưng cho các tính chất của polyline với các màu sắc hoặc kiểu của đường kẻ. Chi tiết về vùng (Polygon). Đặc trưng của polygon là một vùng được bao kín như là hòn đảo, quốc gia, …. Giống như Polyline, Polygon được tạo từ tập hợp các đỉnh được kết nối với nhau với các đường liên tục. Tuy nhiên bởi vì một polygon luôn luôn mô tả một vùng được bao kín, nên điểm đầu và điểm cuốn trùng nhau. Polygons thường xuyên có các shared geometry - boundaries thường là là chung với polygon cạnh nó. Nhiều ứng dụng GIS có khả năng đảm bảo các boundaris của các polygon láng giềng một các chính xác. Chúng ta sẽ khám phá trong các chủ đề sau. Giống như điểm và đường, vùng cũng có các thuộc tính. Các thuộc tính được mô tả cho mỗi vùng. Ví dụ một hồ có các thuộc tính về độ sâu hoặc chất lượng nước.   Vector data in layers. Bây giờ chúng ta phải mô tả</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-vector-data/" data-id="ck74jjgsv009d2mcp7flfa67x" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-introducing-gis" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-introducing-gis/" class="article-date">
+  <time datetime="2019-06-05T22:43:43.000Z" itemprop="datePublished">2019-06-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/GIS/">GIS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-introducing-gis/">Introducing GIS</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Cũng giống như sử dụng word để soạn thảo văn bản, chúng ta sử dụng GIS application để làm việc với dữ liệu không gian trên máy tính. GIS viết tắt cho “Geographical Information System”. Một GIS bao gồm: Digital Data (Dữ liệu số) - Thông tin địa lý mà bạn sử dụng để xem hoặc phân tích sử dụng máy tính. Computer hardware (Phần cứng máy tính) - các máy tính được sử dụng để lưu trữ dữ liệu, hiển thị đồ họa vá xử lý dữ liệu Computer Software (Phần mềm máy tính) - các chương trình máy tính chạy trên phần cứng máy tính cho phép bạn làm việc với dữ liệu số. Một chương phần mềm máy tính có dạng này được gọi là GIS Application (Ứng dụng GIS). Với một ứng dụng GIS bạn có thể mở một bản đồ số trên máy tính của bạn, tạo mới một thông tin không gian vào một bản đồ, tjao một bản đồ in và tùy chỉnh các thông tin bạn cần và tiến hành phân tích không gian. Hãy nhìn vào một vài ví dụ để hiểu được tính hữu dụng của GIS. Tưởng tượng rằng bạn đang là nhân viên chăm sóc sức khỏe và bạn tạo một hi chú về ngày tháng và nơi cư trú của nhiều bện nhân mà bạn đã chăm sóc.</p>
+<p>Longitude</p>
+<p>Latitude</p>
+<p>Disease</p>
+<p>Date</p>
+<p>26.870436</p>
+<p>-31.909519</p>
+<p>Mumps</p>
+<p>13/12/2008</p>
+<p>26.868682</p>
+<p>-31.909259</p>
+<p>Mumps</p>
+<p>24/12/2008</p>
+<p>26.867707</p>
+<p>-31.910494</p>
+<p>Mumps</p>
+<p>22/01/2009</p>
+<p>26.854908</p>
+<p>-31.920759</p>
+<p>Measles</p>
+<p>11/01/2009</p>
+<p>26.855817</p>
+<p>-31.921929</p>
+<p>Measles</p>
+<p>26/01/2009</p>
+<p>26.852764</p>
+<p>-31.921929</p>
+<p>Measles</p>
+<p>10/02/2009</p>
+<p>26.854778</p>
+<p>-31.925112</p>
+<p>Measles</p>
+<p>22/02/2009</p>
+<p>26.869072</p>
+<p>-31.911988</p>
+<p>Mumps</p>
+<p>02/02/2009</p>
+<p>26.863354</p>
+<p>-31.916406</p>
+<p>Chicken Pox</p>
+<p>26/02/2009</p>
+<p>Nếu bạn nhìn vào bảng trên bạn sẽ nhanh chóng nhận ra có nhiều bệnh sởi trong tháng 1 và 2. Các nhân viên chăm sóc sẽ ghi lại địa chỉ của các tòa nhà bệnh nhân với vĩ độ và tung độ trong bảng. Sử dụng dữ liệu trong một ứng dụng GIS, chúng ta sẽ nhanh chóng hiểu ra về các mẫu bị ốm. <img src="https://docs.qgis.org/3.4/en/_images/patterns_of_illness.png" alt="../../_images/patterns_of_illness.png"> Nhiều hơn về GIS. GIS là thuật ngữ tương đối mới - Nó bắt đầu từ năm 1970s. Nó được vi tính hóa và có sẵn trong các công ty và trường học trang bị các máy tính đắt đỏ. Ngày nay bất kì ai với máy tính cá nhân hoặc laptop đều có thể sử dụng phần mềm GIS. Càng ngày ứng dụng GIS càng trở nên dễ sử dụng - Nó được sử dụng để trang bị cho việc đào tạo sử dụng GIS, nhưng bây giờ nó cũng dễ dàng hơn để bắt đầu cho những người nghiệp dư và người mới. Như đã mô tả ở trên, GIS không chỉ là một phần mềm nó liên quan đến tất cả các khía cạnh trong việc quản lý và sử dụng dữ liệu địa lý số. Trong hướng dẫn này chúng ta sẽ tập trung vào phần mềm GIS. Một ứng dụng GIS hay một phần mềm GIS như thế nào. Bạn có thể xem một ví dụ về một phần mềm GIS như hình dưới. Một ứng dụng GIS cũng như một chương trình bình thường với giao diện đồ họa có thể thao tác sử dụng chuột và bàn phím, Ứng dụng cung cấp một menus … <img src="https://docs.qgis.org/3.4/en/_images/menus.png" alt="../../_images/menus.png"> GIS Data Bây giờ chúng ta đã biết về GIS là gì và những thứ ứng dụng GIS có thể làm, hãy nói về dữ liệu GIS. Dữ liệu hay thông tin. Thông tin chúng ta sử dụng trong một GIS bình thường có một khía cạnh địa lý của nó. Hãy nghĩ về ví dụ bên dưới, về các nhân viên chăm sóc sức khỏe. Cô ấy tạo ra một bảng để lưu trữ bệnh tật như bên dưới.</p>
+<p>Longitude</p>
+<p>Latitude</p>
+<p>Disease</p>
+<p>Date</p>
+<p>26.870436</p>
+<p>-31.909519</p>
+<p>Mumps</p>
+<p>13/12/2008</p>
+<p>  Longtitude (Kinh độ), Lattitude (Vĩ độ) giữ dữ liệu địa lý (graphical data). Còn disease và date là dữ liệu phi địa lý (non-geographical data). Một đặc tính bình thường của GIS là chúng cho phép bạn có các thông tin liên kết (non-geographical data) với một địa điểm (geographical data). Sự thật ứng dụng GIS có thể lưu trữ nhiều mảnh thông tin nơi mà chúng có thể liên kết với nhau - đôi lúc bản đồ giấy là không hữu dụng lắm. Lấy ví dụ, các nhân viên chăm sóc sức khỏe của chúng ta có thể lưu trữ tuổi, giới tính trên bảng của cô ấy. Khi các ứng dụng GIS có thể vẽ các layer, bạn có thể vẽ các lớp bản đồ dựa trên giới tính hoặc dựa trên các kiểu bệnh tật, và hơn thế nữa. Với ứng dụng GIS chúng ta có cách để thay đổi dễ dàng những gì xuất hiện trên bản đồ chúng ta tạo ra dựa trên các dữ liệu phi địa lý liên kết với các địa điểm. Hệ thống GIS cũng làm việc với nhiều kiểu dữ liệu. Vector data lưu trữ tập hợp các tọa độ X, Y thành từng cặp trên bộ nhớ máy tính. Vector data được sử dụng để trình bày các điểm, đường và vùng. Hình minh họa <a href="https://docs.qgis.org/3.4/en/_images/vector_data.png" target="_blank" rel="noopener"><img src="https://docs.qgis.org/3.4/en/_images/vector_data.png" alt="../../_images/vector_data.png"></a> Raster data lưu trữ như là một lưới các giá trị. Nhiều quỹ đạo vệ tinh và các bức ảnh chúng chụp được có kiểu dữ liệu là Raster. Một khác biệt lớn giữa raster và vector là nếu bạn zoom quá lớn ảnh raster. nó sẽ bắt đầu xuất hiện các “blocky”. Thực tế các block là các điểm riêng rẽ trên lưới tạo nên ảnh raster. Chúng ta ãy nhìn vào dữ liệu một cách chi tiết ở hướng dẫn sau.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-introducing-gis/" data-id="ck74jjgs5007l2mcpv8brd6mk" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-qgis-a-word-from-the-editor" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-qgis-a-word-from-the-editor/" class="article-date">
+  <time datetime="2019-06-05T02:54:29.000Z" itemprop="datePublished">2019-06-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/GIS/">GIS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-qgis-a-word-from-the-editor/">QGIS A word from the editor</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>GIS là công cụ ngày cang quan trọng trong việc quản lý môi trường, bán lẻ, quân đội, cảnh sát, du lịch và nhiều mặt trong đời sống.Nếu bạn sử dụng một máy tính hoặt một điện thoại di động, bạn có lẽ đã sử dụng GIS rồi với một số kiểu của nó mà không nhận ra. Có thể là một bản đồ trên website, Google Earth, hay điện thoại nói cho bạn biết bạn ở đâu. Phần mềm GIS độc quyền (phần mềm không thể chia sẻ hay thay đổi) sẽ giúp bạn mọi thứ. Tuy nhiên những phần mềm như vậy thường đắt đỏ nếu không thì giới hạn việc sao chép, chia sẻ và thay đổi phần mềm. Các nhà cung cấp GIS tạo một vài ngoại lệ cho các hoạt động giáo dục, cung cấp dịch vụ rẻ hơn hoặc các bản sao miễn phí của phần mềm của họ. Họ làm điều này vì họ biết nếu giáo viên và học sinh sử dụng phần mềm của họ, họ sẽ lưỡng lự việc học các phần mềm khác. Khi người học dời trường họ sẽ không đi tới nơi làm việc và mua các phần mềm thương mại, không bao giờ biết được có các giải pháp thay thế miễn phí họ có thể sử dụng. Với QGIS, chúng tôi đề nghị một giải pháp thay thế - phần mềm là miễn phí. Bạn có thể tạo bao nhiêu bản sao tùy thích. Khi các học viên dời trường bạn có thể sử dụng phần mềm này để xây dựng các kĩ năng của họ, giải quyết các vấn đề khi làm việc và khiến cho thế giới là một nơi tốt đẹp. Khi bạn mua các phần mềm thương mại, bạn phải giới hạn các lựa chọn của mình cho tương lại. Bằng các học và sử dụng chia sẻ các phần mềm miễn phí và mã nguồn mở, bạn đang xây dựng kỹ năng của mình, miễn phí tiền bạc bạn dành cho những thứ quan trọng như thức ăn, lều trại, phát triển kinh tế của chúng ta.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-qgis-a-word-from-the-editor/" data-id="ck74jjgsj008i2mcpxowe1mat" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-tai-sao-toi-khong-con-dung-d3-js" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-tai-sao-toi-khong-con-dung-d3-js/" class="article-date">
+  <time datetime="2019-06-01T22:38:14.000Z" itemprop="datePublished">2019-06-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Visualisation/">Visualisation</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-tai-sao-toi-khong-con-dung-d3-js/">Tại sao tôi không còn dùng D3.js</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Bài viết được dịch từ <a href="https://medium.com/@PepsRyuu/why-i-no-longer-use-d3-js-b8288f306c9a" target="_blank" rel="noopener">https://medium.com/@PepsRyuu/why-i-no-longer-use-d3-js-b8288f306c9a</a> Mình không rõ do trình độ tiếng anh kém cỏi của mình, hay cách hành văn của tác giả không rõ ý. Mình thấy khá khó hiểu, nhưng cũng đưa ra một số giải pháp. Đại khái là css, html đã phát triển đáng kể. Việc sử dụng D3 khá khó để hiểu và bảo trì code sau này. Trong khi css, html lại rất mạnh mẽ. Tác giả cũng đưa ra một số giải pháp về scale khi sử dụng canvas (bình thường sử dụng canvas khi zoom trình duyệt sẽ làm vỡ ảnh). Mỗi khi tôi tham gia vào một dự án visualisation, quản lý dự án thường tỏ ra ghê sợ khi tôi nói tôi không sử dụng D3. Tại sao lại phải lo lắng, và tại sao tôi chọn cách không sử dụng D3? Khi đang trả lời câu hỏi này, chúng ta phải hiểu được D3 được tạo ra như thế nào. D3 được release lần đầu năm 2011, và nó khá sáng tạo vào thời điểm này. Như bạn đã biết, nó là thư viện cung cấp các biểu đồ với rất nhiều các lựa chọn. Điều này là tốt, nhưng vấn đề là mỗi lần ai đó đưa ra yêu cầu mới, một tùy chọn phải đã được thêm và đã hỗ trợ rồi. Cuối cùng bạn phải đối mặt với một ngôn ngữ mà bạn sử dụng với rất nhiều đối tượng để định nghĩa một biểu đồ, nó cho bạn các hàm để tạo ra các component của chính bạn. Vào thời điểm này, thư viện như jQuery và Backbone rất phổ biến. Tạo biểu đồ sử dụng các thư viện này là cả một thách thức, đặc biệt nếu bạn muốn chúng dynamic. Trình duyệt chỉ nhận các chuẩn hiện đại như transitions, và các thuộc tính như flexbox mới đang trong thời kì bắt đầu cài đặt. D3 giải quyết được rất nhiều vấn đề, và nó chắc chắn là cách tiếp cận đơn giản nhất cho việc cài đặt visualisations ở thời điểm này. Tuy nhiên, có một vài thay đổi sau đó. Chúng ta có các framework hiện đại mới sử dụng linh hoạt hơn và các khái niệm ấn tượng như virtual DOM, và CSS có nhiều khả năng cho việc layout và animations. Hơn là việc nhảy vào D3, để tôi liệt kê một vài lý do tại sao bạn nên cân nhắc sử dụng nó.</p>
+<h3 id="The-Learning-Curve"><a href="#The-Learning-Curve" class="headerlink" title="The Learning Curve"></a>The Learning Curve</h3><p>Tôi làm việc với D3 nhiều lần trong vài năm, và đã cài nhiều loại visualisations với nó. Tôi hiểu các khái niệm về D3, và tôi vẫn đấu tranh việc làm việc với nó. Mỗi người tôi làm việc với, từ juniors tới senior, cũng đấu tranh với nó. Nhiều người, bao gồm cả tôi đều tìm các ví dụ online trông tương tự như thứ chúng tôi cần và xào nấu cho phù hợp. Nếu chúng ta muốn thêm một vài chức năng tùy chỉnh, chúng ta có lẽ phải làm nhiều thứ hơn việc tìm kiếm. Đầu tiên chúng ta sẽ tìm một vài loại phù hợp, cố gắng hiểu cách nó làm việc, và bắt đầu sửa đổi nó như chúng ta muốn. Nghe có vẽ quen thuộc, mặt khác lậ ptrinfh viên ngày này rất quen thuộc với các thư viện virtual DOM và họ cảm thấy thoải mái với các mẫu. Nó không phải là đòn bấy cho kĩ năng của chúng ta, hơn là giới thiệu một thư viện yêu cầu một cách nghĩ khác.</p>
+<h3 id="It’s-easier-than-you-think"><a href="#It’s-easier-than-you-think" class="headerlink" title="It’s easier than you think"></a>It’s easier than you think</h3><p>Khi bạn lần đầu nghĩ về tự tạo biểu đồ từ đầu, ai cũng cảm thấy lo lắng và sợ hãi. Nó nghe có vẻ rất phức tạp, nhưng nó thực sự không như vậy khi bạn bắt đầu làm. Hãy xem một ví dụ về một line chart. Từ đó bạn có thể làm một line chart với D3: Có một ít code, nhưng tôi chỉ sử dụng các công cụ tôi quen thuộc, trong trường hợp này view library là Preact (có thể là bất cứ thứ gì, React, Vue, Angular), và css như flexbox. Ví dụ D3 yêu cầu học rất nhiều khái niệm về D3. Sau cùng chỉ yêu cầu sử dụng kiến thức bạn biết về view library. Tôi muốn nói rằng nó dễ dàng hơn việc maintain với D3. Ai cũng biết rằng view library là dễ dàng để nhảy vào và sửa code.</p>
+<h3 id="Don’t-forget-about-the-bundle-size"><a href="#Don’t-forget-about-the-bundle-size" class="headerlink" title="Don’t forget about the bundle size"></a>Don’t forget about the bundle size</h3><p>Phụ thuộc vào kiểu chart và việc optimise buldle, D3 mất ít nhất 70+ KB code. Điều này có thể ảnh hưởng đến tốc độ load trang.</p>
+<h3 id="Canvas-and-HTML-are-often-better-than-SVG"><a href="#Canvas-and-HTML-are-often-better-than-SVG" class="headerlink" title="Canvas and HTML are often better than SVG"></a>Canvas and HTML are often better than SVG</h3><p>Hãy cùng xem lại ví dụ trước, chúng ta sử dụng HTML và SVG. Với vài lý do, nhiều người dùng cài đặt cả charts sử dụng SVG nhưng điều này là không cần thiết.CSS là more powerful hơn SVG ngày nay. Ví dụ, SVG không hỗ trợ natively text wrapping. Nếu chúng ta muốn text wrapping, chúng ta phải tính toán nó trong Javascript. Với HTML, sử dụng white-space:normal, nó sẽ wrap. Các đối tượng như vòng tròn và hình chữ nhận đều có thể sử dụng HTML và CSS. Bạn có thể sử dụng transform và border-radius và tạo tất cả các hình dạng. Nếu bạn muốn làm bar chart trong D3 với two rounded corners, bạn không thể sử dụng rect bởi vì nó sẽ bo tròn cả 4 góc, thay vào đó bạn muốn chỉ 2 góc. Lựa chọn của bạn chỉ có thể sử dụng path. Chỉ có một nguyên nhân tôi muốn sử dụng SVG tags, là bởi vì path tag. Nó vẫn là cách tốt nhất để tạo các hình dạng tùy ý so với HTML. Nếu bạn cần nâng cao hiệu suất, cũng nên cân nhắc canvas tag. Với canvas bạn sẽ phải tự code các tương tác, nhưng nó  </p>
+<h3 id="But-Canvas-doesn’t-scale-like-SVG-update"><a href="#But-Canvas-doesn’t-scale-like-SVG-update" class="headerlink" title="But Canvas doesn’t scale like SVG? [update]"></a>But Canvas doesn’t scale like SVG? [update]</h3><p>Một thứ mà tôi được nghe thường xuyên, là canvas không thích hợp cho visualisation bởi vì nó không thể scale như SVG. Trường hợp bình thường với canvas, nếu bạn zoom in zoom out trang sử dụng một trình duyệt sẽ có hiển thị cao hơn, your canvas thì bị vỡ và nhòe/ Điều này xảy ra bởi vì khi bạn tạo canvas, bạn phải định nghĩa nhiều pixels bạn muốn your canvas draw. Khi chúng ta thiết lập các thuộc tính width và height nó trông giống như chúng ta cài đặt trong css size, nhưng chúng thực sự cài đặt cho canvas space. Điều này không giống nhau. Bình thường your css pixel được thiết lập cùng kích cỡ với canvas, nhưng khi bạn zoom in/out với browser, bạn sẽ nhìn thấy vấn đề này. Giải pháp là sử dụng window.devicePixelRatio và scale your canvas drawing space.</p>
+<p>onResize() {<br>    let canvas = this.base.querySelector(‘canvas’);<br>    let ctx = canvas.getContext(‘2d’);<br>    let PIXEL_RATIO = window.devicePixelRatio;<br>    canvas.width = canvas.offsetWidth * PIXEL_RATIO;<br>    canvas.height = canvas.offsetHeight * PIXEL_RATIO;<br>    ctx.setTransform(PIXEL_RATIO, 0, 0, PIXEL_RATIO, 0, 0);</p>
+<pre><code>this.props.onDraw(ctx, canvas.offsetWidth, canvas.offsetHeight);</code></pre><p>}</p>
+<p>Sử dụng pixel ratio chúng ta sẽ tăng drawing space cho canvas. Nhưng giảm drawing space là không đủ chúng ta cần nói với canvas rằng phải scale pixel ratio. Điều này sẽ được giải quyết được các vấn đề về scaling.</p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>Như chúng ta đã thấy có vài lý do tại sao D3 đã lỗi thời cho nhiều trường hợp sử dụng ngày nay. Web đã phát triển đáng kể từ khi nó bắt đầu. Nếu bạn làm một charts đơn giản như donuts, bar charts, line charts, scatter plots, etc, cân nhắc xem nếu bạn có thể cài đặt chúng sử dụng các framework đã tồn tại.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-tai-sao-toi-khong-con-dung-d3-js/" data-id="ck74jjgur00db2mcpkd9o9k97" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-note-android-todo-mvp" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-note-android-todo-mvp/" class="article-date">
+  <time datetime="2019-05-27T02:27:26.000Z" itemprop="datePublished">2019-05-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android-Programming/">Android Programming</a>►<a class="article-category-link" href="/categories/Android-Programming/Note/">Note</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-note-android-todo-mvp/">Note Android Todo MVP</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-note-android-todo-mvp/" data-id="ck74jjgsb007x2mcpwi8l41mb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-android-architecture" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-android-architecture/" class="article-date">
+  <time datetime="2019-05-27T01:51:28.000Z" itemprop="datePublished">2019-05-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android-Programming/">Android Programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-android-architecture/">Android Architecture</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Mo-dau"><a href="#Mo-dau" class="headerlink" title="Mở đầu"></a>Mở đầu</h2><p>Mình là lập trình viên java, và mới bắt đầu va vấp với android, cũng giống như nhiều bạn junior khác, học rất nhanh, code được ngay, ứng dụng vẫn chạy, lỗi thì tra dần và sửa, nay theo pattern này và mai lại áp dụng pattern khác. Cũng tự an ủi bản thân là vừa học, vừa code, dự án android đầu tay, thời gian gấp không có task study. Đã đến lúc đầu tư thời gian, áp dụng kiến trúc phục vụ cho dự án tiếp theo. Vậy thì học từ đâu? Android là của Google, học từ google chứ ở đâu. Chúng ta hãy truy cập trang <a href="https://github.com/googlesamples/android-architecture" target="_blank" rel="noopener">https://github.com/googlesamples/android-architecture</a>. Tắt bài viết của mình và học từ trang gốc. Còn nếu bạn muốn đồng hành với mình cũng được. Chúng ta cùng học từng kiến trúc, công cụ, kiểm thử đơn vị, kiểm thử giao diện, tips và tricks.</p>
+<h2 id="Android-Architecture"><a href="#Android-Architecture" class="headerlink" title="Android Architecture"></a>Android Architecture</h2><p>Android framework thoải mái cho việc tổ chức và cấu trúc dự án android, nhược điểm của sự tự do này có thể làm cho ứng dụng nặng nề, không thống nhất việc đặt tên và không theo cấu trúc. Các vấn đề về kiểm thử, bảo trì và mở rộng ứng dụng rất khó khăn. Android Architecture Blueprints project đưa ra các chiến thuật để giúp giải quyết và tránh được các vấn đề hay gặp. Dự án này cài đặt cùng một ứng dụng nhưng sử dụng các kiến trúc và công cụ khác nhau. Bạn có thể sử dụng các mẫu trong project này như là tài liệu để học tập, hoặc bắt đầu để tạo ứng dụng của riêng bạn. Project này tập trung vào việc cấu trúc code, thiết kế kiến trúc.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-android-architecture/" data-id="ck74jjgrc005w2mcp6e6d63i8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-Programming/">Android Programming</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-lineary-algebra-and-its-applications" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-lineary-algebra-and-its-applications/" class="article-date">
+  <time datetime="2019-04-28T22:05:14.000Z" itemprop="datePublished">2019-04-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Toan-hoc/">Toán học</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-lineary-algebra-and-its-applications/">Lineary Algebra and Its Applications</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Về tác giả David C Lay giữ bằng BA(??) từ trường Đại học Aurora, 1 bằng MA và PhD từ Đại học California tại Los Arigeles. David Lay đã giảng dạy và nghiên cứu toán học từ 1966. … Lời nói đầu Phản hồi từ học sinh và giáo viên từ 4 ấn bản đầu tiên của Đại số tuyến tính và ứng dụng hầu hết hài lòng. Tái bản lần thứ 5 cung cấp sự hỗ trợ đáng kể cho giáo viên và sử dụng công nghệ trong khóa học. Trước đó.. Phương trình tuyến tính trong đại số tuyến tính Mô hình tuyến tính trong kinh tế và kĩ thuật. Mùa hè năm 1949. Giáo sư Harvard Wasssily Leontief đã quan tâm Một Linear Equation</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-lineary-algebra-and-its-applications/" data-id="ck74jjgs7007o2mcpcuvy459v" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-culculus-preface" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-culculus-preface/" class="article-date">
+  <time datetime="2019-04-24T22:02:57.000Z" itemprop="datePublished">2019-04-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Toan-hoc/">Toán học</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-culculus-preface/">Culculus - Preface</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Calculus - preface Nghệ thuật của việc dạy học, Mark Van Doren nói, là nghệ thuật của việc hỗ trợ khám phá. Tôi đã thử viết cuốn sách về việc hỗ trợ sinh viên trong việc khám phá giải tích - cả về sức mạnh thực hành và những vẻ đẹp đáng ngạc nhiên của nó. Trong ấn bản này, như trong 5 tái bản trước. Tôi nhắm tới việc giúp học sinh có một cảm nhận về tiện ích của giải tích và phát triển kĩ năng. Nhưng tôi cũng phấn đấu để gửi một vài đánh giá vẻ đẹp nội tại của các chủ đề. Newton chắc chắn đã trải nghiệm được cảm giác chiến thắng khi ông tạo ra những khám phá vĩ đại. Tôi muốn học sinh cùng chia sẻ sự phấn khích đó. Tập trung vào việc nắm bắt các khái niệm. Tôi nghĩ rằng gần như tất cả mọi người đồng ý với việc nên có những mục đích cho việc hướng dẫn giải tích. Thực tế, động lực cho phong trào cải cách giải tích hiệm tại là từ Tulane Conference năm 1986, như sau:</p>
+<blockquote>
+<p>Focus on conceptual understanding</p>
+</blockquote>
+<p>Tôi đã cố implement mục đích thông qua _Rule of Three: _”Các chủ đề nên trình bày hình học, số học và đại số”. Visualization, numerical và graphical và các tổng quan khác có thể thay đổi cách chúng tôi dạy các khái niệm theo hướng đơn giản. Nhiều năm gần đây, Rule of Three được mở rộng trở thành Rule of Four bởi nhấm mạnh bằng lời nói, hoặc mô tả các điểm. Việc viết tái bản 6, là tiền đề để nó có thể giúp hiểu được các khái niệm và cũng giữ lại được cá giá trị truyền thống của giải tích. Cuốn sách sẽ bao gồm các cải cách nhưng vẫn trong bối cảnh chương trình giáo dục truyền thống. Một phiên bản thay thế. Tôi đã viết một vài cuốn sách về giải tích khác, nó có thể thích hợp hơn với một vài hướng dẫn. Một vài trong số chúng gồm nhiều phiên bản khác nhau. Nội dung Sách sẽ bắt đầu với 4 môn, Basic Algebra, Analytic Geometry, Function và Trigonometry   Gửi tới học sinh. Đọc một textbook là khác so với đọc báo hay đọc tiểu thuyết hay bất kỳ sách vật lý khác. Đừng nản lòng nếu bạn phải đọc một đoạn văn hơn một lần để hiểu được nó. Bạn nên có bút chì, tờ giấy và máy tính trên tay để có thể phác họa một diagram hoặc thực hiện một phép tính. Vài học sinh bắt đầu thử giải quyết các bài tập về nhà của họ và chỉ đọc các dòng chữ này nếu họ stuck trong một bài tập. Tôi đoán rằng tốt hơn chúng ta nên đọc  và hiểu các phần trong cuốn sách này trước khi cố gắng làm bài tập. Cụ thể, bạn nên xem các định nghĩa để có thể hiểu chính xác được các terms. Và trước khi bạn đọc mỗi ví dụ, Tôi đoán rằng bạn phải cover các solution và thử tự giải quyết chúng. Bạn sẽ hiểu hơn nếu bạn làm vậy. Mục đích một phần của khóa học là đào tạo bạn nghĩ một cách logic. Học cách viết các solution của các bài tập một cách kết nối, từng bước hợp lý với các câu giải thích - không có một phần bất hợp lý trong công thức và phương trình nào. Câu trả lời cho bài tập các số lẻ xuất hiện trở lại trong cuốn sách này. trong Appendix I. Một vài bài tập đòi hỏi phải giải thích bằng lời, diễn giải hoặc mô tả. Trong trường hợp này không có một cách đúng đắn nafocura câu trả lời ấn tượng, vì thế đừng lo lắng bạn sẽ không tìm được câu trả lời. Thêm vào đó có vài mẫu khác nhau trong việc biểu diễn một số hoặc câu trả lời đại số, vì thế nếu câu trả lời của bạn khác với của tôi, thì đừng ngay lập tức nghĩ rằng bạn đã sai.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-culculus-preface/" data-id="ck74jjgrs006p2mcpmqbb1s1i" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-the-art-of-unit-testing-chapter-4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-the-art-of-unit-testing-chapter-4/" class="article-date">
+  <time datetime="2019-04-23T10:21:16.000Z" itemprop="datePublished">2019-04-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Unit-Testing/">Unit Testing</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-the-art-of-unit-testing-chapter-4/">The art of unit testing Chapter 4</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Interaction testing sử dụng mock object Chương này sẽ covers Định nghĩa interaction testing</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-the-art-of-unit-testing-chapter-4/" data-id="ck74jjgss00972mcpew9a118w" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/9/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/11/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android-Programming/">Android Programming</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android-Programming/Note/">Note</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Assembly/">Assembly</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-Viblo/">Code Viblo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Codesignal/">Codesignal</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Deep-learning/">Deep learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GIS/">GIS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linh-tinh/">Linh tinh</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lap-trinh/">Lập trình</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-learning/">Machine learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network-Programming/">Network Programming</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/OWASP-Testing-Guide/">OWASP Testing Guide</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Phim/">Phim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Pre-Calculus/">Pre Calculus</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Social-engineering/">Social engineering</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/System-Programming/">System Programming</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Text-to-speech/">Text to speech</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Text-to-speech/Tool/">Tool</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Toan-hoc/">Toán học</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tri-tue-nhan-tao/">Trí tuệ nhân tạo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Uncategorized/">Uncategorized</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Unit-Testing/">Unit Testing</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Visualisation/">Visualisation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows/">Windows</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ctf/">ctf</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hacker/">hacker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/note/">note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vnspoj/">vnspoj</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/wordpress/">wordpress</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Do-an/">Đồ án</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ASP-net-MVC/">ASP.net MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-Programming/">Android Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Asp-net/">Asp.net</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Assembly/">Assembly</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Basic-Access-Authentication/">Basic Access Authentication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code/">Code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Course/">Course</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Digest-Access-Authentication/">Digest Access Authentication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Du-doan-gia-vang/">Dự đoán giá vàng</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ethical-Hacking/">Ethical Hacking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/">Flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GIS/">GIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html-css-javascript/">Html, css, javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Laravel/">Laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux-System-Programming/">Linux, System Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/">Note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OWASP-Testing-Guide/">OWASP Testing Guide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Php/">Php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python-Codesignal/">Python, Codesignal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quan-ly-diem/">Quản lý điểm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RFC-2069/">RFC 2069</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RFC-2617/">RFC 2617</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SJF/">SJF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Social-engineering/">Social engineering</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-MVC/">Spring MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sql-server/">Sql server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/System-Programming/">System Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Text-to-speech/">Text to speech</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Todos/">Todos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tool/">Tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tinh-toan-mem/">Tính toán mềm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VRML/">VRML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WPF/">WPF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows-Form/">Windows Form</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Winform/">Winform</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Winforms/">Winforms</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wordpress/">Wordpress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ctf/">ctf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/">database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fuzzy-computing/">fuzzy computing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/import-csv/">import csv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/migrate/">migrate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/">wordpress</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ASP-net-MVC/" style="font-size: 10px;">ASP.net MVC</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Android-Programming/" style="font-size: 10px;">Android Programming</a> <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Asp-net/" style="font-size: 10px;">Asp.net</a> <a href="/tags/Assembly/" style="font-size: 14px;">Assembly</a> <a href="/tags/Basic-Access-Authentication/" style="font-size: 10px;">Basic Access Authentication</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Book/" style="font-size: 10px;">Book</a> <a href="/tags/C/" style="font-size: 20px;">C#</a> <a href="/tags/Code/" style="font-size: 14px;">Code</a> <a href="/tags/Course/" style="font-size: 10px;">Course</a> <a href="/tags/Digest-Access-Authentication/" style="font-size: 10px;">Digest Access Authentication</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Du-doan-gia-vang/" style="font-size: 10px;">Dự đoán giá vàng</a> <a href="/tags/Ethical-Hacking/" style="font-size: 10px;">Ethical Hacking</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/GIS/" style="font-size: 10px;">GIS</a> <a href="/tags/Html-css-javascript/" style="font-size: 10px;">Html, css, javascript</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Linux-System-Programming/" style="font-size: 10px;">Linux, System Programming</a> <a href="/tags/Note/" style="font-size: 16px;">Note</a> <a href="/tags/OWASP-Testing-Guide/" style="font-size: 12px;">OWASP Testing Guide</a> <a href="/tags/Php/" style="font-size: 16px;">Php</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Python-Codesignal/" style="font-size: 10px;">Python, Codesignal</a> <a href="/tags/Quan-ly-diem/" style="font-size: 10px;">Quản lý điểm</a> <a href="/tags/RFC-2069/" style="font-size: 10px;">RFC 2069</a> <a href="/tags/RFC-2617/" style="font-size: 10px;">RFC 2617</a> <a href="/tags/SJF/" style="font-size: 10px;">SJF</a> <a href="/tags/Social-engineering/" style="font-size: 14px;">Social engineering</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/Sql-server/" style="font-size: 10px;">Sql server</a> <a href="/tags/System-Programming/" style="font-size: 14px;">System Programming</a> <a href="/tags/Text-to-speech/" style="font-size: 10px;">Text to speech</a> <a href="/tags/Todos/" style="font-size: 10px;">Todos</a> <a href="/tags/Tool/" style="font-size: 10px;">Tool</a> <a href="/tags/Tinh-toan-mem/" style="font-size: 10px;">Tính toán mềm</a> <a href="/tags/VRML/" style="font-size: 12px;">VRML</a> <a href="/tags/WPF/" style="font-size: 10px;">WPF</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/Windows-Form/" style="font-size: 10px;">Windows Form</a> <a href="/tags/Winform/" style="font-size: 10px;">Winform</a> <a href="/tags/Winforms/" style="font-size: 14px;">Winforms</a> <a href="/tags/Wordpress/" style="font-size: 18px;">Wordpress</a> <a href="/tags/ctf/" style="font-size: 10px;">ctf</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/fuzzy-computing/" style="font-size: 10px;">fuzzy computing</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/import-csv/" style="font-size: 10px;">import csv</a> <a href="/tags/migrate/" style="font-size: 10px;">migrate</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/blog-2020-02-27-Lam-sao-de-tra-luong-lap-trinh-vien-it-hon/">Làm sao để trả lương lập trình viên ít hơn</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-02-17-The-art-of-computer-prgramming-PREFACE/">The art of computer prgramming PREFACE</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-02-11-Geographical-Information-Systems-Part-1-Coursera-Week-1/">Geographical Information Systems Part 1 Coursera - Week 1</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-01-09-OWASP-Testing-Guide-2-Conduct-search-engine-discorvery-reconnaissance-for-information-leakage-OTG-INFO-001/">OWASP Testing Guide - 2 Conduct search engine discorvery/reconnaissance for information leakage (OTG-INFO-001) </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 LuanTM<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

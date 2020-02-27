@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Nhận dạng giọng nói | My real name is Tạ Minh Luận</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Mở đầuĐây là cuộc thi https://www.kaggle.com/c/tensorflow-speech-recognition-challenge. Bài toán cho dữ liệu bao gồm 65000 bản ghi. Yêu cầu nhận ra 30 từ ngắn “Yes”, “No”, “Up”, “Down”, “Left”, “Right">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nhận dạng giọng nói">
+<meta property="og:url" content="https://taminhluan.github.io/blog/blog-nhan-dang-giong-noi/index.html">
+<meta property="og:site_name" content="My real name is Tạ Minh Luận">
+<meta property="og:description" content="Mở đầuĐây là cuộc thi https://www.kaggle.com/c/tensorflow-speech-recognition-challenge. Bài toán cho dữ liệu bao gồm 65000 bản ghi. Yêu cầu nhận ra 30 từ ngắn “Yes”, “No”, “Up”, “Down”, “Left”, “Right">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://35.196.17.90/blog/wp-content/uploads/2018/12/raw_wave_visual.png">
+<meta property="og:image" content="http://35.196.17.90/blog/wp-content/uploads/2018/12/spectrogram.png">
+<meta property="og:image" content="http://35.196.17.90/blog/wp-content/uploads/2018/12/Mel-Power-Spectrogram.png">
+<meta property="og:image" content="http://35.196.17.90/blog/wp-content/uploads/2018/12/MFCC.png">
+<meta property="og:updated_time" content="2020-02-27T09:13:31.235Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nhận dạng giọng nói">
+<meta name="twitter:description" content="Mở đầuĐây là cuộc thi https://www.kaggle.com/c/tensorflow-speech-recognition-challenge. Bài toán cho dữ liệu bao gồm 65000 bản ghi. Yêu cầu nhận ra 30 từ ngắn “Yes”, “No”, “Up”, “Down”, “Left”, “Right">
+<meta name="twitter:image" content="http://35.196.17.90/blog/wp-content/uploads/2018/12/raw_wave_visual.png">
+  
+    <link rel="alternate" href="/atom.xml" title="My real name is Tạ Minh Luận" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">My real name is Tạ Minh Luận</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://taminhluan.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-blog-nhan-dang-giong-noi" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-nhan-dang-giong-noi/" class="article-date">
+  <time datetime="2018-12-17T07:38:13.000Z" itemprop="datePublished">2018-12-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Uncategorized/">Uncategorized</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Nhận dạng giọng nói
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Mo-dau"><a href="#Mo-dau" class="headerlink" title="Mở đầu"></a>Mở đầu</h2><p>Đây là cuộc thi <a href="https://www.kaggle.com/c/tensorflow-speech-recognition-challenge" target="_blank" rel="noopener">https://www.kaggle.com/c/tensorflow-speech-recognition-challenge.</a> Bài toán cho dữ liệu bao gồm 65000 bản ghi. Yêu cầu nhận ra 30 từ ngắn “Yes”, “No”, “Up”, “Down”, “Left”, “Right”, “On”, “Off”, “Stop”, “Go”, “Zero”, “One”, “Two”, “Three”, “Four”, “Five”, “Six”, “Seven”, “Eight”, and “Nine”, Bed”, “Bird”, “Cat”, “Dog”, “Happy”, “House”, “Marvin”, “Sheila”, “Tree”, and “Wow”. Là một bài toán classify. Nhận dạng file ghi âm của từ gì. Mục đích của chúng ta là tạo được model deep learning, nhận dạng được các từ đơn lẻ. Nghĩ đơn giản, file ghi âm sẽ được mã hóa dưới dạng số, chắc phải có thư viện nào đó đọc file wav dưới dạng số từ đó làm đầu vào trong mô hình, và đây là bài toán classify đầu ra là 30 danh mục. Theo tìm hiểu thì mình biết được một cái gọi là MFCC, cũng tương tự như word2vec trong NLP và mô hình của mình cũng nhận dạng khá tốt. Và ta tìm hiểu tiếp xem mọi người làm thế nào. Trên kaggle có rất nhiều bài viết hay. Mình sẽ dịch <a href="https://www.kaggle.com/davids1992/speech-representation-and-data-exploration" target="_blank" rel="noopener">https://www.kaggle.com/davids1992/speech-representation-and-data-exploration</a>  </p>
+<h2 id="Speech-Representation"><a href="#Speech-Representation" class="headerlink" title="Speech Representation"></a>Speech Representation</h2><p>Có hai lý thuyết về sự nghe của con người là <a href="https://en.wikipedia.org/wiki/Place_theory_(hearing)" target="_blank" rel="noopener">Place Theory </a>(dựa trên tần số) và <a href="https://en.wikipedia.org/wiki/Temporal_theory_(hearing)" target="_blank" rel="noopener">Temporal Theory</a>(). Trong Speech Recognition, Tôi nhìn thấy hai hướng chính là Spectrogram quang phổ (frequencies - tần số) và dựa trên đặc tính MFCC(Mel-Frequency Cepstral Coefficients). Bạn hiếm khi làm việc với raw(dữ liệu thô), temporal data.</p>
+<h3 id="Place-Theory-va-Temporal-Theory"><a href="#Place-Theory-va-Temporal-Theory" class="headerlink" title="Place Theory và Temporal Theory"></a>Place Theory và Temporal Theory</h3><p>Place theory là một lý thuyết về sự nghe (Hearing hay auditory perception - sự nhận thức về thính giác) là sự nhận thức của chúng ta về âm thanh phụ thuộc vào các thành phần <strong>tần số</strong> cung cấp sự rung động của <a href="https://en.wikipedia.org/wiki/Basilar_membrane" title="Basilar membrane" target="_blank" rel="noopener">basilar membrane</a>(màng đáy - thành phần ở trong tai). Theo lý thuyết này các pitch (cao độ) của âm thanh, giống như giọng nói của con người hay một tone trong âm nhạc, được xác định bởi nơi mà membrane rung động, dựa trên tần số tương ứng tới các tế bào thân kinh thính giác. Một lý thuyết thay thế là temporal theory, hay còn gọi là timing theory. Lý thuyết này được liên kết chặt chẽ với nguyên lý volley hay  <a href="https://en.wikipedia.org/wiki/Volley_theory" target="_blank" rel="noopener">volley theory,</a> một cơ chế các nhóm tế bào thần kinh có thể mã hóa các sóng âm thanh theo thời gian. Trong trường hợp này, <a href="https://en.wikipedia.org/wiki/Neural_firing" title="Neural firing" target="_blank" rel="noopener">neural firing </a>theo thời gian sẽ nhận thức được cao độ (cao độ là một <a href="https://vi.wikipedia.org/wiki/C%E1%BA%A3m_gi%C3%A1c" title="Cảm giác" target="_blank" rel="noopener">cảm giác</a> của <a href="https://vi.wikipedia.org/wiki/Th%C3%ADnh_gi%C3%A1c" title="Thính giác" target="_blank" rel="noopener">thính giác</a>, trong đó người nghe có thể ấn định được những âm thanh vào các vị trí tương đối trên một thước đo chủ yếu dựa vào tần số rung.<a href="https://vi.wikipedia.org/wiki/Cao_%C4%91%E1%BB%99_(%C3%A2m_nh%E1%BA%A1c)#cite_note-plack-5" target="_blank" rel="noopener">[5]</a> Cao độ có quan hệ chặt chẽ với tần số, nhưng không phải là một mối quan hệ tương đương). <strong>Place–volley theory</strong> bao gồm cả hai cơ chế này, các cao độ thấp bởi temporal pattern và các cao độ cao bởi rate-place patterns. Place theory được tin tưởng nhiều hơn.</p>
+<h3 id="Visualize"><a href="#Visualize" class="headerlink" title="Visualize"></a>Visualize</h3><p>Vậy chính xác chúng ta đang tìm kiếm gì? Mạng neural cần các con số đầu vào. Chúng ta không thể cho file wav vào để train được. Để biến raw data thành các con số và để dễ hình dung chúng ta hãy xem các ví dụ bên dưới.</p>
+<h4 id="Wave"><a href="#Wave" class="headerlink" title="Wave"></a>Wave</h4><p><img src="http://35.196.17.90/blog/wp-content/uploads/2018/12/raw_wave_visual.png" alt></p>
+<h4 id="Spectrogram-Quang-pho"><a href="#Spectrogram-Quang-pho" class="headerlink" title="Spectrogram (Quang phổ)"></a>Spectrogram (Quang phổ)</h4><p><img src="http://35.196.17.90/blog/wp-content/uploads/2018/12/spectrogram.png" alt> Nếu chúng ta sử dụng quang phổ như là các đầu vào của mạng neural, chúng ta phải normalize feature. (Chúng ta cần normalize qua toàn tập dữ liệu). Có một sự thật thú vị. Chúng ta có 160 features cho mỗi frame, tần số trong khoảng 0 đến 8000, nghĩa là mỗi feature tương ứng với 50Hz. Tuy nhiên tai nghe được từ 3.6Hz đến 1000-2000Hz. Có nghĩa là con người nghe được trong khoảng nhỏ hơn cái mà được trình bày trong quang phổ.</p>
+<h4 id="MFCC"><a href="#MFCC" class="headerlink" title="MFCC"></a>MFCC</h4><p>Nếu bạn muốn biết chi tiết về MFCC hãy xem <a href="http://practicalcryptography.com/miscellaneous/machine-learning/guide-mel-frequency-cepstral-coefficients-mfccs/" target="_blank" rel="noopener">MFCC explained. </a>Bạn sẽ nhìn thấy rằng nó mô phỏng lại các thuộc tính của thính giác con người. Bạn có thể tính toán Mel Power Spectrogram và MFCC sử dụng thư viện ví dụ <strong>librosa</strong> trong python. <img src="http://35.196.17.90/blog/wp-content/uploads/2018/12/Mel-Power-Spectrogram.png" alt> <img src="http://35.196.17.90/blog/wp-content/uploads/2018/12/MFCC.png" alt></p>
+<h4 id="Silence-removal-xoa-cac-phan-im-lang"><a href="#Silence-removal-xoa-cac-phan-im-lang" class="headerlink" title="Silence removal (xóa các phần im lặng)"></a>Silence removal (xóa các phần im lặng)</h4><h2 id="Ket-thuc"><a href="#Ket-thuc" class="headerlink" title="Kết thúc"></a>Kết thúc</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-nhan-dang-giong-noi/" data-id="ck74jjgs9007t2mcpoftlnmkc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/blog-8-ngay-lam-youtuber/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          10 ngày làm youtuber
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/blog-part-i-foundation-and-we-dont-mean-makeup/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Part I: Foundation (And We Dont Mean Makeup!)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android-Programming/">Android Programming</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android-Programming/Note/">Note</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Assembly/">Assembly</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-Viblo/">Code Viblo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Codesignal/">Codesignal</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Deep-learning/">Deep learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GIS/">GIS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linh-tinh/">Linh tinh</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lap-trinh/">Lập trình</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-learning/">Machine learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network-Programming/">Network Programming</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/OWASP-Testing-Guide/">OWASP Testing Guide</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Phim/">Phim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Pre-Calculus/">Pre Calculus</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Social-engineering/">Social engineering</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/System-Programming/">System Programming</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Text-to-speech/">Text to speech</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Text-to-speech/Tool/">Tool</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Toan-hoc/">Toán học</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tri-tue-nhan-tao/">Trí tuệ nhân tạo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Uncategorized/">Uncategorized</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Unit-Testing/">Unit Testing</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Visualisation/">Visualisation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows/">Windows</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ctf/">ctf</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hacker/">hacker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/note/">note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vnspoj/">vnspoj</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/wordpress/">wordpress</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Do-an/">Đồ án</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ASP-net-MVC/">ASP.net MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-Programming/">Android Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Asp-net/">Asp.net</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Assembly/">Assembly</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Basic-Access-Authentication/">Basic Access Authentication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code/">Code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Course/">Course</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Digest-Access-Authentication/">Digest Access Authentication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Du-doan-gia-vang/">Dự đoán giá vàng</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ethical-Hacking/">Ethical Hacking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/">Flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GIS/">GIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html-css-javascript/">Html, css, javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Laravel/">Laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux-System-Programming/">Linux, System Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/">Note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OWASP-Testing-Guide/">OWASP Testing Guide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Php/">Php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python-Codesignal/">Python, Codesignal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quan-ly-diem/">Quản lý điểm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RFC-2069/">RFC 2069</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RFC-2617/">RFC 2617</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SJF/">SJF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Social-engineering/">Social engineering</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-MVC/">Spring MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sql-server/">Sql server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/System-Programming/">System Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Text-to-speech/">Text to speech</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Todos/">Todos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tool/">Tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tinh-toan-mem/">Tính toán mềm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VRML/">VRML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WPF/">WPF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows-Form/">Windows Form</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Winform/">Winform</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Winforms/">Winforms</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wordpress/">Wordpress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ctf/">ctf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/">database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fuzzy-computing/">fuzzy computing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/import-csv/">import csv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/migrate/">migrate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/">wordpress</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ASP-net-MVC/" style="font-size: 10px;">ASP.net MVC</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Android-Programming/" style="font-size: 10px;">Android Programming</a> <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Asp-net/" style="font-size: 10px;">Asp.net</a> <a href="/tags/Assembly/" style="font-size: 14px;">Assembly</a> <a href="/tags/Basic-Access-Authentication/" style="font-size: 10px;">Basic Access Authentication</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Book/" style="font-size: 10px;">Book</a> <a href="/tags/C/" style="font-size: 20px;">C#</a> <a href="/tags/Code/" style="font-size: 14px;">Code</a> <a href="/tags/Course/" style="font-size: 10px;">Course</a> <a href="/tags/Digest-Access-Authentication/" style="font-size: 10px;">Digest Access Authentication</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Du-doan-gia-vang/" style="font-size: 10px;">Dự đoán giá vàng</a> <a href="/tags/Ethical-Hacking/" style="font-size: 10px;">Ethical Hacking</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/GIS/" style="font-size: 10px;">GIS</a> <a href="/tags/Html-css-javascript/" style="font-size: 10px;">Html, css, javascript</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Linux-System-Programming/" style="font-size: 10px;">Linux, System Programming</a> <a href="/tags/Note/" style="font-size: 16px;">Note</a> <a href="/tags/OWASP-Testing-Guide/" style="font-size: 12px;">OWASP Testing Guide</a> <a href="/tags/Php/" style="font-size: 16px;">Php</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Python-Codesignal/" style="font-size: 10px;">Python, Codesignal</a> <a href="/tags/Quan-ly-diem/" style="font-size: 10px;">Quản lý điểm</a> <a href="/tags/RFC-2069/" style="font-size: 10px;">RFC 2069</a> <a href="/tags/RFC-2617/" style="font-size: 10px;">RFC 2617</a> <a href="/tags/SJF/" style="font-size: 10px;">SJF</a> <a href="/tags/Social-engineering/" style="font-size: 14px;">Social engineering</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/Sql-server/" style="font-size: 10px;">Sql server</a> <a href="/tags/System-Programming/" style="font-size: 14px;">System Programming</a> <a href="/tags/Text-to-speech/" style="font-size: 10px;">Text to speech</a> <a href="/tags/Todos/" style="font-size: 10px;">Todos</a> <a href="/tags/Tool/" style="font-size: 10px;">Tool</a> <a href="/tags/Tinh-toan-mem/" style="font-size: 10px;">Tính toán mềm</a> <a href="/tags/VRML/" style="font-size: 12px;">VRML</a> <a href="/tags/WPF/" style="font-size: 10px;">WPF</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/Windows-Form/" style="font-size: 10px;">Windows Form</a> <a href="/tags/Winform/" style="font-size: 10px;">Winform</a> <a href="/tags/Winforms/" style="font-size: 14px;">Winforms</a> <a href="/tags/Wordpress/" style="font-size: 18px;">Wordpress</a> <a href="/tags/ctf/" style="font-size: 10px;">ctf</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/fuzzy-computing/" style="font-size: 10px;">fuzzy computing</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/import-csv/" style="font-size: 10px;">import csv</a> <a href="/tags/migrate/" style="font-size: 10px;">migrate</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/blog-2020-02-27-Lam-sao-de-tra-luong-lap-trinh-vien-it-hon/">Làm sao để trả lương lập trình viên ít hơn</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-02-17-The-art-of-computer-prgramming-PREFACE/">The art of computer prgramming PREFACE</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-02-11-Geographical-Information-Systems-Part-1-Coursera-Week-1/">Geographical Information Systems Part 1 Coursera - Week 1</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-01-09-OWASP-Testing-Guide-2-Conduct-search-engine-discorvery-reconnaissance-for-information-leakage-OTG-INFO-001/">OWASP Testing Guide - 2 Conduct search engine discorvery/reconnaissance for information leakage (OTG-INFO-001) </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 LuanTM<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

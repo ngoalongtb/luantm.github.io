@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>My real name is Tạ Minh Luận</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="My real name is Tạ Minh Luận">
+<meta property="og:url" content="https://taminhluan.github.io/page/6/index.html">
+<meta property="og:site_name" content="My real name is Tạ Minh Luận">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="My real name is Tạ Minh Luận">
+  
+    <link rel="alternate" href="/atom.xml" title="My real name is Tạ Minh Luận" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">My real name is Tạ Minh Luận</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://taminhluan.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-code-viblo-2019-07-24-Changing-seats" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/code-viblo-2019-07-24-Changing-seats/" class="article-date">
+  <time datetime="2019-07-24T09:23:34.000Z" itemprop="datePublished">2019-07-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Code-Viblo/">Code Viblo</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/code-viblo-2019-07-24-Changing-seats/">Changing seats</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://code.viblo.asia/challenges/OVLDnvpo3pB/solve" target="_blank" rel="noopener">Link</a></p>
+<h2 id="De-bai"><a href="#De-bai" class="headerlink" title="Đề bài"></a>Đề bài</h2><p>An có một mảng gồm n số nguyên. Mỗi giây An có thể đổi chỗ hai phần tử cạnh nhau trong mảng. Sau một hồi đổi chỗ giữa các phần tử trong mảng, An chợt nghĩ rằng, ko biết sau một số lần hữu hạn đổi chỗ sẽ thu được một mảng mà hai phần tử liền kề là khác nhau hay ko ?</p>
+<p>Bạn hãy giúp anh ấy.</p>
+<p>Input<br>Dòng đầu tiên là số nguyên n (1 ≤ n ≤ 100) — số lượng các phần tử trong mảng. Dòng thứ 2 là n số nguyên a_1,a_2,…,a_n,(1 ≤ a_i ≤ 1000) — các phần tử của mảng.</p>
+<p>Output<br>in ra YES nếu có thể, in ra NO nếu ngược lại.</p>
+<p>Resource limits<br> Execution time: 2 seconds</p>
+<p> Memory: 256.00 MB</p>
+<h2 id="Dap-an"><a href="#Dap-an" class="headerlink" title="Đáp án"></a>Đáp án</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line">input_str = <span class="string">""</span></span><br><span class="line">number_of_line = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> sys.stdin:</span><br><span class="line">    number_of_line += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> number_of_line == <span class="number">2</span>:</span><br><span class="line">        arr = [int(i) <span class="keyword">for</span> i <span class="keyword">in</span> line.split()]</span><br><span class="line">c = &#123;&#125;</span><br><span class="line">max_high = math.ceil(len(arr)/<span class="number">2</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> arr:</span><br><span class="line">    <span class="keyword">if</span> i <span class="keyword">in</span> c:</span><br><span class="line">        c[i] += <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        c[i] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> c[i] &gt; max_high:</span><br><span class="line">        print(<span class="string">"NO"</span>)</span><br><span class="line">        exit()</span><br><span class="line">print(<span class="string">"YES"</span>)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/code-viblo-2019-07-24-Changing-seats/" data-id="ck74jjgot000t2mcpziu4exkd" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-code-viblo-2019-07-24-The-Puzzle-Game" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/code-viblo-2019-07-24-The-Puzzle-Game/" class="article-date">
+  <time datetime="2019-07-24T09:12:40.000Z" itemprop="datePublished">2019-07-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Code-Viblo/">Code Viblo</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/code-viblo-2019-07-24-The-Puzzle-Game/">The Puzzle Game</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://code.viblo.asia/challenges/PRqVnpRoB9G/solve" target="_blank" rel="noopener">Link</a></p>
+<h2 id="De-bai"><a href="#De-bai" class="headerlink" title="Đề bài"></a>Đề bài</h2><p>Hồi nhỏ, Quy có 1 bộ xếp hình lego. Bộ gồm có nhiều mảnh, mỗi mảnh có chiều cao là 1 và có chiều dài cố định. Một mảnh có thể được ghép trên mảnh khác nếu như chúng có độ dài bằng nhau.</p>
+<p>Quy muốn xây số ít nhất các tòa tháp từ tất cả các mảnh của bộ xếp hình. Bạn hãy giúp anh ý.</p>
+<p>Input<br>Dòng 1 là số N (1 ≤ N ≤ 1000) số mảnh trong bộ xếp hình lego. Dòng 2 là N số nguyên dương, phân cách bởi dấu cách, chiều dài của các mảnh.</p>
+<p>Output<br>Hai số, chiều cao của tháp cao nhất và tổng số tháp.</p>
+<p>Resource limits<br> Execution time: 5 seconds</p>
+<p> Memory: 256.00 MB</p>
+<h2 id="Dap-an"><a href="#Dap-an" class="headerlink" title="Đáp án"></a>Đáp án</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">input_str = <span class="string">""</span></span><br><span class="line">number_of_line = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> sys.stdin:</span><br><span class="line">    number_of_line += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> number_of_line == <span class="number">2</span>:</span><br><span class="line">        arr = [int(i) <span class="keyword">for</span> i <span class="keyword">in</span> line.split()]</span><br><span class="line">c = &#123;&#125;</span><br><span class="line">max_high = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> arr:</span><br><span class="line">    <span class="keyword">if</span> i <span class="keyword">in</span> c:</span><br><span class="line">        c[i] += <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        c[i] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> c[i] &gt; max_high:</span><br><span class="line">        max_high = c[i]</span><br><span class="line">print(<span class="string">f'<span class="subst">&#123;max_high&#125;</span> <span class="subst">&#123;len(c)&#125;</span>'</span>)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/code-viblo-2019-07-24-The-Puzzle-Game/" data-id="ck74jjgow000w2mcpw8rdx5li" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-code-viblo-2019-07-24-Lighting-game-4ldYJd5om28" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/code-viblo-2019-07-24-Lighting-game-4ldYJd5om28/" class="article-date">
+  <time datetime="2019-07-24T07:43:44.000Z" itemprop="datePublished">2019-07-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Code-Viblo/">Code Viblo</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/code-viblo-2019-07-24-Lighting-game-4ldYJd5om28/">Code Viblo Lighting game 4ldYJd5om28</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="De-bai"><a href="#De-bai" class="headerlink" title="Đề bài"></a>Đề bài</h2><p>Đây là một trò chơi nổi tiếng gồm có 1 lưới 3 × 3 bóng đèn. Lúc bắt đầu game thì tất cả các bóng đèn đều được bật. Ấn vào bất cứ bóng nào sẽ chuyển trạng thái của nó và các bóng xung quanh (đang bật sẽ thành tắt và ngược lại). Mục tiêu của trò chơi là làm sao tắt được hết tất cả các bóng đèn đi.</p>
+<p>Sau 1 hồi say sưa chơi, An đã ấn mỗi bóng một số lần. Cho số lần mà An ấn mỗi bóng đèn. Bạn hãy in ra trạng thái của mỗi bóng.</p>
+<p>Input<br>3 hàng, 3 cột, phân cách bởi dấu cách. Các số nguyên chính là số lần An đã ấn vào bóng ở vị trí đó (giá trị trong đoạn từ 0 đến 100).</p>
+<p>Output<br>3 dòng, mỗi dòng 3 ký tự, trạng thái của lưới với quy định: “1” thể hiện bóng đang bật, “0” thể hiện bóng đang “tắt”.</p>
+<h2 id="Dap-an"><a href="#Dap-an" class="headerlink" title="Đáp án"></a>Đáp án</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">input_str = <span class="string">""</span></span><br><span class="line"></span><br><span class="line">count_line = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> sys.stdin:</span><br><span class="line">    count_line += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> count_line == <span class="number">1</span>:</span><br><span class="line">        b1, b2, b3 = [int(i) <span class="keyword">for</span> i <span class="keyword">in</span> line.split()]</span><br><span class="line">    <span class="keyword">elif</span> count_line == <span class="number">2</span>:</span><br><span class="line">        b4, b5, b6 = [int(i) <span class="keyword">for</span> i <span class="keyword">in</span> line.split()]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        b7, b8, b9 = [int(i) <span class="keyword">for</span> i <span class="keyword">in</span> line.split()]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(<span class="string">f'<span class="subst">&#123;(b1 + b2 + b4 +<span class="number">1</span>) % <span class="number">2</span>&#125;</span><span class="subst">&#123;(b1 + b2 + b3 + b5 +<span class="number">1</span>) % <span class="number">2</span>&#125;</span><span class="subst">&#123;(b2 + b3 + b6 +<span class="number">1</span>) % <span class="number">2</span>&#125;</span>'</span>)</span><br><span class="line">print(<span class="string">f'<span class="subst">&#123;(b1 + b4 + b5 + b7 +<span class="number">1</span>) % <span class="number">2</span>&#125;</span><span class="subst">&#123;(b2 + b4 + b5 + b6 + b8 +<span class="number">1</span>) % <span class="number">2</span>&#125;</span><span class="subst">&#123;(b3 + b5 + b6 + b9 +<span class="number">1</span>) % <span class="number">2</span>&#125;</span>'</span>)</span><br><span class="line">print(<span class="string">f'<span class="subst">&#123;(b4 + b7 + b8 +<span class="number">1</span>) % <span class="number">2</span>&#125;</span><span class="subst">&#123;(b5 + b7 + b8 + b9 +<span class="number">1</span>) % <span class="number">2</span>&#125;</span><span class="subst">&#123;(b6 + b8 + b9 +<span class="number">1</span>) % <span class="number">2</span>&#125;</span>'</span>)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/code-viblo-2019-07-24-Lighting-game-4ldYJd5om28/" data-id="ck74jjgou000u2mcpsoja2yas" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Code/">Code</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-code-viblo-KDdgnj6nMqX-sleepy" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/code-viblo-KDdgnj6nMqX-sleepy/" class="article-date">
+  <time datetime="2019-07-24T05:40:27.000Z" itemprop="datePublished">2019-07-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Code-Viblo/">Code Viblo</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/code-viblo-KDdgnj6nMqX-sleepy/">Code Viblo Sleepy</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://code.viblo.asia/challenges/KDdgnj6nMqX/solve" target="_blank" rel="noopener">Link</a></p>
+<h2 id="De-bai"><a href="#De-bai" class="headerlink" title="Đề bài"></a>Đề bài</h2><p>Bình tỉnh dậy và thấy thời gian đang s trên đồng hồ điện tử. Ngoài ra Bình còn biết mình đã ngủ được khoảng thời gian là t.</p>
+<p>Bạn hãy giúp anh Bình viết chương trình, nhập vào s và t đưa ra thời điểm p mà Bình lên giường đi ngủ. Chú ý là Bình có thể đi ngủ từ tối hôm qua.</p>
+<p>Input<br>Dòng đầu là thời gian t theo format “hh:mm”, khoảng thời gian mà Bình đã ngủ. Hai thời gian này được đảm bảo là đúng, và đúng theo format 24-h: 00 ≤ hh ≤ 23, 00 ≤ mm ≤ 59.</p>
+<p>Output<br>in ra thời điểm p mà Bình bắt đầu ngủ theo format như trên.</p>
+<p>Resource limits<br> Execution time: 2 seconds</p>
+<p> Memory: 256.00 MB</p>
+<h2 id="Loi-giai"><a href="#Loi-giai" class="headerlink" title="Lời giải"></a>Lời giải</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">input_str = <span class="string">""</span></span><br><span class="line">first = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> sys.stdin:</span><br><span class="line">    <span class="keyword">if</span> first:</span><br><span class="line">        first = <span class="literal">False</span></span><br><span class="line">        sh = int(line.split(<span class="string">':'</span>)[<span class="number">0</span>])</span><br><span class="line">        sm = int(line.split(<span class="string">':'</span>)[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        th = int(line.split(<span class="string">':'</span>)[<span class="number">0</span>])</span><br><span class="line">        tm = int(line.split(<span class="string">':'</span>)[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> sm &lt; tm:</span><br><span class="line">    sm += <span class="number">60</span></span><br><span class="line">    sh -= <span class="number">1</span></span><br><span class="line">om = sm - tm</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> sh &lt; th:</span><br><span class="line">    sh += <span class="number">24</span></span><br><span class="line">oh = sh - th</span><br><span class="line">print(<span class="string">f'<span class="subst">&#123;oh:<span class="number">02</span>&#125;</span>:<span class="subst">&#123;om:<span class="number">02</span>&#125;</span>'</span>)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/code-viblo-KDdgnj6nMqX-sleepy/" data-id="ck74jjgpd001n2mcpkf8v4b03" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-code-viblo-AWpr2e3oa4z-shooting-team" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/code-viblo-AWpr2e3oa4z-shooting-team/" class="article-date">
+  <time datetime="2019-07-24T05:40:27.000Z" itemprop="datePublished">2019-07-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Code-Viblo/">Code Viblo</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/code-viblo-AWpr2e3oa4z-shooting-team/">Code Viblo Shooting Team</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://code.viblo.asia/challenges/AWpr2e3oa4z" target="_blank" rel="noopener">Link</a></p>
+<h2 id="De-bai"><a href="#De-bai" class="headerlink" title="Đề bài"></a>Đề bài</h2><p>Đội tuyển Counter Strike của Framgia có n thành viên. Với mỗi thành viên, ta đều biết họ đã tham gia vào giải đấu WCG bao nhiêu lần. Theo luật của WCG, mỗi người chơi chỉ có thể tham gia vào WCG tối đa là 5 lần.</p>
+<p>Framgia đang có kế hoạch tập trung các thành viên thành một số team để tham gia vào WCG. Mỗi team cần có đúng 3 người, mỗi người ko thể là thành viên của 2 team trở lên. Vậy có thể lập tối đa là bao nhiêu team nếu trưởng đoàn muốn mỗi team tham gia vào WCG sao cho toàn thành viên của team có thể tham gia WCG ít nhất là k lần nữa.</p>
+<p>Input<br>Dòng đầu là 2 số nguyên n và k (1 ≤ n ≤ 2000; 1 ≤ k ≤ 5). Dòng thứ hai là n số nguyên: y_1,y_2, … ,y_n (0 ≤ y_i  ≤ 5). với y_i là số lần người thứ i tham gia vào WCG</p>
+<p>Output<br>Tổng nhỏ nhất sau khi thực hiện các hành động</p>
+<p>Resource limits<br> Execution time: 2 seconds</p>
+<p> Memory: 256.00 MB</p>
+<h2 id="Loi-giai"><a href="#Loi-giai" class="headerlink" title="Lời giải"></a>Lời giải</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">input_str = <span class="string">""</span></span><br><span class="line">first  = <span class="literal">True</span></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> sys.stdin:</span><br><span class="line">    <span class="keyword">if</span> first:</span><br><span class="line">        first = <span class="literal">False</span></span><br><span class="line">        n = int(line.split(<span class="string">' '</span>)[<span class="number">0</span>])</span><br><span class="line">        k = int(line.split(<span class="string">' '</span>)[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        arr = line.split(<span class="string">' '</span>)</span><br><span class="line">count = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> arr:</span><br><span class="line">    <span class="keyword">if</span> (<span class="number">5</span> - int(item)) &gt;= k:</span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line">print(count//<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/code-viblo-AWpr2e3oa4z-shooting-team/" data-id="ck74jjgpa001h2mcpzmlzy82m" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-code-viblo-EeXJ7z5nB83-role-playing-games" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/code-viblo-EeXJ7z5nB83-role-playing-games/" class="article-date">
+  <time datetime="2019-07-24T05:40:27.000Z" itemprop="datePublished">2019-07-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Code-Viblo/">Code Viblo</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/code-viblo-EeXJ7z5nB83-role-playing-games/">Code Viblo Role Playing Game</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://code.viblo.asia/challenges/EeXJ7z5nB83/solve" target="_blank" rel="noopener">Link</a></p>
+<h2 id="De-bai"><a href="#De-bai" class="headerlink" title="Đề bài"></a>Đề bài</h2><p>An bị mắc kẹt không thể nào vượt qua được ở một level của game The Lost Symbol. Anh ấy phải đạnh bại được tất cả n golem thì sẽ được qua level tiếp theo. Anh ấy và những con golem có chiều dài là một số nguyên. Trong cuộc đấu tay đôi giữa 2 đối thủ, ai có sức mạnh hơn thì sẽ tháng. Ban đầu sức mạnh của An là s.</p>
+<p>Nêu anh ấy bắt đầu đấu tay đôi với golem thứ i (1 ≤ i ≤ n) và sức mạnh của anh ấy không lớn hơn sức mạnh của golem thứ i thì anh ấy sẽ thua và chết. Ngược lại, anh ấy đánh bại con golem và sẽ nhận thêm sức mạnh bằng y_i</p>
+<p>Anh ấy có thể đánh những con golem theo bất kể thứu tự nào. Hãy xác định xem anh ấy có thể chuyển sang level tiếp theo hay không tức là phải đánh bại tất cả các con golem và không thua một lần nào.</p>
+<p>Input<br>Dòng đầu tiên chứa 2 số nguyên s và n cách nhau bởi khoảng trống(1 ≤ s ≤ 10^4, 1 ≤ n ≤ 10^3).</p>
+<p>n dòng tiếp theo : dòng i chứa x_i và y_i cách nhau bởi khoảng trống (1 ≤ x_ix ≤ 10^4, 0 ≤ y_i ≤ 10^4) - sức mạnh của con golem thứ i và điểm thưởng cho mỗi lần đánh bại chúng.</p>
+<p>Output<br>In ra “YES” nếu An có thể sang được level tiếp theo và “NO” nếu anh ấy không thể.</p>
+<p>Resource limits<br> Execution time: 2 seconds</p>
+<p> Memory: 256.00 MB</p>
+<h2 id="Loi-giai"><a href="#Loi-giai" class="headerlink" title="Lời giải"></a>Lời giải</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">input_str = <span class="string">""</span></span><br><span class="line"></span><br><span class="line">first  = <span class="literal">True</span></span><br><span class="line">golem = []</span><br><span class="line">score = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> sys.stdin:</span><br><span class="line">    <span class="keyword">if</span> first:</span><br><span class="line">        first = <span class="literal">False</span></span><br><span class="line">        s = int(line.split(<span class="string">' '</span>)[<span class="number">0</span>])</span><br><span class="line">        n = int(line.split(<span class="string">' '</span>)[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        item_golem = line.split(<span class="string">' '</span>)[<span class="number">0</span>]</span><br><span class="line">        item_score = line.split(<span class="string">' '</span>)[<span class="number">1</span>]</span><br><span class="line">        golem += [int(item_golem)]</span><br><span class="line">        score += [int(item_score)]</span><br><span class="line"></span><br><span class="line">ok = <span class="literal">True</span></span><br><span class="line"><span class="keyword">while</span> len(golem) &gt; <span class="number">0</span>:</span><br><span class="line">    ok = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(golem)):</span><br><span class="line">        <span class="keyword">if</span> s &gt; golem[i]:</span><br><span class="line">            s += score[i]</span><br><span class="line">            <span class="keyword">del</span> golem[i]</span><br><span class="line">            <span class="keyword">del</span> score[i]</span><br><span class="line">            ok = <span class="literal">True</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> ok:</span><br><span class="line">        print(<span class="string">'NO'</span>)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"><span class="keyword">if</span> ok:</span><br><span class="line">    print(<span class="string">'YES'</span>)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/code-viblo-EeXJ7z5nB83-role-playing-games/" data-id="ck74jjgpc001l2mcpa40zeyt2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-code-viblo-8BEQo5dJbKO-ting-ting" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/code-viblo-8BEQo5dJbKO-ting-ting/" class="article-date">
+  <time datetime="2019-07-24T05:40:27.000Z" itemprop="datePublished">2019-07-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Code-Viblo/">Code Viblo</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/code-viblo-8BEQo5dJbKO-ting-ting/">Code Viblo  Ting Ting</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://code.viblo.asia/challenges/8BEQo5dJbKO" target="_blank" rel="noopener">Challenge Viblo</a></p>
+<h2 id="De-nao"><a href="#De-nao" class="headerlink" title="Đề nào"></a>Đề nào</h2><p>Ngày xửa ngày xưa, trong một lần đi dạo trên bãi biển, An vấp phải 1 chiếc đèn dầu cũ và bỗng nhiên thần đèn hiện ra và ban cho anh 1 điều ước. Điều ước đó là cho phép An được xóa đi chữ số cuối cùng hoặc chữ số trước chữ số cuối cùng trong tài khoản ngân hàng VCB của anh nhiều nhất là một lần. Ví dụ: nếu hiện tại tài khoản của An đang là -12000023, anh có thể dùng điều ước để chuyển account thành -1200002 hoặc -1200003.</p>
+<p>Hãy giúp An dùng điều ước làm tối đa account nhất có thể.</p>
+<p>Input<br>số nguyên n (10 ≤ |n| ≤ 10^9) — tài khoản hiện tại của An</p>
+<p>Output<br>Tài khoản tối đa mà An có được sau khi dùng điều ước.</p>
+<p>Resource limits<br> Execution time: 2 seconds</p>
+<p> Memory: 256.00 MB</p>
+<h2 id="Loi-giai"><a href="#Loi-giai" class="headerlink" title="Lời giải"></a>Lời giải</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">input_str = <span class="string">""</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> sys.stdin:</span><br><span class="line">    n = int(line)</span><br><span class="line">    n_miss_last = int(line[:<span class="number">-1</span>])</span><br><span class="line">    n_miss_before_last = int(line[:<span class="number">-2</span>] + line[<span class="number">-1</span>:])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> n &gt;= <span class="number">0</span>:</span><br><span class="line">        input_str += line + <span class="string">'\n'</span></span><br><span class="line">    <span class="keyword">elif</span> n_miss_last &gt; n_miss_before_last:</span><br><span class="line">        input_str += str(n_miss_last) + <span class="string">'\n'</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        input_str += str(n_miss_before_last) + <span class="string">'\n'</span></span><br><span class="line"></span><br><span class="line">print(input_str)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/code-viblo-8BEQo5dJbKO-ting-ting/" data-id="ck74jjgp9001e2mcpqalrwnmb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-code-viblo-BkZargZoXb5-the-heirs" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/code-viblo-BkZargZoXb5-the-heirs/" class="article-date">
+  <time datetime="2019-07-24T05:40:27.000Z" itemprop="datePublished">2019-07-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Code-Viblo/">Code Viblo</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/code-viblo-BkZargZoXb5-the-heirs/">Code Viblo The heirs</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://code.viblo.asia/challenges/BkZargZoXb5" target="_blank" rel="noopener">Link</a></p>
+<h2 id="De-bai"><a href="#De-bai" class="headerlink" title="Đề bài"></a>Đề bài</h2><p>Là fan cuồng của Kim Tan, Linh ko bỏ lỡ bất cứ tập phim The Heirs nào. Anh muốn xem phim ngay nhưng do mạng cùi, video bị giật do kích cỡ dữ liệu cần xem trên 1 giây lớn hơn kich cỡ dữ liệu tải xuống trên 1 giây. Để xem phim ko bị giật, Linh cần đợi 1 số nguyên giây rồi sau đó bắt đầu xem phim.</p>
+<p>Giả sử video có chiều dài là c và Linh phải đợi t giây trước khi xem. Khi đó ở bất cứ thời điểm t0, t ≤ t0 ≤ c + t, điều kiện sau cần thỏa mãn: dữ liệu thu được trong t0 phải ko ít hơn lượng dữ liệu cần đển xem t0 - t giây.</p>
+<p>Linh muốn xem càng sớm càng tốt, hãy giúp anh ấy xác định số giây cần đợi ít nhất.</p>
+<p>Input<br>3 số nguyên ngăn cách bởi dấu cách: a, b, c (1 ≤ a, b, c ≤ 1000, a &gt; b). a là lượng dữ liệu cần để xem 1 giây của video, b là lượng dữ liệu download được trong 1 giây, c là chiều dài video (giây).</p>
+<p>Output<br>Số nguyên giây ít nhất mà Linh cần đợi trước khi xem phim ko bị giật.:)))</p>
+<p>Resource limits<br> Execution time: 12 seconds</p>
+<p> Memory: 256.00 MB</p>
+<h2 id="Loi-giai"><a href="#Loi-giai" class="headerlink" title="Lời giải"></a>Lời giải</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line">input_str = <span class="string">""</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> sys.stdin:</span><br><span class="line">    a = int(line.split()[<span class="number">0</span>])</span><br><span class="line">    b = int(line.split()[<span class="number">1</span>])</span><br><span class="line">    c = int(line.split()[<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">total = a * c</span><br><span class="line">data_in_runtime = b * c</span><br><span class="line"></span><br><span class="line">data_needed = total - data_in_runtime</span><br><span class="line">time_need = math.ceil (data_needed / b)</span><br><span class="line"></span><br><span class="line">print(time_need)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/code-viblo-BkZargZoXb5-the-heirs/" data-id="ck74jjgpb001j2mcpvjywcpzw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-code-viblo-VXg7rE3JW8x-the-valentine-number" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/code-viblo-VXg7rE3JW8x-the-valentine-number/" class="article-date">
+  <time datetime="2019-07-24T05:40:27.000Z" itemprop="datePublished">2019-07-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Code-Viblo/">Code Viblo</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/code-viblo-VXg7rE3JW8x-the-valentine-number/">Code Viblo The Valentine Number</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://code.viblo.asia/challenges/VXg7rE3JW8x/solve" target="_blank" rel="noopener">Link</a></p>
+<h2 id="De-bai"><a href="#De-bai" class="headerlink" title="Đề bài"></a>Đề bài</h2><h2 id="Loi-giai"><a href="#Loi-giai" class="headerlink" title="Lời giải"></a>Lời giải</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">before_str = <span class="string">""</span></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> sys.stdin:</span><br><span class="line">    line += <span class="string">"1"</span></span><br><span class="line">    <span class="keyword">for</span> s <span class="keyword">in</span> line:</span><br><span class="line">        <span class="keyword">if</span> s == <span class="string">'1'</span>:</span><br><span class="line">            <span class="keyword">if</span> before_str != <span class="string">''</span> <span class="keyword">and</span> before_str != <span class="string">'1'</span> <span class="keyword">and</span> before_str != <span class="string">'14'</span> <span class="keyword">and</span> before_str != <span class="string">'144'</span>:</span><br><span class="line">                print(<span class="string">'NO'</span>)</span><br><span class="line">                exit()</span><br><span class="line">            before_str = <span class="string">""</span></span><br><span class="line">        before_str += s</span><br><span class="line">print(<span class="string">'YES'</span>)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/code-viblo-VXg7rE3JW8x-the-valentine-number/" data-id="ck74jjgpe001p2mcp6bly34br" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-code-viblo-no-resolve-huy-chat-pro" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/code-viblo-no-resolve-huy-chat-pro/" class="article-date">
+  <time datetime="2019-07-24T05:40:27.000Z" itemprop="datePublished">2019-07-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Code-Viblo/">Code Viblo</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/code-viblo-no-resolve-huy-chat-pro/">Code Viblo Huy Chat Pro</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">count = <span class="number">0</span></span><br><span class="line">number_of_people = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> sys.stdin:</span><br><span class="line">    <span class="keyword">if</span> line[<span class="number">0</span>] == <span class="string">'+'</span>:</span><br><span class="line">        number_of_people += <span class="number">1</span></span><br><span class="line">    <span class="keyword">elif</span> line[<span class="number">0</span>] == <span class="string">'-'</span>:</span><br><span class="line">        number_of_people -=<span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># print(line.split(':')[1])</span></span><br><span class="line">        <span class="comment"># print(len(line.split(':')[1]))</span></span><br><span class="line">        <span class="comment"># print(number_of_people)</span></span><br><span class="line">        index_colon = line.find(<span class="string">':'</span>)</span><br><span class="line">        line = line[index_colon:]</span><br><span class="line">        s = line.rstrip().lstrip()</span><br><span class="line">        <span class="keyword">if</span> s != <span class="string">':'</span>:</span><br><span class="line">            count += (len(s)) * number_of_people</span><br><span class="line"></span><br><span class="line">print(count)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/code-viblo-no-resolve-huy-chat-pro/" data-id="ck74jjgpg001r2mcpj0sxqoqk" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android-Programming/">Android Programming</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android-Programming/Note/">Note</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Assembly/">Assembly</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-Viblo/">Code Viblo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Codesignal/">Codesignal</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Deep-learning/">Deep learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GIS/">GIS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linh-tinh/">Linh tinh</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lap-trinh/">Lập trình</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-learning/">Machine learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network-Programming/">Network Programming</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/OWASP-Testing-Guide/">OWASP Testing Guide</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Phim/">Phim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Pre-Calculus/">Pre Calculus</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Social-engineering/">Social engineering</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/System-Programming/">System Programming</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Text-to-speech/">Text to speech</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Text-to-speech/Tool/">Tool</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Toan-hoc/">Toán học</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tri-tue-nhan-tao/">Trí tuệ nhân tạo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Uncategorized/">Uncategorized</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Unit-Testing/">Unit Testing</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Visualisation/">Visualisation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows/">Windows</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ctf/">ctf</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hacker/">hacker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/note/">note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vnspoj/">vnspoj</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/wordpress/">wordpress</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Do-an/">Đồ án</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ASP-net-MVC/">ASP.net MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-Programming/">Android Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Asp-net/">Asp.net</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Assembly/">Assembly</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Basic-Access-Authentication/">Basic Access Authentication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code/">Code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Course/">Course</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Digest-Access-Authentication/">Digest Access Authentication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Du-doan-gia-vang/">Dự đoán giá vàng</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ethical-Hacking/">Ethical Hacking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/">Flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GIS/">GIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html-css-javascript/">Html, css, javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Laravel/">Laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux-System-Programming/">Linux, System Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/">Note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OWASP-Testing-Guide/">OWASP Testing Guide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Php/">Php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python-Codesignal/">Python, Codesignal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quan-ly-diem/">Quản lý điểm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RFC-2069/">RFC 2069</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RFC-2617/">RFC 2617</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SJF/">SJF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Social-engineering/">Social engineering</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-MVC/">Spring MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sql-server/">Sql server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/System-Programming/">System Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Text-to-speech/">Text to speech</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Todos/">Todos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tool/">Tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tinh-toan-mem/">Tính toán mềm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VRML/">VRML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WPF/">WPF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows-Form/">Windows Form</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Winform/">Winform</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Winforms/">Winforms</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wordpress/">Wordpress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ctf/">ctf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/">database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fuzzy-computing/">fuzzy computing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/import-csv/">import csv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/migrate/">migrate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/">wordpress</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ASP-net-MVC/" style="font-size: 10px;">ASP.net MVC</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Android-Programming/" style="font-size: 10px;">Android Programming</a> <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Asp-net/" style="font-size: 10px;">Asp.net</a> <a href="/tags/Assembly/" style="font-size: 14px;">Assembly</a> <a href="/tags/Basic-Access-Authentication/" style="font-size: 10px;">Basic Access Authentication</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Book/" style="font-size: 10px;">Book</a> <a href="/tags/C/" style="font-size: 20px;">C#</a> <a href="/tags/Code/" style="font-size: 14px;">Code</a> <a href="/tags/Course/" style="font-size: 10px;">Course</a> <a href="/tags/Digest-Access-Authentication/" style="font-size: 10px;">Digest Access Authentication</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Du-doan-gia-vang/" style="font-size: 10px;">Dự đoán giá vàng</a> <a href="/tags/Ethical-Hacking/" style="font-size: 10px;">Ethical Hacking</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/GIS/" style="font-size: 10px;">GIS</a> <a href="/tags/Html-css-javascript/" style="font-size: 10px;">Html, css, javascript</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Linux-System-Programming/" style="font-size: 10px;">Linux, System Programming</a> <a href="/tags/Note/" style="font-size: 16px;">Note</a> <a href="/tags/OWASP-Testing-Guide/" style="font-size: 12px;">OWASP Testing Guide</a> <a href="/tags/Php/" style="font-size: 16px;">Php</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Python-Codesignal/" style="font-size: 10px;">Python, Codesignal</a> <a href="/tags/Quan-ly-diem/" style="font-size: 10px;">Quản lý điểm</a> <a href="/tags/RFC-2069/" style="font-size: 10px;">RFC 2069</a> <a href="/tags/RFC-2617/" style="font-size: 10px;">RFC 2617</a> <a href="/tags/SJF/" style="font-size: 10px;">SJF</a> <a href="/tags/Social-engineering/" style="font-size: 14px;">Social engineering</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/Sql-server/" style="font-size: 10px;">Sql server</a> <a href="/tags/System-Programming/" style="font-size: 14px;">System Programming</a> <a href="/tags/Text-to-speech/" style="font-size: 10px;">Text to speech</a> <a href="/tags/Todos/" style="font-size: 10px;">Todos</a> <a href="/tags/Tool/" style="font-size: 10px;">Tool</a> <a href="/tags/Tinh-toan-mem/" style="font-size: 10px;">Tính toán mềm</a> <a href="/tags/VRML/" style="font-size: 12px;">VRML</a> <a href="/tags/WPF/" style="font-size: 10px;">WPF</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/Windows-Form/" style="font-size: 10px;">Windows Form</a> <a href="/tags/Winform/" style="font-size: 10px;">Winform</a> <a href="/tags/Winforms/" style="font-size: 14px;">Winforms</a> <a href="/tags/Wordpress/" style="font-size: 18px;">Wordpress</a> <a href="/tags/ctf/" style="font-size: 10px;">ctf</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/fuzzy-computing/" style="font-size: 10px;">fuzzy computing</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/import-csv/" style="font-size: 10px;">import csv</a> <a href="/tags/migrate/" style="font-size: 10px;">migrate</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/blog-2020-02-27-Lam-sao-de-tra-luong-lap-trinh-vien-it-hon/">Làm sao để trả lương lập trình viên ít hơn</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-02-17-The-art-of-computer-prgramming-PREFACE/">The art of computer prgramming PREFACE</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-02-11-Geographical-Information-Systems-Part-1-Coursera-Week-1/">Geographical Information Systems Part 1 Coursera - Week 1</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-01-09-OWASP-Testing-Guide-2-Conduct-search-engine-discorvery-reconnaissance-for-information-leakage-OTG-INFO-001/">OWASP Testing Guide - 2 Conduct search engine discorvery/reconnaissance for information leakage (OTG-INFO-001) </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 LuanTM<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

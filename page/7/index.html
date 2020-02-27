@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>My real name is Tạ Minh Luận</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="My real name is Tạ Minh Luận">
+<meta property="og:url" content="https://taminhluan.github.io/page/7/index.html">
+<meta property="og:site_name" content="My real name is Tạ Minh Luận">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="My real name is Tạ Minh Luận">
+  
+    <link rel="alternate" href="/atom.xml" title="My real name is Tạ Minh Luận" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">My real name is Tạ Minh Luận</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://taminhluan.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-code-viblo-pA9lrL0rX5x-barathuma-kingdom" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/code-viblo-pA9lrL0rX5x-barathuma-kingdom/" class="article-date">
+  <time datetime="2019-07-24T05:40:27.000Z" itemprop="datePublished">2019-07-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Code-Viblo/">Code Viblo</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/code-viblo-pA9lrL0rX5x-barathuma-kingdom/">Code Viblo Barathuma Kingdom</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://code.viblo.asia/challenges/pA9lrL0rX5x/solve" target="_blank" rel="noopener">Link</a></p>
+<h2 id="De-bai"><a href="#De-bai" class="headerlink" title="Đề bài"></a>Đề bài</h2><p>Ở vương quốc Barathuma, chiều dài được đo theo đơn vị turak và aya. Chúng ta biết 1 turak bằng với 3 centimeters và một aya chứa 12 turak.</p>
+<p>Nhiệm vụ của bạn chuyển một độ dài là m centimeters sang aya và turak sao cho số aya là tối đa maximum. Kết quả cần được làm tròn đến số gần nhất chứa số nguyên turak.</p>
+<p>Khi làm tròn, 1 cm làm tròn sẽ là 0 turak và 2 cm làm tròn sẽ là 1 turak.</p>
+<p>Input<br>Số nguyên m (1 ≤ m ≤ 10000).</p>
+<p>Output<br>Hai số không âm x và y, cách nhau bởi dấu cách, với x là số aya và y là số turak.</p>
+<p>Resource limits<br> Execution time: 5 seconds</p>
+<p> Memory: 256.00 MB</p>
+<h2 id="Loi-giai"><a href="#Loi-giai" class="headerlink" title="Lời giải"></a>Lời giải</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">input_str = <span class="string">""</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> sys.stdin:</span><br><span class="line">    line = int(line)</span><br><span class="line">    turak = line // <span class="number">3</span></span><br><span class="line">    <span class="keyword">if</span> (line % <span class="number">3</span>) == <span class="number">2</span>:</span><br><span class="line">        turak += <span class="number">1</span></span><br><span class="line">    aya = turak // <span class="number">12</span></span><br><span class="line">    turak = turak % <span class="number">12</span></span><br><span class="line">    print(str(aya) + <span class="string">' '</span> + str(turak))</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/code-viblo-pA9lrL0rX5x-barathuma-kingdom/" data-id="ck74jjgph001t2mcpua0oy8go" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-2019-07-23-Tong-hop-tieng-noi-phuong-nam-Tieng-Viet-cho-Sapi-5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-2019-07-23-Tong-hop-tieng-noi-phuong-nam-Tieng-Viet-cho-Sapi-5/" class="article-date">
+  <time datetime="2019-07-23T10:21:15.000Z" itemprop="datePublished">2019-07-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Text-to-speech/">Text to speech</a>►<a class="article-category-link" href="/categories/Text-to-speech/Tool/">Tool</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-2019-07-23-Tong-hop-tieng-noi-phuong-nam-Tieng-Viet-cho-Sapi-5/">Tổng hợp tiếng nói phương nam Tiếng Việt cho Sapi 5</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Mo-dau"><a href="#Mo-dau" class="headerlink" title="Mở đầu"></a>Mở đầu</h1><h1 id="Cai-dat"><a href="#Cai-dat" class="headerlink" title="Cài đặt"></a>Cài đặt</h1><h1 id="Danh-sach-cac-giong-noi-cho-tool-tong-hop-tieng-noi-Phuong-Nam"><a href="#Danh-sach-cac-giong-noi-cho-tool-tong-hop-tieng-noi-Phuong-Nam" class="headerlink" title="Danh sách các giọng nói cho tool tổng hợp tiếng nói Phương Nam"></a>Danh sách các giọng nói cho tool tổng hợp tiếng nói Phương Nam</h1><h1 id="Ket-thuc"><a href="#Ket-thuc" class="headerlink" title="Kết thúc"></a>Kết thúc</h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-2019-07-23-Tong-hop-tieng-noi-phuong-nam-Tieng-Viet-cho-Sapi-5/" data-id="ck74jjgpy002q2mcpnbet12ll" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Text-to-speech/">Text to speech</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tool/">Tool</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-2019-07-23-Sniffer-Password-Cleartext" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-2019-07-23-Sniffer-Password-Cleartext/" class="article-date">
+  <time datetime="2019-07-23T08:23:52.000Z" itemprop="datePublished">2019-07-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-2019-07-23-Sniffer-Password-Cleartext/">Sniffer Password Cleartext</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Sniffer-Password-Cleartext"><a href="#Sniffer-Password-Cleartext" class="headerlink" title="Sniffer Password Cleartext"></a>Sniffer Password Cleartext</h1><h2 id="Tim-hieu-ve-ky-thuat-ARP-Poisonning"><a href="#Tim-hieu-ve-ky-thuat-ARP-Poisonning" class="headerlink" title="Tìm hiểu về kỹ thuật ARP Poisonning"></a>Tìm hiểu về kỹ thuật ARP Poisonning</h2><h2 id="Sniffer-Cleartext-Password-login-vao-router"><a href="#Sniffer-Cleartext-Password-login-vao-router" class="headerlink" title="Sniffer Cleartext Password login vào router"></a>Sniffer Cleartext Password login vào router</h2><p>Chuyển hướng luồn dữ liệu với ettercap</p>
+<p>luantm@debian:~#: ettercap -T -q -M arp:remote -i eth1 //ip/ ///</p>
+<p>Lọc bằng cách</p>
+<ul>
+<li>ip.addr == 192.168.21.32 and http.request.full_uri contains “login” and http.request.method == “POST”</li>
+</ul>
+<h2 id="Sniffer-Cleartext-Password-login-vao-trang-web"><a href="#Sniffer-Cleartext-Password-login-vao-trang-web" class="headerlink" title="Sniffer Cleartext Password login vào trang web"></a>Sniffer Cleartext Password login vào trang web</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-2019-07-23-Sniffer-Password-Cleartext/" data-id="ck74jjgpx002n2mcpzsu07yeh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ethical-Hacking/">Ethical Hacking</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-doan-2019-07-21-Xay-dung-website-khach-san-ha-long" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/doan-2019-07-21-Xay-dung-website-khach-san-ha-long/" class="article-date">
+  <time datetime="2019-07-21T11:21:23.000Z" itemprop="datePublished">2019-07-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Do-an/">Đồ án</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/doan-2019-07-21-Xay-dung-website-khach-san-ha-long/">Xây dựng website khách sạn hạ long</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Xay-dung-website-khach-san-ha-long"><a href="#Xay-dung-website-khach-san-ha-long" class="headerlink" title="Xây dựng website khách sạn hạ long"></a>Xây dựng website khách sạn hạ long</h1><h2 id="Check-list"><a href="#Check-list" class="headerlink" title="Check list"></a>Check list</h2><p>Checklist được áp dụng cho tất cả đồ án</p>
+<ul>
+<li><input checked disabled type="checkbox"> Fullsource</li>
+<li><input checked disabled type="checkbox"> Dump DB data</li>
+<li><input checked disabled type="checkbox"> Description</li>
+<li><input checked disabled type="checkbox"> Images</li>
+<li><input disabled type="checkbox"> Documentation</li>
+<li><input checked disabled type="checkbox"> Origin information</li>
+<li><input disabled type="checkbox"> Video</li>
+<li><input checked disabled type="checkbox"> Github private</li>
+<li><input checked disabled type="checkbox"> Sharecode</li>
+<li><input disabled type="checkbox"> Deploy</li>
+<li><input checked disabled type="checkbox"> Setup</li>
+</ul>
+<h2 id="Fullsource"><a href="#Fullsource" class="headerlink" title="Fullsource"></a>Fullsource</h2><p>📎  <a href="https://github.com/taminhluan/khach-san-ha-long" target="_blank" rel="noopener">PRIVATE Github khach-san-ha-long</a></p>
+<h2 id="Sql-file"><a href="#Sql-file" class="headerlink" title="Sql file"></a>Sql file</h2><p>📎  <a href="https://github.com/taminhluan/khach-san-ha-long/blob/master/halong_db.sql" target="_blank" rel="noopener">PRIVATE Github khach-san-ha-long</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><h3 id="Uu-diem"><a href="#Uu-diem" class="headerlink" title="Ưu điểm"></a>Ưu điểm</h3><ul>
+<li>Sử dụng php đơn giản, dễ sửa chữa</li>
+</ul>
+<h3 id="Nhuoc-diem"><a href="#Nhuoc-diem" class="headerlink" title="Nhược điểm"></a>Nhược điểm</h3><ul>
+<li>Web đã cũ</li>
+<li>Tuy đã migrate sang mysqli nhưng chưa kiểm tra hết</li>
+<li>Phần quản trị hơi khó dùng<h3 id="Danh-sach-menu"><a href="#Danh-sach-menu" class="headerlink" title="Danh sách menu"></a>Danh sách menu</h3></li>
+<li>Trang chủ</li>
+<li>Giới thiệu</li>
+<li>Phòng trọ</li>
+<li>Đồ ăn và đồ uống</li>
+<li>Tiện ích và dịch vụ</li>
+<li>Tiện ích dành cho doanh nghiệp</li>
+<li>Khuyễn mãi</li>
+<li>Gửi phản hồi</li>
+<li>Đặt phòng</li>
+<li>Kết nối tới các trang web khác</li>
+<li>Liên hệ</li>
+</ul>
+<h3 id="Trang-quan-tri"><a href="#Trang-quan-tri" class="headerlink" title="Trang quản trị"></a>Trang quản trị</h3><ul>
+<li>Quản trị tất cả nội dung trên</li>
+</ul>
+<h3 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h3><ul>
+<li>Phần ảnh chưa được lỗi phần upload tài liệu</li>
+<li>Lỗi file dump db tiếng việt</li>
+</ul>
+<h2 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h2><img src="/images/2019-07-21-Xay-dung-website-khach-san-ha-long/0.png" class="[class names]" title="0.png 0.png">
+<img src="/images/2019-07-21-Xay-dung-website-khach-san-ha-long/1.png" class="[class names]" title="1.png 1.png">
+<img src="/images/2019-07-21-Xay-dung-website-khach-san-ha-long/2.png" class="[class names]" title="2.png 2.png">
+<img src="/images/2019-07-21-Xay-dung-website-khach-san-ha-long/3.png" class="[class names]" title="3.png 3.png">
+<img src="/images/2019-07-21-Xay-dung-website-khach-san-ha-long/4.png" class="[class names]" title="4.png 4.png">
+<img src="/images/2019-07-21-Xay-dung-website-khach-san-ha-long/5.png" class="[class names]" title="5.png 5.png">
+<img src="/images/2019-07-21-Xay-dung-website-khach-san-ha-long/6.png" class="[class names]" title="6.png 6.png">
+
+<h2 id="Documentation"><a href="#Documentation" class="headerlink" title="Documentation"></a>Documentation</h2><p>No Documentation</p>
+<h2 id="Origin-information"><a href="#Origin-information" class="headerlink" title="Origin information"></a>Origin information</h2><p>🔗 <a href="https://www.adcvietnam.net/" target="_blank" rel="noopener">Công ty thiết kế adcvietnam</a></p>
+<h2 id="Video"><a href="#Video" class="headerlink" title="Video"></a>Video</h2><p>No video</p>
+<h2 id="Github-private"><a href="#Github-private" class="headerlink" title="Github private"></a>Github private</h2><p>🔗 <a href="https://github.com/taminhluan/khach-san-ha-long" target="_blank" rel="noopener">PRIVATE Github khach-san-ha-long</a></p>
+<h2 id="Sharecode"><a href="#Sharecode" class="headerlink" title="Sharecode"></a>Sharecode</h2><p>🔗 <a href="https://sharecode.vn/source-code/xay-dung-website-khach-san-ha-long-23164.htm" target="_blank" rel="noopener">Share code</a></p>
+<h2 id="Google-drive"><a href="#Google-drive" class="headerlink" title="Google drive"></a>Google drive</h2><p><a href="https://drive.google.com/open?id=15Uph_2rzPsevoTH_PiwO8uKb2ZYb00hHkcuf" target="_blank" rel="noopener">PRIVATE Google Drive</a></p>
+<h2 id="Deploy"><a href="#Deploy" class="headerlink" title="Deploy"></a>Deploy</h2><p>No deploy</p>
+<h2 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h2><p>Hướng dẫn cài đặt:</p>
+<ol>
+<li>Cài đặt xampp/wamp 5.7</li>
+<li>Chạy file halong_db.sql</li>
+<li>Cấu hình trong file connect.inc các thông số hostname, database, username password</li>
+<li>Mở trình duyệt và chạy<br>Nếu có bất cứ khó khăn gì hãy liên hệ với mình. Mình sẽ hướng dẫn cài đặt, và chỉnh sửa nếu cần.<br>Cảm ơn các bạn</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/doan-2019-07-21-Xay-dung-website-khach-san-ha-long/" data-id="ck74jjgt500a42mcpriwlgkgt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Php/">Php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Wordpress/">Wordpress</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-2019-07-21-migrate-old-php" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-2019-07-21-migrate-old-php/" class="article-date">
+  <time datetime="2019-07-21T10:59:25.000Z" itemprop="datePublished">2019-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-2019-07-21-migrate-old-php/">migrate old php</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Migrate-code-khi-lay-project-qua-cu"><a href="#Migrate-code-khi-lay-project-qua-cu" class="headerlink" title="Migrate code khi lấy project quá cũ"></a>Migrate code khi lấy project quá cũ</h1><p>Đối với kết nối thay hết thành mysqli</p>
+<p>mysql_num_rows =&gt; mysqli_num_rows<br>mysql_query($sqlMenu,$cnn); =&gt; mysqli_query($cnn, $sqlMenu);</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-2019-07-21-migrate-old-php/" data-id="ck74jjgpv002j2mcp0ei4zp1t" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-2019-07-15-Import-File-csv-toi-nhieu-bang-trong-co-so-du-lieu-quan-he" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-2019-07-15-Import-File-csv-toi-nhieu-bang-trong-co-so-du-lieu-quan-he/" class="article-date">
+  <time datetime="2019-07-15T08:59:39.000Z" itemprop="datePublished">2019-07-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tools/">tools</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-2019-07-15-Import-File-csv-toi-nhieu-bang-trong-co-so-du-lieu-quan-he/">Import File csv tới nhiều bảng trong cơ sở dữ liệu quan hệ</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Mo-dau"><a href="#Mo-dau" class="headerlink" title="Mở đầu"></a>Mở đầu</h2><p>Bạn có bao giờ nhận được file excel từ khách hàng và bắt code chức năng hiển thị, tìm kiếm các thứ trên giao diện web và ứng dụng. Ok đầu tiên thiết kế database sau đó bằng cách nào đó import cái file excel này vào csdl. Vấn đề sẽ đơn giản nếu file excel tương ứng với 1 bảng. Ta dùng một tool gì đó như mình thì dùng Navicat để import. Mọi việc sẽ phức tạp hơn nếu như ta cần từ file excel import tới related table. Lần thứ nhất gặp phải ngồi code ít nhanh nhanh để import được, code xong bỏ đi, lần thứ 2 làm được thì tốt nhất là làm cái tools. Trước khi code thì xem đã có giải pháp nào chưa. Tìm rồi thấy rồi thì chia sẻ, contribute lại cho người ta. Có thể bạn vẫn chưa hiểu import nhiều bảng là gì thì xem tiếp phần bên dưới.</p>
+<h2 id="Import-1-bang"><a href="#Import-1-bang" class="headerlink" title="Import 1 bảng"></a>Import 1 bảng</h2><p>Sử dụng Navicat <a href="https://viblo.asia/p/cong-cu-quan-ly-co-so-du-lieu-navicat-va-huong-dan-crack-tren-ubuntu-window-aWj539DeZ6m" target="_blank" rel="noopener">Hướng dẫn crack</a></p>
+<h2 id="Cong-cu-import-vao-nhieu-bang"><a href="#Cong-cu-import-vao-nhieu-bang" class="headerlink" title="Công cụ import vào nhiều bảng"></a>Công cụ import vào nhiều bảng</h2><p>Mình tìm thấy ở đây <a href="https://github.com/goFrendiAsgard/csv2db.py" target="_blank" rel="noopener">Github original csv2db</a>. Hoặc tham khảo bản <a href="https://github.com/taminhluan/csv2db.py" target="_blank" rel="noopener">fork</a> của mình thêm được ít code ví dụ và collation utf8 khi import.</p>
+<p>Xin phép copy README.md của tác giả</p>
+<h1 id="What-is-it"><a href="#What-is-it" class="headerlink" title="What is it?"></a>What is it?</h1><p>csv2db.py is a simple program to import data into any database platform (which is supported by sqlalchemy).</p>
+<h1 id="New-features"><a href="#New-features" class="headerlink" title="New features"></a>New features</h1><p>Use pip install -r requirements.txt</p>
+<h1 id="Issues"><a href="#Issues" class="headerlink" title="Issues"></a>Issues</h1><ul>
+<li><input disabled type="checkbox"> Truncage float type if empty string</li>
+</ul>
+<h1 id="What-is-it-for"><a href="#What-is-it-for" class="headerlink" title="What is it for?"></a>What is it for?</h1><p><strong>Short answer:</strong></p>
+<p>To help you</p>
+<p><strong>Long answer:</strong> </p>
+<p>You have make a complex and perfect database structure. You have also finish the program, so it should work just fine. Later, you find that your client already has a primitive-worksheet data storage which is consist of thousands rows (usually in xls extension). Simply import csv into database is impossible since a row in the worksheet is related to several tables.</p>
+<p>Look for this <code>normal</code> worksheet: </p>
+<table>
+<thead>
+<tr>
+<th align="left">Transaction code</th>
+<th align="left">Date</th>
+<th align="left">Item code</th>
+<th align="left">Item name</th>
+<th align="left">Price</th>
+<th align="left">Quantity</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">T001</td>
+<td align="left">08/10/2013</td>
+<td align="left">I001</td>
+<td align="left">Candy</td>
+<td align="left">$5</td>
+<td align="left">4 pcs</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">I002</td>
+<td align="left">Chocolate</td>
+<td align="left">$10</td>
+<td align="left">5 pcs</td>
+</tr>
+<tr>
+<td align="left">T002</td>
+<td align="left">08/20/2013</td>
+<td align="left">I003</td>
+<td align="left">Coke</td>
+<td align="left">$7</td>
+<td align="left">1 bottle</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">I001</td>
+<td align="left">Candy</td>
+<td align="left">$5</td>
+<td align="left">1 pcs</td>
+</tr>
+<tr>
+<td align="left">T003</td>
+<td align="left">08/21/2013</td>
+<td align="left">I004</td>
+<td align="left">Coffee</td>
+<td align="left">$2</td>
+<td align="left">1 cup</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">I003</td>
+<td align="left">Coke</td>
+<td align="left">$7</td>
+<td align="left">1 bottle</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">I001</td>
+<td align="left">Candy</td>
+<td align="left">$5</td>
+<td align="left">1 pcs</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">I005</td>
+<td align="left">新聞</td>
+<td align="left">$10.00</td>
+<td align="left">1 exemplar</td>
+</tr>
+</tbody></table>
+<p>Pretty normal, right?</p>
+<p>Now, you need to import the worksheet into 3 tables, <code>transaction</code>, <code>transaction_detail</code>, and <code>item</code><br>The content and structure of <code>transaction</code> table should be:</p>
+<table>
+<thead>
+<tr>
+<th align="right">id</th>
+<th align="left">code</th>
+<th align="left">date</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">1</td>
+<td align="left">T001</td>
+<td align="left">2013-08-10</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td align="left">T002</td>
+<td align="left">2013-08-20</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td align="left">T003</td>
+<td align="left">2013-08-21</td>
+</tr>
+</tbody></table>
+<p>The content and structure of <code>item</code> table should be:</p>
+<table>
+<thead>
+<tr>
+<th align="right">id</th>
+<th align="left">code</th>
+<th align="left">name</th>
+<th align="right">price</th>
+<th align="left">unit</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">1</td>
+<td align="left">I001</td>
+<td align="left">Candy</td>
+<td align="right">5</td>
+<td align="left">pcs</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td align="left">I002</td>
+<td align="left">Chocolate</td>
+<td align="right">10</td>
+<td align="left">pcs</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td align="left">I003</td>
+<td align="left">Coke</td>
+<td align="right">7</td>
+<td align="left">bottle</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td align="left">I004</td>
+<td align="left">Coffee</td>
+<td align="right">2</td>
+<td align="left">cup</td>
+</tr>
+<tr>
+<td align="right">5</td>
+<td align="left">I005</td>
+<td align="left">新聞</td>
+<td align="right">10</td>
+<td align="left">exemplar</td>
+</tr>
+</tbody></table>
+<p>The content and structure of <code>transaction detail</code> table should be:</p>
+<table>
+<thead>
+<tr>
+<th align="right">id</th>
+<th align="right">id_transaction</th>
+<th align="right">id_item</th>
+<th align="right">qty</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">4</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">5</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">1</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+<tr>
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">1</td>
+</tr>
+<tr>
+<td align="right">6</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">1</td>
+</tr>
+<tr>
+<td align="right">7</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+<tr>
+<td align="right">8</td>
+<td align="right">3</td>
+<td align="right">5</td>
+<td align="right">1</td>
+</tr>
+</tbody></table>
+<p>Firstly you think it is going to be easy, but after realize that <code>transaction</code> and <code>item</code> has many-to-many relationship, you start to think it is not as easy as it firstly seen.</p>
+<p>You start to curse your client’s primitive datastore. You know, make your own code is possible, but it going to take a very long time.</p>
+<p>csv2db.py is made to turn the possible into easy.</p>
+<h1 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h1><ul>
+<li>python 2.7.</li>
+<li>sqlalchemy.</li>
+<li>a functioning brain.</li>
+<li>an ability to code in Python (at least able to modify what need to be modified).</li>
+</ul>
+<p>Linux users can do this:</p>
+<pre><code>sudo apt-get install python python-sqlalchemy</code></pre><p>Windows users should find their own way. </p>
+<h1 id="How-to-use"><a href="#How-to-use" class="headerlink" title="How to use"></a>How to use</h1><ul>
+<li><p>If your file is in either <code>xls</code> or <code>ods</code> extension, you must convert them into <code>csv</code> (i.e: By using <code>File|Save As</code> menu).<br>The <code>csv</code> file is still readable and editable by your office program. In addition, the csv can also be viewed as <code>text file</code></p>
+</li>
+<li><p>Here is the <code>csv</code> of the previous worksheet example:</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&quot;Transaction Code&quot;,&quot;Date&quot;,&quot;Item Code&quot;,&quot;Item Name&quot;,&quot;Price&quot;,&quot;Quantity&quot;</span><br><span class="line">&quot;T001&quot;,08/10/13,&quot;I001&quot;,&quot;Candy&quot;,&quot;$5.00&quot;,&quot;4 pcs&quot;</span><br><span class="line">,,&quot;I002&quot;,&quot;Chocolate&quot;,&quot;$10.00&quot;,&quot;5 pcs&quot;</span><br><span class="line">&quot;T002&quot;,08/20/13,&quot;I003&quot;,&quot;Coke&quot;,&quot;$7.00&quot;,&quot;1 bottle&quot;</span><br><span class="line">,,&quot;I001&quot;,&quot;Candy&quot;,&quot;$5.00&quot;,&quot;1 pcs&quot;</span><br><span class="line">&quot;T004&quot;,08/21/13,&quot;I004&quot;,&quot;Coffee&quot;,&quot;$2.00&quot;,&quot;1 cup&quot;</span><br><span class="line">,,&quot;I003&quot;,&quot;Coke&quot;,&quot;$7.00&quot;,&quot;1 bottle&quot;</span><br><span class="line">,,&quot;I001&quot;,&quot;Candy&quot;,&quot;$5.00&quot;,&quot;1 pcs&quot;</span><br><span class="line">,,&quot;I005&quot;,&quot;新聞&quot;,&quot;$10.00&quot;,&quot;1 exemplar&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Ensure your database &amp; tables are already exists.</p>
+</li>
+<li><p>Make a python script just as in <a href="test.py">test.py</a></p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> csv2db <span class="keyword">import</span> csv2db</span><br><span class="line"></span><br><span class="line"><span class="comment"># connection string (used by sqlalchemy)</span></span><br><span class="line">connection_string = <span class="string">'sqlite:///test.db'</span></span><br><span class="line"><span class="comment"># MySQL connection_string example. Beware of the charset</span></span><br><span class="line"><span class="comment"># connection_string = 'mysql://root:toor@localhost:3306/test?charset=utf8'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># the csv file name. If your worksheet is on "xls" format, please convert them into csv first (i.e: in MS Excel you can use File | Save As)</span></span><br><span class="line"><span class="comment"># the first line of the csv should be the header</span></span><br><span class="line">file_name = <span class="string">'test.csv'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># more info about csv_param: http://docs.python.org/2/library/csv.html#csv-fmt-params</span></span><br><span class="line">csv_param = &#123;</span><br><span class="line">    <span class="string">'delimiter'</span>: <span class="string">','</span>,   <span class="comment"># libre office usually use "," while microsoft office usually use "tab"</span></span><br><span class="line">    <span class="string">'quotechar'</span>: <span class="string">'"'</span>    <span class="comment"># both, libre office and microsoft office usually use '"'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">########################################################################</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># define several preprocessing callbacks. These callbacks will be used to preprocess every cell based on it's column</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">change_date_format</span><span class="params">(human_date)</span>:</span></span><br><span class="line">    <span class="string">''' change 08/31/2000 into 2000-08-31</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    date_part = human_date.split(<span class="string">'/'</span>)</span><br><span class="line">    <span class="keyword">if</span> len(date_part) == <span class="number">3</span>:</span><br><span class="line">        day = date_part[<span class="number">1</span>]</span><br><span class="line">        month = date_part[<span class="number">0</span>]</span><br><span class="line">        year = date_part[<span class="number">2</span>]</span><br><span class="line">        computer_date = year + <span class="string">'-'</span> + month + <span class="string">'-'</span> + day</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        computer_date = <span class="string">''</span></span><br><span class="line">    <span class="keyword">return</span> computer_date</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">remove_dollar</span><span class="params">(value)</span>:</span></span><br><span class="line">    <span class="string">''' remove $, computer doesn't understand $</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">return</span> float(value.replace(<span class="string">'$'</span>, <span class="string">''</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># callback dictionary. The key is caption of the column, the value is the function used</span></span><br><span class="line">callback = &#123;</span><br><span class="line">    <span class="string">'Date'</span> : change_date_format,</span><br><span class="line">    <span class="string">'Price'</span> : remove_dollar</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">########################################################################</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># specific preprocess function (in case of 2 different fields refer to the same csv column)</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">filter_qty</span><span class="params">(value)</span>:</span></span><br><span class="line">    <span class="string">''' get "1" as int from "1 bottle" string</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">return</span> int(value.split(<span class="string">' '</span>)[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">filter_unit</span><span class="params">(value)</span>:</span></span><br><span class="line">    <span class="string">''' get "bottle" from "1 bottle"</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">' '</span>.join(value.split(<span class="string">' '</span>)[<span class="number">1</span>:])</span><br><span class="line"></span><br><span class="line"><span class="comment">########################################################################</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># the table structure of your database and how they related to your csv file</span></span><br><span class="line"><span class="comment"># WARNING: "unique" doesn't has any correlation with database unique constraint, unique is used as csv record identifier (since primary key does not exists in csv)</span></span><br><span class="line"><span class="comment"># if you have many "unique" field, AND logic will be used to distinguish a field from another field</span></span><br><span class="line">table_structure_list = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'table_name'</span> : <span class="string">'trans'</span>,</span><br><span class="line">        <span class="string">'column_list'</span>: &#123;</span><br><span class="line">            <span class="string">'id'</span>    : &#123;<span class="string">'primary'</span>: <span class="literal">True</span>&#125;,</span><br><span class="line">            <span class="string">'code'</span>  : &#123;<span class="string">'caption'</span>: <span class="string">'Transaction Code'</span>, <span class="string">'unique'</span>: <span class="literal">True</span>&#125;,</span><br><span class="line">            <span class="string">'date'</span>  : &#123;<span class="string">'caption'</span>: <span class="string">'Date'</span>&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'table_name'</span> : <span class="string">'item'</span>,</span><br><span class="line">        <span class="string">'column_list'</span>: &#123;</span><br><span class="line">            <span class="string">'id'</span>    : &#123;<span class="string">'primary'</span>: <span class="literal">True</span>&#125;,</span><br><span class="line">            <span class="string">'code'</span>  : &#123;<span class="string">'caption'</span>: <span class="string">'Item Code'</span>, <span class="string">'unique'</span>: <span class="literal">True</span>&#125;,</span><br><span class="line">            <span class="string">'name'</span>  : &#123;<span class="string">'caption'</span>: <span class="string">'Item Name'</span>&#125;,</span><br><span class="line">            <span class="string">'price'</span> : &#123;<span class="string">'caption'</span>: <span class="string">'Price'</span>&#125;,</span><br><span class="line">            <span class="string">'unit'</span>  : &#123;<span class="string">'caption'</span>: <span class="string">'Quantity'</span>, <span class="string">'preprocess'</span> : filter_unit&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'table_name'</span> : <span class="string">'trans_detail'</span>,</span><br><span class="line">        <span class="string">'column_list'</span>: &#123;</span><br><span class="line">            <span class="string">'id'</span>                : &#123;<span class="string">'primary'</span>  : <span class="literal">True</span>&#125;,</span><br><span class="line">            <span class="string">'id_transaction'</span>    : &#123;<span class="string">'reference'</span>: <span class="string">'trans.id'</span>, <span class="string">'unique'</span>: <span class="literal">True</span>&#125;,</span><br><span class="line">            <span class="string">'id_item'</span>           : &#123;<span class="string">'reference'</span>: <span class="string">'item.id'</span>, <span class="string">'unique'</span>: <span class="literal">True</span>&#125;,</span><br><span class="line">            <span class="string">'qty'</span>               : &#123;<span class="string">'caption'</span>  : <span class="string">'Quantity'</span>, <span class="string">'preprocess'</span>: filter_qty&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment"># and here is the magic:</span></span><br><span class="line">csv2db(file_name, csv_param, connection_string, table_structure_list, callback)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Run your python script, and your database should be filled automagically</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python test.py</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="Todo"><a href="#Todo" class="headerlink" title="Todo"></a>Todo</h1><ul>
+<li>Make db2csv.py</li>
+</ul>
+<h1 id="Help-me"><a href="#Help-me" class="headerlink" title="Help me"></a>Help me</h1><ul>
+<li>If you are a <code>python-coder</code> and <code>github-user</code>, you can fork this project and do some <code>pull requests</code> or submit some <code>issues</code></li>
+<li>If you think this simple script help you save your time and money, please consider to <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YDES6RTA9QJQL" target="_blank" rel="noopener"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" alt="Donate"></a></li>
+</ul>
+<h1 id="Disclaimer"><a href="#Disclaimer" class="headerlink" title="Disclaimer"></a>Disclaimer</h1><p>If you are a <code>mere-mortal-computer-user</code>, and doesn’t have any intention to learn programming, than sadly said, this thing is not for you.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-2019-07-15-Import-File-csv-toi-nhieu-bang-trong-co-so-du-lieu-quan-he/" data-id="ck74jjgue00cn2mcprhmu4bj9" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/">database</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/import-csv/">import csv</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-2019-07-14-su-dung-git" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-2019-07-14-su-dung-git/" class="article-date">
+  <time datetime="2019-07-14T04:19:26.000Z" itemprop="datePublished">2019-07-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/note/">note</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-2019-07-14-su-dung-git/">sử dụng git</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>git config credential.helper store</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-2019-07-14-su-dung-git/" data-id="ck74jjgpu002h2mcpyq8ijds6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-doan-2019-07-11-Xay-dung-website-ban-linh-kien-may-tinh" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/doan-2019-07-11-Xay-dung-website-ban-linh-kien-may-tinh/" class="article-date">
+  <time datetime="2019-07-11T10:36:09.000Z" itemprop="datePublished">2019-07-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Do-an/">Đồ án</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/doan-2019-07-11-Xay-dung-website-ban-linh-kien-may-tinh/">Xây dựng website bán linh kiện máy tính</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Xay-dung-website-ban-linh-kien-may-tinh"><a href="#Xay-dung-website-ban-linh-kien-may-tinh" class="headerlink" title="Xây dựng website bán linh kiện máy tính"></a>Xây dựng website bán linh kiện máy tính</h1><h2 id="Check-list"><a href="#Check-list" class="headerlink" title="Check list"></a>Check list</h2><p>Checklist được áp dụng cho tất cả đồ án</p>
+<ul>
+<li><input checked disabled type="checkbox"> Fullsource</li>
+<li><input checked disabled type="checkbox"> Dump DB data</li>
+<li><input checked disabled type="checkbox"> Description</li>
+<li><input checked disabled type="checkbox"> Images</li>
+<li><input checked disabled type="checkbox"> Documentation</li>
+<li><input checked disabled type="checkbox"> Origin information</li>
+<li><input disabled type="checkbox"> Video</li>
+<li><input checked disabled type="checkbox"> Github private</li>
+<li><input checked disabled type="checkbox"> Sharecode</li>
+<li><input disabled type="checkbox"> Deploy</li>
+<li><input checked disabled type="checkbox"> Setup</li>
+</ul>
+<h2 id="Fullsource"><a href="#Fullsource" class="headerlink" title="Fullsource"></a>Fullsource</h2><p>📎  <a href="https://github.com/taminhluan/ban-linh-kien-may-tinh" target="_blank" rel="noopener">PRIVATE Github ban-linh-kien-may-tinh</a></p>
+<h2 id="Sql-file"><a href="#Sql-file" class="headerlink" title="Sql file"></a>Sql file</h2><p>📎  <a href="https://github.com/taminhluan/ban-linh-kien-may-tinh/blob/master/database/hitech.mdb" target="_blank" rel="noopener">PRIVATE Github ban-linh-kien-may-tinh hitech.mdb</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><ul>
+<li>Đăng nhập, đăng xuất,</li>
+<li>Giỏ hàng</li>
+<li>Đơn hàng</li>
+<li>Sản phẩm</li>
+<li>Tin tức</li>
+<li>Tỉ giá hối đoái</li>
+<li>Nhân viên</li>
+<li>Tra cứu theo tên sản phẩm</li>
+<li>Tra cứu theo tin tức</li>
+<li>Thống kê theo đơn đặt hàng, sản phẩm, yêu cầu, sản phẩm bán chạy</li>
+</ul>
+<h2 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h2><img src="/images/2019-07-11-Xay-dung-website-ban-linh-kien-may-tinh/0.png" class="[class names]" title="0.png 0.png">
+<img src="/images/2019-07-11-Xay-dung-website-ban-linh-kien-may-tinh/1.png" class="[class names]" title="1.png 1.png">
+<img src="/images/2019-07-11-Xay-dung-website-ban-linh-kien-may-tinh/2.png" class="[class names]" title="2.png 2.png">
+<img src="/images/2019-07-11-Xay-dung-website-ban-linh-kien-may-tinh/3.png" class="[class names]" title="3.png 3.png">
+<img src="/images/2019-07-11-Xay-dung-website-ban-linh-kien-may-tinh/4.png" class="[class names]" title="4.png 4.png">
+<img src="/images/2019-07-11-Xay-dung-website-ban-linh-kien-may-tinh/5.png" class="[class names]" title="5.png 5.png">
+<img src="/images/2019-07-11-Xay-dung-website-ban-linh-kien-may-tinh/6.png" class="[class names]" title="6.png 6.png">
+<img src="/images/2019-07-11-Xay-dung-website-ban-linh-kien-may-tinh/7.png" class="[class names]" title="7.png 7.png">
+<img src="/images/2019-07-11-Xay-dung-website-ban-linh-kien-may-tinh/8.png" class="[class names]" title="8.png 8.png">
+<img src="/images/2019-07-11-Xay-dung-website-ban-linh-kien-may-tinh/9.png" class="[class names]" title="9.png 9.png">
+
+<h2 id="Documentation"><a href="#Documentation" class="headerlink" title="Documentation"></a>Documentation</h2><p>📎  <a href="https://github.com/taminhluan/ban-linh-kien-may-tinh/blob/master/Documents/Documents/ban-linh-kien.docx" target="_blank" rel="noopener">PRIVATE Github ban-linh-kien-may-tinh</a></p>
+<h2 id="Origin-information"><a href="#Origin-information" class="headerlink" title="Origin information"></a>Origin information</h2><p>🔗 <a href="https://www.facebook.com/luantm96" target="_blank" rel="noopener">facebook luantm96</a><br>🔗 <a href="https://www.linkedin.com/in/luantm/" target="_blank" rel="noopener">linkedin luantm</a><br>🔗 <a href="ngoalongtb001@gmail.com">gmail ngoalongtb001@gmail.com</a><br>🔗 <a href="luantm96@gmail.com">gmail luantm96@gmail.com</a></p>
+<h2 id="Video"><a href="#Video" class="headerlink" title="Video"></a>Video</h2><p>No video</p>
+<h2 id="Github-private"><a href="#Github-private" class="headerlink" title="Github private"></a>Github private</h2><p>🔗 <a href="https://github.com/taminhluan/ban-linh-kien-may-tinh" target="_blank" rel="noopener">PRIVATE Github ban-linh-kien-may-tinh</a></p>
+<h2 id="Sharecode"><a href="#Sharecode" class="headerlink" title="Sharecode"></a>Sharecode</h2><p>🔗 <a href="https://sharecode.vn/source-code/xay-dung-website-ban-linh-kien-may-tinh-23107.htm" target="_blank" rel="noopener">Share code</a></p>
+<h2 id="Google-drive"><a href="#Google-drive" class="headerlink" title="Google drive"></a>Google drive</h2><p><a href="https://drive.google.com/open?id=1EuUE1xm5XL5cv_ejIC-0xB1oZc-tdOjmkcuf" target="_blank" rel="noopener">PRIVATE Google Drive</a></p>
+<h2 id="Deploy"><a href="#Deploy" class="headerlink" title="Deploy"></a>Deploy</h2><p>No Deploy</p>
+<h2 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h2><p>Hướng dẫn cài đặt:</p>
+<ol>
+<li>Cài đặt Visual studio</li>
+<li>Run</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/doan-2019-07-11-Xay-dung-website-ban-linh-kien-may-tinh/" data-id="ck74jjgt3009z2mcp5s2fp4dk" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Asp-net/">Asp.net</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-doan-2019-07-11-Website-ban-dong-ho" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/doan-2019-07-11-Website-ban-dong-ho/" class="article-date">
+  <time datetime="2019-07-11T09:36:00.000Z" itemprop="datePublished">2019-07-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Do-an/">Đồ án</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/doan-2019-07-11-Website-ban-dong-ho/">Website bán đồng hồ</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Xay-dung-website-ban-dong-ho"><a href="#Xay-dung-website-ban-dong-ho" class="headerlink" title="Xây dựng website bán đồng hồ"></a>Xây dựng website bán đồng hồ</h1><h2 id="Check-list"><a href="#Check-list" class="headerlink" title="Check list"></a>Check list</h2><p>Checklist được áp dụng cho tất cả đồ án</p>
+<ul>
+<li><input checked disabled type="checkbox"> Fullsource</li>
+<li><input checked disabled type="checkbox"> Dump DB data</li>
+<li><input checked disabled type="checkbox"> Description</li>
+<li><input checked disabled type="checkbox"> Images</li>
+<li><input checked disabled type="checkbox"> Documentation</li>
+<li><input checked disabled type="checkbox"> Origin information</li>
+<li><input disabled type="checkbox"> Video</li>
+<li><input checked disabled type="checkbox"> Github private</li>
+<li><input checked disabled type="checkbox"> Sharecode</li>
+<li><input checked disabled type="checkbox"> Deploy</li>
+<li><input checked disabled type="checkbox"> Setup</li>
+</ul>
+<h2 id="Fullsource"><a href="#Fullsource" class="headerlink" title="Fullsource"></a>Fullsource</h2><p>📎  <a href="https://github.com/taminhluan/watch-shop-laravel" target="_blank" rel="noopener">PRIVATE Github watch-shop-laravel</a></p>
+<h2 id="Sql-file"><a href="#Sql-file" class="headerlink" title="Sql file"></a>Sql file</h2><p>📎  <a href="https://github.com/taminhluan/watch-shop-laravel/blob/master/watch-shop.sql" target="_blank" rel="noopener">PRIVATE Github watch-shop-laravel watch-shop.sql</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><ul>
+<li>Quản lý hóa đơn</li>
+<li>Quản lý sản phẩm</li>
+<li>Quản lý người dùng</li>
+<li>Xem thông tin sản phẩm</li>
+<li>Mua hàng</li>
+<li>Đăng nhập, đăng xuất</li>
+<li>Đặt hàng</li>
+<li>Thanh toán</li>
+</ul>
+<h2 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h2><img src="/images/2019-07-11-Website-ban-dong-ho/1.png" class="[class names]" title="1.png 1.png">
+<img src="/images/2019-07-11-Website-ban-dong-ho/2.png" class="[class names]" title="2.png 2.png">
+<img src="/images/2019-07-11-Website-ban-dong-ho/3.png" class="[class names]" title="3.png 3.png">
+<img src="/images/2019-07-11-Website-ban-dong-ho/4.png" class="[class names]" title="4.png 4.png">
+<img src="/images/2019-07-11-Website-ban-dong-ho/5.png" class="[class names]" title="5.png 5.png">
+<img src="/images/2019-07-11-Website-ban-dong-ho/6.png" class="[class names]" title="6.png 6.png">
+<img src="/images/2019-07-11-Website-ban-dong-ho/7.png" class="[class names]" title="7.png 7.png">
+<img src="/images/2019-07-11-Website-ban-dong-ho/8.png" class="[class names]" title="8.png 8.png">
+<img src="/images/2019-07-11-Website-ban-dong-ho/9.png" class="[class names]" title="9.png 9.png">
+<img src="/images/2019-07-11-Website-ban-dong-ho/10.png" class="[class names]" title="10.png 10.png">
+
+<h2 id="Documentation"><a href="#Documentation" class="headerlink" title="Documentation"></a>Documentation</h2><p>📎  <a href="https://github.com/taminhluan/watch-shop-laravel/blob/master/Documents/Documents/ban-dong-ho.docx" target="_blank" rel="noopener">PRIVATE Github watch-shop-laravel</a></p>
+<h2 id="Origin-information"><a href="#Origin-information" class="headerlink" title="Origin information"></a>Origin information</h2><p>🔗 <a href="https://www.facebook.com/luantm96" target="_blank" rel="noopener">facebook luantm96</a><br>🔗 <a href="https://www.linkedin.com/in/luantm/" target="_blank" rel="noopener">linkedin luantm</a><br>🔗 <a href="ngoalongtb001@gmail.com">gmail ngoalongtb001@gmail.com</a><br>🔗 <a href="luantm96@gmail.com">gmail luantm96@gmail.com</a></p>
+<h2 id="Video"><a href="#Video" class="headerlink" title="Video"></a>Video</h2><p>No video</p>
+<h2 id="Github-private"><a href="#Github-private" class="headerlink" title="Github private"></a>Github private</h2><p>🔗 <a href="https://github.com/taminhluan/watch-shop-laravel" target="_blank" rel="noopener">PRIVATE Github watch-shop-laravel</a></p>
+<h2 id="Sharecode"><a href="#Sharecode" class="headerlink" title="Sharecode"></a>Sharecode</h2><p>🔗 <a href="https://sharecode.vn/source-code/xay-dung-website-ban-dong-ho-23106.htm" target="_blank" rel="noopener">Share code</a></p>
+<h2 id="Google-drive"><a href="#Google-drive" class="headerlink" title="Google drive"></a>Google drive</h2><p><a href="https://drive.google.com/open?id=1qokF1FtBjwGriC4OWqKtpavHS9iN_h72kcuf" target="_blank" rel="noopener">PRIVATE Google Drive</a></p>
+<h2 id="Deploy"><a href="#Deploy" class="headerlink" title="Deploy"></a>Deploy</h2><p><a href="http://laravel-watch-shop.herokuapp.com/index" target="_blank" rel="noopener">laravel-watch-shop</a></p>
+<h2 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h2><p>Hướng dẫn cài đặt:</p>
+<ol>
+<li>Cài đặt xampp/wamp</li>
+<li>Run</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/doan-2019-07-11-Website-ban-dong-ho/" data-id="ck74jjgt2009w2mcpr636s63r" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Php/">Php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Wordpress/">Wordpress</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-doan-2019-07-11-Cua-hang-dien-thoai" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/doan-2019-07-11-Cua-hang-dien-thoai/" class="article-date">
+  <time datetime="2019-07-11T09:03:35.000Z" itemprop="datePublished">2019-07-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Do-an/">Đồ án</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/doan-2019-07-11-Cua-hang-dien-thoai/">Cửa hàng điện thoại</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Cua-hang-dien-thoai"><a href="#Cua-hang-dien-thoai" class="headerlink" title="Cửa hàng điện thoại"></a>Cửa hàng điện thoại</h1><h2 id="Check-list"><a href="#Check-list" class="headerlink" title="Check list"></a>Check list</h2><p>Checklist được áp dụng cho tất cả đồ án</p>
+<ul>
+<li><input checked disabled type="checkbox"> Fullsource</li>
+<li><input checked disabled type="checkbox"> Dump DB data</li>
+<li><input checked disabled type="checkbox"> Description</li>
+<li><input checked disabled type="checkbox"> Images</li>
+<li><input checked disabled type="checkbox"> Documentation</li>
+<li><input checked disabled type="checkbox"> Origin information</li>
+<li><input disabled type="checkbox"> Video</li>
+<li><input checked disabled type="checkbox"> Github private</li>
+<li><input checked disabled type="checkbox"> Sharecode</li>
+<li><input disabled type="checkbox"> Deploy</li>
+<li><input checked disabled type="checkbox"> Setup</li>
+</ul>
+<h2 id="Fullsource"><a href="#Fullsource" class="headerlink" title="Fullsource"></a>Fullsource</h2><p>📎  <a href="https://github.com/taminhluan/mobile-store" target="_blank" rel="noopener">PRIVATE Github mobile-store</a></p>
+<h2 id="Sql-file"><a href="#Sql-file" class="headerlink" title="Sql file"></a>Sql file</h2><p>📎  <a href="https://github.com/taminhluan/mobile-store/blob/master/Documents/DumpDB/20180225.sql" target="_blank" rel="noopener">PRIVATE Github mobile-store</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Khách truy cập vãng lai</p>
+<ul>
+<li>Đăng ký tài khoản</li>
+<li>Xem hàng</li>
+<li>Mua hàng<br>Khách hàng</li>
+<li>Đăng nhập, đăng xuất</li>
+<li>Xem và thay đổi thông tin cá nhân</li>
+<li>Xem hàng</li>
+<li>Mua hàng</li>
+<li>Xem lịch sử giao dịch<br>Nhân viên</li>
+<li>Có quyền như thành viên</li>
+<li>Nhập hàng</li>
+<li>Bán hàng<br>Quản trị viên</li>
+<li>Có quyền như nhân viên</li>
+<li>Quản lý nhân viên</li>
+<li>Quản lý khách hàng</li>
+<li>Thống kê </li>
+<li>Quản lý nhà cung cấp</li>
+<li>Quản lý mặt hàng<h2 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h2></li>
+</ul>
+<img src="/images/2019-07-11-Cua-hang-dien-thoai/0.png" class="[class names]" title="0.png 0.png">
+<img src="/images/2019-07-11-Cua-hang-dien-thoai/1.png" class="[class names]" title="1.png 1.png">
+<img src="/images/2019-07-11-Cua-hang-dien-thoai/2.png" class="[class names]" title="2.png 2.png">
+<img src="/images/2019-07-11-Cua-hang-dien-thoai/3.png" class="[class names]" title="3.png 3.png">
+
+<h2 id="Documentation"><a href="#Documentation" class="headerlink" title="Documentation"></a>Documentation</h2><p>📎  [PRIVATE Github mobile-store báo cáo.docx](<a href="https://github.com/taminhluan/mobile-store/blob/master/Documents/Document/báo" target="_blank" rel="noopener">https://github.com/taminhluan/mobile-store/blob/master/Documents/Document/báo</a> cáo.docx)</p>
+<h2 id="Origin-information"><a href="#Origin-information" class="headerlink" title="Origin information"></a>Origin information</h2><p>🔗 <a href="https://www.facebook.com/luantm96" target="_blank" rel="noopener">facebook luantm96</a><br>🔗 <a href="https://www.linkedin.com/in/luantm/" target="_blank" rel="noopener">linkedin luantm</a><br>🔗 <a href="ngoalongtb001@gmail.com">gmail ngoalongtb001@gmail.com</a><br>🔗 <a href="luantm96@gmail.com">gmail luantm96@gmail.com</a></p>
+<h2 id="Video"><a href="#Video" class="headerlink" title="Video"></a>Video</h2><p>No video</p>
+<h2 id="Github-private"><a href="#Github-private" class="headerlink" title="Github private"></a>Github private</h2><p>🔗 <a href="https://github.com/taminhluan/mobile-store" target="_blank" rel="noopener">PRIVATE Github mobile-store</a></p>
+<h2 id="Sharecode"><a href="#Sharecode" class="headerlink" title="Sharecode"></a>Sharecode</h2><p>🔗 <a href="https://sharecode.vn/source-code/xay-dung-website-cua-hang-dien-thoai-23105.htm" target="_blank" rel="noopener">Share code</a></p>
+<h2 id="Google-drive"><a href="#Google-drive" class="headerlink" title="Google drive"></a>Google drive</h2><p><a href="https://drive.google.com/open?id=1A-3WndD-5dgeaKtgLpgzxEzHnD36qk4Tkcuf" target="_blank" rel="noopener">PRIVATE Google Drive</a></p>
+<h2 id="Deploy"><a href="#Deploy" class="headerlink" title="Deploy"></a>Deploy</h2><p>No deploy</p>
+<h2 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h2><p>Hướng dẫn cài đặt:</p>
+<ol>
+<li>Mở project với Visual studio</li>
+<li>Run</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/doan-2019-07-11-Cua-hang-dien-thoai/" data-id="ck74jjgt1009u2mcpy42ka6mr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ASP-net-MVC/">ASP.net MVC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android-Programming/">Android Programming</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android-Programming/Note/">Note</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Assembly/">Assembly</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-Viblo/">Code Viblo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Codesignal/">Codesignal</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Deep-learning/">Deep learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GIS/">GIS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linh-tinh/">Linh tinh</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lap-trinh/">Lập trình</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-learning/">Machine learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network-Programming/">Network Programming</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/OWASP-Testing-Guide/">OWASP Testing Guide</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Phim/">Phim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Pre-Calculus/">Pre Calculus</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Social-engineering/">Social engineering</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/System-Programming/">System Programming</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Text-to-speech/">Text to speech</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Text-to-speech/Tool/">Tool</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Toan-hoc/">Toán học</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tri-tue-nhan-tao/">Trí tuệ nhân tạo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Uncategorized/">Uncategorized</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Unit-Testing/">Unit Testing</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Visualisation/">Visualisation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows/">Windows</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ctf/">ctf</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hacker/">hacker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/note/">note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vnspoj/">vnspoj</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/wordpress/">wordpress</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Do-an/">Đồ án</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ASP-net-MVC/">ASP.net MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-Programming/">Android Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Asp-net/">Asp.net</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Assembly/">Assembly</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Basic-Access-Authentication/">Basic Access Authentication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code/">Code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Course/">Course</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Digest-Access-Authentication/">Digest Access Authentication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Du-doan-gia-vang/">Dự đoán giá vàng</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ethical-Hacking/">Ethical Hacking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/">Flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GIS/">GIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html-css-javascript/">Html, css, javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Laravel/">Laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux-System-Programming/">Linux, System Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/">Note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OWASP-Testing-Guide/">OWASP Testing Guide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Php/">Php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python-Codesignal/">Python, Codesignal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quan-ly-diem/">Quản lý điểm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RFC-2069/">RFC 2069</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RFC-2617/">RFC 2617</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SJF/">SJF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Social-engineering/">Social engineering</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-MVC/">Spring MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sql-server/">Sql server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/System-Programming/">System Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Text-to-speech/">Text to speech</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Todos/">Todos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tool/">Tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tinh-toan-mem/">Tính toán mềm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VRML/">VRML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WPF/">WPF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows-Form/">Windows Form</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Winform/">Winform</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Winforms/">Winforms</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wordpress/">Wordpress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ctf/">ctf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/">database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fuzzy-computing/">fuzzy computing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/import-csv/">import csv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/migrate/">migrate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/">wordpress</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ASP-net-MVC/" style="font-size: 10px;">ASP.net MVC</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Android-Programming/" style="font-size: 10px;">Android Programming</a> <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Asp-net/" style="font-size: 10px;">Asp.net</a> <a href="/tags/Assembly/" style="font-size: 14px;">Assembly</a> <a href="/tags/Basic-Access-Authentication/" style="font-size: 10px;">Basic Access Authentication</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Book/" style="font-size: 10px;">Book</a> <a href="/tags/C/" style="font-size: 20px;">C#</a> <a href="/tags/Code/" style="font-size: 14px;">Code</a> <a href="/tags/Course/" style="font-size: 10px;">Course</a> <a href="/tags/Digest-Access-Authentication/" style="font-size: 10px;">Digest Access Authentication</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Du-doan-gia-vang/" style="font-size: 10px;">Dự đoán giá vàng</a> <a href="/tags/Ethical-Hacking/" style="font-size: 10px;">Ethical Hacking</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/GIS/" style="font-size: 10px;">GIS</a> <a href="/tags/Html-css-javascript/" style="font-size: 10px;">Html, css, javascript</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Linux-System-Programming/" style="font-size: 10px;">Linux, System Programming</a> <a href="/tags/Note/" style="font-size: 16px;">Note</a> <a href="/tags/OWASP-Testing-Guide/" style="font-size: 12px;">OWASP Testing Guide</a> <a href="/tags/Php/" style="font-size: 16px;">Php</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Python-Codesignal/" style="font-size: 10px;">Python, Codesignal</a> <a href="/tags/Quan-ly-diem/" style="font-size: 10px;">Quản lý điểm</a> <a href="/tags/RFC-2069/" style="font-size: 10px;">RFC 2069</a> <a href="/tags/RFC-2617/" style="font-size: 10px;">RFC 2617</a> <a href="/tags/SJF/" style="font-size: 10px;">SJF</a> <a href="/tags/Social-engineering/" style="font-size: 14px;">Social engineering</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/Sql-server/" style="font-size: 10px;">Sql server</a> <a href="/tags/System-Programming/" style="font-size: 14px;">System Programming</a> <a href="/tags/Text-to-speech/" style="font-size: 10px;">Text to speech</a> <a href="/tags/Todos/" style="font-size: 10px;">Todos</a> <a href="/tags/Tool/" style="font-size: 10px;">Tool</a> <a href="/tags/Tinh-toan-mem/" style="font-size: 10px;">Tính toán mềm</a> <a href="/tags/VRML/" style="font-size: 12px;">VRML</a> <a href="/tags/WPF/" style="font-size: 10px;">WPF</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/Windows-Form/" style="font-size: 10px;">Windows Form</a> <a href="/tags/Winform/" style="font-size: 10px;">Winform</a> <a href="/tags/Winforms/" style="font-size: 14px;">Winforms</a> <a href="/tags/Wordpress/" style="font-size: 18px;">Wordpress</a> <a href="/tags/ctf/" style="font-size: 10px;">ctf</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/fuzzy-computing/" style="font-size: 10px;">fuzzy computing</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/import-csv/" style="font-size: 10px;">import csv</a> <a href="/tags/migrate/" style="font-size: 10px;">migrate</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/blog-2020-02-27-Lam-sao-de-tra-luong-lap-trinh-vien-it-hon/">Làm sao để trả lương lập trình viên ít hơn</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-02-17-The-art-of-computer-prgramming-PREFACE/">The art of computer prgramming PREFACE</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-02-11-Geographical-Information-Systems-Part-1-Coursera-Week-1/">Geographical Information Systems Part 1 Coursera - Week 1</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-01-09-OWASP-Testing-Guide-2-Conduct-search-engine-discorvery-reconnaissance-for-information-leakage-OTG-INFO-001/">OWASP Testing Guide - 2 Conduct search engine discorvery/reconnaissance for information leakage (OTG-INFO-001) </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 LuanTM<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

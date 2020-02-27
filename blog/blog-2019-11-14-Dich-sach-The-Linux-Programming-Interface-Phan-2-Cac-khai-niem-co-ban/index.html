@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Dịch sách The Linux Programming Interface - Phần 2 Các khái niệm cơ bản | My real name is Tạ Minh Luận</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Mở đầuThe Linux Programming Interface - Phần 2 Các khái niệm cơ bảnChương này sẽ giới thiệu các khái niệm liên quan tới lập trình hệ thống Linux. Nó tập trng vào những bạn đang sử dụng hệ điều hành kh">
+<meta name="keywords" content="Linux, System Programming">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dịch sách The Linux Programming Interface - Phần 2 Các khái niệm cơ bản">
+<meta property="og:url" content="https://taminhluan.github.io/blog/blog-2019-11-14-Dich-sach-The-Linux-Programming-Interface-Phan-2-Cac-khai-niem-co-ban/index.html">
+<meta property="og:site_name" content="My real name is Tạ Minh Luận">
+<meta property="og:description" content="Mở đầuThe Linux Programming Interface - Phần 2 Các khái niệm cơ bảnChương này sẽ giới thiệu các khái niệm liên quan tới lập trình hệ thống Linux. Nó tập trng vào những bạn đang sử dụng hệ điều hành kh">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://taminhluan.github.io/images/the-linux-command-line-interface/subset-of--the-linux-single-directory-hierarchy.png">
+<meta property="og:updated_time" content="2020-02-27T09:13:31.231Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Dịch sách The Linux Programming Interface - Phần 2 Các khái niệm cơ bản">
+<meta name="twitter:description" content="Mở đầuThe Linux Programming Interface - Phần 2 Các khái niệm cơ bảnChương này sẽ giới thiệu các khái niệm liên quan tới lập trình hệ thống Linux. Nó tập trng vào những bạn đang sử dụng hệ điều hành kh">
+<meta name="twitter:image" content="https://taminhluan.github.io/images/the-linux-command-line-interface/subset-of--the-linux-single-directory-hierarchy.png">
+  
+    <link rel="alternate" href="/atom.xml" title="My real name is Tạ Minh Luận" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">My real name is Tạ Minh Luận</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://taminhluan.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-blog-2019-11-14-Dich-sach-The-Linux-Programming-Interface-Phan-2-Cac-khai-niem-co-ban" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-2019-11-14-Dich-sach-The-Linux-Programming-Interface-Phan-2-Cac-khai-niem-co-ban/" class="article-date">
+  <time datetime="2019-11-14T03:26:34.000Z" itemprop="datePublished">2019-11-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Dịch sách The Linux Programming Interface - Phần 2 Các khái niệm cơ bản
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Mo-dau"><a href="#Mo-dau" class="headerlink" title="Mở đầu"></a>Mở đầu</h2><h2 id="The-Linux-Programming-Interface-Phan-2-Cac-khai-niem-co-ban"><a href="#The-Linux-Programming-Interface-Phan-2-Cac-khai-niem-co-ban" class="headerlink" title="The Linux Programming Interface - Phần 2 Các khái niệm cơ bản"></a>The Linux Programming Interface - Phần 2 Các khái niệm cơ bản</h2><p>Chương này sẽ giới thiệu các khái niệm liên quan tới lập trình hệ thống Linux. Nó tập trng vào những bạn đang sử dụng hệ điều hành khác, hoặc có ít kinh nghiệm với Linux cũng như các bản UNIX implementation khác.</p>
+<h3 id="Loi-he-dieu-hanh-The-Kernel"><a href="#Loi-he-dieu-hanh-The-Kernel" class="headerlink" title="Lõi hệ điều hành: The Kernel"></a>Lõi hệ điều hành: The Kernel</h3><p>Operating system (hệ điều hành) được sử dụng với 2 nghĩa: </p>
+<ol>
+<li>Để chỉ ra tất cả các gói bao gồm của một phần mềm trung tâm quản lý các tài nguyên của máy tính tất cả các công cụ đi kèm như là command line interpreters, graphical user interfaces, file utilities and editors</li>
+<li>Nghĩa hẹp hơn là nói tới phần mềm trung tâm quản lý và cấp phép nguồn tài nguyên của máy tính (CPU, RAM and devices)</li>
+</ol>
+<p>Thuật ngữ Kernel thường được sử dụng như từ đồng nghĩa với operating system cái mà chúng ta nói tới trong cuốn sách này.</p>
+<p>Mặc dù nó có thể chạy các chương trình trên một máy tính mà không cần kernel, Sự hiện diện của kernel đơn giản hóa việc viết và sử dụng các chương trình khác, và tăng tính mạnh mẽ và khả chuyển có sẵn phục vụ các lập trình viên. The kernel đã làm điều này để cung cấp một lớp phần mềm để quản lý các giới hạn tài nguyên của một máy tính</p>
+<p>The Linux kernel excutable có thể tìm thấy ở /boot/vmlinuz, hoặc đâu đó tương tự, Nói về lịch sử, Trước UNIX, the kernel được gọi là unix, Sau UNIX, cái mà đã có virtual memory, được đổi tên thành vmunix, Trên Linux tên này là ánh xạ của tên hệ thống với z thay thế x để nói rằng kernel là một bản compressed executable</p>
+<p>Các nhiệm vụ được thực thi bởi kernel:</p>
+<ul>
+<li><p>Process scheduling: Lập lịch tiến trình: Một máy tính có nhiều CPU cái mà thực thi các chỉ thị của các chương trình. Giống UNIX systems, Linux là hệ điều hành preemptive multitasking, Đa tác vụ nghĩa là đa tiến trình (running programs) có thể đồng thời chạy trên  bộ nhớ và mỗi các có thể nhận sử dụng CPU. Preemptive nghĩa là các luật để quản lý việc các tiến trình nào được sử dụng CPU và trong bao lâu .</p>
+</li>
+<li><p>Memory management: Trong khi bộ nhớ máy tính là rất lớn so với 1 2 thế kỉ trước đây, kích cỡ của phần mềm cũng lớn lên tương ứng, vì thế bộ nhớ vật lý (RAM) vẫn là giới hạn và kernel phải chia sẻ chúng cho các tiến trình như một cách công bằng và  hiệu quả. Gióng như hầu hết các hệ điều hành hiện đại , Linux sử dụng virtual memory management, một kĩ thuật:</p>
+</li>
+</ul>
+<ul>
+<li>Các tiến trình là độc lập với các tiến trình khác và kernel, vì thế một tiến trình không thể đọc và sửa được bộ nhớ của các tiến trình khác hoặc trong kernel</li>
+<li>Chỉ một phần tiến trình cần giữ memory, hạ thấp bộ nhớ giới hạn của mỗi tiến trình và cho phép nhiều tiến trình cùng giữ trong bộ nhớ RAM. Điều này giúp việc sử dụng dụng CPU,bất kì thời điểm nào cũng có ít nhất một process có mà CPU có thể thực thi</li>
+<li>Cung cấp một file system: The kernel cung cấp một file system trên đĩa cho phép các file có thể đợc tạo ra, lấy ra, cập nhật và chỉnh sửa trên chúng</li>
+<li>Tạo và hủy các tiến trình: The kernel có thể tải một chương trình mới vào bộ nhớ, cung cấp cho nó các tài nguyên (như CPU, memory, và access tới các tập tin) cung cấp thứ tự để chạy. Mỗi một tiến trình thực thi xong, kernel sẽ đảm bảo các nguồn tài nguyên nó sử dụng được giải phóng.</li>
+<li>Truy cập tới thiết bị: Các thiết bị như chuột, màn hình, bàm phím, đĩa cứng, đĩa mềm được đính kèm tới một máy tính cho phép giao tiếp giữa máy tính với các phần khác của thế giới, cho phép vào ra, hoặc cả hai. The kernel cung cấp các chương trình với các interface để chuẩn hóa và đơn giản hóa truy cập tới các thiết bị, trong khi điều chỉnh việc truy cập bởi nhiều tiến trình trên một thiết bị</li>
+<li>Mạng: The kernel chuyển và nhận các gói tin. Các tác vụ bao gồm việc định tuyến các gói tin tới hệ thống mục tiêu</li>
+<li>Cung cấp một system call application programming interface (API): Tiến trình có thể yêu cầu kernel thực thi một vài tác vụ bằng cách sử dụng một vài kernel entry points được biến tới như là system calls. The linux system call API là chủ đề chính của cuốn sách này Mục 3.1 sẽ chi tiết các bowsc thực thi khi một tiến trình được thực thi một system call</li>
+</ul>
+<p>Ngoài ra thì một hệ điều hành đa người dùng như Linux sẽ cung cấp một vài người dùng trừu tượng như một virtual private computer;<br>Ví dụ mỗi user có một home directory.</p>
+<h3 id="Kernel-mode-and-user-mode"><a href="#Kernel-mode-and-user-mode" class="headerlink" title="Kernel mode and user mode"></a>Kernel mode and user mode</h3><p>Các kiến trúc vi xử lý điển hình cho phép CPU tổ chức ít nhất 2 mode: user mode và kernel mode (supervisor mode). Chỉ thị phần cứng cho phép chuyển đổi giữa 2 cái. Tương ứng, vùng bộ nhớ ảo có thể đánh dấu là user space hoặc kernel space. Khi chạy với user mode, CPU có thể truy cập chỉ bộ nhớ được đánh dấu là user space; Khi chạy trên kernel mode, CPU có thể truy cập tới cả 2 user và kernel memory space.</p>
+<p>Một số hành động có thể được thực thi trong kernel mode. Ví dụ việc thực thi dừng hệ thống, truy cập vào các các vùng quản lý bộ nhớ, khởi tạo các thiết bị quản lý vào ra. Bằng cách tận dụng các thiết kế phần cứng để đặt hệ điều hành tỏng kernel space, các bản cài đặt hệ điều hành đảm bảo rằng các tiến trình người dùng không được phép truy cập các chỉ thị và các cấu trúc dữ liệu của kernel, hoặc để các hoạt động làm ảnh hưởng xấu tới hệ thống.</p>
+<h3 id="Process-vs-kernel-views-of-the-system"><a href="#Process-vs-kernel-views-of-the-system" class="headerlink" title="Process vs kernel views of the system"></a>Process vs kernel views of the system</h3><p>Trong nhiều công việc lập trình ngày nay, chúng ta đã quen với việc nghĩ về chương trình như cách hướng tiến trình. Tuy nhiên, khi xem nhiều chủ đề trong cuốn sách này, nó có thể là hữu dụng khi có một cái nhìn khác, cái nhìn từ kernel. Để làm rõ hơn, chúng ta từ bây giờ sẽ xem xét mọi thư từ cách nhìn process viewpoint và sau đó là kernel viewpoint.</p>
+<p>Một chương trình điển hình có rất nhiều tiến trình. Với mỗi tiến trình có rất nhiều thứ xuất hiện bất đồng bộ. Mỗi một tiến trình thực thi không biết khi nào nó sẽ được làm việc tiếp, vì nó phụ thuộc vào việc lập lịch CPU. Việc chuyển các tín hiệu và giao tiếp giữa các tiến trình ngay lập tức hay ở thời điểm nào đó là do kernel. Một tiến trình không biết nó được cấp ở đâu trong bộ nhớ RAM. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">A running system typically has numerous processes. For a process, many things</span><br><span class="line">happen asynchronously. An executing process doesn’t know when it will next time</span><br><span class="line">out, which other processes will then be scheduled for the CPU (and in what order),</span><br><span class="line">or when it will next be scheduled. The delivery of signals and the occurrence of</span><br><span class="line">interprocess communication events are mediated by the kernel, and can occur at</span><br><span class="line">any time for a process. Many things happen transparently for a process. A process</span><br><span class="line">24 Chapter 2</span><br><span class="line">doesn’t know where it is located in RAM or, in general, whether a particular part of</span><br><span class="line">its memory space is currently resident in memory or held in the swap area (a</span><br><span class="line">reserved area of disk space used to supplement the computer’s RAM). Similarly, a</span><br><span class="line">process doesn’t know where on the disk drive the files it accesses are being held; it</span><br><span class="line">simply refers to the files by name. A process operates in isolation; it can’t directly</span><br><span class="line">communicate with another process. A process can’t itself create a new process or</span><br><span class="line">even end its own existence. Finally, a process can’t communicate directly with the</span><br><span class="line">input and output devices attached to the computer.</span><br><span class="line">By contrast, a running system has one kernel that knows and controls everything. The kernel facilitates the running of all processes on the system. The kernel</span><br><span class="line">decides which process will next obtain access to the CPU, when it will do so, and for</span><br><span class="line">how long. The kernel maintains data structures containing information about all</span><br><span class="line">running processes and updates these structures as processes are created, change</span><br><span class="line">state, and terminate. The kernel maintains all of the low-level data structures that</span><br><span class="line">enable the filenames used by programs to be translated into physical locations on</span><br><span class="line">the disk. The kernel also maintains data structures that map the virtual memory of</span><br><span class="line">each process into the physical memory of the computer and the swap area(s) on</span><br><span class="line">disk. All communication between processes is done via mechanisms provided by</span><br><span class="line">the kernel. In response to requests from processes, the kernel creates new processes and terminates existing processes. Lastly, the kernel (in particular, device</span><br><span class="line">drivers) performs all direct communication with input and output devices, transferring information to and from user processes as required.</span><br><span class="line">Later in this book we’ll say things such as “a process can create another process,” “a process can create a pipe,” “a process can write data to a file,” and “a process can terminate by calling exit().” Remember, however, that the kernel mediates</span><br><span class="line">all such actions, and these statements are just shorthand for “a process can request</span><br><span class="line">that the kernel create another process,” and so on.</span><br></pre></td></tr></table></figure>
+
+<h3 id="The-Shell"><a href="#The-Shell" class="headerlink" title="The Shell"></a>The Shell</h3><p>Một Shell là một chương trình đặc biệt được thiết kế để đọc các lệnh được nhập từ người dùng và thực thi các chương trình thích hợp và phản hồi lại. Thỉnh thoảng được biết đến như một trình thông dịch.</p>
+<p>Thuật ngữ “login shell” để nói đến tiến trình được tạo để chạy một shell khi người dùng đăng nhập lần đầu.</p>
+<p>Trong khi một vài hệ điều hành tích hợp trình thông dịch vào kernel, trên UNIX, shell là một user process. Trên cùng máy tính, người dùng khác nhau có thể sử dụng các shell khác nhau. Một số shell nổi bật:</p>
+<ul>
+<li><p>Bourne shell (sh): Là shell cũ nhất và được sử dụng rộng rãi, được viết bởi Steve Bourne. Nó là shell chuẩn của UNIX phiên bản thứ 7. The Bourne shell bao gồm rất nhiều tính năng quan thuộc: IO redirection, pipelines, filename generation (globbing), variables, manipulation of environment variables, command substitution, background command execution, và functions. Tất cả các bản UNIX sau đó đều có Bourne shell.</p>
+</li>
+<li><p>C shell(csh): Shell này được viết bởi Bill Jou tại Đại học California bởi Berkeley. Tên này xuất phát từ sự tương đồng của rất nhiều cấu trúc luồng điều khiển của shell này với ngôn ngữ lập trình C. C shell cung cấp một vài tính năng tương tác không có sẵn trong Bourne shell, bao gồm command history, command line editting, job control, và aliases. The C shell không tương thích ngược với Bourne shell. Mặc dù các chuẩn tương tác trên BSD là C shell, shell scripts.</p>
+</li>
+<li><p>Korn shell (ksh): Đây là shell được viết như là một sự thay thế cho Bourne shell bởi David Korn tại AT&amp;T Bell Laboratories. Trong khi vẫn giữa được sự tương thích với Bourne shell, nó cũng kết hợp các tính năng tương tác giống với C shell.</p>
+</li>
+<li><p>Bourne again shell (bash): Shell này là bản cài đặt GNU project cho Bourne shell. Nó cung cấp các tính năng tương tác với những các có sẵn của C và Korn shell. Tác giả chính của bash là Brian Fox và Chet Ramey. Bash được sử dụng rộng rãi trong Linux.</p>
+</li>
+</ul>
+<p>Các shell được thiết kế không chỉ đơn thuần để cho việc tương tác, mà còn có thể sử dụng để thông dịch shell scripts, là các text files bao gồm shell commands. Với mục đích này mỗi shell có các tiện ích như một ngôn ngữ lập trình: biến, vòng lặp, điều kiện, IO commands, và các hàm.</p>
+<p>Mỗi shells thực thi các tác vụ giống nhau, có thể cú pháp khác nhau. Hầu hết các ví dụ trong sách này yêu cầu một shell sử dụng bash, trừ khi được ghi chú, người đọc có thể giả sử rằng tất cả các ví dụ hoạt động cùng một cách với Bourne-type shells.</p>
+<h3 id="Nguoi-dung-va-nhom"><a href="#Nguoi-dung-va-nhom" class="headerlink" title="Người dùng và nhóm"></a>Người dùng và nhóm</h3><p>Môi người dùng tỏng hệ thống là duy nhất và một người dùng có thể thuộc vào nhiều nhóm.</p>
+<h4 id="Nguoi-dung"><a href="#Nguoi-dung" class="headerlink" title="Người dùng"></a>Người dùng</h4><p>Mỗi người dùng trong hệ thống đều có một login name (username) và được có một user ID (UID). MỖi người dùng, được định nghĩa bởi một dòng trong password file /etc/passwd. Bao gồm các thông tin sau:</p>
+<ul>
+<li>Group ID: là id của nhóm đầu tiên mà người dùng thuộc về</li>
+<li>Home directory: thư mục khởi tạo nơi user được đặt vào sau khi đăng nhập</li>
+<li>Login shell: tên của chương trình được thực thi để thông dịch các lệnh của người dùng.</li>
+</ul>
+<p>Mỗi password record cũng có thể bao gồm mật khẩu của người dùng, theo dạng mã hóa. Tuy nhiên vì lý do bảo mật, mật khẩu thường được lưu trữ trong các shadow password file, cái mà chỉ đọc cho những người dùng được cấp quyền.</p>
+<h4 id="Nhom"><a href="#Nhom" class="headerlink" title="Nhóm"></a>Nhóm</h4><p>Vì lý do quản trị, điều khiển việc truy cập vào các file và tài nguyên hệ thống - nó là hữu dụng để tổ chức các người dùng vào các nhóm. Ví dụ, mọi người trong một đội có một dự án, và chia sẻ các tập tin. Trong các bản UNIX sớm hơn. một người dùng chỉ có thể là thành viên của chỉ 1 nhóm. BSD cho phép một người dùng thuộc về nhiều nhóm, một ý tưởng được đưa lên bởi các bản UNIX khác và trong chuẩn POSIX.1-1990. Mỗi nhóm được định danh bởi một dòng trong group file /etc/group, mỗi group bao gồm các thông tin dưới đây:</p>
+<ul>
+<li>Group name: là tên duy nhất của nhóm</li>
+<li>Group ID: mã griup</li>
+<li>User list: một danh sách tên đăng nhập phân cách bởi dấu phẩy, những thành viên của nhóm này.</li>
+</ul>
+<h4 id="Superuser"><a href="#Superuser" class="headerlink" title="Superuser."></a>Superuser.</h4><p>Một người dùng là một superuser sẽ có các quyền đặc biệt trong hệ thống. Tài khoản super user ID là 0, và thông thường có tên đăng nhập là root. Trong hệ thống UNIX, superuser có thể bỏ qua tất cả các quyền được yêu cầu bởi hệ thống. Vì thế super user có thể truy cập bất kỳ tập tin nào, bất kỳ là tập tin đó yêu cầu quyền gì, có thể đọc các tín hiệu của bất kỳ process nào trong hệ thống. Người quản trị hệ thống sử dụng superuser account để thực thi rất nhiều các tác vụ quản trị trên hệ thống.</p>
+<h3 id="Single-Directory-Hierarchy-Directories-Links-va-files"><a href="#Single-Directory-Hierarchy-Directories-Links-va-files" class="headerlink" title="Single Directory Hierarchy, Directories, Links, và files."></a>Single Directory Hierarchy, Directories, Links, và files.</h3><p>The Kernel có một cây thự mục đơn tổ chức tất cả các file trong hệ thống. (Khác với Windows nơi mà mỗi đĩa sẽ có một cấu trúc thư mục). Gốc của cây này là root được đặt tên là / (slash). Tất cả các tập tin và thư mục là con cháu của nó. </p>
+<img src="/images/the-linux-command-line-interface/subset-of--the-linux-single-directory-hierarchy.png" class="[class names]" title="subset-of--the-linux-single-directory-hierarchy.png subset-of--the-linux-single-directory-hierarchy.png">
+
+<h4 id="Cac-loai-tap-tin"><a href="#Cac-loai-tap-tin" class="headerlink" title="Các loại tập tin"></a>Các loại tập tin</h4><p>Có 2 loại tập tin thường được biết đến regular và plain. Các loại tập tin khác bao gồm devices, pipes, sockets, directories, symbolic links.</p>
+<p>Thuật ngữ file thường được sử dụng để ám chỉ một tập tin ở bất cứ loại nào, không chỉ là regular file.</p>
+<h4 id="Directories-va-links"><a href="#Directories-va-links" class="headerlink" title="Directories và links"></a>Directories và links</h4><p>Một thư là một tập tin đặc biệt, nội dung của nó là một bảng các tên file với một refer tới tập tin tương ứng, Tên file + reference liên kết với nhau gọi là link, các file có thể có nhiều links, do đó có thể có nhiều tên, có thể cùng hoặc khác thư mục.</p>
+<p>Thư mục bao gồm nhiều link tới các tập tin và các thư mục khác. Links giữa các thư mục được thiết lập bởi cấu trúc cây như hình trên.</p>
+<p>Mỗi thư mục bao gồm ít nhất 2 đầu vào: . (dấu chấm), cái mà nối tới thư mục hiện tại và .. (chấm chấm) nối tới thư mục cha, thư mục bên trên nó trong cây. Mỗi thư mục trừ thư mục root, đều có cha.</p>
+<h4 id="Symbolic-links"><a href="#Symbolic-links" class="headerlink" title="Symbolic links."></a>Symbolic links.</h4><p>Giống như một link bình thường, một symbolic link cung cấp một tên thay thế cho một tập tin. </p>
+<p>….</p>
+<h4 id="Filenames"><a href="#Filenames" class="headerlink" title="Filenames"></a>Filenames</h4><p>Hầu hết hệ thống files trên Linux, tên file có thể dài tới 255 ký tự. Tên file có thể bao gồm bất kỳ ký tự gì trừ slash (/) và null (\0). Tuy nhiên, nên đặt tên chỉ gồm chữ cái, chữ số, dấu chấm, dấu gạch dưới và dấu gạch ngang. Đây là 65 ký tự được phép [-.a-zA-Z0-9], theo chuẩn SUSv3</p>
+<p>Chúng ta nên tránh sử dụng các ký tự khác bởi vì các ký tự khác có những ý nghĩa đặc biệt đối với shell, trong các biểu thức chính quy, và nhiều trường hợp khác. Vì lý do nào đó tên file cần bao gồm các từ khóa đặc biệt, các ký tự này phải được escapes, ký tự đánh dấu đặc biệt backslash (\). </p>
+<p>Chúng ta nên tránh tên file bắt đầu bằng dấu trừ (hyphen) (-), tên này có thể gây ra những sai lầm trong các lệnh shell.</p>
+<h4 id="Pathnames"><a href="#Pathnames" class="headerlink" title="Pathnames"></a>Pathnames</h4><p>Một tên thư mục là một chuỗi bắt đầu bởi slash (/) theo sau là tập các tên file phân cách bởi dấu slash. Tất cả </p>
+<p>….</p>
+<h4 id="Current-working-directory"><a href="#Current-working-directory" class="headerlink" title="Current working directory"></a>Current working directory</h4><p>Mỗi tiến trình đều có một current working directory (thỉnh thoảng được nói đến là working directory hay current directory). Đây là địa chỉ hiện tại của tiến trình trong cây thư mục.</p>
+<p>Một tiến trình thừa kế current working directory từ cha nó. Một login shell phải khởi tạo current directory cho người dùng trong thư mục /home định nghĩa trong password file /etc/passwd. Current working directory trong shell có thể thay đổi được bằng lệnh cd.</p>
+<h4 id="File-ownership-and-permissions"><a href="#File-ownership-and-permissions" class="headerlink" title="File ownership and permissions"></a>File ownership and permissions</h4><p>Mỗi tập tin đều liên kết tới user ID và group ID được định nghĩa ra  người dùng và nhóm mà nó thuộc về. Quyền sở hữu tập tin được sử dụng để định nghĩa khả năng truy cập của người dùng.</p>
+<p>Ví dụ về việc truy cập tập tin, hệ thống chia các người dùng thành 3 nhóm: owner, group, otther.</p>
+<p>Quyền truy cập là 9 bit: thể hiện khả năng đọc, ghi, thực thi file, đối với 3 nhóm trên</p>
+<h3 id="File-I-O-Model"><a href="#File-I-O-Model" class="headerlink" title="File I/O Model"></a>File I/O Model</h3><p>Một trong những đặc điểm nổi bật của IO trong UNIX là khái niệm tính phổ quát (universality of I/O). Nghĩa là chúng cùng các lệnh system calls (open(), read(), write(), close(), …) được sử dụng để thực thi các tác vụ vào ra trên tất cả các kiểu tập tin, bao gồm cả các thiết bị. (The kernel dịch các yêu cầu vào ra thành các hệ thống file hoặc các thiết bị điều khiển để thực thi các tác vụ vào ra trên các tập tin hoặc các thiết bị).</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">The kernel essentially provides one file type: a sequential stream of bytes,</span><br><span class="line">which, in the case of disk files, disks, and tape devices, can be randomly accessed</span><br><span class="line">using the lseek() system call.</span><br><span class="line">Many applications and libraries interpret the newline character (ASCII code 10</span><br><span class="line">decimal, sometimes also known as linefeed) as terminating one line of text and commencing another. UNIX systems have no end-of-file character; the end of a file is</span><br><span class="line">detected by a read that returns no data.</span><br></pre></td></tr></table></figure>
+
+<h4 id="File-descriptors"><a href="#File-descriptors" class="headerlink" title="File descriptors"></a>File descriptors</h4><p>….</p>
+<h4 id="The-stdio-library"><a href="#The-stdio-library" class="headerlink" title="The stdio library"></a>The stdio library</h4><p>….</p>
+<h3 id="Cac-chuong-trinh"><a href="#Cac-chuong-trinh" class="headerlink" title="Các chương trình"></a>Các chương trình</h3><p>Chương trình bình thường chia thành 2 dạng. Dạng đầu tiên là mã nguồn, dạng có thể đọc được tập các biểu thức được viết bằng một ngôn ngữ lập trình như C. Để thực thi được, mã nguồn phải được chuyển đổi sang dạng thứ hai, mã máy là các chỉ thỉ mà máy tính hiểu được. Hai thuật ngữ về chương trình (program) đều đồng nghĩa, từ bước biên dịch và linking chuyển mã nguồn thành mã máy</p>
+<h4 id="Bo-loc-Filters"><a href="#Bo-loc-Filters" class="headerlink" title="Bộ lọc (Filters)"></a>Bộ lọc (Filters)</h4><p>Một bộ lọc là tên thường được nói đến một chương trình đọc dữ liệu từ stdin, trích xuất thông tin từ đó để in ra stdout. Ví dụ lệnh cat, grep, tr, sort, wc, sed, awk</p>
+<h4 id="Command-line-arguments"><a href="#Command-line-arguments" class="headerlink" title="Command-line arguments"></a>Command-line arguments</h4><p>Trong C, chương trình có thể truy cập commandline arguments, để hỗ trợ khi sử dụng dòng lệnh để chạy chương trình</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br></pre></td></tr></table></figure>
+
+<p>Biến argc sẽ bao gồm tất cả tham số dòng lệnh.</p>
+<h3 id="Processes"><a href="#Processes" class="headerlink" title="Processes"></a>Processes</h3><p>Nói đơn giản, một tiến trình là một instance của chương trình đang thực thi. Khi một chương trình được thực thi, kernel sẽ tải code của chương trình vào bộ nhớ ảo, cấp phép không gian cho các biến chương trình, và thiết lập các thông tin (như process ID, trạng thái, users ID, groups ID) về tiến trình.</p>
+<p>Từ điểm nhìn từ kernel (kernel point of view), các tiến trình là các thực thể được kernel phân bổ tài nguyên trong máy tính. Với các nguồn lực có hạn như bộ nhớ, the kernel khởi tạo vào cấp phép một phần nguồn lực cho tiến trình, điều chỉnh việc cấp phép này theo nhu cầu của hệ thống. Khi tiến trình dừng, tất cả các tài nguyên được giải phóng và được sử dụng lại bởi tiến trình khác. Các nguồn lực khác, như CPU, băng thông mạng được chia sẻ công bằng tất cả các tiến trình</p>
+<h4 id="Process-memory-layout"><a href="#Process-memory-layout" class="headerlink" title="Process memory layout"></a>Process memory layout</h4><p>Một tiến trình được chia thành các phần sau: được gọi là segments.</p>
+<ul>
+<li>Text: các chỉ thị chương trình.</li>
+<li>Data: các biến static được sử dụng bởi chương trình.</li>
+<li>Heap: một vùng của bộ nhớ được cấp phát động</li>
+<li>Stack: một mảnh bộ nhớ tăng lên hoặc giảm đi như các chương trình được gọi và trả về và được sử dụng để cấp phát các biến cục bộ các thông tin các lời gọi hàm</li>
+</ul>
+<h4 id="Su-tao-process-va-thuc-thi-chuong-trinh"><a href="#Su-tao-process-va-thuc-thi-chuong-trinh" class="headerlink" title="Sự tạo process và thực thi chương trình"></a>Sự tạo process và thực thi chương trình</h4><p>Một tiến trình có thể tạo một tiến trình mới sử dụng lệnh fork() system call. Tiến trình cũ được gọi là parent process, tiến trình mới là child process. </p>
+<h3 id="Memory-Mappings"><a href="#Memory-Mappings" class="headerlink" title="Memory Mappings"></a>Memory Mappings</h3><h3 id="Static-and-Shared-Libraries"><a href="#Static-and-Shared-Libraries" class="headerlink" title="Static and Shared Libraries"></a>Static and Shared Libraries</h3><h3 id="Interprocess-Communication-and-Synchronization"><a href="#Interprocess-Communication-and-Synchronization" class="headerlink" title="Interprocess Communication and Synchronization"></a>Interprocess Communication and Synchronization</h3><h3 id="Signals"><a href="#Signals" class="headerlink" title="Signals"></a>Signals</h3><h3 id="Threads"><a href="#Threads" class="headerlink" title="Threads"></a>Threads</h3><h3 id="Process-Groups-and-Shell-Job-Control"><a href="#Process-Groups-and-Shell-Job-Control" class="headerlink" title="Process Groups and Shell Job Control"></a>Process Groups and Shell Job Control</h3><h3 id="Sessions-Controlling-Terminals-and-Controlling-Processes"><a href="#Sessions-Controlling-Terminals-and-Controlling-Processes" class="headerlink" title="Sessions, Controlling Terminals, and Controlling Processes"></a>Sessions, Controlling Terminals, and Controlling Processes</h3><h3 id="Pseudoterminals"><a href="#Pseudoterminals" class="headerlink" title="Pseudoterminals"></a>Pseudoterminals</h3><h3 id="Date-and-Time"><a href="#Date-and-Time" class="headerlink" title="Date and Time"></a>Date and Time</h3><h3 id="Client-Server-Architecture"><a href="#Client-Server-Architecture" class="headerlink" title="Client-Server Architecture"></a>Client-Server Architecture</h3><h3 id="Realtime"><a href="#Realtime" class="headerlink" title="Realtime"></a>Realtime</h3><h3 id="The-proc-File-System"><a href="#The-proc-File-System" class="headerlink" title="The /proc File System"></a>The /proc File System</h3><h3 id="Tong-ket"><a href="#Tong-ket" class="headerlink" title="Tổng kết"></a>Tổng kết</h3><p>Trong chương này, chúng ta đã khảo sát một tập các khái niệm cơ bản liên quan đế lập trình hệ thống Linux. Việt hiểu được các khái niệm đã được cung cấp với những người dùng còn ít kinh nghiệm là các nền tảng để bắt đầu học lập trình hệ thống.</p>
+<h2 id="Ket-bai"><a href="#Ket-bai" class="headerlink" title="Kết bài"></a>Kết bài</h2><p>Chương này dài quá mình sẽ dịch nốt trong ngày mai vẫn trong bài viết này.</p>
+<p>Việc viết được chương này cho dễ hiểu cũng cần phải có hiểu biết nhất định. Bài viết này sẽ còn được chỉnh sửa khi hiểu biết của mình khá hơn.</p>
+<p>Cảm ơn các bạn</p>
+<blockquote>
+<p>Biển học là vô bờ. Hai chữ “vô bờ” bản thân nó vốn ám chỉ rằng không có đích đến rồi. Bạn rong ruổi trên một con tàu theo năm tháng trên đại dượng tri thức. Vậy thì ý nghĩa của một cuộc sống như vậy nằm ở đâu? Là vẻ đẹp của những hòn đảo bạn ghé thăm, những trải nghiệm về phong ba bão táp của đại dương, những cuộc gặp gỡ duyên phận với những con tàu khác, những cuộc đua và những khi tản mạn.</p>
+</blockquote>
+<p>Về bài tập các bạn hãy tiếp tục xem seri Bài số 6 của Arif Butt: <a href="https://www.youtube.com/watch?v=tuWDi53pomU&amp;list=PL7B2bn3G_wfBuJ_WtHADcXC44piWLRzr8&amp;index=7" target="_blank" rel="noopener">https://www.youtube.com/watch?v=tuWDi53pomU&amp;list=PL7B2bn3G_wfBuJ_WtHADcXC44piWLRzr8&amp;index=7</a></p>
+<h2 id="Cung-hoc-tieng-anh"><a href="#Cung-hoc-tieng-anh" class="headerlink" title="Cùng học tiếng anh"></a>Cùng học tiếng anh</h2><p>One of the distinguishing features of : Một trong những đặc điểm nổi bật</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-2019-11-14-Dich-sach-The-Linux-Programming-Interface-Phan-2-Cac-khai-niem-co-ban/" data-id="ck74jjgvn00e62mcp3cvkppin" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux-System-Programming/">Linux, System Programming</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/blog-2019-11-14-Dich-sach-Advance-Progmraming-In-UNIX-Environment/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Dịch sách Advance Progmraming In UNIX Environment - Phần 1 Tổng quan về Hệ thống UNIX
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/blog-2019-11-13-The-linux-programming-interface-Phan-2-Lich-su-va-cac-chuan/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">The linux programming interface Phần 1 - Lịch sử và các chuẩn</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android-Programming/">Android Programming</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android-Programming/Note/">Note</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Assembly/">Assembly</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-Viblo/">Code Viblo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Codesignal/">Codesignal</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Deep-learning/">Deep learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GIS/">GIS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linh-tinh/">Linh tinh</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lap-trinh/">Lập trình</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-learning/">Machine learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network-Programming/">Network Programming</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/OWASP-Testing-Guide/">OWASP Testing Guide</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Phim/">Phim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Pre-Calculus/">Pre Calculus</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Social-engineering/">Social engineering</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/System-Programming/">System Programming</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Text-to-speech/">Text to speech</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Text-to-speech/Tool/">Tool</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Toan-hoc/">Toán học</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tri-tue-nhan-tao/">Trí tuệ nhân tạo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Uncategorized/">Uncategorized</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Unit-Testing/">Unit Testing</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Visualisation/">Visualisation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows/">Windows</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ctf/">ctf</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hacker/">hacker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/note/">note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vnspoj/">vnspoj</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/wordpress/">wordpress</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Do-an/">Đồ án</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ASP-net-MVC/">ASP.net MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-Programming/">Android Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Asp-net/">Asp.net</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Assembly/">Assembly</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Basic-Access-Authentication/">Basic Access Authentication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code/">Code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Course/">Course</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Digest-Access-Authentication/">Digest Access Authentication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Du-doan-gia-vang/">Dự đoán giá vàng</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ethical-Hacking/">Ethical Hacking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/">Flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GIS/">GIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html-css-javascript/">Html, css, javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Laravel/">Laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux-System-Programming/">Linux, System Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/">Note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OWASP-Testing-Guide/">OWASP Testing Guide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Php/">Php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python-Codesignal/">Python, Codesignal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quan-ly-diem/">Quản lý điểm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RFC-2069/">RFC 2069</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RFC-2617/">RFC 2617</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SJF/">SJF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Social-engineering/">Social engineering</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-MVC/">Spring MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sql-server/">Sql server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/System-Programming/">System Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Text-to-speech/">Text to speech</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Todos/">Todos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tool/">Tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tinh-toan-mem/">Tính toán mềm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VRML/">VRML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WPF/">WPF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows-Form/">Windows Form</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Winform/">Winform</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Winforms/">Winforms</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wordpress/">Wordpress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ctf/">ctf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/">database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fuzzy-computing/">fuzzy computing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/import-csv/">import csv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/migrate/">migrate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/">wordpress</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ASP-net-MVC/" style="font-size: 10px;">ASP.net MVC</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Android-Programming/" style="font-size: 10px;">Android Programming</a> <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Asp-net/" style="font-size: 10px;">Asp.net</a> <a href="/tags/Assembly/" style="font-size: 14px;">Assembly</a> <a href="/tags/Basic-Access-Authentication/" style="font-size: 10px;">Basic Access Authentication</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Book/" style="font-size: 10px;">Book</a> <a href="/tags/C/" style="font-size: 20px;">C#</a> <a href="/tags/Code/" style="font-size: 14px;">Code</a> <a href="/tags/Course/" style="font-size: 10px;">Course</a> <a href="/tags/Digest-Access-Authentication/" style="font-size: 10px;">Digest Access Authentication</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Du-doan-gia-vang/" style="font-size: 10px;">Dự đoán giá vàng</a> <a href="/tags/Ethical-Hacking/" style="font-size: 10px;">Ethical Hacking</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/GIS/" style="font-size: 10px;">GIS</a> <a href="/tags/Html-css-javascript/" style="font-size: 10px;">Html, css, javascript</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Linux-System-Programming/" style="font-size: 10px;">Linux, System Programming</a> <a href="/tags/Note/" style="font-size: 16px;">Note</a> <a href="/tags/OWASP-Testing-Guide/" style="font-size: 12px;">OWASP Testing Guide</a> <a href="/tags/Php/" style="font-size: 16px;">Php</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Python-Codesignal/" style="font-size: 10px;">Python, Codesignal</a> <a href="/tags/Quan-ly-diem/" style="font-size: 10px;">Quản lý điểm</a> <a href="/tags/RFC-2069/" style="font-size: 10px;">RFC 2069</a> <a href="/tags/RFC-2617/" style="font-size: 10px;">RFC 2617</a> <a href="/tags/SJF/" style="font-size: 10px;">SJF</a> <a href="/tags/Social-engineering/" style="font-size: 14px;">Social engineering</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/Sql-server/" style="font-size: 10px;">Sql server</a> <a href="/tags/System-Programming/" style="font-size: 14px;">System Programming</a> <a href="/tags/Text-to-speech/" style="font-size: 10px;">Text to speech</a> <a href="/tags/Todos/" style="font-size: 10px;">Todos</a> <a href="/tags/Tool/" style="font-size: 10px;">Tool</a> <a href="/tags/Tinh-toan-mem/" style="font-size: 10px;">Tính toán mềm</a> <a href="/tags/VRML/" style="font-size: 12px;">VRML</a> <a href="/tags/WPF/" style="font-size: 10px;">WPF</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/Windows-Form/" style="font-size: 10px;">Windows Form</a> <a href="/tags/Winform/" style="font-size: 10px;">Winform</a> <a href="/tags/Winforms/" style="font-size: 14px;">Winforms</a> <a href="/tags/Wordpress/" style="font-size: 18px;">Wordpress</a> <a href="/tags/ctf/" style="font-size: 10px;">ctf</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/fuzzy-computing/" style="font-size: 10px;">fuzzy computing</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/import-csv/" style="font-size: 10px;">import csv</a> <a href="/tags/migrate/" style="font-size: 10px;">migrate</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/blog-2020-02-27-Lam-sao-de-tra-luong-lap-trinh-vien-it-hon/">Làm sao để trả lương lập trình viên ít hơn</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-02-17-The-art-of-computer-prgramming-PREFACE/">The art of computer prgramming PREFACE</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-02-11-Geographical-Information-Systems-Part-1-Coursera-Week-1/">Geographical Information Systems Part 1 Coursera - Week 1</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-01-09-OWASP-Testing-Guide-2-Conduct-search-engine-discorvery-reconnaissance-for-information-leakage-OTG-INFO-001/">OWASP Testing Guide - 2 Conduct search engine discorvery/reconnaissance for information leakage (OTG-INFO-001) </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 LuanTM<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

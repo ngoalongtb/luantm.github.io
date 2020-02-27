@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Beej&#39;s Guide to Network Programming part 1 | My real name is Tạ Minh Luận</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Mở đầuBeej’s Guide to Network ProgrammingGiới thiệuHey! Có phải Socket programming đã làm bạn thất vọng? Bạn thấy quá khó để hiểu được các hướng dẫn từ man? Bạn muốn lập trình mạng thật cool, nhưng bạ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Beej&#39;s Guide to Network Programming part 1">
+<meta property="og:url" content="https://taminhluan.github.io/blog/blog-beejs-guide-to-network-programming-part-1/index.html">
+<meta property="og:site_name" content="My real name is Tạ Minh Luận">
+<meta property="og:description" content="Mở đầuBeej’s Guide to Network ProgrammingGiới thiệuHey! Có phải Socket programming đã làm bạn thất vọng? Bạn thấy quá khó để hiểu được các hướng dẫn từ man? Bạn muốn lập trình mạng thật cool, nhưng bạ">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-02-27T09:13:31.235Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Beej&#39;s Guide to Network Programming part 1">
+<meta name="twitter:description" content="Mở đầuBeej’s Guide to Network ProgrammingGiới thiệuHey! Có phải Socket programming đã làm bạn thất vọng? Bạn thấy quá khó để hiểu được các hướng dẫn từ man? Bạn muốn lập trình mạng thật cool, nhưng bạ">
+  
+    <link rel="alternate" href="/atom.xml" title="My real name is Tạ Minh Luận" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">My real name is Tạ Minh Luận</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://taminhluan.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-blog-beejs-guide-to-network-programming-part-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-beejs-guide-to-network-programming-part-1/" class="article-date">
+  <time datetime="2019-03-13T01:41:25.000Z" itemprop="datePublished">2019-03-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Network-Programming/">Network Programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Beej&#39;s Guide to Network Programming part 1
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Mo-dau"><a href="#Mo-dau" class="headerlink" title="Mở đầu"></a>Mở đầu</h2><h2 id="Beej’s-Guide-to-Network-Programming"><a href="#Beej’s-Guide-to-Network-Programming" class="headerlink" title="Beej’s Guide to Network Programming"></a>Beej’s Guide to Network Programming</h2><h3 id="Gioi-thieu"><a href="#Gioi-thieu" class="headerlink" title="Giới thiệu"></a>Giới thiệu</h3><p>Hey! Có phải Socket programming đã làm bạn thất vọng? Bạn thấy quá khó để hiểu được các hướng dẫn từ <strong>man</strong>? Bạn muốn lập trình mạng thật cool, nhưng bạn không có thời gian để tìm hiểu <strong>structs</strong> nếu bạn đã từng gọi hàm bind() trước khi connect(), vân vân và mây mây, … Đoán xem, tôi đã từng làm những thứ không tốt đẹp, và đang qua thời chia sẻ thông tin với tất cả mọi người! Bạn đã đến đúng nơi. Tài liệu này dành cho các lập trình viên C trung bình và bạn cần nắm chắc về networking noise. Và cuối cùng tôi cũn gbawst kịp tương lai (vào phút chót!) đã cập nhật hướng dẫn về IPv6! Enjoy!</p>
+<h3 id="Vai-loi-voi-doc-gia"><a href="#Vai-loi-voi-doc-gia" class="headerlink" title="Vài lời với đọc giả"></a>Vài lời với đọc giả</h3><p>Tài liệu này được viết như một tutorial, không phải là một tài liệu tham khảo hoàn chỉnh. Nó có lẽ là tốt cho cá nhân những người mà chỉ mới bắt đầu với lập trình socket và đang tìm kiếm một nền tảng. Nó chắc chắn không phải là hoàn chỉnh hay tất cả các hướng dẫn về lập trình socket, bởi nghĩa nào đi nữa. Hi vọng rằng, thông qua nó sẽ đủ để *<em>man pages *</em>bắt đầu có ý nghĩa… :-D</p>
+<h3 id="Nen-tang-va-trinh-bien-dich-Platform-and-Compiler"><a href="#Nen-tang-va-trinh-bien-dich-Platform-and-Compiler" class="headerlink" title="Nền tảng và trình biên dịch (Platform and Compiler)"></a>Nền tảng và trình biên dịch (Platform and Compiler)</h3><p>Mã nguồn được sử dụng trong tài liệu đã được biên dịch trên các máy tính linux sử dụng Gnu’s GCC compiler. Tuy nhiên, nó có thể build trên bất kì nền tảng nào sử dụng gcc. Điều này không áp dụng nếu bạn đang lập trình trên windows. (<a href="http://beej.us/guide/bgnet/html/multi/intro.html#windows" target="_blank" rel="noopener">Hãy xem mục dành cho lập trình Windows</a>).</p>
+<h3 id="Trang-chu-va-sach-ban"><a href="#Trang-chu-va-sach-ban" class="headerlink" title="Trang chủ và sách bán"></a>Trang chủ và sách bán</h3><p>Địa chỉ chính thức của tài liệu này là <a href="http://beej.us/guide/bgnet/." target="_blank" rel="noopener">http://beej.us/guide/bgnet/.</a> Tại đây bạn sẽ tìm được các code mẫu và được dịch thành nhiều ngôn ngữ khác nhau. Để mua bản copy, hãy vào <a href="http://beej.us/guide/url/bgbuy" target="_blank" rel="noopener">http://beej.us/guide/url/bgbuy</a>. Nó sẽ duy trì việc viết tài liệu của tôi.</p>
+<h3 id="Ghi-chu-cho-nguoi-dich"><a href="#Ghi-chu-cho-nguoi-dich" class="headerlink" title="Ghi chú cho người dịch"></a>Ghi chú cho người dịch</h3><p>Nếu bạn muốn dịch hướng dẫn này ra các ngôn ngữ khác, hãy viết cho tôi và tôi sẽ dẫn bạn bản dịch của bạn tới trang chính. Hãy tự do thêm tên của bạn và địa chỉ liên hệ trong bản dịch. Vui lòng ghi chú giấy phép hạn chế trong mục Copy right và Distribution, bên dưới. Nếu bạn muốn tôi làm chủ bản dịch, hãy hỏi. Tôi cũng sẽ dẫn nó nếu bạn muốn làm chủ nó, cách nào cũng được.</p>
+<h3 id="Socket-la-gi"><a href="#Socket-la-gi" class="headerlink" title="Socket là gì?"></a>Socket là gì?</h3><p>Bạn đã nghe về “sockets” nhiều lần, và có lẽ bạn đang tự hỏi chính xác chúng là gì. Well, Chúng là đây: 1 cách để nói với các chương trình khác sử dụng chuẩn Unix file descriptors. What? Ok - bạn đã nghe vài lần về Unix hacker state, “Jeez, mọi thứ trong Unix đều là file!”. Bất kì ai đã lập trình Unix về I/O đều làm nó bằng cách đọc và viết các file descriptor. Một file descriptor đơn giản là một liên kết tới một file. Nhưng file này có thể là một kết nối mạng, một FIFO, một pipe, một terminal, một file thực trên đĩa, hoặc chỉ là bất cứ thứ gì khác. Mọi thứ trong Unix là tập tin. Vì thế khi bạn viết để giao tiếp với một chương trình khác thông qua mạng internet thứ bạn đang làm là thông qua một file descriptor, bạn nên tin nó thì tốt hơn. Vậy nơi nào để tôi lấy được file descriptor này để giao tiếp mạng, Mr Smarty Pantfs? có lẽ là câu hỏi cuối cùng trong đầu của bạn ngay lúc này, nhưng tôi không định trả lời nó bất kỳ lúc nào. Bạn đã gọi tới một socket(). Nó sẽ trả về socket descriptor, và bạn giao tiếp thông qua nó sử dụng chỉ định send() và recv() socket. “But hey!”. “Nếu nó là một file descriptor, tại sao trong tên của Neptune không thể. Tôi chỉ sử dụng lệnh read() và write() để giao tiếp thông qua socket?”. Câu trả lời là “Bạn có thể! Cụ thể là Bạn có thể, nhưng send() và recv() điều khiển tốt hơn việc truyền tải dữ liệu.” Các gì tiếp theo? Có những loại sockets nào? Có DARPA Internet addresses (Internet Sockets), path names on a local node (Unix Sockets), CCITT X.25 addresses (X.25 Sockets), và rất nhiều phụ thuộc vào hệ thống Unix mà bạn đang chạy. Tài liệu này chỉ đề cập tới cái đầu tiên: Internet Socket.</p>
+<h3 id="Hai-loai-Internet-Sockets"><a href="#Hai-loai-Internet-Sockets" class="headerlink" title="Hai loại Internet Sockets."></a>Hai loại Internet Sockets.</h3><p>Nó là loại nào. Có 2 loại Internet sockets? Đúng, à không tôi đang nói dối đấy, Có nhiều hơn thế, nhưng tôi chỉ dọa bạn thôi. Tôi chỉ nói về 2 loại ở đây. Ngoài câu này, tôi chỉ muốn nói với bạn rằng “Raw Sockets”, cũng rất mạnh mẽ và bạn nên tìm hiểu chúng. Đúng rồi, 2 loại sockets? Một là “Stream sockets” và cái kia là “Datagram Sockets”, cũng tương ứng với “SOCK_STREAM” và “SOCK_DGRAM”. Datagram socket thường được gọi là “connectionless sockets”. Chúng có thể connect() nếu bạn thực sự muốn. Stream sockets là kết nối 2 chiều. Nếu bạn output 2 items tới socket theo thứ tự “1, 2” chúng sẽ đến đích đúng thứ tự “1, 2”. Chúng cũng thoải mái lỗi, Tôi chắc chắn chúng sẽ thoải mái lỗi, Tôi chỉ dự định đặt tay vào tai tôi và hát la la la nếu bất kì ai thử nói khác. Cái gì sử dụng stream sockets? Bạn đã nghe đến ứng dụng telnet, Nó sử dụng stream socket. Tất cả các kí tự bạn gõ cần được đến đúng thứ tự bạn gõ chúng phải không? Cũng như thế, trình duyệt web sử dụng giao thức HTTP, cũng sử dụng sockets để lấy các trang. Sâu hơn, nếu bạn telnet tới một website trên cổng 80 bạn gõ “GET /HTTP/1.0” và nhấn enter 2 lần, nó sẽ hiện ra HTML. Tuy nhiên stream socket này là high level? Chúng sử dụng một giao thức gọi là “The Transmission Control Protocol”, nói cách khác là “TCP”. TCP giúp chắc chắn dữ liệu của bạn được gửi theo trình tự và không có lỗi. Bạn đã nghe về “TCP” trước khi bạn nghe cả “TCP/IP”, IP là viết tắt cho “Internet Protocol”. IP giúp định tuyết và chịu trách nhiệm chính cho việc toàn vẹn dữ liệu. Cool, Thế còn về Datagram sockets? Như vừa nói chúng còn được gọi là connectionless? Chúng làm gì ở đây và tại sao chúng lại không đáng tin cậy? Sự thật là: nếu bạn gửi một datagram, nó có thể tới, Nó có thể tới không theo thứ tự. Và nếu tới dữ liệu sẽ không có lỗi. Datagram socket cũng sử dụng IP cho việc định tuyết, nhưng bạn sẽ không sử dụng TCP, chúng sử dụng “User Datagram Protocol” hay “UDP” Tài sao lại connectionless? Well, về cơ bản, bạn không phải duy trì kết nối như bạn làm với stream sockets. Bạn chỉ tạo một packet, đóng theeo một IP Header trên nó cũng với thông tin địa chỉ nhận và gửi nó. Không cần kết nối. Chúng được sử dụng khi TCP không có sẵn hoặc khi một vài gói tin bị hủy bỏ. Ví dụng ứng dụng tftp (trivial file transfer protocol, em trai của FTP), dhcpcd( DHCP client), multiplayer games, streaming audio, video hội nghị, v.v… Chời một phúc. tftp và dhcpcd được sử dụng để chuyển binary applications từ một host tới những cái khác! Dữ liệu có thể mất nếu bạn mong muốn ứng dụng hoạt động khi nó tới. Đây là một loại tà thuật của nó? Well my human friend, tftp và một chương trình đơn giản có giao thức của nó trên UDP. Ví dụ giao thức tftp nói với mỗi packet gửi đi, người nhận sẽ gửi trả các packet này và nói “Tôi đã lấy nó” (một ACK packet). Nếu người nhận được gói tin chính không trả lời, 5 giây sau, anh ta sẽ gửi lại packet cho tới khi anh ấy nhận lại ACK. Thủ tục ackowledgment là tối quan trọng khi implement ứng dụng SOCK_DGRAM. Với ứng dụng không tin cậy như games, audio hay video, bạn chỉ việc bỏ qua các gói tin, hoặc có lẽ khéo léo bù lại chúng (Người chơi quake sẽ biết tới accursed lag). Từ accursed (bị nguyền rủa) ở đây là việc cực kì báng bổ thần linh. Tại sao bạn sử dụng giao thức không tin cậy. Có 2 lý do, tốc độ và tốc độ. Nó là nhanh nhất để gửi và quên hơn là giữ. cái mà việc nhận antoafn và chắc chắn thứ tự và tất cả. Nếu bạn gửi một tin nhắn. TCP là greate, nhưng nếu bạn gửi 40 vị trí cập nhật trên giây của các người chơi trên toàn thế giới, có lẽ sẽ nó sẽ không là vấn đề gì nhiều nếu có một 2 cái không nhận được và UDP là sự lựa chọn tốt.</p>
+<h3 id="Low-level-Nonsendse-vo-ly-va-Network-theory-Ly-thuyet-mang"><a href="#Low-level-Nonsendse-vo-ly-va-Network-theory-Ly-thuyet-mang" class="headerlink" title="Low level Nonsendse (vô lý) và Network theory (Lý thuyết mạng)."></a>Low level Nonsendse (vô lý) và Network theory (Lý thuyết mạng).</h3><p>Kể từ khi, tôi nhắc tới việc phân lớp các giao thức, là thời điểm để nói về việc mạng thực sự làm việc như nào, Trong thực tế bạn có thể bỏ qua phần này. Nó là một nền tảng tốt dù gì đi nữa. Bỏ qua tạm đi, hiểu rồi mình sẽ quay lại sau //TODO</p>
+<h2 id="Ket-thuc"><a href="#Ket-thuc" class="headerlink" title="Kết thúc"></a>Kết thúc</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-beejs-guide-to-network-programming-part-1/" data-id="ck74jjguk00cz2mcp6ud7yfcq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/blog-beejs-guide-to-network-programming-part-3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Beej&#39;s Guide to Network Programming part 3
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/blog-ci-cd/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">CI CD</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android-Programming/">Android Programming</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android-Programming/Note/">Note</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Assembly/">Assembly</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-Viblo/">Code Viblo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Codesignal/">Codesignal</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Deep-learning/">Deep learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GIS/">GIS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linh-tinh/">Linh tinh</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lap-trinh/">Lập trình</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-learning/">Machine learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network-Programming/">Network Programming</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/OWASP-Testing-Guide/">OWASP Testing Guide</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Phim/">Phim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Pre-Calculus/">Pre Calculus</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Social-engineering/">Social engineering</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/System-Programming/">System Programming</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Text-to-speech/">Text to speech</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Text-to-speech/Tool/">Tool</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Toan-hoc/">Toán học</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tri-tue-nhan-tao/">Trí tuệ nhân tạo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Uncategorized/">Uncategorized</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Unit-Testing/">Unit Testing</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Visualisation/">Visualisation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows/">Windows</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ctf/">ctf</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hacker/">hacker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/note/">note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vnspoj/">vnspoj</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/wordpress/">wordpress</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Do-an/">Đồ án</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ASP-net-MVC/">ASP.net MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-Programming/">Android Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Asp-net/">Asp.net</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Assembly/">Assembly</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Basic-Access-Authentication/">Basic Access Authentication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code/">Code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Course/">Course</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Digest-Access-Authentication/">Digest Access Authentication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Du-doan-gia-vang/">Dự đoán giá vàng</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ethical-Hacking/">Ethical Hacking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/">Flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GIS/">GIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html-css-javascript/">Html, css, javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Laravel/">Laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux-System-Programming/">Linux, System Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/">Note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OWASP-Testing-Guide/">OWASP Testing Guide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Php/">Php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python-Codesignal/">Python, Codesignal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quan-ly-diem/">Quản lý điểm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RFC-2069/">RFC 2069</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RFC-2617/">RFC 2617</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SJF/">SJF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Social-engineering/">Social engineering</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-MVC/">Spring MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sql-server/">Sql server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/System-Programming/">System Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Text-to-speech/">Text to speech</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Todos/">Todos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tool/">Tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tinh-toan-mem/">Tính toán mềm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VRML/">VRML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WPF/">WPF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows-Form/">Windows Form</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Winform/">Winform</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Winforms/">Winforms</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wordpress/">Wordpress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ctf/">ctf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/">database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fuzzy-computing/">fuzzy computing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/import-csv/">import csv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/migrate/">migrate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/">wordpress</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ASP-net-MVC/" style="font-size: 10px;">ASP.net MVC</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Android-Programming/" style="font-size: 10px;">Android Programming</a> <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Asp-net/" style="font-size: 10px;">Asp.net</a> <a href="/tags/Assembly/" style="font-size: 14px;">Assembly</a> <a href="/tags/Basic-Access-Authentication/" style="font-size: 10px;">Basic Access Authentication</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Book/" style="font-size: 10px;">Book</a> <a href="/tags/C/" style="font-size: 20px;">C#</a> <a href="/tags/Code/" style="font-size: 14px;">Code</a> <a href="/tags/Course/" style="font-size: 10px;">Course</a> <a href="/tags/Digest-Access-Authentication/" style="font-size: 10px;">Digest Access Authentication</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Du-doan-gia-vang/" style="font-size: 10px;">Dự đoán giá vàng</a> <a href="/tags/Ethical-Hacking/" style="font-size: 10px;">Ethical Hacking</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/GIS/" style="font-size: 10px;">GIS</a> <a href="/tags/Html-css-javascript/" style="font-size: 10px;">Html, css, javascript</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Linux-System-Programming/" style="font-size: 10px;">Linux, System Programming</a> <a href="/tags/Note/" style="font-size: 16px;">Note</a> <a href="/tags/OWASP-Testing-Guide/" style="font-size: 12px;">OWASP Testing Guide</a> <a href="/tags/Php/" style="font-size: 16px;">Php</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Python-Codesignal/" style="font-size: 10px;">Python, Codesignal</a> <a href="/tags/Quan-ly-diem/" style="font-size: 10px;">Quản lý điểm</a> <a href="/tags/RFC-2069/" style="font-size: 10px;">RFC 2069</a> <a href="/tags/RFC-2617/" style="font-size: 10px;">RFC 2617</a> <a href="/tags/SJF/" style="font-size: 10px;">SJF</a> <a href="/tags/Social-engineering/" style="font-size: 14px;">Social engineering</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/Sql-server/" style="font-size: 10px;">Sql server</a> <a href="/tags/System-Programming/" style="font-size: 14px;">System Programming</a> <a href="/tags/Text-to-speech/" style="font-size: 10px;">Text to speech</a> <a href="/tags/Todos/" style="font-size: 10px;">Todos</a> <a href="/tags/Tool/" style="font-size: 10px;">Tool</a> <a href="/tags/Tinh-toan-mem/" style="font-size: 10px;">Tính toán mềm</a> <a href="/tags/VRML/" style="font-size: 12px;">VRML</a> <a href="/tags/WPF/" style="font-size: 10px;">WPF</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/Windows-Form/" style="font-size: 10px;">Windows Form</a> <a href="/tags/Winform/" style="font-size: 10px;">Winform</a> <a href="/tags/Winforms/" style="font-size: 14px;">Winforms</a> <a href="/tags/Wordpress/" style="font-size: 18px;">Wordpress</a> <a href="/tags/ctf/" style="font-size: 10px;">ctf</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/fuzzy-computing/" style="font-size: 10px;">fuzzy computing</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/import-csv/" style="font-size: 10px;">import csv</a> <a href="/tags/migrate/" style="font-size: 10px;">migrate</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/blog-2020-02-27-Lam-sao-de-tra-luong-lap-trinh-vien-it-hon/">Làm sao để trả lương lập trình viên ít hơn</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-02-17-The-art-of-computer-prgramming-PREFACE/">The art of computer prgramming PREFACE</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-02-11-Geographical-Information-Systems-Part-1-Coursera-Week-1/">Geographical Information Systems Part 1 Coursera - Week 1</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-01-09-OWASP-Testing-Guide-2-Conduct-search-engine-discorvery-reconnaissance-for-information-leakage-OTG-INFO-001/">OWASP Testing Guide - 2 Conduct search engine discorvery/reconnaissance for information leakage (OTG-INFO-001) </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 LuanTM<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Dịch sách Programming Ground Up Chương 3 Chương trình đầu tiên | My real name is Tạ Minh Luận</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Trong chương này bạn sẽ học cách viết và build chương trình hợp ngữ. Thêm vào đó, bạn sẽ học được cấu trúc của chương trình hợp ngữ, và một vài lệnh hợp ngữ. Trong suốt chương, bạn có thể tham khảo tr">
+<meta name="keywords" content="Linux,Assembly">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dịch sách Programming Ground Up Chương 3 Chương trình đầu tiên">
+<meta property="og:url" content="https://taminhluan.github.io/blog/blog-2019-12-06-Dich-sach-Programming-Ground-Up-Chuong-3-Chuong-trinh-dau-tien/index.html">
+<meta property="og:site_name" content="My real name is Tạ Minh Luận">
+<meta property="og:description" content="Trong chương này bạn sẽ học cách viết và build chương trình hợp ngữ. Thêm vào đó, bạn sẽ học được cấu trúc của chương trình hợp ngữ, và một vài lệnh hợp ngữ. Trong suốt chương, bạn có thể tham khảo tr">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-02-27T09:13:31.231Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Dịch sách Programming Ground Up Chương 3 Chương trình đầu tiên">
+<meta name="twitter:description" content="Trong chương này bạn sẽ học cách viết và build chương trình hợp ngữ. Thêm vào đó, bạn sẽ học được cấu trúc của chương trình hợp ngữ, và một vài lệnh hợp ngữ. Trong suốt chương, bạn có thể tham khảo tr">
+  
+    <link rel="alternate" href="/atom.xml" title="My real name is Tạ Minh Luận" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">My real name is Tạ Minh Luận</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://taminhluan.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-blog-2019-12-06-Dich-sach-Programming-Ground-Up-Chuong-3-Chuong-trinh-dau-tien" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-2019-12-06-Dich-sach-Programming-Ground-Up-Chuong-3-Chuong-trinh-dau-tien/" class="article-date">
+  <time datetime="2019-12-06T07:12:36.000Z" itemprop="datePublished">2019-12-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Assembly/">Assembly</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Dịch sách Programming Ground Up Chương 3 Chương trình đầu tiên
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Trong chương này bạn sẽ học cách viết và build chương trình hợp ngữ. Thêm vào đó, bạn sẽ học được cấu trúc của chương trình hợp ngữ, và một vài lệnh hợp ngữ. Trong suốt chương, bạn có thể tham khảo trong phụ lục B và F.</p>
+<p>Các chương trình dưới đây có thể áp đảo bạn trong lần đầu tiên, vượt qua chúng bằng sử siêng năng, đọc code và các giải thích nhiều lần, và bạn sẽ có nền tảng để xây dựng chúng. Mỗi lần thất bại đều giúp bạn học điều gì đó.</p>
+<h3 id="Viet-chuong-trinh"><a href="#Viet-chuong-trinh" class="headerlink" title="Viết chương trình."></a>Viết chương trình.</h3><p>OK, chương trình đơn giản đầu tiên. Thực tế nó sẽ không làm gì cả!. Ngắn gọn, nhưng là cơ bản về hợp ngữ và lập trình linux. Nhập đoạn code vào editor của bạn và lưu với tên file exit.s. Đừng lo lắng nếu bạn không hiểu. Hãy chỉ gõ và chạy nó. Trong mục Outline of an Assembly Language Program chúng ta sẽ mô tả cách nó hoạt động</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#PURPOSE: Simple program that exits and returns a</span><br><span class="line"># status code back to the Linux kernel</span><br><span class="line">#</span><br><span class="line">#INPUT: none</span><br><span class="line">#</span><br><span class="line">#OUTPUT: returns a status code. This can be viewed</span><br><span class="line"># by typing</span><br><span class="line">#</span><br><span class="line"># echo $?</span><br><span class="line">#</span><br><span class="line"># after running the program</span><br><span class="line">#</span><br><span class="line">#VARIABLES:</span><br><span class="line"># %eax holds the system call number</span><br><span class="line"># %ebx holds the return status</span><br><span class="line">#</span><br><span class="line">.section .data</span><br><span class="line">.section .text</span><br><span class="line">.globl _start</span><br><span class="line">_start:</span><br><span class="line">movl $1, %eax # this is the linux kernel command</span><br><span class="line"># number (system call) for exiting</span><br><span class="line"># a program</span><br><span class="line">movl $0, %ebx # this is the status number we will</span><br><span class="line"># return to the operating system.</span><br><span class="line"># Change this around and it will</span><br><span class="line"># return different things to</span><br><span class="line"># echo $?</span><br><span class="line">int $0x80 # this wakes up the kernel to run</span><br><span class="line"># the exit command</span><br></pre></td></tr></table></figure>
+
+<p>Cái bạn vừa gõ được gọi là source code. Source code là dạng đọc được của chương trình. Để biến đổi nó thành dạng máy tính có thể chạy được, chúng ta cần dịch assemble và link nó.</p>
+<p>Bước đầu tiên là assemble. assembling là quá trình chuyển cái mà bạn gõ thành các chỉ thị lệnh cho máy. Bản thân máy tính chỉ đọc được tập hợp các con số, nhưng người lại thích chữ hơn. Hợp ngữ là human-readable hơn so với các chỉ thị cho máy tính hiểu. assembling chuyển các tập tin human-readable thành machine-readable. Để assembly gõ lệnh</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">as exit.s -o exit.o</span><br></pre></td></tr></table></figure>
+
+<p>as là lệnh cái mà chạy trình hợp dịch, exit.s là tập tin mã nguồn, -o exit.o nói với trình hợp dịch đặt output vào file exit.o, exit.o là object file. Một object file cũng là file ngôn ngữ máy, nhưng không hoàn toàn như thế. Hầu hết các chương trình lớn, bạn sẽ có vài file mã nguồn, bạn sẽ chuyển mỗi cái thành object file. Liker là chương trình chịu trách nhiệm đặt các object file cùng nhau và thêm thông tin vào nó, vì thể kernel biết cách tải và chạy chúng. Trong trường hợp của chúng ta chúng ta chỉ có một object file, vì thế linker chỉ thêm thông tin để cho phép nó chạy được. Để link file, nhập:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ld exit.o -o <span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+
+<p>ld là lệnh để chạy linker, exit.o là object file bạn muốn link, -o exit để chỉ ra file output là file exit. Nếu bất kỳ lệnh báo lỗi, bạn phải chạy lại tất cả các lệnh. Bạn chạy exit bằng cách gõ:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./<span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+
+<p>./ được sử dụng để nói với máy tính file thực thi ở thư mục hiện tại. Bạn sẽ được nhắc khi bạn gõ lệnh này, kết quả sẽ xuất hiện khi bạn gõ</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $?</span><br></pre></td></tr></table></figure>
+
+<p>Kết quả là 0. Đây là exit status code, nó nói rằng mọi thứ đều đúng. Nếu mọi thứ đều ok nó sẽ trả về 0. UNIX program trả về số khác 0 nếu errors, warnings, hoặc statuses. Các lập trình viên định nghĩa các con số này. Bạn có thể xem nó khi gõ echo $?.</p>
+<h3 id="Outline-of-an-Assembly-Language-Program"><a href="#Outline-of-an-Assembly-Language-Program" class="headerlink" title="Outline of an Assembly Language Program"></a>Outline of an Assembly Language Program</h3><p>Hãy nhìn vào chương trình chúng ta đã nhập. Ở vị trí bắt đầu. Có nhiều dòng bắt đầu với ký tự hashs(#). Đây là chú thích (comment). Các chú thích không được dịch bởi trình hợp dịch. Chúng chỉ được sử dụng bởi lập trình viên để nói với những người khác, những người đọc code của họ trong tương lai. Hầu hết chương trình bạn viết sẽ được sửa bởi người khác. Hãy tập thói quen viết chú thích trong code của bạn. Luôn luôn bao gồm những thứ sau trong chú thích của bạn.</p>
+<ul>
+<li>Mục đích của code.</li>
+<li>Tổng quan về những thứ được xử lý.</li>
+<li>Bất cứ thứ gì lạ trong chương trình bạn làm và tại sao lại vậy</li>
+</ul>
+<p>Sau các dòng comment là dòng</p>
+<p>.setion .data</p>
+<p>Bất cứ thứ gì bắt đầu bằng dấu chấm không được dịch trực tiếp ra mã máy. Thay vào đó nó là chỉ thị cho trình biên dịch. Chúng được gọi là assembler directives hay pseudo-operations bởi vì chúng được handle bởi assembler. Lệnh .section chia chương trình ra thành các phần. Lệnh trên để bắt đầu section data. Chương trình của chúng ta không sử dụng gì khác, vì thế chúng ta không cần phần này. Hầu hết các chương trình bạn viết trong tương lai sẽ có data.</p>
+<p>Ngay sau đó là</p>
+<p>.section .text</p>
+<p>cái mà bắt đầu text section. Text section của chương trình là nơi các lệnh chương trình cư trú.</p>
+<p>.globl _start<br>Chỉ thị này giúp trình hợp dịch biết _start là quan trọng để nhớ. _start là một symbol, nghĩa là<br>…</p>
+<p>_start<br>Định nghĩa giá trị _start. Một label là một symbol theo sau bởi một dấu colon. Labels định nghĩa các giá trị của symbol’s value. Khi trình hợp dịch, hợp dịch chương trình, nó phải gán mỗi dữ liệu và chỉ thị một địa chỉ. Labels nói cho trình hợp dịch tạo các giá trị<br>…</p>
+<p>movl $1, %eax</p>
+<p>Khi chương trình chạy, chỉ thị này chuyển số 1 vào thanh ghi %eax. Trong hợp ngữ, nhiều chỉ thị có các toán hạng. movl có 2 toán tử - the source và the destination. Trong trường hợp này, the source là số 1, và the destination là thanh ghi %eax. Các toán tử có thể là số, địa chỉ hoặc thanh ghi. Các chỉ thị khác nhau cho phép các toán tử khác nhau. Xem phụ lục B để xem thêm về các chỉ thị nhận các kiểu toán tử nào.</p>
+<p>Hầu hết các chỉ thị có 2 toán hạng, đầu tiên là nguồn (source), thứ 2 là đích (destination). Trong hầu hết trường hợp source không bị sửa đổi.<br>…</p>
+<p>Trong x86 processor, có vài thanh ghi đa mục đích (tất cả đều có thể sử dụng movl):</p>
+<ul>
+<li>%eax, %ebx, %ecx, %edx, %edi, %esi</li>
+</ul>
+<p>Thêm vào đó có vài thanh ghi với mục đích đặc biệt:</p>
+<ul>
+<li>%ebp, %esp, %eip, %eflags</li>
+</ul>
+<p>Chúng ta sẽ thảo luận sau. Một vài thanh ghi như %eip và %eflags có thể được truy cập bởi các chỉ thị đặc biệt. Các cái khác có thể truy cập sử dụng cùng chỉ thị các thanh ghi đa mục tiêu.</p>
+<p>Vì thếm lệnh movl di chuyển số 1 vào thanh ghi %eax. Ký hiệu $ ở trước để nói rằng chúng ta muốn sử dụng immediate mode addressing (refer back to Section Data Accessing Methods trong chương 2). Nếu không có dấu $ nó sẽ là sử dụng direct addressing mode, tải số ở địa chỉ 1. Chúng ta muốn sử dụng số 1 để load vào nên chúng ta phải sử dụng immediate mode.</p>
+<p>Lý do để chúng ta di chuyển số 1 vào thanh ghi %eax là bởi vì chúng ta chuẩn bị gọi Linux Kernel. Số 1 là số của exit system call. Chúng ta sẽ thảo luận về system calls sâu hơn sắp tới, nhưng cơ bản chúng ta sẽ yêu cầu hệ điều hành giúp. Các chương trình bình thường không làm tất cả. Nhiều hoạt động như gọi chương trình khác, làm việc với tập tin hay thoát phải được handled bởi hệ điều hành thông qua system calls. Khi bạn muốn tạo system calls, đơn giản chúng ta sẽ load một số vào thanh ghi %eax (Một danh sách tất cả system calls và số tương ứng có trong phụ lục C). Phụ thuộc vào system call, các thanh ghi khác có thể có những giá trị khác. System calls không phải mục đích chính của các thanh ghi. Các chương trình sau sẽ sử dụng các thanh ghi cho các tác vụ tính toán.</p>
+<p>Hệ điều hành, cần các thông tin để thực hiện system calls. Ví dụ, để dealing with files, hệ điều hành cần biết được tập tin nào cần mở, dữ liệu nào cần được ghi và các thứ khác. Các thông tin chi tiết thêm vào được gọi là các tham số được lưu trữ ở các thanh ghi. Trong trường hợp exit system calls, hệ điều hành yêu cầu status code được load vào thanh ghi %ebx. Giá trị này sẽ được trả về cho hệ thống. Giá trị này bạn có có được khi bạn gõ echo $?. Vì thế, chúng ta tải %ebx với 0 bằng cách gõ: movl $0, %ebx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Phần chân trang 26:</span><br><span class="line"></span><br><span class="line">Tiền tố e để chỉ định phiên bản mở rộng của thanh ghi. Thương xuyên bạn sẽ sử dụng các phiên bản mở rộng. Model mới hơn là phiên bản 64 bit, các tahanh ghi với tiền tố r nói đến các thanh ghi lớn hơn (ví dụ rax là 64 bit version của %eax). Tuy nhiên các vi xử lý không được sử dụng rộng rãi không được bao gồm trong cuốn sách này.</span><br></pre></td></tr></table></figure>
+
+<p>Bây giờ, Việc tải các số vào thanh ghi không có tác dụng gì. Các thanh ghi được sử dụng cho nhiều mục đích không chỉ là system calls. Chúng là nơi các program logic như cộng, trừ, so sánh sử dụng. Linux yêu cầu các thanh ghi nhất định được tải với các tham số nhất định trước khi tạo một system call. %eax luôn yêu cầu được sử dụng với một con số. Tuy nhiêu mỗi system call lại yêu cầu khác nhau. Như trong exit system call, %eba được yêu cầu được nạp giá trị exit stattus. Chúng ta sẽ thảo luận về các system calls khác khi cần. Chỉ thị tiếp theo:</p>
+<p>int $0x80</p>
+<p>int viết tắt của interupt. 0x80 là interupt number được sử dụng. Một interunp sẽ ngắt luồng chương trình, và chuyển luồng điểu khiển chương trình của chúng ta cho Linux, nó sẽ gọi lệnh system call.</p>
+<p>Bạn có thể không hiểu tại sao dùng 0x80 thay vì 80. Lý do là số chúng ta viết ở dạng cơ số 16.</p>
+<h3 id="Len-ke-hoach-cho-chuong-trinh"><a href="#Len-ke-hoach-cho-chuong-trinh" class="headerlink" title="Lên kế hoạch cho chương trình"></a>Lên kế hoạch cho chương trình</h3><p>Trong chương trình tiếp theo, chúng ta sẽ tìm số lớn nhất trong danh sách các số. Chúng ta cần lập kế hoạch một cách chi tiết:</p>
+<ul>
+<li>Nơi lưu danh sách các số?</li>
+<li>Thủ tục cần để tìm số lớn nhất?</li>
+<li>Chúng ta cần bao nhiêu bộ nhớ?</li>
+<li>Tất cả có thể lưu vừa trong các thanh ghi, hay chúng ta cần thêm bộ nhớ.</li>
+</ul>
+<p>Bạn có thể nghĩ rằng thật đơn giản để tìm số lớn nhất trong danh sách. Bạn có thể hỏi vài người cách tìm số lớn nhất, họ có thể gặp vài rắc rối. Tuy nhiên, trong đầu chúng ta có thể làm các tác vụ phức tạp một cách tự động. Máy tính cần được chỉ thị.</p>
+<p>Chúng ta cần các thanh ghi:</p>
+<ul>
+<li>%edi sẽ giữ vị trí hiện tại trong danh sách</li>
+<li>%ebx sẽ giữ giá trị lớn nhất trong danh sách</li>
+<li>%eax sẽ giữ phần tử hiện tại</li>
+</ul>
+<p>Khi chúng ta bắt đầu chương trình hãy xem giá trị đầu tiên trong danh sách.</p>
+<h3 id="Finding-a-Maximum-Value"><a href="#Finding-a-Maximum-Value" class="headerlink" title="Finding a Maximum Value"></a>Finding a Maximum Value</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-2019-12-06-Dich-sach-Programming-Ground-Up-Chuong-3-Chuong-trinh-dau-tien/" data-id="ck74jjguh00ct2mcpl0hebtq3" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Assembly/">Assembly</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/blog-2019-12-12-Dich-sach-Programming-ground-up-Chuong-4-All-About-Functions/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Dịch sách Programming ground up Chương 4 All About Functions
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/blog-2019-12-06-Dich-sach-Programming-Ground-Up-Chuong-2-Kien-truc-may-tinh/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Dịch sách Programming Ground Up Chương 2 Kiến trúc máy tính</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android-Programming/">Android Programming</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android-Programming/Note/">Note</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Assembly/">Assembly</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-Viblo/">Code Viblo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Codesignal/">Codesignal</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Deep-learning/">Deep learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GIS/">GIS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linh-tinh/">Linh tinh</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lap-trinh/">Lập trình</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-learning/">Machine learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network-Programming/">Network Programming</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/OWASP-Testing-Guide/">OWASP Testing Guide</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Phim/">Phim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Pre-Calculus/">Pre Calculus</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Social-engineering/">Social engineering</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/System-Programming/">System Programming</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Text-to-speech/">Text to speech</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Text-to-speech/Tool/">Tool</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Toan-hoc/">Toán học</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tri-tue-nhan-tao/">Trí tuệ nhân tạo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Uncategorized/">Uncategorized</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Unit-Testing/">Unit Testing</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Visualisation/">Visualisation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows/">Windows</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ctf/">ctf</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hacker/">hacker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/note/">note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vnspoj/">vnspoj</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/wordpress/">wordpress</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Do-an/">Đồ án</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ASP-net-MVC/">ASP.net MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-Programming/">Android Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Asp-net/">Asp.net</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Assembly/">Assembly</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Basic-Access-Authentication/">Basic Access Authentication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code/">Code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Course/">Course</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Digest-Access-Authentication/">Digest Access Authentication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Du-doan-gia-vang/">Dự đoán giá vàng</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ethical-Hacking/">Ethical Hacking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/">Flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GIS/">GIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html-css-javascript/">Html, css, javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Laravel/">Laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux-System-Programming/">Linux, System Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/">Note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OWASP-Testing-Guide/">OWASP Testing Guide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Php/">Php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python-Codesignal/">Python, Codesignal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quan-ly-diem/">Quản lý điểm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RFC-2069/">RFC 2069</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RFC-2617/">RFC 2617</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SJF/">SJF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Social-engineering/">Social engineering</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-MVC/">Spring MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sql-server/">Sql server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/System-Programming/">System Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Text-to-speech/">Text to speech</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Todos/">Todos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tool/">Tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tinh-toan-mem/">Tính toán mềm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VRML/">VRML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WPF/">WPF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows-Form/">Windows Form</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Winform/">Winform</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Winforms/">Winforms</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wordpress/">Wordpress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ctf/">ctf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/">database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fuzzy-computing/">fuzzy computing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/import-csv/">import csv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/migrate/">migrate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/">wordpress</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ASP-net-MVC/" style="font-size: 10px;">ASP.net MVC</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Android-Programming/" style="font-size: 10px;">Android Programming</a> <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Asp-net/" style="font-size: 10px;">Asp.net</a> <a href="/tags/Assembly/" style="font-size: 14px;">Assembly</a> <a href="/tags/Basic-Access-Authentication/" style="font-size: 10px;">Basic Access Authentication</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Book/" style="font-size: 10px;">Book</a> <a href="/tags/C/" style="font-size: 20px;">C#</a> <a href="/tags/Code/" style="font-size: 14px;">Code</a> <a href="/tags/Course/" style="font-size: 10px;">Course</a> <a href="/tags/Digest-Access-Authentication/" style="font-size: 10px;">Digest Access Authentication</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Du-doan-gia-vang/" style="font-size: 10px;">Dự đoán giá vàng</a> <a href="/tags/Ethical-Hacking/" style="font-size: 10px;">Ethical Hacking</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/GIS/" style="font-size: 10px;">GIS</a> <a href="/tags/Html-css-javascript/" style="font-size: 10px;">Html, css, javascript</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Linux-System-Programming/" style="font-size: 10px;">Linux, System Programming</a> <a href="/tags/Note/" style="font-size: 16px;">Note</a> <a href="/tags/OWASP-Testing-Guide/" style="font-size: 12px;">OWASP Testing Guide</a> <a href="/tags/Php/" style="font-size: 16px;">Php</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Python-Codesignal/" style="font-size: 10px;">Python, Codesignal</a> <a href="/tags/Quan-ly-diem/" style="font-size: 10px;">Quản lý điểm</a> <a href="/tags/RFC-2069/" style="font-size: 10px;">RFC 2069</a> <a href="/tags/RFC-2617/" style="font-size: 10px;">RFC 2617</a> <a href="/tags/SJF/" style="font-size: 10px;">SJF</a> <a href="/tags/Social-engineering/" style="font-size: 14px;">Social engineering</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/Sql-server/" style="font-size: 10px;">Sql server</a> <a href="/tags/System-Programming/" style="font-size: 14px;">System Programming</a> <a href="/tags/Text-to-speech/" style="font-size: 10px;">Text to speech</a> <a href="/tags/Todos/" style="font-size: 10px;">Todos</a> <a href="/tags/Tool/" style="font-size: 10px;">Tool</a> <a href="/tags/Tinh-toan-mem/" style="font-size: 10px;">Tính toán mềm</a> <a href="/tags/VRML/" style="font-size: 12px;">VRML</a> <a href="/tags/WPF/" style="font-size: 10px;">WPF</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/Windows-Form/" style="font-size: 10px;">Windows Form</a> <a href="/tags/Winform/" style="font-size: 10px;">Winform</a> <a href="/tags/Winforms/" style="font-size: 14px;">Winforms</a> <a href="/tags/Wordpress/" style="font-size: 18px;">Wordpress</a> <a href="/tags/ctf/" style="font-size: 10px;">ctf</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/fuzzy-computing/" style="font-size: 10px;">fuzzy computing</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/import-csv/" style="font-size: 10px;">import csv</a> <a href="/tags/migrate/" style="font-size: 10px;">migrate</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/blog-2020-02-27-Lam-sao-de-tra-luong-lap-trinh-vien-it-hon/">Làm sao để trả lương lập trình viên ít hơn</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-02-17-The-art-of-computer-prgramming-PREFACE/">The art of computer prgramming PREFACE</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-02-11-Geographical-Information-Systems-Part-1-Coursera-Week-1/">Geographical Information Systems Part 1 Coursera - Week 1</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-01-09-OWASP-Testing-Guide-2-Conduct-search-engine-discorvery-reconnaissance-for-information-leakage-OTG-INFO-001/">OWASP Testing Guide - 2 Conduct search engine discorvery/reconnaissance for information leakage (OTG-INFO-001) </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 LuanTM<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

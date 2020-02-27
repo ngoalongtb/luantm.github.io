@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>The linux programming interface Part 1 | My real name is Tạ Minh Luận</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Mở đầuChủ đềTrong cuốn sách này, tôi sẽ mô tả về Liux programming interface - the system calls, library function và các lơ level interface được cung cấp bởi Linux, và các bản phân phối miễn phí của hệ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The linux programming interface Part 1">
+<meta property="og:url" content="https://taminhluan.github.io/blog/blog-2019-07-05-The-linux-programming-interface-Part-1/index.html">
+<meta property="og:site_name" content="My real name is Tạ Minh Luận">
+<meta property="og:description" content="Mở đầuChủ đềTrong cuốn sách này, tôi sẽ mô tả về Liux programming interface - the system calls, library function và các lơ level interface được cung cấp bởi Linux, và các bản phân phối miễn phí của hệ">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-02-27T09:13:31.231Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The linux programming interface Part 1">
+<meta name="twitter:description" content="Mở đầuChủ đềTrong cuốn sách này, tôi sẽ mô tả về Liux programming interface - the system calls, library function và các lơ level interface được cung cấp bởi Linux, và các bản phân phối miễn phí của hệ">
+  
+    <link rel="alternate" href="/atom.xml" title="My real name is Tạ Minh Luận" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">My real name is Tạ Minh Luận</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://taminhluan.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-blog-2019-07-05-The-linux-programming-interface-Part-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-2019-07-05-The-linux-programming-interface-Part-1/" class="article-date">
+  <time datetime="2019-07-05T07:06:03.000Z" itemprop="datePublished">2019-07-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      The linux programming interface Part 1
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Mo-dau"><a href="#Mo-dau" class="headerlink" title="Mở đầu"></a>Mở đầu</h1><h2 id="Chu-de"><a href="#Chu-de" class="headerlink" title="Chủ đề"></a>Chủ đề</h2><p>Trong cuốn sách này, tôi sẽ mô tả về Liux programming interface - the system calls, library function và các lơ level interface được cung cấp bởi Linux, và các bản phân phối miễn phí của hệ điều hành UNIX. Các interface này được được sử dụng, trực tiếp hoặc gián tiếp bởi các chương trình chạy trên linux. Chúng cho phép ứng dụng perform các tác vụ như đọc ghi file, tạo xóa file và thư mục, tạo process mới, thực thi các chương trình, thực thi các chương trình, cài đặt thời gian, giao tiếp giữa các tiến trình và threads trong cùng máy tính, và giao tiếp giữa các tiến trình  và các máy tính khác nhau kết nối qua mạng.</p>
+<ul>
+<li>Tập các lơ level interface thỉnh thoảng biết đến là system programming interface</li>
+</ul>
+<h2 id="1-Lich-su-va-chuan"><a href="#1-Lich-su-va-chuan" class="headerlink" title="1 Lịch sử và chuẩn"></a>1 Lịch sử và chuẩn</h2><ul>
+<li>Linux là họ nhà UNIX. Trong thuật ngữ máy tính, UNIX có một lịch sử lâu dài. </li>
+<li>Một trang các đặc trưng nổi bật của UNIX system là không được điều khiển bởi bất kỳ một tổ chức hay nhà cung cấp đơn lẻ nào =&gt; có nhiều tính năng sáng tạo được thêm vào UNIX, nhưng cũng có những kết quả tiêu cực qua các bản phân phối qua thời gian, viết chương trình chạy được trên tất cả các hệ điều hành UNIX ngày một khó.<h3 id="1-1-Luoc-su-ve-UNIX-va-C"><a href="#1-1-Luoc-su-ve-UNIX-va-C" class="headerlink" title="1.1. Lược sử về UNIX và C"></a>1.1. Lược sử về UNIX và C</h3></li>
+</ul>
+<ul>
+<li>Đầu tiêu UNIX được phát triển năm 1969 bởi Ken Thompson và Bell Laboratories (cùng năm Linux Torvalds sinh ra). Thompson đã vẽ ra một vài ý tưởng về hệ điều hành của ông từ MULTICS, bao gồm cấu trúc cây thư mục, một chương trình tách biệt cho việc thông dịch lệnh (the shell), và khái niệm tập tin như là một unstructured streams of bytes.</li>
+<li>Năm 1970 UNIX được viết lại bởi hợp ngữ. </li>
+<li>Một thời gian ngắn sau, Dennis Ritchie, một đồng nghiệp của Thompson đã thiết kế và cài đặt ngôn ngữ lập trình C, đây là một bước tiến lớn</li>
+<li>Nguồn gốc của C giải thích vì sao mà nó được sử dụng rộng rãi như là ngôn ngữ lập trình hệ thống cho ngày hôm nay. Trước khi được sử dụng rộng rãi và được thiết kê đa mục đích. FORTRAN như là để performs các tác vụ bởi các kĩ sử và các nhà khoa học. COBOL cho các hệ thống thương mại. C không giống như FORTRAN và COBOL các mà được thiết kế bởi rất nhiều ủy ban, thiết kế của C nảy sinh từ ý tưởng và với một vài cá nhân làm việc với cùng một mục đích: Phát triển một ngôn ngữ bậc cao cho việc implementing UNIX kernel và giao tiếp phần mềm. Như chính hệ điều hành UNIX, C được thiết kế bởi các chuyên gia phần mềm cho mục đích sử dụng của họ. Ngôn ngữ nhỏ gọn, hiệu quả, mạnh mẽ, ngắn gọc, hướng mudule, thực dụng và mạch lạc trong thiết kế.<h4 id="YNIX-first-through-Sixth-editions"><a href="#YNIX-first-through-Sixth-editions" class="headerlink" title="YNIX first through Sixth editions"></a>YNIX first through Sixth editions</h4>Giữa năm 69-70, UNIX đã có một vài release, được biết như là editions.<h4 id="Su-ra-doi-cua-BSD-va-System-V"><a href="#Su-ra-doi-cua-BSD-va-System-V" class="headerlink" title="Sự ra đời của BSD và System V"></a>Sự ra đời của BSD và System V</h4>Tháng 1/1970 UNIX phiên bản thứ 7 ra đời, cải thiện rất nhiều tính năng của hệ thống và cung cấp một file system được nâng cấp. Bản release này bao gồm một vài công cụ mới như awk, make, sed, tar, uucp, the Bourne shell, và FORTRAN 77 compiler. UNIX 7 rất ý nghĩa chia thành 2 phần chính BSD và System V, được mô tả ngắn gọn như sau.<br>Thompson năm 1975/1976 làm việc với một vài sinh viên ở University of California tại Berkeley thêm một vài tính năng cho UNIX (Một trong số học sinh này là Bill Joy, sau đó đã trở thành cofound SUN Microsystems, ) Qua thời gian rất nhiều công cụ mới và tính năng được phát triển ở Berkeley bao gồm C shell , vi editor, một improved file system (Berkeley Fast File System), sendmail, Pascal compiler, và virtual memory management.<br>Dưới cá tên Berkeley Software Distribution (BSD), phiên bản UNIX này bao gồm mã nguồn và được phân phối rộng rãi. full distribution là 3BSD 12/1979.</li>
+</ul>
+<p>Năm 1983, Computer Systems Research Group tại University of California tại Berkeley released 4.2BSD. Bản release này rất có ý nghĩa bởi vì nó bao gồm bản cài đặt hoàn toàn của TCP/IP. bao gồm sockets application programming và một vài networking tool. 4.2BSD và người tiền nhiệm của nó 4.1BSD trở nên rộng rãi khắp các trường đại học trên toàn thế giới. Chúng hình thànnh nền tảng cho SunOS (released năm 1983), UNIX được bán bởi Sun(4.3BSD), 1986 bản cuối cùng 4.4BSD năm 1993.<br>…</p>
+<h3 id="1-2-Luoc-su-Linux"><a href="#1-2-Luoc-su-Linux" class="headerlink" title="1.2. Lược sử Linux"></a>1.2. Lược sử Linux</h3><p>Thuật ngữ Linux được sử dụng rộng rãi với toàn bộ UNIX-like. Tuy nhiên, điều này vài thứ được hiểu sai, rất nhiều thành phần chính …</p>
+<h3 id="1-3-Tieu-chuan"><a href="#1-3-Tieu-chuan" class="headerlink" title="1.3. Tiêu chuẩn"></a>1.3. Tiêu chuẩn</h3><h2 id="Fundamental-Concepts"><a href="#Fundamental-Concepts" class="headerlink" title="Fundamental Concepts"></a>Fundamental Concepts</h2><h3 id="2-1-The-core-Operating-System-The-Kernel"><a href="#2-1-The-core-Operating-System-The-Kernel" class="headerlink" title="2.1. The core Operating System: The Kernel"></a>2.1. The core Operating System: The Kernel</h3><p>thuật ngữ hệ điều hành được sử dụng rộng rãi với 2 nghĩa.</p>
+<ul>
+<li>Phần mềm trung tâm một computer resources như commandline interpreters, graphical user interface,file utilities, và editors.</li>
+<li>Thu hẹp hơn nó là tủng tâm quản lý các tài nguyên của máy tính (CPU, RAM, …)<br>Kernel được sử dụng như từ đồng nghĩa cho thuật ngữ operator system.<br>Mặc dù có thể chạy chương trình trên máy tính không có một kernel, kernal đươn gản hóa việc viết và sử dụng các chương trình khascm và tăng sức mạnh và tính linh hoạt của lập trình viên. Kernel cũng cung cấp một chương trình quản lý nguồn tài nguyên giới hạn của một máy tính.<br>Linux kernel executable có trong /boot/vzlinuz hoặc đau đó tương tự. ngày trước kernel được gọi là unix. Sau này được đổi tên thành vmunix. Trên linux thay chữ z cho chữ x để chỉ ra kernel là một bản compressed executable.</li>
+</ul>
+<h4 id="Tasks-duoc-goi-boi-kernel"><a href="#Tasks-duoc-goi-boi-kernel" class="headerlink" title="Tasks được gọi bởi kernel."></a>Tasks được gọi bởi kernel.</h4><p>kernel thực thi một vài task.<br>Process scheduling. Một máy tính có một hoặc nhiều CPU cái mà thực thi các chỉ thị của chương trình. Giống như UNIX systems Linux là một hệ điều hành đa nhiệm, nghĩa là nhiều tiến trình có thể chạy đồng thời trên bộ nhớ, mỗi cái được sử dụng CPU. </p>
+<h4 id="Kernel-mode-va-user-mode"><a href="#Kernel-mode-va-user-mode" class="headerlink" title="Kernel mode và user mode"></a>Kernel mode và user mode</h4><p>Modderrn processor architectures cho phép CPU có thể tổ chức thành ít nhất 2 tùy chọn: user mode và kernel mode (thỉnh thoảng được biết đến như là supervisor mode). Hardware instruction cho phép chuyển đổi qua lại giữa 2 cái. Tương tự các vùng nhớ ảo có thể được đánh dấu như một phần của User space hoặc kernel space. Khi chạy trong user mode, CPU có thể truy cập chỉ các vùng nhớ được đánh dấu là trong user space. Khi chạy trong kernel mode, CPU có thể truy cập tất cả các vùng nhớ.<br>Chắc chắn hệ điều hành chỉ có thể thực thi khi các bộ xử lý điều khiển trong kernel mode. Ví dụ …</p>
+<h4 id="The-shell"><a href="#The-shell" class="headerlink" title="The shell"></a>The shell</h4><p>Một shell là một chương trình được thiết kế để đọc các lệnh được gõ vào từ người dùng và thực thi các chương trình thích hợp tới các lệnh, ví dụ như một Command interpreter.<br>Thuật ngữ login shell được sử dụng để chỉ ra tiến trình được tạo để chạy một shell khi người dùng đăng nhập lần đầu tiên.</p>
+<ul>
+<li>Có rất nhiều shell và người dùng khác nhau</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-2019-07-05-The-linux-programming-interface-Part-1/" data-id="ck74jjgpz002s2mcp40wsjld8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/blog-2019-07-05-Note-Su-dung-Debian/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Note Sử dụng Debian
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/doan-2019-07-05-He-chuyen-gia/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hệ chuyên gia tư vấn chọn ngôn ngữ lập trình</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android-Programming/">Android Programming</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android-Programming/Note/">Note</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Assembly/">Assembly</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-Viblo/">Code Viblo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Codesignal/">Codesignal</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Deep-learning/">Deep learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GIS/">GIS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linh-tinh/">Linh tinh</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lap-trinh/">Lập trình</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-learning/">Machine learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network-Programming/">Network Programming</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/OWASP-Testing-Guide/">OWASP Testing Guide</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Phim/">Phim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Pre-Calculus/">Pre Calculus</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Social-engineering/">Social engineering</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/System-Programming/">System Programming</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Text-to-speech/">Text to speech</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Text-to-speech/Tool/">Tool</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Toan-hoc/">Toán học</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tri-tue-nhan-tao/">Trí tuệ nhân tạo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Uncategorized/">Uncategorized</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Unit-Testing/">Unit Testing</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Visualisation/">Visualisation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows/">Windows</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ctf/">ctf</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hacker/">hacker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/note/">note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vnspoj/">vnspoj</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/wordpress/">wordpress</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Do-an/">Đồ án</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ASP-net-MVC/">ASP.net MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-Programming/">Android Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Asp-net/">Asp.net</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Assembly/">Assembly</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Basic-Access-Authentication/">Basic Access Authentication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code/">Code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Course/">Course</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Digest-Access-Authentication/">Digest Access Authentication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Du-doan-gia-vang/">Dự đoán giá vàng</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ethical-Hacking/">Ethical Hacking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/">Flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GIS/">GIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html-css-javascript/">Html, css, javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Laravel/">Laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux-System-Programming/">Linux, System Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/">Note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OWASP-Testing-Guide/">OWASP Testing Guide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Php/">Php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python-Codesignal/">Python, Codesignal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quan-ly-diem/">Quản lý điểm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RFC-2069/">RFC 2069</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RFC-2617/">RFC 2617</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SJF/">SJF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Social-engineering/">Social engineering</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-MVC/">Spring MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sql-server/">Sql server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/System-Programming/">System Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Text-to-speech/">Text to speech</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Todos/">Todos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tool/">Tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tinh-toan-mem/">Tính toán mềm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VRML/">VRML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WPF/">WPF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows-Form/">Windows Form</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Winform/">Winform</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Winforms/">Winforms</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wordpress/">Wordpress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ctf/">ctf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/">database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fuzzy-computing/">fuzzy computing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/import-csv/">import csv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/migrate/">migrate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/">wordpress</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ASP-net-MVC/" style="font-size: 10px;">ASP.net MVC</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Android-Programming/" style="font-size: 10px;">Android Programming</a> <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Asp-net/" style="font-size: 10px;">Asp.net</a> <a href="/tags/Assembly/" style="font-size: 14px;">Assembly</a> <a href="/tags/Basic-Access-Authentication/" style="font-size: 10px;">Basic Access Authentication</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Book/" style="font-size: 10px;">Book</a> <a href="/tags/C/" style="font-size: 20px;">C#</a> <a href="/tags/Code/" style="font-size: 14px;">Code</a> <a href="/tags/Course/" style="font-size: 10px;">Course</a> <a href="/tags/Digest-Access-Authentication/" style="font-size: 10px;">Digest Access Authentication</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Du-doan-gia-vang/" style="font-size: 10px;">Dự đoán giá vàng</a> <a href="/tags/Ethical-Hacking/" style="font-size: 10px;">Ethical Hacking</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/GIS/" style="font-size: 10px;">GIS</a> <a href="/tags/Html-css-javascript/" style="font-size: 10px;">Html, css, javascript</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Linux-System-Programming/" style="font-size: 10px;">Linux, System Programming</a> <a href="/tags/Note/" style="font-size: 16px;">Note</a> <a href="/tags/OWASP-Testing-Guide/" style="font-size: 12px;">OWASP Testing Guide</a> <a href="/tags/Php/" style="font-size: 16px;">Php</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Python-Codesignal/" style="font-size: 10px;">Python, Codesignal</a> <a href="/tags/Quan-ly-diem/" style="font-size: 10px;">Quản lý điểm</a> <a href="/tags/RFC-2069/" style="font-size: 10px;">RFC 2069</a> <a href="/tags/RFC-2617/" style="font-size: 10px;">RFC 2617</a> <a href="/tags/SJF/" style="font-size: 10px;">SJF</a> <a href="/tags/Social-engineering/" style="font-size: 14px;">Social engineering</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/Sql-server/" style="font-size: 10px;">Sql server</a> <a href="/tags/System-Programming/" style="font-size: 14px;">System Programming</a> <a href="/tags/Text-to-speech/" style="font-size: 10px;">Text to speech</a> <a href="/tags/Todos/" style="font-size: 10px;">Todos</a> <a href="/tags/Tool/" style="font-size: 10px;">Tool</a> <a href="/tags/Tinh-toan-mem/" style="font-size: 10px;">Tính toán mềm</a> <a href="/tags/VRML/" style="font-size: 12px;">VRML</a> <a href="/tags/WPF/" style="font-size: 10px;">WPF</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/Windows-Form/" style="font-size: 10px;">Windows Form</a> <a href="/tags/Winform/" style="font-size: 10px;">Winform</a> <a href="/tags/Winforms/" style="font-size: 14px;">Winforms</a> <a href="/tags/Wordpress/" style="font-size: 18px;">Wordpress</a> <a href="/tags/ctf/" style="font-size: 10px;">ctf</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/fuzzy-computing/" style="font-size: 10px;">fuzzy computing</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/import-csv/" style="font-size: 10px;">import csv</a> <a href="/tags/migrate/" style="font-size: 10px;">migrate</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/blog-2020-02-27-Lam-sao-de-tra-luong-lap-trinh-vien-it-hon/">Làm sao để trả lương lập trình viên ít hơn</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-02-17-The-art-of-computer-prgramming-PREFACE/">The art of computer prgramming PREFACE</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-02-11-Geographical-Information-Systems-Part-1-Coursera-Week-1/">Geographical Information Systems Part 1 Coursera - Week 1</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-01-09-OWASP-Testing-Guide-2-Conduct-search-engine-discorvery-reconnaissance-for-information-leakage-OTG-INFO-001/">OWASP Testing Guide - 2 Conduct search engine discorvery/reconnaissance for information leakage (OTG-INFO-001) </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 LuanTM<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

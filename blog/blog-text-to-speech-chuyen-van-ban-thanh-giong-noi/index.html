@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Text to speech - chuyển văn bản thành giọng nói | My real name is Tạ Minh Luận</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Mở đầuBài viết không liên quan tới machine learning. Chúng ta sẽ gọi api của fpt. Thằng bạn mình hỏi học machine learning có làm được chuyển văn bản thành giọng nói không. Mình bảo là không (vì mình k">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Text to speech - chuyển văn bản thành giọng nói">
+<meta property="og:url" content="https://taminhluan.github.io/blog/blog-text-to-speech-chuyen-van-ban-thanh-giong-noi/index.html">
+<meta property="og:site_name" content="My real name is Tạ Minh Luận">
+<meta property="og:description" content="Mở đầuBài viết không liên quan tới machine learning. Chúng ta sẽ gọi api của fpt. Thằng bạn mình hỏi học machine learning có làm được chuyển văn bản thành giọng nói không. Mình bảo là không (vì mình k">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://35.196.17.90/blog/wp-content/uploads/2018/12/backup-file.png">
+<meta property="og:image" content="http://35.196.17.90/blog/wp-content/uploads/2018/12/download-files.png">
+<meta property="og:image" content="http://35.196.17.90/blog/wp-content/uploads/2018/12/cell-runall.png">
+<meta property="og:image" content="http://35.196.17.90/blog/wp-content/uploads/2018/12/starttq.png">
+<meta property="og:updated_time" content="2020-02-27T09:13:31.239Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Text to speech - chuyển văn bản thành giọng nói">
+<meta name="twitter:description" content="Mở đầuBài viết không liên quan tới machine learning. Chúng ta sẽ gọi api của fpt. Thằng bạn mình hỏi học machine learning có làm được chuyển văn bản thành giọng nói không. Mình bảo là không (vì mình k">
+<meta name="twitter:image" content="http://35.196.17.90/blog/wp-content/uploads/2018/12/backup-file.png">
+  
+    <link rel="alternate" href="/atom.xml" title="My real name is Tạ Minh Luận" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">My real name is Tạ Minh Luận</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://taminhluan.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-blog-text-to-speech-chuyen-van-ban-thanh-giong-noi" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-text-to-speech-chuyen-van-ban-thanh-giong-noi/" class="article-date">
+  <time datetime="2018-12-06T08:35:47.000Z" itemprop="datePublished">2018-12-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Lap-trinh/">Lập trình</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Text to speech - chuyển văn bản thành giọng nói
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Mo-dau"><a href="#Mo-dau" class="headerlink" title="Mở đầu"></a>Mở đầu</h2><p>Bài viết không liên quan tới machine learning. Chúng ta sẽ gọi api của fpt. Thằng bạn mình hỏi học machine learning có làm được chuyển văn bản thành giọng nói không. Mình bảo là không (vì mình không biết thật). Nhưng sau khi thấy nó nghe truyện mạng với chị google (bản thân mình không có hứng thú với truyện ngôn tình hay kiếm hiệp và có thì chắc mình cũng đọc chữ) thì mình nghĩ kiếm cho nó cái api nào cho nó dùng. Nó có bảo mình phải tạo model machine learning đâu. Ở bài viết này mình sẽ hướng dẫn cho các bạn tạo app text to speech. Có luôn source code để các bạn tải về dùng miễn phí hoàn toàn. Các bạn có thể dùng để nghe truyện, đọc báo hoặc tạo giọng nói cho nhà thông minh, chatbot của bạn chẳng hạn rất tiện phải không. Đây là một đoạn của google translate [audio mp3=”<a href="http://35.196.17.90/blog/wp-content/uploads/2018/12/translate_tts.mp3&quot;\]\[/audio\]" target="_blank" rel="noopener">http://35.196.17.90/blog/wp-content/uploads/2018/12/translate_tts.mp3&quot;\]\[/audio\]</a> Đây là api fpt [audio mp3=”<a href="http://35.196.17.90/blog/wp-content/uploads/2018/12/full.mp3&quot;\]\[/audio\]" target="_blank" rel="noopener">http://35.196.17.90/blog/wp-content/uploads/2018/12/full.mp3&quot;\]\[/audio\]</a>   Đây là phần giới thiệu của fpt Tổng hợp tiếng nói (Speech synthesis) là bài toán cơ bản trong bài toán lớn về giao tiếp giữa người và máy (Human-Machine Interface). Với tham vọng riêng của mình, Ban công nghệ FPT (FTI) đã nỗ lực nghiên cứu suốt gần 5 năm qua để cho ra mắt sản phẩm FPT Speech Synthesis. Sản phẩm là sự kết hợp của:</p>
+<ul>
+<li>Ngôn ngữ học (Linguistics): âm vị học (Phonology), hình thái học (Morphology), ngữ dụng học (Pragmatics)</li>
+<li>Vật lý học: âm học</li>
+<li>Công nghệ: Xử lý ngôn ngữ tự nhiên (Natural Language Processing) , học máy (Machine Learning), xử lý tín hiệu số (Digital Signal Processing)</li>
+</ul>
+<p>Được đánh giá là hệ thống tổng hợp tiếng nói tiếng Việt có chất lượng tốt nhất thị trường hiện nay, hệ thống tổng hợp tiếng Việt mới của FPT đang được mở trên Open FPT (<a href="http://openfpt.vn/" target="_blank" rel="noopener">http://openfpt.vn/</a>). Các nhà phát triển có thể khai thác nguồn tài nguyên này để xây dựng ứng dụng của riêng mình trên các nền tảng khác nhau. Cho đến thời điểm này, đã có nhiều sản phẩm như “Giao thông thông minh” do FPT IS phát triển, hệ thống thông báo thông tin tài chính của VHT, hệ thống sinh ra video tự động từ bái báo điện tử, … đang sử dụng Speech Synthesis API của Open FPT và nhận được rất nhiều phản hồi tích cực từ người dùng.</p>
+<h2 id="Text-to-speech"><a href="#Text-to-speech" class="headerlink" title="Text to speech"></a>Text to speech</h2><p>Mình viết bằng python. Đầu tiên ta cần vào <a href="https://dev.openfpt.vn/" target="_blank" rel="noopener">https://dev.openfpt.vn/</a> đăng ký tài khoản và tạo key để dùng cho app. Ok có cả phần test luôn. Các bạn có thể thử để xem chất lượng giọng nói. Tài liệu ở <a href="https://docs.openfpt.vn/#speech-synthesis" target="_blank" rel="noopener">đây.</a> Chúng ta bắt đầu code.</p>
+<h3 id="Khoi-tao-cac-tham-so"><a href="#Khoi-tao-cac-tham-so" class="headerlink" title="Khởi tạo các tham số"></a>Khởi tạo các tham số</h3><p>Keys xin phép được ẩn đi. Mình chẳng tiếc nhưng sợ đông người dùng các bạn làm chậm của nhau. May cho chúng ta có phần comment của thằng bạn mình. Source code ở phía cuối bài viết, mình cũng lười không làm cái ứng dụng giao diện tử tế. Quan trọng là ý tưởng phải không :D. Chúng ta dùng nhiều key bởi vì fpt sẽ chặn số lượng request tính trên phút. Mình sẽ thay đổi liên tục các keys để lack vụ này :D.</p>
+<p>import sys<br>import requests</p>
+<p>#API Key của bạn<br>keys = [<br>        ‘#############################’,<br>        ‘#############################’,<br>      ‘#############################’,<br>    ‘#############################’<br>]</p>
+<p>#Xác định các giọng đọc, voice có các giá trị là leminh (giọng nam miền bắc), male (giọng nam miền bắc),</p>
+<p>#female (giọng nữ miền bắc), hatieumai (giọng nữ miền nam), ngoclam (giọng nữ Huế)<br>voice = “leminh”<br># Xác định các giọng đọc, voice có các giá trị là:<br># leminh (giọng nam miền bắc nghe ấm ),<br># male (giọng nam miền bắc hơi già có tiếng thở),<br># female (giọng nữ miền bắc trẻ, giọng trong đọc hơi chậm so với các giọng khác),<br># hatieumai (giọng nữ miền nam nghe đk),<br># ngoclam (giọng nữ Huế  đọc hơi bị ngắt nên cho chậm lại)<br>speed= “0”</p>
+<p>#ngữ điệu 1 on. 0 off<br>prosody= “0”</p>
+<p>#phần dưới này để phục vụ cho việc nhận tham số từ cmd khi sử dụng file start.py<br># vd call file “start.py input” #input là input.txt lưu văn bản cần chuyển thành giọng nói<br># hoặc chỉnh sửa short_direct đối với dùng jupyter notebook<br># ngoài cách chạy command line có thể sử dụng jupyter notebook chủ yếu cho người phát triển<br>args = sys.argv<br>if len(args) &gt;= 1:<br>    short_direct = args[1]<br>    direc = ‘{}/‘.format(args[1])</p>
+<p># Thay ten file<br>short_direct = ‘starttq’<br>direc = f’{short_direct}/‘</p>
+<h3 id="Backup-file-mp3-truoc-do"><a href="#Backup-file-mp3-truoc-do" class="headerlink" title="Backup file mp3 trước đó"></a>Backup file mp3 trước đó</h3><p>Mục đích tránh ghi đè mất file mp3 ở đợt trước</p>
+<p>import os<br>import datetime</p>
+<p>#backup file full.mp3<br>if short_direct not in os.listdir():<br>    os.mkdir(short_direct)<br>if ‘full.mp3’ in os.listdir(‘{}’.format(direc)):</p>
+<pre><code>#create folder backup if not exists
+if &apos;backup&apos; not in os.listdir(&apos;{}&apos;.format(direc)):
+    os.mkdir(&apos;{}backup&apos;.format(direc))
+
+now = str(datetime.datetime.now()).replace(&quot; &quot;, &quot;_&quot;).replace(&quot;:&quot;, &quot;_&quot;)
+os.rename(&quot;{}full.mp3&quot;.format(direc), &quot;{}backup/{}.mp3&quot;.format(direc, now))
+print(&apos;backup file full mp3 to {}backup/{}.mp3&apos;.format(direc, now))</code></pre><p># Remove all file mp3<br>for item in os.listdir(‘{}’.format(direc)):<br>    if item.endswith(“.mp3”):<br>        os.remove(os.path.join(direc, item))<br>print(‘remove all file mp3’)</p>
+<p>Kết quả <img src="http://35.196.17.90/blog/wp-content/uploads/2018/12/backup-file.png" alt></p>
+<h3 id="Goi-API-va-tai-cac-file-nhac"><a href="#Goi-API-va-tai-cac-file-nhac" class="headerlink" title="Gọi API và tải các file nhạc"></a>Gọi API và tải các file nhạc</h3><p>Vì fpt giới hạn số lượng ký tự. Nên ta cần cắt ra thành nhiều đoạn. Cắt thế nào để không vào giữa một chữ (phải là “xin chào” chứ không thể cắt “xin ch” rồi file sau là “ào” được). Cách làm đơn giản là lấy 500 (giới hạn của fpt) lùi lại đến khi gặp dấu cách thôi rồi cắt từ đó. Mình để 480 cho chắc :D. Đối với python thì chúng ta có thư viện textwrap.</p>
+<p>from textwrap import wrap<br>import time<br>import wget<br>import random<br>file = open(“{}.txt”.format(short_direct), “r”, encoding=”utf-8”)<br>content = file.read()</p>
+<p>wraptexts = wrap(content, 480)</p>
+<p>for i in range(len(wraptexts)):<br>    while True:<br>        try:<br>            text = wraptexts[i]<br>            api_key = random.choice(keys)<br>            print(‘\n’, api_key)<br>            url = “<a href="http://api.openfpt.vn/text2speech/v4?api\_key={}&amp;voice={}&amp;speed={}&amp;prosody={}&quot;.format" target="_blank" rel="noopener">http://api.openfpt.vn/text2speech/v4?api\_key={}&amp;voice={}&amp;speed={}&amp;prosody={}&quot;.format</a>(api_key, voice, speed, prosody)<br>            response = requests.post(url, data=text.encode(‘utf-8’), headers={‘voice’:voice, ‘speed’:speed, ‘prosody’:prosody})<br>            response = response.json()<br>            print(‘\n’, response[‘async’])
+            file = response[‘async’]<br>            print(“downloading file {}/{} “.format(i+1, len(wraptexts)), “{}{:03}.mp3”.format(direc, i))<br>        except :<br>            time.sleep(1)<br>            continue<br>        break<br>    while True:<br>        try:<br>            wget.download(file, “{}{:03}.mp3”.format(direc, i))<br>        except :<br>            time.sleep(0.1)<br>            print(‘Co loi. Thu lai’, end=’’)<br>            continue<br>        break</p>
+<p>print(‘\nCOMPLETE’)</p>
+<p>Kết quả: <img src="http://35.196.17.90/blog/wp-content/uploads/2018/12/download-files.png" alt></p>
+<h3 id="Gop-files"><a href="#Gop-files" class="headerlink" title="Gộp files"></a>Gộp files</h3><p>Sau bước trên ta đã tải được các file đơn bây giờ gộp lại. Trên linux thì mình nhớ có sẵn lệnh split và merge file rồi. Trước mình đã thử chia nhỏ ảnh của mình và merge lại vẫn dùng được. Còn trên windows thì không có mình dùng một cái ffmpeg để merge file audios. Còn tải ở đâu thì mình không nhớ, các bạn có thể xem tài liệu <a href="https://trac.ffmpeg.org/wiki/Concatenate" target="_blank" rel="noopener">https://trac.ffmpeg.org/wiki/Concatenate,</a> hoặc tải 3 file exe ở phần sourcecode.</p>
+<p>#create list for merge<br>import subprocess<br>f = open(“{}create_list.bat”.format(direc), “w”)<br>f.write(“(for %%i in (*.mp3) do @echo file ‘%%i’) &gt; list.txt”)<br>f.close()<br>s = “{}create_list.bat”.format(direc)<br>os.chdir(short_direct)<br>print(os.listdir())<br>print(s)</p>
+<p># os.system(“create_list2.bat”.format(direc))<br>subprocess.Popen(“create_list.bat”)<br>os.chdir(‘..’)</p>
+<p>#merge file for create </p>
+<p>#output: full.mp3<br>p = subprocess.run(‘ffmpeg -f concat -safe 0 -i {}list.txt -c copy {}full.mp3’.format(direc, direc))</p>
+<p>Vậy là xong. Bạn muốn thưởng thức thì quay lại phần đầu mở audio lên.</p>
+<h3 id="Cach-su-dung"><a href="#Cach-su-dung" class="headerlink" title="Cách sử dụng"></a>Cách sử dụng</h3><p>Có hai cách:</p>
+<ul>
+<li>Mở jupyter notebook. Vào cell &gt; Run all nhớ chỉnh short_direct trong code.</li>
+</ul>
+<p><img src="http://35.196.17.90/blog/wp-content/uploads/2018/12/cell-runall.png" alt></p>
+<ul>
+<li>Dùng cmd: Vào thư mục&gt; start.py starttq. Với starttq.txt là nội dung văn bản.</li>
+</ul>
+<p><img src="http://35.196.17.90/blog/wp-content/uploads/2018/12/starttq.png" alt> Kết quả cuối cùng là full.mp3 trong thư mục starttq. Nếu có file full.mp3 sẽ được backup vào thư mục backup.</p>
+<h2 id="Ket-thuc"><a href="#Ket-thuc" class="headerlink" title="Kết thúc"></a>Kết thúc</h2><p>Cám ơn các bạn</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-text-to-speech-chuyen-van-ban-thanh-giong-noi/" data-id="ck74jjgur00dd2mcplv0qdgjm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/blog-gioi-thieu-pre-calculus-sach-pre-calculus-workbook-for-dummies/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Giới thiệu pre calculus - Sách Pre calculus workbook for Dummies
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/blog-ham-lien-tuc-kha-vi-tap-xac-dinh-diem-dung-cuc-tri-gia-tri-lon-nhat-nho-nhat/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hàm liên tục, khả vi, tập xác định, điểm dừng, cực trị, giá trị lớn nhất, nhỏ nhất</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android-Programming/">Android Programming</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android-Programming/Note/">Note</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Assembly/">Assembly</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-Viblo/">Code Viblo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Codesignal/">Codesignal</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Deep-learning/">Deep learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GIS/">GIS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linh-tinh/">Linh tinh</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lap-trinh/">Lập trình</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-learning/">Machine learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network-Programming/">Network Programming</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/OWASP-Testing-Guide/">OWASP Testing Guide</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Phim/">Phim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Pre-Calculus/">Pre Calculus</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Social-engineering/">Social engineering</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/System-Programming/">System Programming</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Text-to-speech/">Text to speech</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Text-to-speech/Tool/">Tool</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Toan-hoc/">Toán học</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tri-tue-nhan-tao/">Trí tuệ nhân tạo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Uncategorized/">Uncategorized</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Unit-Testing/">Unit Testing</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Visualisation/">Visualisation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows/">Windows</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ctf/">ctf</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hacker/">hacker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/note/">note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vnspoj/">vnspoj</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/wordpress/">wordpress</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Do-an/">Đồ án</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ASP-net-MVC/">ASP.net MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-Programming/">Android Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Asp-net/">Asp.net</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Assembly/">Assembly</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Basic-Access-Authentication/">Basic Access Authentication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code/">Code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Course/">Course</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Digest-Access-Authentication/">Digest Access Authentication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Du-doan-gia-vang/">Dự đoán giá vàng</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ethical-Hacking/">Ethical Hacking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/">Flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GIS/">GIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html-css-javascript/">Html, css, javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Laravel/">Laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux-System-Programming/">Linux, System Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/">Note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OWASP-Testing-Guide/">OWASP Testing Guide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Php/">Php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python-Codesignal/">Python, Codesignal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quan-ly-diem/">Quản lý điểm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RFC-2069/">RFC 2069</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RFC-2617/">RFC 2617</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SJF/">SJF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Social-engineering/">Social engineering</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-MVC/">Spring MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sql-server/">Sql server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/System-Programming/">System Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Text-to-speech/">Text to speech</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Todos/">Todos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tool/">Tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tinh-toan-mem/">Tính toán mềm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VRML/">VRML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WPF/">WPF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows-Form/">Windows Form</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Winform/">Winform</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Winforms/">Winforms</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wordpress/">Wordpress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ctf/">ctf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/">database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fuzzy-computing/">fuzzy computing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/import-csv/">import csv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/migrate/">migrate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/">wordpress</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ASP-net-MVC/" style="font-size: 10px;">ASP.net MVC</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Android-Programming/" style="font-size: 10px;">Android Programming</a> <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Asp-net/" style="font-size: 10px;">Asp.net</a> <a href="/tags/Assembly/" style="font-size: 14px;">Assembly</a> <a href="/tags/Basic-Access-Authentication/" style="font-size: 10px;">Basic Access Authentication</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Book/" style="font-size: 10px;">Book</a> <a href="/tags/C/" style="font-size: 20px;">C#</a> <a href="/tags/Code/" style="font-size: 14px;">Code</a> <a href="/tags/Course/" style="font-size: 10px;">Course</a> <a href="/tags/Digest-Access-Authentication/" style="font-size: 10px;">Digest Access Authentication</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Du-doan-gia-vang/" style="font-size: 10px;">Dự đoán giá vàng</a> <a href="/tags/Ethical-Hacking/" style="font-size: 10px;">Ethical Hacking</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/GIS/" style="font-size: 10px;">GIS</a> <a href="/tags/Html-css-javascript/" style="font-size: 10px;">Html, css, javascript</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Linux-System-Programming/" style="font-size: 10px;">Linux, System Programming</a> <a href="/tags/Note/" style="font-size: 16px;">Note</a> <a href="/tags/OWASP-Testing-Guide/" style="font-size: 12px;">OWASP Testing Guide</a> <a href="/tags/Php/" style="font-size: 16px;">Php</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Python-Codesignal/" style="font-size: 10px;">Python, Codesignal</a> <a href="/tags/Quan-ly-diem/" style="font-size: 10px;">Quản lý điểm</a> <a href="/tags/RFC-2069/" style="font-size: 10px;">RFC 2069</a> <a href="/tags/RFC-2617/" style="font-size: 10px;">RFC 2617</a> <a href="/tags/SJF/" style="font-size: 10px;">SJF</a> <a href="/tags/Social-engineering/" style="font-size: 14px;">Social engineering</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/Sql-server/" style="font-size: 10px;">Sql server</a> <a href="/tags/System-Programming/" style="font-size: 14px;">System Programming</a> <a href="/tags/Text-to-speech/" style="font-size: 10px;">Text to speech</a> <a href="/tags/Todos/" style="font-size: 10px;">Todos</a> <a href="/tags/Tool/" style="font-size: 10px;">Tool</a> <a href="/tags/Tinh-toan-mem/" style="font-size: 10px;">Tính toán mềm</a> <a href="/tags/VRML/" style="font-size: 12px;">VRML</a> <a href="/tags/WPF/" style="font-size: 10px;">WPF</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/Windows-Form/" style="font-size: 10px;">Windows Form</a> <a href="/tags/Winform/" style="font-size: 10px;">Winform</a> <a href="/tags/Winforms/" style="font-size: 14px;">Winforms</a> <a href="/tags/Wordpress/" style="font-size: 18px;">Wordpress</a> <a href="/tags/ctf/" style="font-size: 10px;">ctf</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/fuzzy-computing/" style="font-size: 10px;">fuzzy computing</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/import-csv/" style="font-size: 10px;">import csv</a> <a href="/tags/migrate/" style="font-size: 10px;">migrate</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/blog-2020-02-27-Lam-sao-de-tra-luong-lap-trinh-vien-it-hon/">Làm sao để trả lương lập trình viên ít hơn</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-02-17-The-art-of-computer-prgramming-PREFACE/">The art of computer prgramming PREFACE</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-02-11-Geographical-Information-Systems-Part-1-Coursera-Week-1/">Geographical Information Systems Part 1 Coursera - Week 1</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-01-09-OWASP-Testing-Guide-2-Conduct-search-engine-discorvery-reconnaissance-for-information-leakage-OTG-INFO-001/">OWASP Testing Guide - 2 Conduct search engine discorvery/reconnaissance for information leakage (OTG-INFO-001) </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 LuanTM<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

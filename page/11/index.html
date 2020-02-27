@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>My real name is Tạ Minh Luận</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="My real name is Tạ Minh Luận">
+<meta property="og:url" content="https://taminhluan.github.io/page/11/index.html">
+<meta property="og:site_name" content="My real name is Tạ Minh Luận">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="My real name is Tạ Minh Luận">
+  
+    <link rel="alternate" href="/atom.xml" title="My real name is Tạ Minh Luận" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">My real name is Tạ Minh Luận</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://taminhluan.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-blog-the-art-of-unit-testing-chapter-3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-the-art-of-unit-testing-chapter-3/" class="article-date">
+  <time datetime="2019-04-23T03:59:00.000Z" itemprop="datePublished">2019-04-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Unit-Testing/">Unit Testing</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-the-art-of-unit-testing-chapter-3/">The art of Unit Testing Chapter 3</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Phần 2 - Các kĩ thuật chính Tôi sẽ thiệu về core testing và refactoring techniques cần thiết cho việc viết tests trong thực tế. Trong chương 3, chúng ta sẽ bắt đầu examining stubs và chúng sẽ giúp break dependencies. Chúng ta sẽ xem các kĩ thuật refactoring giúp code dễ test, và bạn sẽ học về seams in the process Trong chương 4, chúng ta sẽ học về mock objects và interaction testing và xem mock object hoạt động khác với stubs, và chúng ta sẽ khám phá các khái niệm về fakes. Trong chương 5, chúng ta sẽ học về isolations frameworks (cũng được biết là mocking framework) và chúng giải quyết với mocks và stubs. Chương 6 cũng so sánh các leading isolation frameworks trong .NET và sử dụng FakeItEasy cho ví dụ, đưa ra các API trong các trường hợp thường gặp. Chương 3: Sử dụng stubs để break dependencies.</p>
+<ul>
+<li>Trong chương này sẽ bao gồm:</li>
+<li>Định nghĩa stubs.</li>
+<li>Refactoring code để sử dụng stubs.</li>
+<li>Vượt qua tính đóng gói trong code.</li>
+<li>Khám phá best practices trong sử dụng stubs</li>
+</ul>
+<p>Trong các chương trước, bạn đã viết unittesst đầu tiên sử dụng NUnit và khám phá một vài test attributes. Bạn cũng đã built xây dựng test cho các use cases, nơi mà bạn phải kiểm tra giá trị trả về từ đối tượng hoặc state of unit under test trong brea-bones system. Trong chương này, chúng ta sẽ xem các ví dụ thực tế hơn, Nơi mà đối object under test dựa vào các đối tượng khác, bạn không điều khiển được (hoặc nó chưa làm việc). Các object này có thể là một web service, time of day, threading, hoặc nhiều thứ khác. Điểm quan trọng là các test của bạn không thể điều khiển được các kết quả trả về của cá dependencies này trong coder under test hoặc các hành vi của chúng (nếu bạn muốn mô phỏng một exception). Thì đó là lúc bạn sử dụng stubs. 3.1. Giới thiệu về stubs. Đưa người vào vũ trụ là một thách thức thú vị đối với các kĩ sư và các phi hành gia, một trong những khó khăn là làm thế nào để chắc chắn các phi hành gia sẵn sàng cho việc vào không gian và vận hành tất các các máy móc trong quỹ đạo. Một full integration test trong vũ trụ, đòi hỏi phải có vũ trụ, và hiển nhiên là không an toàn để test các phi hành gia. Tại sao NASA có thể xây dựng một full simulators.</p>
+<blockquote>
+<p>DEFINITION An external dependency is an object in your system that your code under test interacts with and over which you have no control. (Common examples are filesystems, threads, memory, time, and so on.)</p>
+</blockquote>
+<p>Việc điều khiển external dependency trong code của bạn là một chủ đề trong chương này, và hầu hết trong cuốn sách này, sẽ dealing with it. Trong lập trình, bạn sử dụng stubs xung quanh vấn đề về external dependencies.</p>
+<blockquote>
+<p>DEFINITION A stub is a controllable replacement for an existing dependency (or collaborator) in the system. By using a stub, you can test your code without dealing with the dependency directly.</p>
+</blockquote>
+<p>Trong chương 4 chúng ta sẽ có một định nghĩa rộng hơn về stubs, mocks và fakes, và chúng liên quan tới những cái khác như thế nào. Còn bây giờ, thứ quan trọng cần nhớ là về mocks với stubs.  bạn có thể assert against mock object nhưng bạn không thể assert against a stubs (không hiểu assert against là gì). Hãy cùng xem một ví dụ và cùng làm một thứ gì đó phức tạp hơn cho LogAnalyzer class được giới thiệu trong chương trước. Chúng ta sẽ cố gắng để gỡ rối các dependency trong file system. Test pattern names: xUnit Test Patterns: Refactoring Test Code bởi Gerard Meszators (Addison Wesley, 2007) là một sách cơ bản cho unit testing. Nó định nghĩa các mẫu cho bạn fake trong test của bạn theo ít nhất 5 cách, cái mà tôi cảm thấy gây bối rối cho mọi người (mặc dù nó rất chi tiết). Trong cuốn sách này, tôi sử dụng chỉ 3 định nghĩa cho fake things trong test: fakes, stubs, và mocks. Tôi cảm thấy rằng đươn giản hóa điều này giúp dễ dàng đọc, hiểu các mẫu và không cần phải biết nhiều hơn 3 thứ để bắt đầu viết một tests tốt. Trong nhiều phần của cuốn sách, tôi sẽ refer tới mẫu sử dụng trong xUnit Test Patterns vì thế bạn có thể dễ dàng refer tới Meszaros’s định nghĩa nều bạn thích. 3.2. Xác định một file system dependency trong LogAn LogAnalyzaer class có thể cấu hình để handle nhiều log filename extension sử dụng một special adapter cho mỗi file. Để cho đơn giản, giả sử rằng tên file được lưu trữ vài nơi trên đĩa như một cấu hình cài đặt cho ứng dụng, và IsValidLogFileName như sau:</p>
+<p>public bool IsValidLogFileName(string fileName)<br> {<br> //read through the configuration file<br> //return true if configuration says extension is supported.<br> }</p>
+<p>Vấn đề phát sinh, như hình 3,1 rằng mỗi test phụ thuộc vào filesystem, bạn đang performing một integration test, và bạn có các vấn đề liên quan: integration tests chạy chậm, chúng ta cần cấu hình, chúng test nhiều thứ và vì thế. Đây là cơ bản của test-inhibiting design: code có vài phụ thuộc trên một nguồn ngoài, cái mà có thể break test mặc dù thông qua code logic thì oki. Trong legacy system, một single unit of work (action trong hệ thống) phải có nhiều phụ thuộc trên external resources thông qua cái mà test của bạn là nhỏ, nếu bấy kỳ, điều khiển. Tong chương 10 sẽ động chạm tới nhiều chủ đề của legacy code. 3.3. Xác định xem test LogAnalyzer dễ dàng như thế nào “There is no object-oriented problem that cannot be solved by adding a layer of indirection, except, of course, too many layers of indirection.” Không có vấn đề hướng đối tượng nào không thể được giải quyết bằng cách thêm các lớp gián tiếp, trừ khi, có quá nhiều lớp gián tiếp. Tôi thích quote này bởi vì không quá nhiều nghệ thuật trong nghệ thuật testing như về cách tìm đúng nơi để thêm hoặc sử dụng một lớp gián tiếp để test code base. Bạn không thể test thứ gì đó? Thêm một lớp wrap up gọi tới thứ đó, và sau đó thì bắt trước lớp đó trong test của bạn, Hoặc làm ra thứ gì đó thay thế. … The art also involves figuring out when a layer of indirection already exists instead of having to invent it or knowing when not to use it because it complicates things too much. But let’s take it one step at a time. Bạn có thể viết test cho đoạn code này, có một file cấu hình trong filesystem. Bởi vì bạn đang cố tránh các dependencies, bạn muốn code của bạn dễ dàng để test mà không cần nhờ cậy tới integration testing. Nếu bạn nhìn thấy sự giống nhau của các phi hành gia chúng ta bắt đầu, bạn có thể nhìn thấy có 3 định nghĩa về breaking the dependency.</p>
+<ol>
+<li>Tìm inteface hoặc API của object under test làm việc lại. Trong trường hợp phi hành gia, điều này là cần điều khiển và màn hình trong phi thuyền</li>
+<li>Thay thế các underlying implementtaion của interface với vài thứ khác bạn điều khiển nó. Điều này như là hooking up tới nhiều màn hình và cần điều khiển, các nút trong phòng nơi mà kĩ sử test có thể điểu khiển được tàu không gian interface  (khó hiểu quá)</li>
+</ol>
+<p>Chuyển mẫu trong code của bạn yêu cầu thêm các bổ qua bỏ qua <em><strong>Về đã</strong></em> Đối tượng thay thế của bạn sẽ không nói chuyện với filesystem, nó sẽ break dependency trên filesystem. Bởi vì bạn không testing class nói chuyện với filesystem nhưng code gọi class này, Nó là OK nếu stub class không làm bất cứ thứ gì nhưng lại là những tín hiệu tốt khi chạy trong test. <img src="http://35.196.17.90/blog/wp-content/uploads/2019/04/figure33.png" alt> Tôi đã thêm một interface vào mĩ. Inteface này sẽ cho phép đối tượng model theo cách abstract hệ thống bởi FileExtensionManager class làm và nó sẽ cho phép test tạo một stub giống như FileExtensionManager. Bạn sẽ nhìn thấy nhiều hơn phương thức này trong phần tiếp theo. Chúng ta sẽ xem một cách giới thiệu cách làm cho code có thể test, bằng cách tạo ra một interface mới. Bây giờ để ý tưởng refactoring và giới thiệu seams into your code. 3.4. Refactoring your design để dễ dàng test. Đây là thời điểm để giới thiệu hai khái niệm mới được sử dụng trong suốt cuốn sách là refactoring và seams. <img src="http://35.196.17.90/blog/wp-content/uploads/2019/04/figure34.png" alt></p>
+<blockquote>
+<p>DEFINITION Refactoring is the act of changing code without changing the code’s functionality. That is, it does exactly the same job as it did before. No more and no less. It just looks different. A refactoring example might be renaming a method and breaking a long method into several smaller methods.</p>
+</blockquote>
+<p>Refactoring là hành động thay đổi code mà không thay đổi chức năng của code. Nó vẫn hoạt động chính xác như trước đây. Không nhiều hơn và không ít hơn. Nó chỉ trông khác đi. Một ví dụ refactoring có thể là đổi tên phương thức và breaking một phương thức quá dài thành nhiều phương thức nhỏ hơn.</p>
+<blockquote>
+<p>DEFINITION Seams are places in your code where you can plug in different functionality, such as stub classes, adding a constructor parameter, adding a public settable property, making a method virtual so it can be overridden, or externalizing a delegate as a parameter or property so that it can be set from outside a class. Seams are what you get by implementing the Open-Closed Principle, where a class’s functionality is open for extenuation, but its source code is closed for direct modification. (See Working Effectively with Legacy Code by Michael Feathers, for more about seams, or Clean Code by Robert Martin about the Open-Closed Principle.)</p>
+</blockquote>
+<p>Seams là phần code mà nơi mà bạn có thể gắn thêm các chức năng khác, như là stub classes, thêm một constructor parameter, thêm public settable property, tạo nên một method virtual vì thế nó có thể overridden, hoặc externalizing a delegate as a parameter hoặc property vì thế nó có thể được set từ ngoài class. Seams là cái mà bạn get bằng cách implementing the Open-Closed Principle, nơi mà chức năng của class là mở cho việc mở rộng như mã code của nó là đóng cho việc sửa đổi. (See Working Effectively with Legacy Code bởi Michael Feathers, nhiều hơn về seams, hoặc Clean Code bởi Robert Martin về Open-Closed Principle). Bạn có thể refactor code bằng cách introducing một seam mới vào nó mà không thay đổi chức năng chính của code. Vậy chính xác là gì. Tôi đã làm gì để introducing new IExtensionManager interface. Và refactor bạn sẽ. Trước khi bạn làm nó, Tôi sẽ nhắc bạn rằng refactoring code mà không có bất kì having any sort of automated tests against it (integration or otherwise) có thể sẽ là sự kết thúc sự nghiệp nếu bạn không cẩn thận. Luôn luôn có vài integration test xem xét sau lưng bạn trước khi bạn thay đổi code của bạn, hoặc ít nhấn là có một dự định nghỉ ngơi - 1 bản copy của code trước khi bạn bắt đầu refactoring, hi vọng rằng bạn có source control, với một nice, visible comment “before starting refactoring” rằng bạn có thể dễ dàng tìm thấy sau đó. Trong chương này, tôi giả sử rằng bạn có thể có vài integration tests rồi và bạn chạy chúng sau mỗi refactoring để xem xem code vẫn pass. Nhưng chúng ta không tập trung vào chúng bởi vì cuốn sách này là về unit testing. Để break the dependency giữa code của bạn dưới test và filesystem, bạn có thể introduce một hoặc nhiều seams vào code của bạn. Bạn chỉ cần chắc chắn rằng kết quả code chính xác thứ nó đã làm trước kia. Có 2 kiểu của dependency breaking refactorings, và một cái phụ thuộc vào cái khác. Tôi gọi chúng là Type A và Type B refactorings:</p>
+<ul>
+<li>Type A - Abstracting concrete object vào interface hoặc delegates</li>
+<li>Type B - Refactoring cho phép injection của fake implementation vào delegate hoặc interface.</li>
+</ul>
+<p>Trong danh sách dưới đây chỉ có item đầu tiên là loại A refactoring.</p>
+<ul>
+<li>Type A - Extract một interface để cho phép thay đổi underlying implementation</li>
+<li>Type B - Inject stub implementation vào một class under test</li>
+<li>Type B - Inject một fake vào một constructor level</li>
+<li>Type B - Inject một fake như là property get hoặc set</li>
+<li>Type B - Inject một fake trước khi gọi method</li>
+</ul>
+<p>Chúng ta sẽ xem xét từng cái bên dưới 3.4.1. Extract một inteface để cho phép underlying implementation Trong kĩ thuật này bạn cần break out code để sử dụng filesystem thành một separate class. Cách này bạn có thể dễ dàng tách nó ra và sau đó thay gọi đó thành class bạn test.</p>
+<p>public bool IsValidLogFileName(string fileName)<br>{
+ FileExtensionManager mgr =<br> new FileExtensionManager();<br> return mgr.IsValid(fileName);<br>}
+class FileExtensionManager<br> {<br> public bool IsValid(string fileName)<br> {<br> //read some file here<br> }<br> }</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-the-art-of-unit-testing-chapter-3/" data-id="ck74jjguu00di2mcpe35l1rsj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-the-art-of-unit-testing-chapter-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-the-art-of-unit-testing-chapter-2/" class="article-date">
+  <time datetime="2019-04-23T02:54:14.000Z" itemprop="datePublished">2019-04-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Unit-Testing/">Unit Testing</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-the-art-of-unit-testing-chapter-2/">The art of unit testing Chapter 2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Chương 2: Unit test đầu tiên</p>
+<ul>
+<li>Khám phá Unit Testing framework in .NET</li>
+<li>Viết first test với NUnit</li>
+<li>Làm việc với NUnit attributes</li>
+<li>Hiểu 3 ouput types của một unit of work</li>
+</ul>
+<p>Khi tôi bắt đầu viết unit test với một unit testing framework thực, có rất ít tài liệu, và framework tôi làm việc không có nhiều ví dụ (Tôi đã code VB5 và 6 vào lúc đó). Nó là thử thách để làm việc với chúng, và tôi bắt đầu viết những poor tests. May mắn thay, thời gian đã thay đổi. Chương này sẽ giúp bạn bắt đầu viết test kể cả khi bạn không biết phải bắt đầu từ đâu. Nó sẽ đưa bạn cách viết unit test thực tế được gọi là NUnit - 1 .NET unit testing framework. Nó là framework ưa thích của tôi bởi vì nó dễ sử dụng, dễ hiểu, có những tính năng tuyệt vời. Có những framework khác, cũng có nhiều tính năng, nhưng Nunit là nơi tôi bắt đầu. Nếu cần, thỉnh thoảng tôi cũng mở rộng ra sử dụng các framework khác. Chúng ta hãy xem NUnit hoạt động nhwthees nào, cú pháp, và cách để chạy nó và lấy feed back khi test fail hoặc pass. Để làm được điều này, tôi sẽ giới thiệu một dự án phần mềm nhỏ mà chúng ta sử dụng xuyên suốt cuốn sách để khám phá kĩ thuật testing và các best practices. Bạn có lẽ sẽ cảm thấy thích NUnit. Nhưng tại sao không sử dụng built-in MSTest framework trong Visual Studio? Câu trả lời bao gồm 2 phần. NUnit có các tính năng tốt hơn MSTesst liên quan đến việc viết unit test và test attributes để giúp dễ dàng maintainable, dễ đọc tests. Trong Visual Studio 2012. built in test runners cho phép test viết trên các frameworks khác, bao gồm NUnit. Để làm được điều này, chỉ cần cài đặt NUnit test adapter cho Visual Studio qua NuGet. (NutGet sẽ được giải thích sau trong chương này). 2.1. Frameworks cho unit testing Manual tests suck. Bạn viết code, bạn chạy nó với debugger, bạn nhất tất cả các phím trên ứng dụng của bạn để nhận được kết quả đúng, và sau đó bạn lặp lại tất cả điều này trong những lần khác khi bạn viết code mới. Và bạn phải nhớ kiểm tra thứ tự code và xem chúng bị ảnh hưởng như thế nào trong code mới. Nhiều thứ hơn phải làm việc bằng tay. Great. Test và Regression testing hoàn toàn bằng tay, lặp lại với cùng hành động như một con khỉ, dễ lỗi và tốn nhiều thời gian, và mọi người dường như ghét phải làm việc trong phát triển phần mềm. Vấn đề này sẽ được giải quyết bằng công cụ. Unit testing framework giúp lập trình viên viết test nhanh hơn với tập APIs, thực thi các test tự động, và xem kết quả các tests dễ dàng hơn. Và chúng ta không bao giờ quên. Hãy lặn sâu hơn. 2.1.1. Unit testing frameworks offer. Cho tới nay, nhiều người đã đọc điều này, các test bạn phải hoàn thành với giưới hạn. <em>Chúng không có cấu trúc</em>. Bạn phải phát minh lại các bánh xe mỗi lần bạn muốn test một tính năng. Một test phải trông như console application, test khác lại sử dụng UI form, và cái khác lại sử dụng web form. Bạn không có thời gian để dành cho việc test, và test không đạt yêu cầu là “dễ dàng implement”. Chúng không thể lặp lại. Không phải bạn và team của bạn có thể chạy các test bạn đã viết trong quá khứ. Điều này phá vỡ yêu cầu rêpatedly. Với một framework, bạn có thể dễ dàng tự động hóa việc viết test có thể lặp lại. Chúng không cover tất cả các phần quan trọng của code. Các test không kiểm tra tất cả vấn để trong code. Nghĩa là tất cả code vói logic trong nó. Bởi vì mỗi đoạn code đều có khả năng bị lỗi. 2.1.2. The xUnit Frameworks. Các unit testing frameworks được gọi là xUnit frameworks bởi vì tên chúng thường bắt đầu với một ký tự của ngôn ngữ đó. CppUnit cho C++. JUnit cho Java, NUnit cho .Net và HUnit cho Haskell. Không phải tất cả chúng đều đặt tên theo cách này, nhưng thường thé. Trong cuốn sách này chúng ta sử dụng Nunit, một .NET unit testing framework giúp dễ dàng để viết tests, chạy và lấy kết quả. 2.2 Giới thiệu về LogAn Project Cuốn sách này sử dụng dự án LogAn cho việc testing, dễ để bwast đầu và bao gồm chỉ một class. Chúng ta sẽ extends project này với các classes mới và tính năng mới. Chúng ta gọi nó là LogAn project viết tắt của “log and notification”. Dưới đây là kịch bản. Công ty bạn có nhiều dự án nội bộ, được sử dụng dụng để monitor các ứng dụng tại trang của khách hàng. Tất cả các sản phẩm sẽ viết log files và đặt chúng vào một thư mục đặc biệt. Các file log này được viết theo một định dạng đặc biệt để công ty bạn có thể đọc được bằng các công cụ của bên thứ 3. Bạn được giao nhiệm vụ tạo ra sản phẩm này, LogAn có thể phân tích các log file và tìm các trường hợp đặc biệt và sự kiện trong chúng. Khi nó tìm được các cases và events, nó sẽ thông báo. Trong sách, tôi sẽ dạy bạn cách viết các test để xác nhận LogAn parsing, nhận dạng event, khả năng notification. Trước khi chúng ta bắt đầu test project của chúng ta, chúng ta sẽ nhìn vào cách viết một unit test với NUnit. bước đầu tiên là phải cài đặt nó. Các mục từ 2.1 -&gt; 2.7 là lúc tôi thực hành, tôi sẽ viết lại nó thời gian tới, có thể là khi hoàn thành các chương và sẽ giới thiệu tới các bạn.   2.8. Tổng kết Trong chương này, chúng ta đã học cách sử dụng NUnit để viếm các tests đơn giản. Bạn đã sử dụng [TestCase], [SetUp], và [TearDown] attributes để đảm bảo test của bạn luôn sử dụng new và untouched state. Bạn đã sử dụng factory methods để nó mỏe maintinable. Bạn cũng sử dụng [Ignore] để bỏ qua các test cần phải fix. Test categories giúp bạn nhóm các test cùng logic hơn là bằng class và namespace, và Assert.Catch() giúp bạn chắc chắn code throws exceptions như mong đợi. Chúng ta cũng xem điều gì sẽ xảy ra khi bạn không phải đối mặt với một single method với một return value và bạn cần phải test state cuối cùng của một đối tượng. Điều này là chưa đầu. Hầu hết test phải deal với các vấn đề coding khó khăn hơn nhiều. Trong các chương tiếp theo sẽ gửi tới bạn các công cụ cơ bản bổ sung cho việc viết unit test. Bạn sẽ cần phải chọn từ các công cụ này khi bạn viết test với các tình huống khó khăn. Cuối cùng hãy ghi nhớ các điểm sau: Thường thường phải có một test class cho một tested class. Một unit test project cho một tested project (bên cạnh integration test prject cho test project), và ít nhất một test method cho một unit of work (cái mà là nhỏ nhất như là một methods hay lớn hơn cho nhiều class). Tên nên đặt clearly sử dụng mô hình sau: [UnitOfWork]_[Scenario] _[ExpectedBehavior]. Sử dụng factory methods để sử dụng lại code cho test của bạn, như là code để khởi tạo đối tượng cho tất cả các test Đừng sử dụng [SetUp] và [TearDown] nếu bạn có thể tránh chúng. Chúng khiến test của bạn less understandable Trong chương tiếp theo, chúng ta sẽ xem các tình huống thực tế, nơi mà code của bạn thực tế hơn. Nó sẽ có phụ thuộc và có các testability problems, và chúng ta sẽ bắt đầu thảo luận về các notion fakes., mocks, và stubs.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-the-art-of-unit-testing-chapter-2/" data-id="ck74jjgut00dg2mcp2g2uk7fz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-the-art-of-unit-testing" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-the-art-of-unit-testing/" class="article-date">
+  <time datetime="2019-04-21T23:39:54.000Z" itemprop="datePublished">2019-04-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Unit-Testing/">Unit Testing</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-the-art-of-unit-testing/">The art of Unit Testing</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Mo-dau"><a href="#Mo-dau" class="headerlink" title="Mở đầu"></a>Mở đầu</h2><p>Bản thân mình đã đi làm vài năm mà vẫn chưa biết viết unit test. Cũng đã qua cái thời trẻ con viết testcase chỉ để sao cho pass, nhưng code mình viết ra vẫn là cả một mớ hỗn độn. Đưa demo cho sếp mà chẳng tự tin. Lập trình viên hạ đẳng như mình còn rất nhiều. Có rất nhiều lý do cho việc bạn chưa biết viết unit test, do dự án các bạn đã làm không yêu cầu, bạn làm việc cho công ty nhỏ, công việc quá nhiều và bạn chẳng có thời gian để design, test cho tử tế, vân vân và mây mây. Tình cờ mình đọc được “TDD is not about Design, not Testing”. Trong đầu óc non nớt của junior developer thì unit test là thứ gì đó để mình có thể tốt lên, chẳng vĩ đại được thì cũng bớt ngu đi. Mình tìm thấy khóa này rất tuyệt vời <a href="https://www.udemy.com/professional-android-unit-testing/" target="_blank" rel="noopener">https://www.udemy.com/professional-android-unit-testing/</a>, nhưng thôi đọc sách free quyển đầu tiên tìm được The art of unit testing. Chương đầu tiên:</p>
+<ul>
+<li>Định nghĩa về unit test</li>
+<li>Phân biệt giữa Unit testing và integration testing</li>
+<li>Hiểu về Test-driven development</li>
+</ul>
+<p>Nghệ thuật unit test</p>
+<h3 id="Nhung-dieu-co-ban"><a href="#Nhung-dieu-co-ban" class="headerlink" title="Những điều cơ bản"></a>Những điều cơ bản</h3><p>Luôn có bước đầu tiên: Lần đầu tiên bạn viết một chương trình, lần đầu tiên bạn thất bại trong một dự án, lần đầu tiên bạn thành công. Bạn không bao giờ quên lần đầu tiên ấy, và tôi hi vọng rằng bạn sẽ không quên những tests đầu tiên của bạn. Có thể bạn đã từng viết một vài tests, và bạn nhớ rằng chúng tồi tệ, vụng về, chậm chạp và không thể bảo trì. (Hầu hết mọi người). Hãy lạc quan lên bạn đã có trải nghiệm tốt với unit tests, và bạn đang đọc những dòng này để nhìn thấy được nhiều hơn những thứ mà bạn đã bỏ lỡ Trong chương này sẽ phân tích định nghĩa đơn giàn về unit test và so sánh với khái niệm integration test. Điều này có thể gây bối rối một chút. Sau đó chúng ta sẽ xem ưu nhược điểm của unit testing so với integration test và thế nào là “good” unit test. Chúng ta sẽ kết thúc bằng việc tìm hiểu về test drivent development, bởi vì nó sẽ thường xuyên được nhắc tới cùng với unit testing. Thông qua chương này, tôi sẽ chạm tới các khái niệm nhằm giải thích các phần khác trong cuốn sách. Nào hãy bắt đầu.</p>
+<h4 id="1-1-Dinh-nghia-unit-test-step-by-step"><a href="#1-1-Dinh-nghia-unit-test-step-by-step" class="headerlink" title="1.1. Định nghĩa unit test, step by step"></a>1.1. Định nghĩa unit test, step by step</h4><p>Unit testing không phải một khái niệm mới trong phát triển phần mềm. Nó đã trôi nổi từ những ngày sớm của Smalltalk programming language những năm 70, và nó tự chứng minh được rằng nó là cách tốt nhất để cải thiện chất lượng code, hiểu sâu được các yêu cầu chức năng của hệ thống của các class hay các phương thức. Kent Beck giới thiệu khái niệm về unit testing trong Smalltalk, và nó đã bao gồm nhiều ngôn ngữ khác nhau, làm cho unit testing là cực kỳ hữu dụng trong việc lập trình phần mềm. Trước đây tôi đã đi xa hơn, Tôi cần định nghĩa unit testing tốt hơn. Đây là định nghĩa cơ bản từ wikipedia, Nó đã lạc hậu, định nghĩa cuối cùng sẽ xuất hiện trong mục 1.4.</p>
+<blockquote>
+<p>A unit test is a piece of a code (usually a method) that invokes another piece of code and checks the correctness of some assumptions afterward. If the assumptions turn out to be wrong, the unit test has failed. A unit is a method or function.</p>
+</blockquote>
+<p>Unit test là các đoạn code (thường là một phương thức) gọi tới một đoạn code khác để kiểm tra tính đúng đắn của vài giả định sau đó. Nếu giả định mà sai, unit test là failed. Một unit test là một phương thức hoặc một hàm. Thứ mà bạn sẽ test gọi là system under test (SUT)</p>
+<blockquote>
+<p>SUT viết tắt cho system under test, một vài người gọi là CUT (class under test hoặc code under test). Khi bạn test, bạn sẽ phải refer tới thứ mà bạn đang test chính là SUT.</p>
+</blockquote>
+<p>Tôi đã feel (Đúng thể feel. Không có khoa học trong cuốn sách này, chỉ có nghệ thuật). Định nghĩa này đúng về mặt kĩ thuật, nhưng qua một vài năm, ý tưởng về <em>unit</em> đã thay đổi. Với tôi, một unit là viết tắt cho “unit of work” hay “use case” trong hệ thống.</p>
+<blockquote>
+<p>Definition A unit of work is the sum of actions that take place between the invocation of a public method in the system and a single noticeable end result by a test of that system. A noticeable end result can be observed without looking at the internal state of the system and only through its public APIs and behavior. An end result is any of the following: ■ The invoked public method returns a value (a function that’s not void). ■ There’s a noticeable change to the state or behavior of the system before and after invocation that can be determined without interrogating private state. (Examples: the system can log in a previously nonexistent user, or the system’s properties change if the system is a state machine.) ■ There’s a callout to a third-party system over which the test has no control, and that third-party system doesn’t return any value, or any return value from that system is ignored. (Example: calling a third-party logging system that was not written by you and you don’t have the source to.)</p>
+</blockquote>
+<p>Ý tưởng về unit of work nghĩa là, một unit có thể là một phương thức cũng có thể nhiều class các hàm để đạt được mục đích của nó. Bạn có thể cảm thấy rằng bạn muốn tối giản kích cỡ của một unit of work để test. Tôi cũng hiểu theo cách này. Nhưng giờ thì không. Tôi tin rằng nếu bạn có thể tạo ra một unit of work lớn hơn, và bạn có thể faking một vài dòng và kết quả cuối cùng là public API thay vì việc <em>train stops on the way to the main station</em> (người dịch không hiểu lắm). Tôi sẽ giải thích nhiều hơn trong một topic về overspecification trong cuốn sách (hầu hết trong chương 8)</p>
+<blockquote>
+<p>UPDATED DEFINITION 1.1 A unit test is a piece of code that invokes a unit of work and checks one specific end result of that unit of work. If the assumptions on the end result turn out to be wrong, the unit test has failed. A unit test’s scope can span as little as a method or as much as multiple classes.</p>
+</blockquote>
+<p>Ngôn ngữ lập trình bạn sử dụng không phải là vấn đề, vấn đề ở đây là định nghĩa một unit test sao cho tốt.</p>
+<h5 id="Mot-diem-quan-trong-de-viet-good-unit-test"><a href="#Mot-diem-quan-trong-de-viet-good-unit-test" class="headerlink" title="Một điểm quan trọng để viết good unit test"></a>Một điểm quan trọng để viết good unit test</h5><p>Thế nào là unit of work không đủ Hầu hết mọi người cố gắng unit test những dòng code của họ mà bỏ qua một số điểm họ không thực sự perform. Thay vào đó họ dựa vào hệ thống và integration test để perform nhiều hơn sau đó trong vòng đời sản phẩm hoặc họ nhờ tới việc test bằng tay bằng việc sử dụng sản phẩm cuối mà học phát triển để invoke code của chúng. Không có lý do nào để viết ra các unit test tồi, trừ khi bạn đang học cách viết một cái tốt hơn và đó là bước đi đầu tiên của bạn. Nếu bạn đang dự định viết một unit test tồi tệ mà không nhận ra nó, tốt hơn là không viết nó để cứu được các rắc rối sau này, nó sẽ là cản trở quá trình bảo trì và time schedules. Bằng cách định nghĩa một good unit test, bạn đảm bảo rằng bạn không bắt đầu một thứ gì đó sai trái với mục đích của bạn. Để hiểu thế nào là một unit test, bạn hãy xem các lập trình viên làm khi mà họ testing thứ gì đó. Vậy bạn chắc như thế nào rằng code sẽ làm việc hôm nay?</p>
+<h5 id="Tat-ca-chung-ta-deu-da-tung-viet-unit-test"><a href="#Tat-ca-chung-ta-deu-da-tung-viet-unit-test" class="headerlink" title="Tất cả chúng ta đều đã từng viết unit test"></a>Tất cả chúng ta đều đã từng viết unit test</h5><p>Bạn có lẽ ngạc nhiên khi biết điều này, nhưng bạn đã từng viết một vài unit test rồi. Bạn cũng gặp những lập trình viên không test code của họ trước khi bàn giao nó? Well tôi cũng thế. Bạn đã từng sử dụng console application gọi rất nhiều phương thức trong một class hay component và có lẽ đã tạo một WinFroms hay Web Forms UI và kiểu tra chức năng của một class hoặc component, hay có lẽ kiểm thử bằng tay bằng việc chạy để performs vài hành động với giao diện. Kết quả là bạn biết được là code đã hoạn động đủ tốt hay chưa.<img src="http://35.196.17.90/blog/wp-content/uploads/2019/04/UI-Test-manualy.png" alt> Phần lớn lập trình viên test theo cách này. Khi UI thay đổi, có thể trông sẽ khác nhưng mẫu này thường giống nhau: sử dụng manual external tool để kiểm tra các công việc lặp lại hoặc chạy ứng dụng bằng tay. Cách test này có thể hữu dụng nhưng chúng ta cần đi xa hơn thế, tôi sẽ định nghĩa một good unit test trong cuốn sách này. Cái gì là unit test và cái gì không phải?</p>
+<h4 id="1-2-Thuoc-tinh-cua-mot-good-unit-test"><a href="#1-2-Thuoc-tinh-cua-mot-good-unit-test" class="headerlink" title="1.2. Thuộc tính của một good unit test"></a>1.2. Thuộc tính của một good unit test</h4><p>Một unit test nên có các đặc trưng dưới đây.</p>
+<ul>
+<li>Nó có thể tự động và lặp lại</li>
+<li>Nó nên dễ dàng implement</li>
+<li>Nó nên liên quan tới ngnafy mai</li>
+<li>Bất kỳ ai cũng có thể chạy nó bằng cách nhấn nút</li>
+<li>Nó nên chạy nhanh</li>
+<li>Nó nên consistent trong kết quả (Nó thường trả về cùng một kết quả nếu bạn không thay đổi bất cứ thứ gì khi chạy)</li>
+<li>Nó nên có toàn quyền điểu khiển của Unit under test</li>
+<li>Nó nên độc lập (chạy mà không phụ thuộc vào các test khác)</li>
+<li>Khi thất bại, nó nên dễ dàng phát hiện ra điểm gây ra vấn đề</li>
+</ul>
+<p>Nhiều người bối rối về việc testing với khái niệm unit test. Vậy hãy bắt đầuhỏi chính bạn các câu hỏi dưới đây.</p>
+<ul>
+<li>Tôi có thể chạy và lấy kết quả từ một unit test Tôi đã viết 2 tuần hoặc 2 tháng hay 2 năm</li>
+<li>Có bất kỳ thành viên nào trong team mình chạy và lấy kết quả từ unit test tôi viết 2 tháng trước</li>
+<li>Tôi có thể chạy tất cả các unit test Tôi đã viết không quá vài phút</li>
+<li>Tôi có thể chạy tất cả unit test bằng việc nhấn một nút</li>
+<li>Tôi có thể viết một test cơ bản không quá vài phút</li>
+</ul>
+<p>Nếu bạn trả lời không trong bất kỳ câu hỏi nào, khả năng cao là bạn đang implement thứ không phải unit test. Chắc chắn có vài loại test khác, và quan trọng như unit test, nhưng so sánh chúng sẽ giúp bạn trả lời yes tất các các câu hỏi. Vậy tôi đã làm gì trước đây? Có lẽ bạn đang hỏi. Điều bạn đã làm là integration testing.</p>
+<h4 id="1-3-Integaration-tests"><a href="#1-3-Integaration-tests" class="headerlink" title="1.3. Integaration tests"></a>1.3. Integaration tests</h4><p>Test nào không đủ nhanh và consitent và sử dụng một hoặc nhiều dependencies trong units under test. Ví dụ, nếu test sử dụng real system time, real filesystem, hay real database, nó sẽ là integration testing. Nếu một test không điều khiển system time, ví dụ nó đang sử dụng current DateTime.Nơ trong khi test code, sau đó sau mỗi lần thực thi, trong các test khác nhau bởi vì nó sử dụng thời gian khác nhau. Và nó không consistent. Nó không phải là thứ gì đó tồi tệ. Tôi nghĩ integration test là phần quan trọng, nhưng chúng nên được chia nhỏ để có thể cảm thấy an toàn, cái mà được chia sẻ ở phần sau (OK phần sau ngoài việc học cách viết unit test, học cách viết good unit test, còn học cách viết integration test sao cho tốt). Nếu một test sử dụng real database, mà không running on memory, trong thực tese nó sẽ khó xóa hơn khi sử dụng only in-memory fake data. Test sẽ không chạy nữa, trong thực tế nó không điều khiển được. Unit test nên nhanh. Integration test thường chậm. Khi bạn bắt đầu có vài trăm test thường chỉ mất nửa giây. Integration test làm tăng rủi ro của các vấn đề khác: Test quá nhiều thứ trong một lần. Bạn sẽ làm gì khi xe bạn bị hỏng? Bạn sẽ tìm hiểu xem vấn đề là gì và thử sửa chữ nó một mình như thế nào? Một động cơ bao gồm rất nhiều hệ thống con làm việc cùng nhau, mỗi thứ lại dựa vào một cái khác để đạt được kết quả cuối cùng: Một moving car. Nếu chiếc xe dừng lại, lỗi có thể ở bất cứ hệ thống con nào - có thể nhiều hơn một. Tích hợp nhiều hệ thống con (nhiều tần lớp) giúp xe di chuyển. Bạn có thể nghĩ xe chạy chính là integration test cuối cùng. Nếu test fails tất cả các phần của fail. nếu nó success tất cả các phần success. Cũng như thế trong phần mềm. Cách mà hầu hết các lập trình viên test chức năng của họ là thông qua chức năng cuối cùng UI. Click một vài nút thông qua hàng loạt sự kiện - các classes và các components hoạt động cùng nhau để làm ra kết quả cuối cùng. Nếu test fails, tất các cả components hệ thống fail như một đội và nó rất khó để hình dung được thất bại của toàn hệ thống. Như định nghĩa The Complete Guide to Software Testing by Bill Hetzel (Wiley, 1993), integration testing là ““an orderly progression of testing in which software and/or hardware elements are combined and tested until the entire system has been integrated”. Dưới đây là một định nghĩa tốt hơn về Integration testing</p>
+<blockquote>
+<p>DEFINITION Integration testing is testing a unit of work without having full control over all of it and using one or more of its real dependencies, such as time, network, database, threads, random number generators, and so on.</p>
+</blockquote>
+<p>Để tổng kết: một integration test sử dụng các real dependencies, Unit test là độc lập với các unit of work. vì thế chúng là consistent về kết quả và có thể dễ dàng điều khiển và giả lập các hành vi của unit.</p>
+<h5 id="Nhuoc-diem-cua-integration-test-khong-tu-dong-so-voi-tu-dong"><a href="#Nhuoc-diem-cua-integration-test-khong-tu-dong-so-voi-tu-dong" class="headerlink" title="Nhược điểm của integration test không tự động so với tự động"></a>Nhược điểm của integration test không tự động so với tự động</h5><p>Hãy áp dụng các câu hỏi trong phần 1.2 để integration test và cân nhắc cái mà bạn muốn dành được trong các unit test thực tế. <em>Tôi có thể chạy và lấy kết quả từ các test tôi đã viết từ 2 tuần 2 tháng hay 2 năm cách đây?</em> Nếu bạn không thể, bạn biết được bạn đã phá vỡ một tính năng bạn đã tạo trước đây? Code thay đổi trong suốt vòng đời của ứng dụng, và nếu bạn không thể chạy lại test cho tất cả các phần trước sau khi thay đổi code, bạn có thể đã làm hỏng nó mà không biết.Tôi có thể gọi nó là “accidental bugging” (các lỗi tình cờ) và nó dường như xuất hiện ờ gần cuối của một dự án phần mềm, khi phát triển và dưới sswc ép để fix các bugs đã tồn tại. Thỉnh thoảng chúng được giới thiệu như là new bug mà vô tình chúng đã được resolve.</p>
+<blockquote>
+<p>DEFINITION A regression is one or more units of work that once worked and now don’t.</p>
+</blockquote>
+<p><em>Bất kỳ thành viên nào cũng có thể chạy và lấy kết quả từ test mà tôi viết trong 2 tháng trước đây?</em> Bạn muốn chắc chắn không làm hòng những dòng code của người khác khi bạn thay đổi vài thứ. Rất nhiều lập trình viên sợ thay đổi code của hệ thống cũ. Nếu bạn đã biết rằng bạn đã phá vỡ bất cứ thứ gì, bạn đỡ lo sợ hơn. Good tests có thể được truy cập và run bởi bất kỳ ai</p>
+<blockquote>
+<p>DEFINITION Legacy code is defined by Wikipedia as “source code that relates to a no-longer supported or manufactured operating system or other computer technology,” but many shops refer to any older version of the application currently under maintenance as legacy code. It often refers to code that’s hard to work with, hard to test, and usually even hard to read.</p>
+</blockquote>
+<p><em>Tôi có thể chạy tất cả các test không quá vài phút?</em> Nếu bạn không chạy các test một cách nhanh chóng (một vài dây tốt hơn vài phút), bạn sẽ chạy chúng ít thường xuyên hơn (hàng ngày hay hằng tuần hoặc hằng tháng một vài chỗ). Vấn đề là khi bạn thay đổi code, bạn có thể lấy feedback sớm để nhìn thấy rằng bạn có thể làm hỏng vài chỗ. Good test should run quickly. <em>Tôi có thể chạy tất ả các test bằng cách nhất một nút?</em> Good tests should be easily executed in their original form, not manually. Tôi có thể viết một test cơ bản không quá vài phút.</p>
+<h5 id="1-4-Cai-gi-tao-nen-good-unit-tests"><a href="#1-4-Cai-gi-tao-nen-good-unit-tests" class="headerlink" title="1.4. Cái gì tạo nên good unit tests."></a>1.4. Cái gì tạo nên good unit tests.</h5><p>Bây giờ tôi đã covered các thuộc tính qua trọng mà unit test nên có, Tôi sẽ định nghĩa lại unit test lần nữa cho tất cả</p>
+<blockquote>
+<p>UPDATED AND FINAL DEFINITION 1.2 A unit test is an automated piece of code that invokes the unit of work being tested, and then checks some assumptions about a single end result of that unit. A unit test is almost always written using a unit testing framework. It can be written easily and runs quickly. It’s trustworthy, readable, and maintainable. It’s consistent in its results as long as production code hasn’t changed.</p>
+</blockquote>
+<p>bỏ qua bỏ qua …</p>
+<h5 id="1-5-Viet-mot-unittest"><a href="#1-5-Viet-mot-unittest" class="headerlink" title="1.5. Viết một unittest."></a>1.5. Viết một unittest.</h5><p>(Để cho việc viết hướng dẫn cho tử tế, từ việc cấu hình, chạy unit test, xem pass hay failed, mình xin được làm một bài viết khác. Bày này thuần lý thuyết. Chúng ta cần một bài viết để khai sáng. Còn code ngoài kia đâu chả có. Đọc code viết code cả ngày rồi đàm đạo chút không tốt sao.)</p>
+<h5 id="1-6-Test-driven-development"><a href="#1-6-Test-driven-development" class="headerlink" title="1.6. Test-driven development."></a>1.6. Test-driven development.</h5><p>Bạn đã viết tét có cấu trúc, dễ bảo trì, solid test với một unit testing framework. câu hỏi tiếp theo là khi nào thì nên viết test. Nhiều người cảm thấy rằng tốt nhất để viết unit test là sau khi chương trình được viết ra, nhưng số khác lại cho rằng nên viết code trước khi viết sản phẩm. Điều này được gọi là test first hay test driven development (TDD). Nhiều định nghĩa khác nhau về TDD. Một vài nói rằng nó là test first development, và một vài lại nói rằng nó nghĩa là a lot of tests. Một vài nói rằng nó là cách thiết kế, số khác có thể hiểu là cách để drive your code ;s behavior with only some design. Trong cuốn sách này TDD nghĩa là test first development, với thiết kế là vài trò thứ hai trong kĩ thuật này (Cái mà sẽ không thảo luận trong cuốn sách này). <img src="http://35.196.17.90/blog/wp-content/uploads/2019/04/traditional_writing_UT.png" alt> TDD là một cách khác của quá trình phát triển truyền thống. Bạn bắt đầu bằng viết viết một test và thất bại. bạn thay đổi production code và nhìn test pass, và tiếp tục refactor your code hay tạo một failing test. Cuốn sách sẽ tập trung vào kĩ thuật viết good unit tests, hơn là TDD, nhưng tôi là một big fan của TDD. Tôi viết một vài ứng dụng và frameworks sử dụng TDD, phải quản lý teams và sử dụng chúng, và dạy hàng trăm khóa học, workshop về TDD và kĩ thuật UT. Qua sự nghiệp của tôi, tôi tìm thấy TDD giúp cho việc tạo ra chất lượng code, chất lượng test, và thiết kế tốt cho code tôi đang viết. Tôi thuyết phụ rằng tôi có thể làm việc cho lợi ích của bạn, nhưng không phải là không vì tiền (thời gian để học, thời gian đẻ implement và hơn thế). Nó chắc chắn rất giá trị <img src="http://35.196.17.90/blog/wp-content/uploads/2019/04/TDD.png" alt> Nó là quan trọng để nhận ra rằng TDD không đảm bảo sự thành công của dự án hay test là mạnh mẽ hay dễ bảo trì. Kĩ thuật của TDD là đơn giản:</p>
+<ul>
+<li>Viết một failing test để kiểm tra việc thiếu chức năng của sản phẩm cuối (failing test có vẻ như là unit test khi mà chưa implement ở phần product code. Nên nhớ rằng chúng ta viết test trước khi implement trong code.)</li>
+<li>Tạo test pass bằng cách viết production code</li>
+<li>Refactor your code</li>
+</ul>
+<h4 id="1-7-Ba-ki-Nang-cua-TDD"><a href="#1-7-Ba-ki-Nang-cua-TDD" class="headerlink" title="1.7. Ba kĩ Năng của TDD"></a>1.7. Ba kĩ Năng của TDD</h4><p>Để successful trong TDD bạn cần 3 tập kĩ năng: biết cách viết good tests, viết test-first, và thiết kế chúng tốt.</p>
+<h4 id="1-8-Tong-ket"><a href="#1-8-Tong-ket" class="headerlink" title="1.8. Tổng kết"></a>1.8. Tổng kết</h4><ul>
+<li>Trong chương này, tôi định nghĩa một good unit test:</li>
+<li>Nó là các độan code invoke các phương thức khác nhau sau đó kiểm tra một vài giả định trên các method hoặc class</li>
+<li>Nó được viết sử dụng một unit testing framework</li>
+<li>Nó có thể được viết một cách dễ dàng</li>
+<li>Nó chạy nhanh</li>
+<li>Nó có thể được thực thi lặp đi lặp lại bởi bất kì ai trong team</li>
+</ul>
+<p>Trong chương tiếp theo bạn sẽ bắt đầu viết Unit test đầu tiên sử dụng NUnit.</p>
+<h2 id="Ket-thuc"><a href="#Ket-thuc" class="headerlink" title="Kết thúc"></a>Kết thúc</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-the-art-of-unit-testing/" data-id="ck74jjgva00dw2mcp75c34xvx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-gioi-thieu-ve-system-programming" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-gioi-thieu-ve-system-programming/" class="article-date">
+  <time datetime="2019-03-21T20:20:51.000Z" itemprop="datePublished">2019-03-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/System-Programming/">System Programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-gioi-thieu-ve-system-programming/">Giới thiệu về system programming</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Mở đầu</p>
+<h3 id="System-Programming"><a href="#System-Programming" class="headerlink" title="System Programming"></a>System Programming</h3><p>Tất cả việc lập trình Unix đều là lập trình hệ thosonsg. Hệ thống Unix không có nhiều tầng higher-level. Cũng như việc lập trình các hệ thông như X window. Từ đó, có thể nói đây là một cuốn sách lập trình linux nói chung. Nhưng cũng phải nhắc lại cuốn sách không cover tất cả về môi trường lập trình linux - Lấy ví dụ, không có tutorial “<em>make</em>“ . Chúng ta có thể so sánh giữa lập trình hệ thống với lập trình ứng dụng, cái khác nhau và các điểm quan trọng nhưng khá tương đồng giữa chúng. System programming’s hallmark là cái mà các lập trình viên hệ thống phải hiểu sâu về phần cứng và hệ điều hành mà chúng làm việc. Nơi các chương trình hệ thống giao tiếp với kernel và các thư viện hệ thống, các chương trình cũng giao tiếp với các thư viện bậc cao. Các thư viện này ẩn đi chi tiết về phần cứng và hệ điều hành. Việc abstraction (ẩn đi chi tiết nói ở trên) có vài mục đích, tính di động với các hệ thống khác, tương thích với các version khác nhau của hệ thống, và xây dựng lên các bộ công cụ giúp dễ dàng sử dụng, mạnh mẽ hơn. Có nhiều ứng dụng sử dụng hệ thống với thư viện bậc cao. Nhưng cũng có các ứng dụng viết ở các bậc thấp nhất của hết thống, lợi ích với lập trình viên là có các kiến thức về lập trình hệ thống. Good practices và hiểu được hệ thống chạy bên dưới và lợi ích của các kiểu lập trình khác nhau.</p>
+<h3 id="Tai-sao-lai-nen-hoc-lap-trinh-he-thong"><a href="#Tai-sao-lai-nen-hoc-lap-trinh-he-thong" class="headerlink" title="Tại sao lại nên học lập trình hệ thống"></a>Tại sao lại nên học lập trình hệ thống</h3><p>Ở thập kỷ trước có xu hướng lập trình ứng dụng system-level tới việc phát triển phần mềm bậc cao, hay các phần mềm web (như Javascript) hoặc thông qua managed code (như Java). Tuy nhiên việc này không có nói trước được cái chết của lập trình hệ thống. Thay vào đó, vài người vẫn viết trình thông dịch cho Javascript và máy ảo Java VM, cái mà bản thân chúng là lập trình hệ thống. Xa hơn nữa, các lập trình viên viết Python, Ruby hay Scala cũng có thể hiểu được lập trình hệ thống, như là hiểu được linh hồn của máy tính cho code tốt hơn. Mặc dù, xu hướng đang là lập trình ứng dụng, nhưng đa số Unix và Linux code vẫn phải viết ở mức system level, bởi C, C++ giao tiếp với kernel. Đây là lập trình hệ thống truền thống - Apache, bash, cp, Emacs, init, gcc, gdb, glibc, ls, mv, vim và X. Các ứng dụng này vẫn đang được sử dụng. Lập trình hệ thống là bao gồm việc phát triển kernel, hoặc ít nhất là viết driver điều khiển thiết bị. Nhưng cuốn sách này, không đề cập tới việc phát triểu kernel. Thay vào đó, nó tập trung vào user-space system-level programming. Các driver điều khiển thiết bị sẽ được trình bày trong nhiều chương. Cái gì là system-level interface, và làm thế nào để viết được ứng dụng system-level trong linux? Chính xác thì kernel và thư việc C cung cấp cái gì? Tôi sẽ code như nào và trick Linux hỗ trợ? So sánh giữa các lệnh gọi Linux và Unix. Chúng hoạt động thế nào? Các câu hỏi này sẽ là trọng tâm của cuốn sách.</p>
+<h3 id="Nen-tang-cua-lap-trinh-he-thong"><a href="#Nen-tang-cua-lap-trinh-he-thong" class="headerlink" title="Nền tảng của lập trình hệ thống"></a>Nền tảng của lập trình hệ thống</h3><p>Có 3 thứ là: system calls, C library và C compiler. Cái nào cũng xứng đáng được giới thiệu.</p>
+<h3 id="System-calls"><a href="#System-calls" class="headerlink" title="System calls"></a>System calls</h3><p>Các chương trình bắt đầu và kết thúc với system calls. System calls (hay syscalls) là các chương trình được gọi từ user space - các text editor, chương trình, … tới kernel (trung tâm của hệ thống), sắp xếp các yêu cầu từ các service hay resource từ hệ điều hành. System calls rất rộng từ những thứ gần gũi như lệnh read() và write(), tới xa lạ như get_thread_area() và set_tid_address() Linux implements nhiều system calls hơn hầu hết các kernel hệ điều hành nào.</p>
+<h4 id="Invoking-system-calls"><a href="#Invoking-system-calls" class="headerlink" title="Invoking system calls"></a>Invoking system calls</h4><p>Không thể invok một cách trực tiếp tới kernel. Vì nhiều lý do về bảo mật, các ứng dụng không được cho phép thực thi kernel code hay sửa đổi kernel data. Thay vào đó, kernel phải cung cấp các cơ chế cho các ứng dụng có thể kí gửi vào kernel cái mà sẽ invok một system call. Ứng dụng nói với kernel system call nào được thực thi và với các parameters thông qua machine registers. Hệ thống có thể ký hiệu bởi một số bắt đầu từ 0.</p>
+<h3 id="C-Library"><a href="#C-Library" class="headerlink" title="C Library"></a>C Library</h3><p>C library là trái tim của ứng dụng Unix. Mặc dù bạn có lập trình các ngôn ngữ khác thì C library vẫn được dùng, được wrap bởi các thư viện bậc cao hơn, cung cấp core services và các tiện ích hệ thống goij. Trên hệ thống linux được gọi, C library cung cấp bởi GNU libs, viết tắt là glibc.</p>
+<h3 id="C-Compiler"><a href="#C-Compiler" class="headerlink" title="C Compiler"></a>C Compiler</h3><p>Trong Linux, trình biên dịch C cung cấp bởi GNU Compiler Collection(gcc), ban đầu gcc là GNU version ở cc (C Compiler), Như vậy gcc được hiểu là GNU C Compiler, Qua thời gian, hỗ trợ thêm nhiều ngôn ngữ khác. Hậu quả là ngày nay gcc được sử dụng tên như là một họ của GNU compilers. Tuy nhiên gcc thường được sử dụng để invoke C Compiler. Trong sách này, khi tối nói tới gcc, thì nghĩa là chương trình gcc.   Kết thúc</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-gioi-thieu-ve-system-programming/" data-id="ck74jjgrz00762mcpb8s4cerw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-elasticsearch-note-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-elasticsearch-note-1/" class="article-date">
+  <time datetime="2019-03-16T03:30:00.000Z" itemprop="datePublished">2019-03-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Uncategorized/">Uncategorized</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-elasticsearch-note-1/">ElasticSearch Note 1</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Mo-dau"><a href="#Mo-dau" class="headerlink" title="Mở đầu"></a>Mở đầu</h2><h3 id="Gioi-thieu-ElasticSearch"><a href="#Gioi-thieu-ElasticSearch" class="headerlink" title="Giới thiệu ElasticSearch"></a>Giới thiệu ElasticSearch</h3><h4 id="What-is-elasticsearch"><a href="#What-is-elasticsearch" class="headerlink" title="What is elasticsearch"></a>What is elasticsearch</h4><ul>
+<li>OpenSource</li>
+<li>NoSql veryfast</li>
+<li>document base</li>
+<li>java</li>
+</ul>
+<h4 id="Why-should-I-use-It"><a href="#Why-should-I-use-It" class="headerlink" title="Why should I use It"></a>Why should I use It</h4><p>Speed: Tốc độ index million of document Relevancy: Tìm kiếm gần đúng, hỗ trợ scoring Statistics: Phân tích trends of data What shoud I use it for Blog Analystic: Có hàng tần log và cần phải phân tích Tài liệu của bạn có quá nhiều thuộc tính: Elastic sẽ phân tích dễ dàng   ElasticSearch không có khái niệm table hay schema Trong elasticSearch là document Clustering: Index giống như database chia nhỏ thành các chuck và lưu được trên nhiều node (cluster)  </p>
+<h4 id="Cai-dat"><a href="#Cai-dat" class="headerlink" title="Cài đặt"></a>Cài đặt</h4><h4 id="Cai-java-cau-hinh-cac-plugin"><a href="#Cai-java-cau-hinh-cac-plugin" class="headerlink" title="Cài java, cấu hình, các plugin"></a>Cài java, cấu hình, các plugin</h4><p>  DataType   ElasticSearch Plugins <a href="http://www.elasticsearch.org/overview/marvel" target="_blank" rel="noopener">http://www.elasticsearch.org/overview/marvel</a>    </p>
+<h2 id="Ket-thuc"><a href="#Ket-thuc" class="headerlink" title="Kết thúc"></a>Kết thúc</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-elasticsearch-note-1/" data-id="ck74jjgro006i2mcpubwgkko4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-beejs-guide-to-network-programming-part-3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-beejs-guide-to-network-programming-part-3/" class="article-date">
+  <time datetime="2019-03-13T01:57:17.000Z" itemprop="datePublished">2019-03-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Network-Programming/">Network Programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-beejs-guide-to-network-programming-part-3/">Beej&#39;s Guide to Network Programming part 3</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Mo-dau"><a href="#Mo-dau" class="headerlink" title="Mở đầu"></a>Mở đầu</h2><h2 id="System-calls-or-Bust"><a href="#System-calls-or-Bust" class="headerlink" title="System calls or Bust"></a>System calls or Bust</h2><p>Phần này chúng ta sẽ tìm hiểu về system calls (và các thư viện calls khác) nó sẽ cho phép bạn truy cập các chức năng mạng của Unix box, hay bất kì box nào khác hỗ trợ socket API (BSD, Windows, Linux, Mac, …) Khi bạn gọi một vài functions, kernel sẽ lấy và làm tự động làm tất cả mọi việc cho bạn. Mọi người thường stuck ở đây là thứ tự được gọi . man pages không sử dụng được, như bạn có lẽ đã khám phá. Để giải quyết vấn đề này. Tôi đã thử bố trí system calls trong một vài chương chính xác (xấp xỉ) thứ tự mà bạn sẽ cần để gọi chúng trong chương trình của bạn. Đi cùng với nó là một số code mấu. và mild và cookies (tôi sợ rằng bạn sẽ phải tự hỗ trợ mình) một chút can đảm và bạn sẽ hiểu được việc truyền dữ liệu như là Son of Jon Postel (tiến sĩ gì đó về mạng internet … //TODO).</p>
+<h3 id="getaddrinfo-Chuan-bi-an-trua"><a href="#getaddrinfo-Chuan-bi-an-trua" class="headerlink" title="getaddrinfo() - Chuẩn bị ăn trưa"></a>getaddrinfo() - Chuẩn bị ăn trưa</h3><p>Hàm này có nhiều options, nhưng sử dụng thì đơn giản. Nó giúp cho việc cài đặt structs bạn cần sau đó. Về lịch sử: nó từng được sử dụng như chức năng gọi gethostbyname() để DNS lookups. Sau đó bạn sẻ load thông tin bằng tay qua một struct sockaddr_in và sử dụng trong lệnh calls Điều này không cần thiết nữa()  </p>
+<h2 id="Ket-thuc"><a href="#Ket-thuc" class="headerlink" title="Kết thúc"></a>Kết thúc</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-beejs-guide-to-network-programming-part-3/" data-id="ck74jjgre00632mcpjk5pa0ln" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-beejs-guide-to-network-programming-part-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-beejs-guide-to-network-programming-part-1/" class="article-date">
+  <time datetime="2019-03-13T01:41:25.000Z" itemprop="datePublished">2019-03-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Network-Programming/">Network Programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-beejs-guide-to-network-programming-part-1/">Beej&#39;s Guide to Network Programming part 1</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Mo-dau"><a href="#Mo-dau" class="headerlink" title="Mở đầu"></a>Mở đầu</h2><h2 id="Beej’s-Guide-to-Network-Programming"><a href="#Beej’s-Guide-to-Network-Programming" class="headerlink" title="Beej’s Guide to Network Programming"></a>Beej’s Guide to Network Programming</h2><h3 id="Gioi-thieu"><a href="#Gioi-thieu" class="headerlink" title="Giới thiệu"></a>Giới thiệu</h3><p>Hey! Có phải Socket programming đã làm bạn thất vọng? Bạn thấy quá khó để hiểu được các hướng dẫn từ <strong>man</strong>? Bạn muốn lập trình mạng thật cool, nhưng bạn không có thời gian để tìm hiểu <strong>structs</strong> nếu bạn đã từng gọi hàm bind() trước khi connect(), vân vân và mây mây, … Đoán xem, tôi đã từng làm những thứ không tốt đẹp, và đang qua thời chia sẻ thông tin với tất cả mọi người! Bạn đã đến đúng nơi. Tài liệu này dành cho các lập trình viên C trung bình và bạn cần nắm chắc về networking noise. Và cuối cùng tôi cũn gbawst kịp tương lai (vào phút chót!) đã cập nhật hướng dẫn về IPv6! Enjoy!</p>
+<h3 id="Vai-loi-voi-doc-gia"><a href="#Vai-loi-voi-doc-gia" class="headerlink" title="Vài lời với đọc giả"></a>Vài lời với đọc giả</h3><p>Tài liệu này được viết như một tutorial, không phải là một tài liệu tham khảo hoàn chỉnh. Nó có lẽ là tốt cho cá nhân những người mà chỉ mới bắt đầu với lập trình socket và đang tìm kiếm một nền tảng. Nó chắc chắn không phải là hoàn chỉnh hay tất cả các hướng dẫn về lập trình socket, bởi nghĩa nào đi nữa. Hi vọng rằng, thông qua nó sẽ đủ để *<em>man pages *</em>bắt đầu có ý nghĩa… :-D</p>
+<h3 id="Nen-tang-va-trinh-bien-dich-Platform-and-Compiler"><a href="#Nen-tang-va-trinh-bien-dich-Platform-and-Compiler" class="headerlink" title="Nền tảng và trình biên dịch (Platform and Compiler)"></a>Nền tảng và trình biên dịch (Platform and Compiler)</h3><p>Mã nguồn được sử dụng trong tài liệu đã được biên dịch trên các máy tính linux sử dụng Gnu’s GCC compiler. Tuy nhiên, nó có thể build trên bất kì nền tảng nào sử dụng gcc. Điều này không áp dụng nếu bạn đang lập trình trên windows. (<a href="http://beej.us/guide/bgnet/html/multi/intro.html#windows" target="_blank" rel="noopener">Hãy xem mục dành cho lập trình Windows</a>).</p>
+<h3 id="Trang-chu-va-sach-ban"><a href="#Trang-chu-va-sach-ban" class="headerlink" title="Trang chủ và sách bán"></a>Trang chủ và sách bán</h3><p>Địa chỉ chính thức của tài liệu này là <a href="http://beej.us/guide/bgnet/." target="_blank" rel="noopener">http://beej.us/guide/bgnet/.</a> Tại đây bạn sẽ tìm được các code mẫu và được dịch thành nhiều ngôn ngữ khác nhau. Để mua bản copy, hãy vào <a href="http://beej.us/guide/url/bgbuy" target="_blank" rel="noopener">http://beej.us/guide/url/bgbuy</a>. Nó sẽ duy trì việc viết tài liệu của tôi.</p>
+<h3 id="Ghi-chu-cho-nguoi-dich"><a href="#Ghi-chu-cho-nguoi-dich" class="headerlink" title="Ghi chú cho người dịch"></a>Ghi chú cho người dịch</h3><p>Nếu bạn muốn dịch hướng dẫn này ra các ngôn ngữ khác, hãy viết cho tôi và tôi sẽ dẫn bạn bản dịch của bạn tới trang chính. Hãy tự do thêm tên của bạn và địa chỉ liên hệ trong bản dịch. Vui lòng ghi chú giấy phép hạn chế trong mục Copy right và Distribution, bên dưới. Nếu bạn muốn tôi làm chủ bản dịch, hãy hỏi. Tôi cũng sẽ dẫn nó nếu bạn muốn làm chủ nó, cách nào cũng được.</p>
+<h3 id="Socket-la-gi"><a href="#Socket-la-gi" class="headerlink" title="Socket là gì?"></a>Socket là gì?</h3><p>Bạn đã nghe về “sockets” nhiều lần, và có lẽ bạn đang tự hỏi chính xác chúng là gì. Well, Chúng là đây: 1 cách để nói với các chương trình khác sử dụng chuẩn Unix file descriptors. What? Ok - bạn đã nghe vài lần về Unix hacker state, “Jeez, mọi thứ trong Unix đều là file!”. Bất kì ai đã lập trình Unix về I/O đều làm nó bằng cách đọc và viết các file descriptor. Một file descriptor đơn giản là một liên kết tới một file. Nhưng file này có thể là một kết nối mạng, một FIFO, một pipe, một terminal, một file thực trên đĩa, hoặc chỉ là bất cứ thứ gì khác. Mọi thứ trong Unix là tập tin. Vì thế khi bạn viết để giao tiếp với một chương trình khác thông qua mạng internet thứ bạn đang làm là thông qua một file descriptor, bạn nên tin nó thì tốt hơn. Vậy nơi nào để tôi lấy được file descriptor này để giao tiếp mạng, Mr Smarty Pantfs? có lẽ là câu hỏi cuối cùng trong đầu của bạn ngay lúc này, nhưng tôi không định trả lời nó bất kỳ lúc nào. Bạn đã gọi tới một socket(). Nó sẽ trả về socket descriptor, và bạn giao tiếp thông qua nó sử dụng chỉ định send() và recv() socket. “But hey!”. “Nếu nó là một file descriptor, tại sao trong tên của Neptune không thể. Tôi chỉ sử dụng lệnh read() và write() để giao tiếp thông qua socket?”. Câu trả lời là “Bạn có thể! Cụ thể là Bạn có thể, nhưng send() và recv() điều khiển tốt hơn việc truyền tải dữ liệu.” Các gì tiếp theo? Có những loại sockets nào? Có DARPA Internet addresses (Internet Sockets), path names on a local node (Unix Sockets), CCITT X.25 addresses (X.25 Sockets), và rất nhiều phụ thuộc vào hệ thống Unix mà bạn đang chạy. Tài liệu này chỉ đề cập tới cái đầu tiên: Internet Socket.</p>
+<h3 id="Hai-loai-Internet-Sockets"><a href="#Hai-loai-Internet-Sockets" class="headerlink" title="Hai loại Internet Sockets."></a>Hai loại Internet Sockets.</h3><p>Nó là loại nào. Có 2 loại Internet sockets? Đúng, à không tôi đang nói dối đấy, Có nhiều hơn thế, nhưng tôi chỉ dọa bạn thôi. Tôi chỉ nói về 2 loại ở đây. Ngoài câu này, tôi chỉ muốn nói với bạn rằng “Raw Sockets”, cũng rất mạnh mẽ và bạn nên tìm hiểu chúng. Đúng rồi, 2 loại sockets? Một là “Stream sockets” và cái kia là “Datagram Sockets”, cũng tương ứng với “SOCK_STREAM” và “SOCK_DGRAM”. Datagram socket thường được gọi là “connectionless sockets”. Chúng có thể connect() nếu bạn thực sự muốn. Stream sockets là kết nối 2 chiều. Nếu bạn output 2 items tới socket theo thứ tự “1, 2” chúng sẽ đến đích đúng thứ tự “1, 2”. Chúng cũng thoải mái lỗi, Tôi chắc chắn chúng sẽ thoải mái lỗi, Tôi chỉ dự định đặt tay vào tai tôi và hát la la la nếu bất kì ai thử nói khác. Cái gì sử dụng stream sockets? Bạn đã nghe đến ứng dụng telnet, Nó sử dụng stream socket. Tất cả các kí tự bạn gõ cần được đến đúng thứ tự bạn gõ chúng phải không? Cũng như thế, trình duyệt web sử dụng giao thức HTTP, cũng sử dụng sockets để lấy các trang. Sâu hơn, nếu bạn telnet tới một website trên cổng 80 bạn gõ “GET /HTTP/1.0” và nhấn enter 2 lần, nó sẽ hiện ra HTML. Tuy nhiên stream socket này là high level? Chúng sử dụng một giao thức gọi là “The Transmission Control Protocol”, nói cách khác là “TCP”. TCP giúp chắc chắn dữ liệu của bạn được gửi theo trình tự và không có lỗi. Bạn đã nghe về “TCP” trước khi bạn nghe cả “TCP/IP”, IP là viết tắt cho “Internet Protocol”. IP giúp định tuyết và chịu trách nhiệm chính cho việc toàn vẹn dữ liệu. Cool, Thế còn về Datagram sockets? Như vừa nói chúng còn được gọi là connectionless? Chúng làm gì ở đây và tại sao chúng lại không đáng tin cậy? Sự thật là: nếu bạn gửi một datagram, nó có thể tới, Nó có thể tới không theo thứ tự. Và nếu tới dữ liệu sẽ không có lỗi. Datagram socket cũng sử dụng IP cho việc định tuyết, nhưng bạn sẽ không sử dụng TCP, chúng sử dụng “User Datagram Protocol” hay “UDP” Tài sao lại connectionless? Well, về cơ bản, bạn không phải duy trì kết nối như bạn làm với stream sockets. Bạn chỉ tạo một packet, đóng theeo một IP Header trên nó cũng với thông tin địa chỉ nhận và gửi nó. Không cần kết nối. Chúng được sử dụng khi TCP không có sẵn hoặc khi một vài gói tin bị hủy bỏ. Ví dụng ứng dụng tftp (trivial file transfer protocol, em trai của FTP), dhcpcd( DHCP client), multiplayer games, streaming audio, video hội nghị, v.v… Chời một phúc. tftp và dhcpcd được sử dụng để chuyển binary applications từ một host tới những cái khác! Dữ liệu có thể mất nếu bạn mong muốn ứng dụng hoạt động khi nó tới. Đây là một loại tà thuật của nó? Well my human friend, tftp và một chương trình đơn giản có giao thức của nó trên UDP. Ví dụ giao thức tftp nói với mỗi packet gửi đi, người nhận sẽ gửi trả các packet này và nói “Tôi đã lấy nó” (một ACK packet). Nếu người nhận được gói tin chính không trả lời, 5 giây sau, anh ta sẽ gửi lại packet cho tới khi anh ấy nhận lại ACK. Thủ tục ackowledgment là tối quan trọng khi implement ứng dụng SOCK_DGRAM. Với ứng dụng không tin cậy như games, audio hay video, bạn chỉ việc bỏ qua các gói tin, hoặc có lẽ khéo léo bù lại chúng (Người chơi quake sẽ biết tới accursed lag). Từ accursed (bị nguyền rủa) ở đây là việc cực kì báng bổ thần linh. Tại sao bạn sử dụng giao thức không tin cậy. Có 2 lý do, tốc độ và tốc độ. Nó là nhanh nhất để gửi và quên hơn là giữ. cái mà việc nhận antoafn và chắc chắn thứ tự và tất cả. Nếu bạn gửi một tin nhắn. TCP là greate, nhưng nếu bạn gửi 40 vị trí cập nhật trên giây của các người chơi trên toàn thế giới, có lẽ sẽ nó sẽ không là vấn đề gì nhiều nếu có một 2 cái không nhận được và UDP là sự lựa chọn tốt.</p>
+<h3 id="Low-level-Nonsendse-vo-ly-va-Network-theory-Ly-thuyet-mang"><a href="#Low-level-Nonsendse-vo-ly-va-Network-theory-Ly-thuyet-mang" class="headerlink" title="Low level Nonsendse (vô lý) và Network theory (Lý thuyết mạng)."></a>Low level Nonsendse (vô lý) và Network theory (Lý thuyết mạng).</h3><p>Kể từ khi, tôi nhắc tới việc phân lớp các giao thức, là thời điểm để nói về việc mạng thực sự làm việc như nào, Trong thực tế bạn có thể bỏ qua phần này. Nó là một nền tảng tốt dù gì đi nữa. Bỏ qua tạm đi, hiểu rồi mình sẽ quay lại sau //TODO</p>
+<h2 id="Ket-thuc"><a href="#Ket-thuc" class="headerlink" title="Kết thúc"></a>Kết thúc</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-beejs-guide-to-network-programming-part-1/" data-id="ck74jjguk00cz2mcp6ud7yfcq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-ci-cd" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-ci-cd/" class="article-date">
+  <time datetime="2019-02-21T02:50:19.000Z" itemprop="datePublished">2019-02-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Uncategorized/">Uncategorized</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-ci-cd/">CI CD</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Mo-dau"><a href="#Mo-dau" class="headerlink" title="Mở đầu"></a>Mở đầu</h2><p>Mình đang trong công ty mới và khác với FSOFT mình phải tự tay làm tất cả từ cài win trở đi. Nó cũng là mong muốn của mình khi tới công ty. Ở công ty lớn thì bạn không phải lo gì cả bạn là dev và bạn cứ code thôi, mình là junior chẳng được động vào nhiều và cũng chẳng biết nhiều nên chẳng dám động. Sang công ty nhỏ thì khác, tự do bay nhảy quyết định sử dụng công nghệ nào, làm như thế nào và tất nhiên chịu trách nhiệm về công việc của mình. Mình chọn nodejs để làm chẳng cần build gì phức tạp, build thì chỉ npm run build, và dùng pm2 để deploy thôi. CI CD các thứ chỉ tổ mất thời gian, nhưng thôi mục đích là để học cho biết. Nào chúng ta bắt đầu.</p>
+<h3 id="Ngan-gon-ve-CI-CD"><a href="#Ngan-gon-ve-CI-CD" class="headerlink" title="Ngắn gọn về CI CD"></a>Ngắn gọn về CI CD</h3><h2 id="Bat-tay"><a href="#Bat-tay" class="headerlink" title="Bắt tay"></a>Bắt tay</h2><h3 id="Su-dung-pm2"><a href="#Su-dung-pm2" class="headerlink" title="Sử dụng pm2"></a>Sử dụng pm2</h3><h3 id="Cai-dat-Tomcat"><a href="#Cai-dat-Tomcat" class="headerlink" title="Cài đặt Tomcat"></a>Cài đặt Tomcat</h3><h3 id="Cai-dat-Jenkins"><a href="#Cai-dat-Jenkins" class="headerlink" title="Cài đặt Jenkins"></a>Cài đặt Jenkins</h3><h3 id="Tich-hop-source-code"><a href="#Tich-hop-source-code" class="headerlink" title="Tích hợp source code"></a>Tích hợp source code</h3><h3 id="Gui-email"><a href="#Gui-email" class="headerlink" title="Gửi email"></a>Gửi email</h3><h2 id="Ket-thuc"><a href="#Ket-thuc" class="headerlink" title="Kết thúc"></a>Kết thúc</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-ci-cd/" data-id="ck74jjgrj006d2mcpxwrw1xi5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-226-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-226-2/" class="article-date">
+  <time datetime="2019-01-27T11:08:26.000Z" itemprop="datePublished">2019-01-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Uncategorized/">Uncategorized</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-226-2/">226-2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Ubuntu loi mkdir npm config set unsafe-perm true</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-226-2/" data-id="ck74jjgr100552mcptk0ndnw3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-strapi-cms-cho-nodejs" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-strapi-cms-cho-nodejs/" class="article-date">
+  <time datetime="2019-01-23T04:02:12.000Z" itemprop="datePublished">2019-01-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Uncategorized/">Uncategorized</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-strapi-cms-cho-nodejs/">Strapi - CMS cho Nodejs</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Mo-dau"><a href="#Mo-dau" class="headerlink" title="Mở đầu"></a>Mở đầu</h2><p>Mình mới có công việc mới, công ty nhỏ, dự án nhỏ, quy trình khá tự do và phải làm từ đầu đến cuối, mình thấy thoải mái khi ở đây. Dự án sử dụng Nodejs, và đang phải cân nhắc là code từ đầu hay là sử dụng CMS. Và nếu dùng CMS thì dùng CMS nào    </p>
+<h2 id="Ket-thuc"><a href="#Ket-thuc" class="headerlink" title="Kết thúc"></a>Kết thúc</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-strapi-cms-cho-nodejs/" data-id="ck74jjgsq00902mcpp02xmqzg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/10/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/12/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android-Programming/">Android Programming</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android-Programming/Note/">Note</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Assembly/">Assembly</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-Viblo/">Code Viblo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Codesignal/">Codesignal</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Deep-learning/">Deep learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GIS/">GIS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linh-tinh/">Linh tinh</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lap-trinh/">Lập trình</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-learning/">Machine learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network-Programming/">Network Programming</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/OWASP-Testing-Guide/">OWASP Testing Guide</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Phim/">Phim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Pre-Calculus/">Pre Calculus</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Social-engineering/">Social engineering</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/System-Programming/">System Programming</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Text-to-speech/">Text to speech</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Text-to-speech/Tool/">Tool</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Toan-hoc/">Toán học</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tri-tue-nhan-tao/">Trí tuệ nhân tạo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Uncategorized/">Uncategorized</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Unit-Testing/">Unit Testing</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Visualisation/">Visualisation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows/">Windows</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ctf/">ctf</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hacker/">hacker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/note/">note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vnspoj/">vnspoj</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/wordpress/">wordpress</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Do-an/">Đồ án</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ASP-net-MVC/">ASP.net MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-Programming/">Android Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Asp-net/">Asp.net</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Assembly/">Assembly</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Basic-Access-Authentication/">Basic Access Authentication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code/">Code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Course/">Course</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Digest-Access-Authentication/">Digest Access Authentication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Du-doan-gia-vang/">Dự đoán giá vàng</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ethical-Hacking/">Ethical Hacking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/">Flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GIS/">GIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html-css-javascript/">Html, css, javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Laravel/">Laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux-System-Programming/">Linux, System Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/">Note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OWASP-Testing-Guide/">OWASP Testing Guide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Php/">Php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python-Codesignal/">Python, Codesignal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quan-ly-diem/">Quản lý điểm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RFC-2069/">RFC 2069</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RFC-2617/">RFC 2617</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SJF/">SJF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Social-engineering/">Social engineering</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-MVC/">Spring MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sql-server/">Sql server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/System-Programming/">System Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Text-to-speech/">Text to speech</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Todos/">Todos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tool/">Tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tinh-toan-mem/">Tính toán mềm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VRML/">VRML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WPF/">WPF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows-Form/">Windows Form</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Winform/">Winform</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Winforms/">Winforms</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wordpress/">Wordpress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ctf/">ctf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/">database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fuzzy-computing/">fuzzy computing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/import-csv/">import csv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/migrate/">migrate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/">wordpress</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ASP-net-MVC/" style="font-size: 10px;">ASP.net MVC</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Android-Programming/" style="font-size: 10px;">Android Programming</a> <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Asp-net/" style="font-size: 10px;">Asp.net</a> <a href="/tags/Assembly/" style="font-size: 14px;">Assembly</a> <a href="/tags/Basic-Access-Authentication/" style="font-size: 10px;">Basic Access Authentication</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Book/" style="font-size: 10px;">Book</a> <a href="/tags/C/" style="font-size: 20px;">C#</a> <a href="/tags/Code/" style="font-size: 14px;">Code</a> <a href="/tags/Course/" style="font-size: 10px;">Course</a> <a href="/tags/Digest-Access-Authentication/" style="font-size: 10px;">Digest Access Authentication</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Du-doan-gia-vang/" style="font-size: 10px;">Dự đoán giá vàng</a> <a href="/tags/Ethical-Hacking/" style="font-size: 10px;">Ethical Hacking</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/GIS/" style="font-size: 10px;">GIS</a> <a href="/tags/Html-css-javascript/" style="font-size: 10px;">Html, css, javascript</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Linux-System-Programming/" style="font-size: 10px;">Linux, System Programming</a> <a href="/tags/Note/" style="font-size: 16px;">Note</a> <a href="/tags/OWASP-Testing-Guide/" style="font-size: 12px;">OWASP Testing Guide</a> <a href="/tags/Php/" style="font-size: 16px;">Php</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Python-Codesignal/" style="font-size: 10px;">Python, Codesignal</a> <a href="/tags/Quan-ly-diem/" style="font-size: 10px;">Quản lý điểm</a> <a href="/tags/RFC-2069/" style="font-size: 10px;">RFC 2069</a> <a href="/tags/RFC-2617/" style="font-size: 10px;">RFC 2617</a> <a href="/tags/SJF/" style="font-size: 10px;">SJF</a> <a href="/tags/Social-engineering/" style="font-size: 14px;">Social engineering</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/Sql-server/" style="font-size: 10px;">Sql server</a> <a href="/tags/System-Programming/" style="font-size: 14px;">System Programming</a> <a href="/tags/Text-to-speech/" style="font-size: 10px;">Text to speech</a> <a href="/tags/Todos/" style="font-size: 10px;">Todos</a> <a href="/tags/Tool/" style="font-size: 10px;">Tool</a> <a href="/tags/Tinh-toan-mem/" style="font-size: 10px;">Tính toán mềm</a> <a href="/tags/VRML/" style="font-size: 12px;">VRML</a> <a href="/tags/WPF/" style="font-size: 10px;">WPF</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/Windows-Form/" style="font-size: 10px;">Windows Form</a> <a href="/tags/Winform/" style="font-size: 10px;">Winform</a> <a href="/tags/Winforms/" style="font-size: 14px;">Winforms</a> <a href="/tags/Wordpress/" style="font-size: 18px;">Wordpress</a> <a href="/tags/ctf/" style="font-size: 10px;">ctf</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/fuzzy-computing/" style="font-size: 10px;">fuzzy computing</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/import-csv/" style="font-size: 10px;">import csv</a> <a href="/tags/migrate/" style="font-size: 10px;">migrate</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/blog-2020-02-27-Lam-sao-de-tra-luong-lap-trinh-vien-it-hon/">Làm sao để trả lương lập trình viên ít hơn</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-02-17-The-art-of-computer-prgramming-PREFACE/">The art of computer prgramming PREFACE</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-02-11-Geographical-Information-Systems-Part-1-Coursera-Week-1/">Geographical Information Systems Part 1 Coursera - Week 1</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-01-09-OWASP-Testing-Guide-2-Conduct-search-engine-discorvery-reconnaissance-for-information-leakage-OTG-INFO-001/">OWASP Testing Guide - 2 Conduct search engine discorvery/reconnaissance for information leakage (OTG-INFO-001) </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 LuanTM<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

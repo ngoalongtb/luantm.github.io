@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>My real name is Tạ Minh Luận</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="My real name is Tạ Minh Luận">
+<meta property="og:url" content="https://taminhluan.github.io/page/14/index.html">
+<meta property="og:site_name" content="My real name is Tạ Minh Luận">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="My real name is Tạ Minh Luận">
+  
+    <link rel="alternate" href="/atom.xml" title="My real name is Tạ Minh Luận" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">My real name is Tạ Minh Luận</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://taminhluan.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-blog-phan-1-deep-learning-cho-chatbot-gioi-thieu" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-phan-1-deep-learning-cho-chatbot-gioi-thieu/" class="article-date">
+  <time datetime="2018-12-01T21:12:32.000Z" itemprop="datePublished">2018-12-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Deep-learning/">Deep learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-phan-1-deep-learning-cho-chatbot-gioi-thieu/">Phần 1: Deep learning cho Chatbot - Giới thiệu</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>TBD</p>
+</blockquote>
+<h2 id="Mo-dau"><a href="#Mo-dau" class="headerlink" title="Mở đầu"></a>Mở đầu</h2><p>Mình đang cố làm một em chatbot học từ lời thoại phim tiếng việt. Mình dùng encoder-decoder lstm impliment bằng tensorflow đã ok map đúng lời thoại. Mình đang cho train với full lời thoại khoảng hơn 6000 câu thoại, khá lâu hiện tại vẫn chưa xong (đã hơn 1 ngày). Cũng có thể do model của mình chưa được tốt. Nhưng loss vẫn đang giảm và chắc là được thôi :D .Mình sẽ giới thiệu trong các bài tiếp theo. Trong lúc chờ đợi thì mình dịch một blog viết về chatbot khá hay.</p>
+<h2 id="Deep-learning-cho-chatbot"><a href="#Deep-learning-cho-chatbot" class="headerlink" title="Deep learning cho chatbot"></a>Deep learning cho chatbot</h2><p>Chatbots cũng còn được gọi là  Conversational Agents  hay Dialog Systems, đang là chủ đề nóng. Microsoft đang tạo <a href="http://www.bloomberg.com/features/2016-microsoft-future-ai-chatbots/" target="_blank" rel="noopener">big bets</a> chatbot, và tương tự với các công ty facebook(M), Apple(Siri), Google, WeChat, Slack. Có nhiều startup đang thay đổi cách giao tiếp người tiêu dùng với dịch vụ của họ bằng cách tạo ra các ứng dụng giống như <a href="https://operator.com/" target="_blank" rel="noopener">Operator</a> hay <a href="https://x.ai/" target="_blank" rel="noopener">x.ai</a>, hay các nền tảng như <a href="http://chatfuel.com/" target="_blank" rel="noopener">Chatfuel</a>, và các thư viện bot như <a href="http://howdy.ai/botkit/" target="_blank" rel="noopener">Howdy’s Botkit</a>. Microsoft cũng đang released <a href="https://dev.botframework.com/" target="_blank" rel="noopener">bot developer framework</a> của  họ. Rất nhiều công ty đang hi vọng phát triển bot có thể giao tiếp tự nhiên như con người và nhiều rất nhiều tuyên bố sử dụng NLP (Natual language proccessing - xử lý ngôn ngữ tự nhiên) hay kĩ thuật Deep learning để tạo ra bot có khả năng trên. Nhưng với tất cả đều là thổi phồng xung quanh AI, nói ra sự thật từ viễn tưởng thỉnh thoảng rất khó khăn. Trong series này. Tôi muốn sẽ đi trình bày một vài kĩ thuật Deep Learning được sử dụng để tạo ra conversational agents (Chatbot), bắt đầu từ việc giải thích chúng ta đang ở đâu bây giờ, cái gì có thể, và cái gì gần như không thể trong thời gian gần. Chúng ta sẽ tạo chatbot chi tiết trong các bài viết tiếp theo.</p>
+<h3 id="Phan-loai"><a href="#Phan-loai" class="headerlink" title="Phân loại"></a>Phân loại</h3><p><strong>Retrieval-Based vs Generative Models.</strong> *<em>Retrieval-Based (dễ hơn):  *</em>sử dụng một kho được định nghĩa trước các câu trả lời và một vài thuật toán tìm kiếm để chọn ra câu trả lời thích hợp từ đầu vào (câu thoại trước hay câu hỏi) và ngữ cảnh (đang tán tỉnh hay hỏi về sản phẩm điện thoại, …). Thuật toán tìm kiếm có thể đơn giản như là sử dụng các luật , hoặc phức tạp như là kết hợp một vài thuật toán phân lớp machine learning. Những hệ thống này không thể tạo ra bất kỳ từ mới, chúng chỉ lấy một số câu phản hồi (câu trả lời response) từ một tập có sẵn. *<em>Generative model (khó hơn): *</em>không định nghĩa trước câu trả lời. Chúng tự tạo ra câu trả lời (from scratch). Generative models tạo ra dựa trên kĩ thuật machine translation, nhưng thay về chuyển từ ngôn ngữ này sang ngôn ngữ kia, chúng chuyển từ input sang output. <img src="http://35.196.17.90/blog/wp-content/uploads/2018/12/nct-seq2seq.png" alt> Tất cả các phương pháp đều có ưu nhược điểm. Dùng kho dữ liệu được tạo bằng tay như retrieval-based không tạo ra các lỗi cú pháp. Tuy nhiên chúng không thể trả lời các trường hợp chưa nhìn thấy bao giờ cái mà không thích hợp với các câu trả lời đã định nghĩa trước. Vì nhiều lý do, những models này không biết thông tin đối tượng giống như tên được nhắc tới trong hội thoại. Generative models thông minh hơn. Chúng có thể truy xuất thông tin đối từ từ input và phản hồi ấn tượng như bạn đang nói chuyện với con người. Tuy nhiên, những models này thì khó để train, và hay mắc lỗi cú pháp (đặc biệt là câu hội thoại dài), và cần rất nhiều dữ liệu để train. Deep learning có thể được sử dụng cho cả hai loại trên retrieval-based hay generative models, nhưng nghiên cứu thường nhắm tới hướng generative. Kiến trúc deep learning giống như Sequence to Sequence (mình ví dụ dịch tiếng anh sang việt, text to speech, speech to text hay chatbot này) là phù hợp cho tạo ra câu văn và các nhà nhiên cứu hi vọng sẽ có những tiến bộ nhanh trong lĩnh vực này. Tuy nhiên, chúng ta vẫn ở giai đoạn bắt đầu của việc tạo ra generative models giao tiếp hợp lý. Các hệ thống được sử dụng hiện tại thường là retrieval-based.</p>
+<h3 id="Long-vs-Short-Conversations"><a href="#Long-vs-Short-Conversations" class="headerlink" title="Long vs Short Conversations"></a>Long vs Short Conversations</h3><p>Đoạn hội thoại dài khó tự động hóa. <strong>Short-text Conversation</strong> sẽ dễ hơn khi mục đích là câu trả lời đơn từ câu đầu vào đơn. Ví dụ, bạn nhận được một câu hỏi từ một người dùng và trả lời với một câu trả lời thích hợp. <strong>Long conversations</strong> khó hơn, bạn sẽ có nhiều lượt hỏi đáp qua lại và bạn cần phải giữ được thông tin đã nói. Các hệ thống giao tiếp hỗ trợ khách hàng là ví dụ về long conversational với nhiều câu hỏi.</p>
+<h3 id="Open-Domain-vs-Closed-Domain"><a href="#Open-Domain-vs-Closed-Domain" class="headerlink" title="Open Domain vs. Closed Domain"></a>Open Domain vs. Closed Domain</h3><p>Open domain (khó hơn), người dùng có thể tạo cuộc hội thoại bất kỳ lĩnh vực nào. Không cần thiết phải định nghĩa trước mục tiêu hay ý định.  Các cuộc trò chuyện trên các trang mạng xã hội như twitter và reddit là các ví dụ điển hình cho open domain. Chúng có thể đi qua các chủ đề khác nhau. Có vô hạn các chủ đề và sự thật với nhiều hiển biết được yêu cầu để tạo ra câu trả lời hợp lý, đây là một vấn đề khó khăn. <strong>Closed domain (dễ hơn),</strong> Giới hạn câu đầu vào và câu trả lời bởi vì hệ thống muốn hoàn thành một nhiệm vụ cụ thể. Hệ thống hỗ trợ khách hàng hay trợ lý bán hàng là các ví dụ cho closed domain. Những hệ thống này không cần phải nói về chính trị, chúng chỉ cần hoàn thành các nhiệm vụ cụ thể hiệu quả nhất có thể. Chắc chắn rồi, người dùng vẫn có thể tạo các cuộc hội thoại ở bất kỳ đâu họ muốn, nhưng hệ thống sẽ không cần phải xử lý tất cả các trường hợp và người dùng cũng không mong mỏi điều đó.</p>
+<h3 id="Cac-thu-thach-thuong-gap"><a href="#Cac-thu-thach-thuong-gap" class="headerlink" title="Các thử thách thường gặp"></a>Các thử thách thường gặp</h3><p>Có một số thử thách rõ ràng và không rõ ràng khi tạo một conversational agents hầu hết chúng là lĩnh vực đang được nghiên cứu. <strong>Incorporating Context</strong> Để tạo ra câu trả lời có ý nghĩa, hệ thống cần kết hợp cả ngôn ngữ học và ngữ cảnh vật lý ( <em>linguistic context</em> and <em>physical context),</em> Trong các cuộc hội thoại dài con người sẽ lưu lại những gì đã nói và những thông tin đã trao đổi. Đây là một ví dụ về ngôn ngữ học. Hầu hết các cách tiếp cận thường thấy là chuyển cuộc hội thoại thành một vector, nhưng đối với một cuộc thoại dài là một thử thách. Kinh nghiệm trong việc tạo ra một <a href="http://arxiv.org/abs/1507.04808" target="_blank" rel="noopener">End-To-End Dialogue Systems Using Generative Hierarchical Neural Network Models</a> và <a href="http://arxiv.org/abs/1510.08565" target="_blank" rel="noopener">Attention with Intention for a Neural Network Conversation Model</a> cả hai đều theo hướng này. Các thông tin như ngày giờ, địa điểm, hay thông tin về người dùng cũng là những thông tin cần thiết <strong>Coheret Personality</strong> Khi tạo ra các câu trả lời, máy cần phải trả lời một cách thống nhất với các câu đầu vào giống nhau. Ví dụ, bạn muốn lấy cùng một câu trả lời cho “How old are you?” và “What is your age?”. Điều này nghe thì đơn giản, nhưng kết hợp với hiển biết cố định hay cá nhân và trong model là một vấn đề cần nghiên cứu nhiều. Rất nhiều hệ thống học tạo các câu trả lời đúng về ngữ nghĩa, nhưng chúng không được train từ cùng một nguồn thống nhất. Bởi vì  họ train dữ liệu từ nhiều người dùng khác nhau. Model giống như  <a href="http://arxiv.org/abs/1603.06155" target="_blank" rel="noopener">A Persona-Based Neural Conversation Model</a> là bước đầu tiên của hướng này về explicitly modeling a personality. <strong>Đánh giá model</strong> Có nhiều cách để đánh giá cuộc hội thoại của máy bởi các thang đo hoặc không, nó có hoàn thành nhiệm vụ, ví dụ giải quyết vấn đề hỗ trợ khách hàng, trong một cuộc hội thoại. Việc đánh giá cuộc hội thoại là đắt đỏ bởi vì cần ý kiến đánh giá của con người. Thỉnh thoảng không có một mục đích tốt được định nghĩa trước như trong trường hợp với open-domain models. Các thang đo thông thường như  <a href="https://en.wikipedia.org/wiki/BLEU" target="_blank" rel="noopener">BLEU</a> cái mà được sử dụng trong machine traslation và được dựa trên text maching là không phù hợp bởi vì độ hợp lý của câu trả lời có thể chứa các từ hay cụm từ khác nhau. Sự thật, trong <a href="http://arxiv.org/abs/1603.08023" target="_blank" rel="noopener">How NOT To Evaluate Your Dialogue System: An Empirical Study of Unsupervised Evaluation Metrics for Dialogue Response Generation</a> các nhà nghiên cứu đã tìm ra không có thang đo thông thường nào tương đương với ý kiến đánh giá của con người. <strong>Intention and Diversity (Ý định và đa dạng)</strong> Một vấn đề nữa với generative systems là chúng hay trả lời các câu như “That’s great!” hay “I dont’t know” nó được tạo ra bởi rất nhiều trường hợp đầu vào. Một số phiên bản đầu vào của Google’s Smart thường trả lời với “I love you” với bất cứ thứ gì. Một số nghiên cứu đã thử làm đa dạng các hàm mục tiêu khác nhau, tuy nhiên con người thường tạo ra nhiều câu trả lời với cùng một câu đầu vào cụ thể và mang theo chủ định của họ. Bởi vì generative systems (đặc biệt là open domain systems) không được train với ý định cụ thể, đây là loại đa dạng.</p>
+<h3 id="Chatbots-da-hoat-dong-tot-den-dau"><a href="#Chatbots-da-hoat-dong-tot-den-dau" class="headerlink" title="Chatbots đã hoạt động tốt đến đâu?"></a>Chatbots đã hoạt động tốt đến đâu?</h3><p>Lấy tất cả các khía cạnh nghiên cứu ở thời điểm hiện tại,  chatbot đã đi tới đâu? Cùng nhau xem lại các loại chatbot. Một retrieval-based open domain là không thể bởi vì bạn không bao giờ có thể tạo bằng tay đủ các câu trả lời có thể cover tất cả các trường hợp. Một hệ thống generate open domain thì là cả trí tuệ nhân tạo rộng lớn bởi vì nó cần xử lý tất cả các kịch bản có thể. Chúng ta còn cách rất xa (nhưng một số nhà nghiên cứu đang đi theo lĩnh vực này). Chúng ta quay lại với vấn đề restricted domains cả phương pháp generative và retrieval based đều thích hợp. Trong một <a href="http://www.seattletimes.com/business/baidu-research-chief-andrew-ng-fixed-on-self-taught-computers-self-driving-cars/" target="_blank" rel="noopener">buổi phỏng vấn gần đây</a>, Andrew Ng, bây giờ là chuyên gia chính của Baidu, đã nói:</p>
+<blockquote>
+<p>Most of the value of deep learning today is in narrow domains where you can get a lot of data. Here’s one example of something it cannot do: have a meaningful conversation. There are demos, and if you cherry-pick the conversation, it looks like it’s having a meaningful conversation, but if you actually try it yourself, it quickly goes off the rails.</p>
+</blockquote>
+<p>Mình tạm dịch là hầu hết giá trị deep learning ngày nay là các lĩnh vực hẹp, nơi bạn có thể lấy rất nhiều dữ liệu. Dây là một ví dụ về vài thứ nó không làm được: như có một cuộc hội thoại có nghĩa. Có rất nhiều đề mô và nếu bạn chọn ngẫu nhiên một số cuộc hội thoại, nó trông ngữ có ý nghĩa, nhưng nếu bạn thực sự thử nó thì bạn sẽ nhanh chóng nhận ra chúng trật khỏi đường ray. Rất nhiều công ty bắt đầu với việc gia công phần mềm, các cuộc hội thoại với các công nhân và các lời hứa họ có thể tự động nó khi họ thu thập đủ dữ liệu. Điều này có thể xảy ra chỉ nếu họ hướng đến lĩnh vực nhỏ - giống như giao diện chat gọi một Uber. Bất cứ thứ gì có một chút open domain như thư điện tử bán hàng là vượt ra ngoài cái chúng ta có thể làm ở thời điểm hiện tại. Tuy nhiên chúng ta cũng có thể tạo ra các hệ thống trợ lý con người, các đề xuất và các câu trả lời đúng. Chúng là khả thi. Lỗi cú pháp trong các hệ thống là rất tốn kém và có thể đáh lạc hướng người dùng. Đó là lý do hầu hết các hệ thống thường sử dụng phương pháp retrieval based chúng thoải mái với lỗi cú pháp và các câu trả lời phản cảm. Nếu các công ty bằng cách nào đó làm bằng tay nhiều dữ liệu sau đó generative models là khả thi. Nhưng họ phải được sự hỗ trợ bởi các kĩ thuật để ngăn chặn chúng không bị đi xuống như  <a href="http://www.businessinsider.com/microsoft-deletes-racist-genocidal-tweets-from-ai-chatbot-tay-2016-3" target="_blank" rel="noopener">Microsoft’s Tay.</a></p>
+<h2 id="Ket-thuc"><a href="#Ket-thuc" class="headerlink" title="Kết thúc"></a>Kết thúc</h2><p>Nguồn dịch từ [<a href="http://Nguồn" target="_blank" rel="noopener">http://Nguồn</a> <a href="http://www.wildml.com/2016/04/deep-learning-for-chatbots-part-1-introduction/" target="_blank" rel="noopener">http://www.wildml.com/2016/04/deep-learning-for-chatbots-part-1-introduction/</a> ](<a href="http://Nguồn" target="_blank" rel="noopener">http://Nguồn</a> <a href="http://www.wildml.com/2016/04/deep-learning-for-chatbots-part-1-introduction/" target="_blank" rel="noopener">http://www.wildml.com/2016/04/deep-learning-for-chatbots-part-1-introduction/</a>) Bài viết từ tháng 4 năm 2016 cũng khá lâu rồi. Chatbot hiện tại có lẽ tiến xa hơn thời điểm viết bài nhiều. Tóm lại, việc sử dụng deep learning để tạo chatbot đã đạt được một số thành tựu, một số khác còn đang nghiên cứu. Các hệ thống hiện tại thường là Retrieval based. Chúng đang hoạt động tốt chỉ trong lĩnh vực nhỏ. Công việc của chúng ta thử tạo ra chatbot của riêng chúng ta. Bài tiếp theo mình sẽ dịch tiếp bài viết về tạo chatbot retrieval based. Cám ơn các bạn!</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-phan-1-deep-learning-cho-chatbot-gioi-thieu/" data-id="ck74jjguo00d62mcp4yknhej5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-su-dung-google-colab" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-su-dung-google-colab/" class="article-date">
+  <time datetime="2018-12-01T10:57:11.000Z" itemprop="datePublished">2018-12-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Lap-trinh/">Lập trình</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-su-dung-google-colab/">Sử dụng google colab</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>TBD</p>
+</blockquote>
+<h2 id="Mo-dau"><a href="#Mo-dau" class="headerlink" title="Mở đầu"></a>Mở đầu</h2><p>Trước mình dùng kaggle vừa là chỗ để học, vừa là chỗ để train model. Nhưng mình thấy khó khăn phần ghi file hay lưu data thì mình không lấy được file ngay mà phải commit code, đợi chạy xong rồi vào phần output để tải về. Như thế rất bất tiện. Dùng google colab thì không phải lo chuyện đó.</p>
+<h2 id="Su-dung"><a href="#Su-dung" class="headerlink" title="Sử dụng"></a>Sử dụng</h2><p>Đầu tiên ta truy cập <a href="https://colab.research.google.com" target="_blank" rel="noopener">https://colab.research.google.com</a> tạo file notebook mới. Máy mình truy cập thì nó hiển thị tiếng Pháp mình khá bực. Trên menu các bạn chọn Aide (cuối cùng) &gt; Afficher en engl…(cuối cùng)  </p>
+<p>from google.colab import drive<br>drive.mount(‘/content/gdrive’)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-su-dung-google-colab/" data-id="ck74jjgsr00932mcp13lvod76" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-phim-hay-da-xem" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-phim-hay-da-xem/" class="article-date">
+  <time datetime="2018-11-27T10:05:10.000Z" itemprop="datePublished">2018-11-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Phim/">Phim</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-phim-hay-da-xem/">Phim hay đã xem</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>TBD</p>
+</blockquote>
+<h2 id="Mo-dau"><a href="#Mo-dau" class="headerlink" title="Mở đầu"></a>Mở đầu</h2><p>Danh sách các bộ phim mà mình xem. Danh sách này chắc sẽ dài lắm, ai chẳng thế phải không</p>
+<h2 id="Phim-vien-tuong"><a href="#Phim-vien-tuong" class="headerlink" title="Phim viễn tưởng"></a>Phim viễn tưởng</h2><ul>
+<li>Nhà tù shaw shank</li>
+<li>Trí tuệ siêu phàm</li>
+<li>Mr robot</li>
+<li>Phi thuyền mất tích - Quái vật không gian</li>
+<li>Cuộc sống tươi đẹp</li>
+<li>Papillon - Người tù khổ sai</li>
+</ul>
+<h2 id="Phim-sinh-ton"><a href="#Phim-sinh-ton" class="headerlink" title="Phim sinh tồn"></a>Phim sinh tồn</h2><ul>
+<li>Cast away</li>
+</ul>
+<h2 id="Phim-truyen-hinh"><a href="#Phim-truyen-hinh" class="headerlink" title="Phim truyền hình"></a>Phim truyền hình</h2><ul>
+<li>Gương đen</li>
+<li>The walking dead</li>
+<li>Game of thrones</li>
+</ul>
+<h2 id="Phim-vo-thuat"><a href="#Phim-vo-thuat" class="headerlink" title="Phim võ thuật"></a>Phim võ thuật</h2><ul>
+<li>Long tranh hổ đấu</li>
+<li>Mãnh long quá giang</li>
+</ul>
+<h2 id="Phim-sieu-anh-hung"><a href="#Phim-sieu-anh-hung" class="headerlink" title="Phim siêu anh hùng"></a>Phim siêu anh hùng</h2><ul>
+<li>Quái vật venom</li>
+</ul>
+<h2 id="Phim-Viet-Nam"><a href="#Phim-Viet-Nam" class="headerlink" title="Phim Việt Nam"></a>Phim Việt Nam</h2><ul>
+<li>Quỳnh búp bê</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-phim-hay-da-xem/" data-id="ck74jjgsg008b2mcpfa02want" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-sach-da-doc" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-sach-da-doc/" class="article-date">
+  <time datetime="2018-11-27T09:54:23.000Z" itemprop="datePublished">2018-11-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Book/">Book</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-sach-da-doc/">Sách hay đã đọc</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Mỗi cuốn sách có một số phận</p>
+</blockquote>
+<h2 id="Mo-dau"><a href="#Mo-dau" class="headerlink" title="Mở đầu"></a>Mở đầu</h2><p>Danh sách các sách mình đọc và mình cảm thấy hay.</p>
+<h2 id="Van-hoc-trong-nuoc"><a href="#Van-hoc-trong-nuoc" class="headerlink" title="Văn học trong nước"></a>Văn học trong nước</h2><p>Văn học trong nước rất hay các bạn ạ. Mình thích đọc truyện ngắn, tiểu thuyết. Ngoài các truyện trong sgk hồi mình học thì đây là các sách mình tự tìm đọc.</p>
+<ul>
+<li>Bỉ vỏ</li>
+<li>Cuộc đời ngoài cửa (bố và con gái đi du lịch Việt Nam)</li>
+<li>Vượt côn đảo</li>
+</ul>
+<h2 id="Van-hoc-nuoc-ngoai"><a href="#Van-hoc-nuoc-ngoai" class="headerlink" title="Văn học nước ngoài"></a>Văn học nước ngoài</h2><p>Mình đọc khá nhiều tiểu thuyết nước ngoài và mình nhận ra mình không nhớ được nội dung của nhiều truyện. Nhưng mình nghĩ đọc không phải để nhớ, không phải để tìm thấy ý nghĩa, hay tìm câu trả lời gì, mình đọc để cho vui thôi.</p>
+<ul>
+<li>Hai số phận (Kể về cuộc đời của Kane và Abel)</li>
+<li>Đồi gió hú</li>
+<li>Tam quốc diễn nghĩa</li>
+<li>Không gia đình</li>
+<li>Cuộc phiêu lưu của Huckfin</li>
+<li>Người đàn ông mang tên Ove</li>
+<li>Ông trăm tuổi bốc hơi qua cửa sổ</li>
+<li>Nơi dòng sông chảy qua</li>
+<li>Tôi charley và hành trình nước Mỹ (đọc xong mình cũng muốn đi một vòng Việt Nam quá)</li>
+<li>Khởi sinh của cô độc (mình đọc hết phần đầu)</li>
+<li>Đi tìm lẽ sống (nói về trại tị nạn ở Đức quốc xã)</li>
+<li>Tiếng chim hót trong bụi mận gai</li>
+<li>Những lá thư không gửi</li>
+<li>Những bức thư không gửi (Thực ra mình định đọc những lá thư không gửi nhưng lại tìm truyện này đọc trước cũng hay - Kể về tình yêu cô gái Nga)</li>
+<li>Con đầm bích (Truyện ngắn)</li>
+<li>Chúa ruồi</li>
+<li>Robinson crusoe</li>
+<li>Nhật ký của Anne Frank (Cô gái phải trốn cùng gia đình và bị giết thời đức quốc xã)</li>
+<li>Thuyền trưởng tuổi 15 (kể về một thủy thủ 15 tuổi trên tàu, thuyền trưởng và các thủy thủ đoàn bị chết khi săn cá voi, thủy thủ nhỏ trở thành thuyền trưởng của tàu Hải Âu, nhưng bị nhân vật phản diện là đầu bếp hại và rơi vào tay của những kẻ buôn người)</li>
+<li>Con trai kẻ khủng bố (kể về con trai của el sayyid nosair có liên quan đến osama binladen - con trai không theo chủ nghĩa cực đoạn - con người là sản phẩm từ trong suy nghĩ của bản thân họ. Họ sẽ trở thành chính những gì họ nghĩ)</li>
+</ul>
+<h2 id="Sach-khoa-hoc"><a href="#Sach-khoa-hoc" class="headerlink" title="Sách khoa học"></a>Sách khoa học</h2><ul>
+<li>Chúa trời có phải là nhà toán học</li>
+<li>Hai vạn dặm dưới đáy biển</li>
+</ul>
+<h2 id="Truyen-mang-truyen-teen-truyen-voz"><a href="#Truyen-mang-truyen-teen-truyen-voz" class="headerlink" title="Truyện mạng (truyện teen, truyện voz)"></a>Truyện mạng (truyện teen, truyện voz)</h2><ul>
+<li>Nhà nàng ở cạnh nhà tôi</li>
+<li>Nghề Vệ Sĩ - Đời ko như mơ (truyện bác Bob - Voz)</li>
+</ul>
+<h2 id="Truyen-ma"><a href="#Truyen-ma" class="headerlink" title="Truyện ma"></a>Truyện ma</h2><p>Trước mình đọc truyện ma, phim ma nhiều lắm. Giờ thì thôi, tại đọc nhiều nó cũng hết mà nội dung thì lại giống giống nhau</p>
+<ul>
+<li>Ngôi nhà mồ - Người khăn trắng</li>
+<li>Tuyển tập Nguyễn Ngọc Ngạn</li>
+</ul>
+<h2 id="Sach-self-help-kieu-truyen-cam-hung"><a href="#Sach-self-help-kieu-truyen-cam-hung" class="headerlink" title="Sách self-help (kiểu truyền cảm hứng)"></a>Sách self-help (kiểu truyền cảm hứng)</h2><p>“A <strong>self-help book</strong> is one that is written with the intention to instruct its readers on solving personal problems” - Mình không tìm thấy bản giải thích tiếng việt. Sách self-help được viết nhằm dạy cho đọc giả cách để giải quyết các vấn đề cá nhân. Loại sách này mình khá ít đọc.</p>
+<ul>
+<li>Tôi tài giỏi bạn cũng thế. (Sách dạy cách học, hồi thi đại học mình có đọc, mình cảm thấy có động lực để học tập, nhưng mình cũng không áp dụng được các cách học ở trong sách).</li>
+<li>Đắc nhân tâm. (Hầu như các lần tra google về sách thì sẽ ra quyển này. Mình thì mình thấy không hay. Mình muốn thoải mái, giao tiếp các thứ mình không nghĩ nhiều như vậy, mình cảm thấy khá giả tạo)</li>
+<li>Ngoài ra còn một số sách khác như Quẳng gánh lo đi và vui sống, hay Dạy con làm giàu nhưng mình chỉ đọc vài chương có lẽ mình không hợp với thể loại này.</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-sach-da-doc/" data-id="ck74jjgsl008p2mcpdfqhs79h" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Book/">Book</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-gioi-thieu-khoa-hoc-deep-learning" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-gioi-thieu-khoa-hoc-deep-learning/" class="article-date">
+  <time datetime="2018-11-26T22:32:44.000Z" itemprop="datePublished">2018-11-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Deep-learning/">Deep learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-gioi-thieu-khoa-hoc-deep-learning/">Giới thiệu khóa học Deep Learning</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>TBD</p>
+</blockquote>
+<h2 id="Mo-dau"><a href="#Mo-dau" class="headerlink" title="Mở đầu"></a>Mở đầu</h2><p>Tiếp theo của khóa Machine learning</p>
+<h2 id="Danh-sach-bai-hoc"><a href="#Danh-sach-bai-hoc" class="headerlink" title="Danh sách bài học"></a>Danh sách bài học</h2><h2 id="Tham-khao"><a href="#Tham-khao" class="headerlink" title="Tham khảo"></a>Tham khảo</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-gioi-thieu-khoa-hoc-deep-learning/" data-id="ck74jjgrr006l2mcp0unjvowr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-mot-so-cau-hoi-phong-van-machine-learning-engineer" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-mot-so-cau-hoi-phong-van-machine-learning-engineer/" class="article-date">
+  <time datetime="2018-11-25T08:18:01.000Z" itemprop="datePublished">2018-11-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Machine-learning/">Machine learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-mot-so-cau-hoi-phong-van-machine-learning-engineer/">Một số câu hỏi phỏng vấn Machine Learning Engineer</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Hoàn thành vào ngày mai (26/11/2018)</p>
+<ol>
+<li>Đạo hàm Sigmoid function</li>
+<li>Giải 1 bài toán đơn giản dùng Naive Bayes</li>
+<li>Trình bày 1 thuật toán sorting bất kỳ</li>
+<li>Giải 1 bài toán về trong 1 graph, tìm các cặp đầu-cuối mà có đường đi kết nối chúng với nhau.</li>
+<li>Hỏi về Database (câu này mình fail nên họ skip và không hỏi kỹ)</li>
+<li>Hỏi về 1 bài toán thực tế mà mình đã làm: Khi mình fine-tunning/chọn một kiến trúc NN để giải bài toán thì mình làm gì + kết quả.</li>
+<li>Overfitting là gì?</li>
+<li>Các phương pháp tránh overfitting.</li>
+<li>So sánh ℓ1 regularization và ℓ2 regularization.</li>
+<li>Tại sao BatchNorm giúp thuật toán tối ưu deep learning hội tụ nhanh hơn?</li>
+<li>Nêu sự khác nhau của pha training và pha test khi thực hiện BatchNorm.</li>
+<li>Khi thực hiện mini-batch gradient desecent, việc mini-batch nhỏ hay lớn có ảnh hưởng như thế nào tới kết quả? Nêu ưu nhược điểm của mini-batch với kích thước nhỏ hoặc lớn.</li>
+<li>Trong một bài toán, giả sử rằng thuật toán mini-batch gradient descent làm việc tốt với mini-batch lớn. Tuy nhiên, vì bộ nhớ có giới hạn, ta không thể tính được bachprogagation với mini-batch lớn. Có cách nào sử dụng backpropagation với mini-batch nhỏ để có hiệu quả tương tự như khi sử dụng mini-batch lớn?</li>
+<li>Imbalanced data problem là gì?</li>
+<li>Có những cách nào để solve imbalanced data không? (Trình bày về Under-sampling và Over sampling)</li>
+<li>Khi imbalanced thì nên dùng bộ đo nào để đo độ chỉnh xác của model? (Hỏi về Confusion matrix, ROC Curve)</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-mot-so-cau-hoi-phong-van-machine-learning-engineer/" data-id="ck74jjgs8007r2mcpxfxlzzj9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-cac-muc-tieu-vo-van" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-cac-muc-tieu-vo-van/" class="article-date">
+  <time datetime="2018-11-25T08:00:08.000Z" itemprop="datePublished">2018-11-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linh-tinh/">Linh tinh</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-cac-muc-tieu-vo-van/">Các mục tiêu vớ vẩn</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Mỗi sáng ở Châu Phi, một con linh dương thức dậy. Nó biết rằng nó phải chạy nhanh hơn con sư tử nhanh nhất nếu không muốn bị giết. Mỗi sáng, một con sư tử thức dậy, nó biết nó phải chạy nhanh hơn con linh dương chậm nhất hoặc nó sẽ bị chết đói. Điều quan trọng không phải ở chỗ bạn là sư tử hay linh dương. Khi Mặt Trời mọc, bạn hãy bắt đầu chạy.</p>
+</blockquote>
+<h2 id="Mo-dau"><a href="#Mo-dau" class="headerlink" title="Mở đầu"></a>Mở đầu</h2><p>Trước đây mình cũng đọc một blog và thấy một anh có làm một bài như thế này. Mình thấy rất tuyệt vời. Có những mục đã được gạch bỏ (đã hoàn thành), có những việc đã quá hạn(bôi đỏ) và có rất nhiều mục trong tương lai. Hãy đặt mục tiêu và cùng cố gắng. Sẽ có những lúc sẽ mệt mỏi, hãy nghe một bài nhạc, chơi một nhạc cụ và đi ngủ. Tỉnh dậy chúng ta lại tiếp tục.</p>
+<h2 id="2019-08-20"><a href="#2019-08-20" class="headerlink" title="2019-08-20"></a>2019-08-20</h2><p>Trước đây mình note những dòng này tại một site khác, mình đã export các bài viết này ra và import vào website này. Hôm nay mới đọc lại và mình đã bỏ qua nhiều quá</p>
+<h2 id="Cac-loi-hua-hang-ngay"><a href="#Cac-loi-hua-hang-ngay" class="headerlink" title="Các lời hứa hằng ngày"></a>Các lời hứa hằng ngày</h2><ul>
+<li>Lên giường ngủ từ 11h30 và thức dậy vào lúc 5h30</li>
+<li>Chạy bộ vào buổi sáng</li>
+<li>Ngày nào cũng viết 1 bài blog và 1 video</li>
+</ul>
+<h2 id="Cac-muc-tieu-ngan-han"><a href="#Cac-muc-tieu-ngan-han" class="headerlink" title="Các mục tiêu ngắn hạn"></a>Các mục tiêu ngắn hạn</h2><ul>
+<li>Hoàn thành cuốn Hai vạn dặm dưới biển trong 3 ngày 30/11/2018 (quá hạn hoàn thành 1/12/2018)</li>
+<li>Chạy 6km không nghỉ trong một tháng (26/11/2018) đến ngày 25/12/2018 (quá hạn)</li>
+<li>Hít đất 50 cái trong 1 tháng đến ngày 25/12/2018</li>
+<li>Hít đất 60 cái trong 2 tháng đến ngày 25/1/2019</li>
+</ul>
+<h2 id="Cac-muc-tieu-dai-han"><a href="#Cac-muc-tieu-dai-han" class="headerlink" title="Các mục tiêu dài hạn"></a>Các mục tiêu dài hạn</h2><ul>
+<li>Toeic 700 trong 4 tháng 25/3/2019 (quá hạn)</li>
+</ul>
+<h2 id="Da-hoan-thanh"><a href="#Da-hoan-thanh" class="headerlink" title="Đã hoàn thành"></a>Đã hoàn thành</h2><ul>
+<li>Hoàn thành bậc đại học trong năm 2018 (Đã hoàn thành 06-2019)</li>
+</ul>
+<h2 id="Khong-the-hoan-thanh"><a href="#Khong-the-hoan-thanh" class="headerlink" title="Không thể hoàn thành"></a>Không thể hoàn thành</h2><ul>
+<li>Tìm một công việc Data Scientist trong vòng 1 tháng nữa 25/12/2018 (đã không làm được hiện tại mình đang làm tại công ty tư vấn giải pháp lâm nghiệp, mình làm công việc như một nhà lập trình viên)</li>
+</ul>
+<p>Các lần không thực hiện được sẽ được viết ra ở đây và nêu ra lý do</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-cac-muc-tieu-vo-van/" data-id="ck74jjgri006b2mcpuuqu086a" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-1-2-cai-dat-python-pip-va-su-dung-jupyter-notebook" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-1-2-cai-dat-python-pip-va-su-dung-jupyter-notebook/" class="article-date">
+  <time datetime="2018-11-23T06:08:45.000Z" itemprop="datePublished">2018-11-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Machine-learning/">Machine learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-1-2-cai-dat-python-pip-va-su-dung-jupyter-notebook/">1.2. Cài đặt python, pip và sử dụng jupyter notebook</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>TBD</p>
+</blockquote>
+<h2 id="Mo-dau"><a href="#Mo-dau" class="headerlink" title="Mở đầu"></a>Mở đầu</h2><p>Trong bài này mình sẽ hướng dẫn các bạn cài đặt các công cụ sử dụng trong các bài hướng dẫn</p>
+<h2 id="Cai-dat-python"><a href="#Cai-dat-python" class="headerlink" title="Cài đặt python"></a>Cài đặt python</h2><p>Hiện tại phiên bản python3 mới nhất là bản python 3.7. Nhưng phiên bản Tensorflow hiện tại mới chỉ hỗ trợ bản python 3.6. Nên các bạn truy cập link dưới để tài <a href="https://www.python.org/downloads/" target="_blank" rel="noopener">python 3.6.</a></p>
+<h2 id="Su-dung-pip"><a href="#Su-dung-pip" class="headerlink" title="Sử dụng pip"></a>Sử dụng pip</h2><p>Pip là hệ thống quản lý các thư viện, gói dùng trong python. Cũng giống với Maven trong Java, Composer của Php hay Nuget của C# vậy. Không chỉ có pip bạn có thể sử dụng conda thay thế. Bài viết sẽ hướng dẫn sử dụng pip để cài đặt jupyter notebook Sử dụng pip để cài đặt package:</p>
+<p>pip install &lt;<package-name>&gt;</package-name></p>
+<p>Để gỡ một package</p>
+<p>pip uninstall &lt;<package-name>&gt;</package-name></p>
+<p>Cài đặt package sử dụng file</p>
+<p>pip install -r &lt;&lt;filename.txt&gt;&gt;</p>
+<h2 id="Cai-dat-va-su-dung-jupyter-notebook"><a href="#Cai-dat-va-su-dung-jupyter-notebook" class="headerlink" title="Cài đặt và sử dụng jupyter notebook"></a>Cài đặt và sử dụng jupyter notebook</h2><p><a href="http://jupyter.org/install" target="_blank" rel="noopener">Cài đặt jupyter notebook</a> sử dụng pip</p>
+<p>pip install jupyter</p>
+<p>Khởi động jupyter notebook Mở command line của windows hoặc terminal đối với macos hoặc linux</p>
+<p>jupyter notebook</p>
+<p>Trên trình duyệt sẽ hiện lên danh sách thư mục. Các bạn đã có thể bắt đầu sử dụng. <img src="http://35.196.17.90/blog/wp-content/uploads/2018/11/jupyternotebook.png" alt> Nhấn vào nút New &gt;&gt; Python để tạo file và bắt đầu dự án mới <img src="http://35.196.17.90/blog/wp-content/uploads/2018/11/jupyternotebook-use.png" alt> Jupyter notebook vừa để viết code vừa viết tài liệu. Rất tiện phải không các bạn.</p>
+<h2 id="Tham-khao"><a href="#Tham-khao" class="headerlink" title="Tham khảo"></a>Tham khảo</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-1-2-cai-dat-python-pip-va-su-dung-jupyter-notebook/" data-id="ck74jjgpl001x2mcpiemzcru8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-1-1-machine-learning-la-gi-va-cac-nguon-de-hoc-tap" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-1-1-machine-learning-la-gi-va-cac-nguon-de-hoc-tap/" class="article-date">
+  <time datetime="2018-11-23T05:40:27.000Z" itemprop="datePublished">2018-11-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Machine-learning/">Machine learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-1-1-machine-learning-la-gi-va-cac-nguon-de-hoc-tap/">1.1. Machine learning là gì? Và các nguồn để học tập</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>TBD</p>
+</blockquote>
+<h2 id="Mo-dau"><a href="#Mo-dau" class="headerlink" title="Mở đầu"></a>Mở đầu</h2><h2 id="Machine-Learning-la-gi"><a href="#Machine-Learning-la-gi" class="headerlink" title="Machine Learning là gì?"></a>Machine Learning là gì?</h2><h2 id="Phan-loai"><a href="#Phan-loai" class="headerlink" title="Phân loại."></a>Phân loại.</h2><h2 id="Cac-nguon-de-hoc-tap"><a href="#Cac-nguon-de-hoc-tap" class="headerlink" title="Các nguồn để học tập"></a>Các nguồn để học tập</h2><h2 id="Tham-khao"><a href="#Tham-khao" class="headerlink" title="Tham khảo"></a>Tham khảo</h2><ul>
+<li><a href="https://machinelearningcoban.com/2016/12/27/categories" target="_blank" rel="noopener">https://machinelearningcoban.com/2016/12/27/categories</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-1-1-machine-learning-la-gi-va-cac-nguon-de-hoc-tap/" data-id="ck74jjgpi001v2mcpn1y2tqwp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog-1-gioi-thieu-khoa-hoc-machine-learning-co-ban" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/blog-1-gioi-thieu-khoa-hoc-machine-learning-co-ban/" class="article-date">
+  <time datetime="2018-11-23T05:17:17.000Z" itemprop="datePublished">2018-11-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Machine-learning/">Machine learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/blog-1-gioi-thieu-khoa-hoc-machine-learning-co-ban/">1. Giới thiệu khóa học machine learning cơ bản</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>TBD</p>
+</blockquote>
+<h2 id="Mo-dau"><a href="#Mo-dau" class="headerlink" title="Mở đầu"></a>Mở đầu</h2><p>Chào các bạn, mình muốn làm một khóa machine learning cho người mới bắt đầu. Mình mong đây sẽ là nguồn tài liệu tiếng việt để cho các bạn mới bắt đầu tìm hiểu machine learning. Các khóa học bằng tiếng anh như khóa <a href="https://www.coursera.org/learn/machine-learning" target="_blank" rel="noopener">Machine learning - Coursera</a>, <a href="https://www.coursera.org/specializations/deep-learning" target="_blank" rel="noopener">Deep learning - Coursera</a>, …, các blog tiếng việt như <a href="https://machinelearningcoban.com" target="_blank" rel="noopener">Machinelearningcoban</a>, <a href="https://ongxuanhong.wordpress.com" target="_blank" rel="noopener">ongxuanhong</a> đều là các nguồn tài liệu tốt. Mình khuyên các bạn hãy học trên các nguồn này. Đều tốt để bắt đầu. Nhưng nếu các bạn cảm thấy tiếng anh khó quá, kể cả bài viết tiếng việt cũng nhiều toán, bạn đã thử và học không vào. Thì có thể theo dõi khóa này của mình. Mình vẫn sẽ nói về lý thuyết để các bạn hình dung, bên cạnh đó mình sẽ đưa ra nhiều bài tập để các bạn làm quen, thực hành, thực hành và thực hành.</p>
+<h3 id="Can-gi-de-bat-dau"><a href="#Can-gi-de-bat-dau" class="headerlink" title="Cần gì để bắt đầu"></a>Cần gì để bắt đầu</h3><p>Ở đâu bạn cũng thấy yêu cầu giải tích, thống kê, xác suất. Bản thân mình, mình là người mới, có lẽ về sau chúng ta mới phải giải quyết các vấn đề về toán, còn hiện tại mình chưa thấy phải lo lắng nhiều. Ít nhất là đối với khóa này của mình. Các bạn chỉ cần có kinh nghiệm lập trình mình sẽ dùng python, về toán chỉ cần các bạn biết cộng nhân ma trận, đạo hàm cơ bản thế là đủ. Nếu các bạn chưa biết thì mình sẽ ra thêm cả khóa python cơ bản nữa. Mình sẽ cố gắng để làm khóa học này, nhưng machine learning, deep learning là lĩnh vực khó, bản thân mình thì chỉ mới tiếp xúc, sẽ có những chỗ mình không hiểu đúng. Mình rất mong phản hồi của các bạn.</p>
+<h2 id="Danh-sach-bai-hoc"><a href="#Danh-sach-bai-hoc" class="headerlink" title="Danh sách bài học"></a>Danh sách bài học</h2><p>Kèm theo blog này là các video hưóng dẫn trên youtube <a href="https://www.youtube.com/channel/UCbEa4MKRluUUDqZMuh62hbw" target="_blank" rel="noopener">Tạ Minh Luận - youtube channel</a>. Mình sẽ viết blog trước, trình bày slide và làm video hướng dẫn.</p>
+<ol>
+<li><a href="http://35.196.17.90/blog/1-gioi-thieu-khoa-hoc-machine-learning-co-ban/" target="_blank" rel="noopener">Giới thiệu về khóa học machine learning</a><ul>
+<li>Machine learning và các nguồn học tập</li>
+<li>Cài đặt python, pip và sử dụng jupyter notebook</li>
+</ul>
+</li>
+<li>Linear Regression với hàm một biến<ul>
+<li>Bài tập: Dự đoán chiều cao từ cân nặng</li>
+<li>Bài tập: Dự đoán giá nhà</li>
+</ul>
+</li>
+<li>Linear Regression với hàm nhiều biến<ul>
+<li>Bài tập: Dự đoán giá nhà với dữ liệu Boston Housing Dataset</li>
+</ul>
+</li>
+<li>KNN</li>
+<li>Decision Tree</li>
+<li>Logistic Regression</li>
+<li>Softmax Regression</li>
+<li>Neural Network</li>
+<li>SVM</li>
+<li>Recommandation System</li>
+</ol>
+<p>Danh sách bài sẽ được cập nhật…</p>
+<p>Tham khảo</p>
+<ul>
+<li><a href="https://www.coursera.org/learn/machine-learning/" target="_blank" rel="noopener">https://www.coursera.org/learn/machine-learning/</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://taminhluan.github.io/blog/blog-1-gioi-thieu-khoa-hoc-machine-learning-co-ban/" data-id="ck74jjgpr00292mcp1bt95ar4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/13/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/15/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android-Programming/">Android Programming</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android-Programming/Note/">Note</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Assembly/">Assembly</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-Viblo/">Code Viblo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Codesignal/">Codesignal</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Deep-learning/">Deep learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GIS/">GIS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linh-tinh/">Linh tinh</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lap-trinh/">Lập trình</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-learning/">Machine learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network-Programming/">Network Programming</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/OWASP-Testing-Guide/">OWASP Testing Guide</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Phim/">Phim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Pre-Calculus/">Pre Calculus</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Social-engineering/">Social engineering</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/System-Programming/">System Programming</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Text-to-speech/">Text to speech</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Text-to-speech/Tool/">Tool</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Toan-hoc/">Toán học</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tri-tue-nhan-tao/">Trí tuệ nhân tạo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Uncategorized/">Uncategorized</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Unit-Testing/">Unit Testing</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Visualisation/">Visualisation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows/">Windows</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ctf/">ctf</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hacker/">hacker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/note/">note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vnspoj/">vnspoj</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/wordpress/">wordpress</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Do-an/">Đồ án</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ASP-net-MVC/">ASP.net MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-Programming/">Android Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Asp-net/">Asp.net</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Assembly/">Assembly</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Basic-Access-Authentication/">Basic Access Authentication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code/">Code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Course/">Course</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Digest-Access-Authentication/">Digest Access Authentication</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Du-doan-gia-vang/">Dự đoán giá vàng</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ethical-Hacking/">Ethical Hacking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/">Flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GIS/">GIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html-css-javascript/">Html, css, javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Laravel/">Laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux-System-Programming/">Linux, System Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/">Note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OWASP-Testing-Guide/">OWASP Testing Guide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Php/">Php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python-Codesignal/">Python, Codesignal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quan-ly-diem/">Quản lý điểm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RFC-2069/">RFC 2069</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RFC-2617/">RFC 2617</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SJF/">SJF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Social-engineering/">Social engineering</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-MVC/">Spring MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sql-server/">Sql server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/System-Programming/">System Programming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Text-to-speech/">Text to speech</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Todos/">Todos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tool/">Tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tinh-toan-mem/">Tính toán mềm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VRML/">VRML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WPF/">WPF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows-Form/">Windows Form</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Winform/">Winform</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Winforms/">Winforms</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wordpress/">Wordpress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ctf/">ctf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/">database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fuzzy-computing/">fuzzy computing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/import-csv/">import csv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/migrate/">migrate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/">wordpress</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ASP-net-MVC/" style="font-size: 10px;">ASP.net MVC</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Android-Programming/" style="font-size: 10px;">Android Programming</a> <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Asp-net/" style="font-size: 10px;">Asp.net</a> <a href="/tags/Assembly/" style="font-size: 14px;">Assembly</a> <a href="/tags/Basic-Access-Authentication/" style="font-size: 10px;">Basic Access Authentication</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Book/" style="font-size: 10px;">Book</a> <a href="/tags/C/" style="font-size: 20px;">C#</a> <a href="/tags/Code/" style="font-size: 14px;">Code</a> <a href="/tags/Course/" style="font-size: 10px;">Course</a> <a href="/tags/Digest-Access-Authentication/" style="font-size: 10px;">Digest Access Authentication</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/Du-doan-gia-vang/" style="font-size: 10px;">Dự đoán giá vàng</a> <a href="/tags/Ethical-Hacking/" style="font-size: 10px;">Ethical Hacking</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/GIS/" style="font-size: 10px;">GIS</a> <a href="/tags/Html-css-javascript/" style="font-size: 10px;">Html, css, javascript</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Linux-System-Programming/" style="font-size: 10px;">Linux, System Programming</a> <a href="/tags/Note/" style="font-size: 16px;">Note</a> <a href="/tags/OWASP-Testing-Guide/" style="font-size: 12px;">OWASP Testing Guide</a> <a href="/tags/Php/" style="font-size: 16px;">Php</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Python-Codesignal/" style="font-size: 10px;">Python, Codesignal</a> <a href="/tags/Quan-ly-diem/" style="font-size: 10px;">Quản lý điểm</a> <a href="/tags/RFC-2069/" style="font-size: 10px;">RFC 2069</a> <a href="/tags/RFC-2617/" style="font-size: 10px;">RFC 2617</a> <a href="/tags/SJF/" style="font-size: 10px;">SJF</a> <a href="/tags/Social-engineering/" style="font-size: 14px;">Social engineering</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/Sql-server/" style="font-size: 10px;">Sql server</a> <a href="/tags/System-Programming/" style="font-size: 14px;">System Programming</a> <a href="/tags/Text-to-speech/" style="font-size: 10px;">Text to speech</a> <a href="/tags/Todos/" style="font-size: 10px;">Todos</a> <a href="/tags/Tool/" style="font-size: 10px;">Tool</a> <a href="/tags/Tinh-toan-mem/" style="font-size: 10px;">Tính toán mềm</a> <a href="/tags/VRML/" style="font-size: 12px;">VRML</a> <a href="/tags/WPF/" style="font-size: 10px;">WPF</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/Windows-Form/" style="font-size: 10px;">Windows Form</a> <a href="/tags/Winform/" style="font-size: 10px;">Winform</a> <a href="/tags/Winforms/" style="font-size: 14px;">Winforms</a> <a href="/tags/Wordpress/" style="font-size: 18px;">Wordpress</a> <a href="/tags/ctf/" style="font-size: 10px;">ctf</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/fuzzy-computing/" style="font-size: 10px;">fuzzy computing</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/import-csv/" style="font-size: 10px;">import csv</a> <a href="/tags/migrate/" style="font-size: 10px;">migrate</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/blog-2020-02-27-Lam-sao-de-tra-luong-lap-trinh-vien-it-hon/">Làm sao để trả lương lập trình viên ít hơn</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-02-17-The-art-of-computer-prgramming-PREFACE/">The art of computer prgramming PREFACE</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-02-11-Geographical-Information-Systems-Part-1-Coursera-Week-1/">Geographical Information Systems Part 1 Coursera - Week 1</a>
+          </li>
+        
+          <li>
+            <a href="/blog/blog-2020-01-09-OWASP-Testing-Guide-2-Conduct-search-engine-discorvery-reconnaissance-for-information-leakage-OTG-INFO-001/">OWASP Testing Guide - 2 Conduct search engine discorvery/reconnaissance for information leakage (OTG-INFO-001) </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 LuanTM<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
